@@ -7,7 +7,7 @@ from utils.utils import set_settings
 
 
 # Run Experiments
-def run_in_windows():
+def run_in_py():
     # 1 只有模型层， 但是单计算结点
     # 2 序列化
     # 3 低秩处理  含计算节点embed
@@ -15,6 +15,7 @@ def run_in_windows():
     # 5 大语言模型
     # 6 大语言模型 + GNN
     # 7 大模型 + GNN修改 + 嵌入重构
+    # args.experiment = 1
     for exper in [7]:
         for device_type in ['cpu']:
             for dim in [128]:
@@ -25,10 +26,9 @@ def run_in_windows():
                     args.exper = exper
                     args.model = str(exper)
                     args.density = density
-                    args.epochs = 150
+                    args.epochs = 300
                     args.bs = 32
                     args.dimension = dim
-                    # args.experiment = 1
                     # 慢设备运行
                     args.verbose = 1
                     args.program_test = 1
@@ -42,5 +42,5 @@ def run_in_windows():
 
 if __name__ == '__main__':
     args = get_args()
-    run_in_windows()
+    run_in_py()
 
