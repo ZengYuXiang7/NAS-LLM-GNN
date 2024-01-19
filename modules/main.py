@@ -24,18 +24,19 @@ def RunOnce(args, runId, Runtime, log):
 
     # Initialize
     exper = get_exper(args)
-    dataModule = DataModule(exper, args)
+    datamodule = DataModule(exper, args)
     model = get_model(args)
     monitor = EarlyStopping(args.patience)
 
     # Setup training tool
     model.setup_optimizer(args)
-    model.max_value = dataModule.max_value
+    model.max_value = datamodule.max_value
 
     train_time = []
+    valid_error = None
     for epoch in range(args.epochs):
-        epoch_loss, time_cost = model.train_one_epoch(dataModule)
-        valid_error = model.valid_one_epoch(dataModule)
+        epoch_loss, time_cost = model.train_one_epoch(datamodule)
+        valid_error = model.valid_one_epoch(datamodule)
         monitor.track(epoch, model.state_dict(), valid_error['MAE'])
         train_time.append(time_cost)
         if args.verbose and epoch % args.verbose == 0:
@@ -45,7 +46,7 @@ def RunOnce(args, runId, Runtime, log):
 
     model.load_state_dict(monitor.best_model)
     sum_time = sum(train_time[: monitor.best_epoch])
-    results = model.test_one_epoch(dataModule) if args.valid else valid_error
+    results = model.test_one_epoch(datamodule) if args.valid else valid_error
     log(f'Round={runId+1} BestEpoch={monitor.best_epoch:d} MAE={results["MAE"]:.4f} RMSE={results["RMSE"]:.4f} NMAE={results["NMAE"]:.4f} NRMSE={results["NRMSE"]:.4f} Training_time={sum_time:.1f} s\n')
 
     return {

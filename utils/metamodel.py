@@ -27,9 +27,9 @@ class MetaModel(torch.nn.Module, ABC):
         pass
 
     def setup_optimizer(self, args):
-        if args.device == 'gpu':
-            self.cuda()
-            self.loss_function = get_loss_function(args).cuda()
+        if args.device != 'cpu':
+            self.to(self.args.device)
+            self.loss_function = get_loss_function(args).to(self.args.device)
         else:
             self.loss_function = get_loss_function(args)
         self.optimizer = get_optimizer(self.parameters(), lr=args.lr, decay=args.decay, args=args)
@@ -47,7 +47,7 @@ class MetaModel(torch.nn.Module, ABC):
             else:
                 op, graph, value = train_Batch
                 inputs = op, graph
-            if self.args.device == 'gpu':
+            if self.args.device != 'cpu':
                 inputs, value = to_cuda(inputs, value)
             pred = self.forward(inputs, True)
             loss = self.loss_function(pred.to(torch.float32), value.to(torch.float32))
@@ -63,8 +63,8 @@ class MetaModel(torch.nn.Module, ABC):
 
     def valid_one_epoch(self, dataModule):
         writeIdx = 0
-        preds = torch.zeros((len(dataModule.valid_loader.dataset),)).to('cuda') if self.args.device == 'gpu' else torch.zeros((len(dataModule.valid_loader.dataset),))
-        reals = torch.zeros((len(dataModule.valid_loader.dataset),)).to('cuda') if self.args.device == 'gpu' else torch.zeros((len(dataModule.valid_loader.dataset),))
+        preds = torch.zeros((len(dataModule.valid_loader.dataset),)).to('cuda') if self.args.device != 'cpu' else torch.zeros((len(dataModule.valid_loader.dataset),))
+        reals = torch.zeros((len(dataModule.valid_loader.dataset),)).to('cuda') if self.args.device != 'cpu' else torch.zeros((len(dataModule.valid_loader.dataset),))
         self.prepare_test_model()
         for valid_Batch in tqdm(dataModule.valid_loader, disable=not self.args.program_test):
             if self.args.exper not in [6, 7]:
@@ -72,7 +72,7 @@ class MetaModel(torch.nn.Module, ABC):
             else:
                 op, graph, value = valid_Batch
                 inputs = op, graph
-            if self.args.device == 'gpu':
+            if self.args.device != 'cpu':
                 inputs, value = to_cuda(inputs, value)
             pred = self.forward(inputs, False)
             preds[writeIdx:writeIdx + len(pred)] = pred
@@ -84,8 +84,8 @@ class MetaModel(torch.nn.Module, ABC):
 
     def test_one_epoch(self, dataModule):
         writeIdx = 0
-        preds = torch.zeros((len(dataModule.test_loader.dataset),)).to('cuda') if self.args.device == 'gpu' else torch.zeros((len(dataModule.test_loader.dataset),))
-        reals = torch.zeros((len(dataModule.test_loader.dataset),)).to('cuda') if self.args.device == 'gpu' else torch.zeros((len(dataModule.test_loader.dataset),))
+        preds = torch.zeros((len(dataModule.test_loader.dataset),)).to('cuda') if self.args.device != 'cpu' else torch.zeros((len(dataModule.test_loader.dataset),))
+        reals = torch.zeros((len(dataModule.test_loader.dataset),)).to('cuda') if self.args.device != 'cpu' else torch.zeros((len(dataModule.test_loader.dataset),))
         self.prepare_test_model()
         for test_Batch in tqdm(dataModule.test_loader, disable=not self.args.program_test):
             if self.args.exper not in [6, 7]:
@@ -93,7 +93,7 @@ class MetaModel(torch.nn.Module, ABC):
             else:
                 op, graph, value = test_Batch
                 inputs = op, graph
-            if self.args.device == 'gpu':
+            if self.args.device != 'cpu':
                 inputs, value = to_cuda(inputs, value)
             pred = self.forward(inputs, False)
             preds[writeIdx:writeIdx + len(pred)] = pred

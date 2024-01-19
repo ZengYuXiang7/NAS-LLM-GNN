@@ -14,8 +14,16 @@ def run_in_py():
     # 4 低秩处理  含简单设备序列号
     # 5 大语言模型
     # 6 大语言模型 + GNN
-    # 7 大模型 + GNN修改 + 嵌入重构
-    # args.experiment = 1
+    # 7 大模型 + GNN修改 + 嵌入重构 + GNN强化
+    def Runonce(args):
+        # args.experiment = 1
+        set_settings(args)
+        log = Logger(args)
+        log.log(str(args))
+        log.log(f'{device_type}_Density_{args.density:.2f}')
+        args.log = log
+        RunExperiments(log, args)
+
     for exper in [7]:
         for device_type in ['cpu']:
             for dim in [128]:
@@ -31,13 +39,8 @@ def run_in_py():
                     args.dimension = dim
                     # 慢设备运行
                     args.verbose = 1
-                    args.program_test = 1
-                    set_settings(args)
-                    log = Logger(args)
-                    log(str(args))
-                    log(f'{device_type}_Density_{density:.2f}')
-                    args.log = log
-                    RunExperiments(log, args)
+                    args.program_test = 0
+                    Runonce(args)
 
 
 if __name__ == '__main__':

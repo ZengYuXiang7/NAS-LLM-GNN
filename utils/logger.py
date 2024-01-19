@@ -17,7 +17,6 @@ class Logger:
             pickle.dump(np.mean(metrics[key]), open('./results/metrics/' + str(self.args.dataset) + '/' + self.args.model + '_' + f'{self.args.density:.3f}' + '_' + key + '1.pkl', 'wb'))
             pickle.dump(np.std(metrics[key]), open('./results/metrics/' + str(self.args.dataset) + '/' + self.args.model + '_' + f'{self.args.density:.3f}' + '_' + key + '2.pkl', 'wb'))
 
-
     def __init__(self, args):
         self.args = args
         makedir('./results/log/')
@@ -47,11 +46,6 @@ class Logger:
     def __call__(self, string):
         if self.args.verbose:
             self.log(string)
-
-    def print(self, string):
-        self.args.verbose = 1
-        self.__call__(string)
-        self.args.verbose = 0
 
     def only_print(self, string):
         import time

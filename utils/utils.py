@@ -9,8 +9,9 @@ import platform
 import torch as t
 import numpy as np
 
-def set_settings(args):
 
+def set_settings(args):
+    # 检查是否为debug模式
     if args.debug:
         args.rounds = 2
         args.epochs = 1
@@ -25,7 +26,11 @@ def set_settings(args):
         # args.program_test = 1
         # args.verbose = 1
 
+    if platform.system() == 'Linux':
+        args.program_test = 1
+
     return args
+
 
 # 时间种子
 def set_seed(seed):
@@ -36,10 +41,6 @@ def set_seed(seed):
     t.cuda.manual_seed_all(seed)
     os.environ['PYTHONHASHSEED'] = str(seed)
 
-# def to_cuda(inputs, values):
-#     inputs = [tensor.to('cuda') for tensor in inputs]
-#     values = values.to('cuda')
-#     return inputs, values
 
 def to_cuda(inputs, values):
     import dgl
@@ -64,9 +65,11 @@ def optimizer_zero_grad(*optimizers):
     for optimizer in optimizers:
         optimizer.zero_grad()
 
+
 def optimizer_step(*optimizers):
     for optimizer in optimizers:
         optimizer.step()
+
 
 def lr_scheduler_step(*lr_scheduler):
     for scheduler in lr_scheduler:
@@ -86,6 +89,7 @@ def makedir(path):
 def computer_info():
     def showinfo(tip, info):
         print("{} : {}".format(tip, info))
+
     showinfo("操作系统及版本信息", platform.platform())
     showinfo('获取系统版本号', platform.version())
     showinfo('获取系统名称', platform.system())
@@ -126,7 +130,6 @@ def create_ipynb_file(cells, file_name):
     print(time.strftime('%Y-%m-%d %H:%M:%S ', time.localtime(time.time())) + f'\"{file_path}\"' + ' 文件保存成功!')
 
 
-
 def create_sh_file(cells, file_name):
     # 检查文件是否存在并添加编号
     file_path = f'{time.localtime(time.time()).tm_mon}.{time.localtime(time.time()).tm_mday} '
@@ -141,6 +144,7 @@ def create_sh_file(cells, file_name):
             f.write(cells[item])
             f.write('\n')
     print(time.strftime('%Y-%m-%d %H:%M:%S ', time.localtime(time.time())) + f'\"{file_path}\"' + ' 文件保存成功!')
+
 
 def get_file_name():
     import sys
