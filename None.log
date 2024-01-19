@@ -1,0 +1,18 @@
+INFO:7:|2024-01-07 18:23:55| Namespace(ablation=0, bs=32, dataset='1', debug=0, decay=0.001, density=0.1, device='cpu', dimension=128, epochs=150, exper=7, experiment=0, loss_func='L1Loss', lr=0.001, lr_step=100, model='7', optim='AdamW', path='./datasets/cpu/', patience=20, program_test=1, record=0, rounds=5, saved=1, seed=0, valid=1, verbose=1, windows=5
+INFO:7:|2024-01-07 18:23:55| cpu_Density_0.1
+INFO:7:|2024-01-07 18:23:55| ********************Experiment Start*******************
+INFO:7:|2024-01-07 19:08:19| Round=1 BestEpoch=131 MAE=0.0022 RMSE=0.0041 NMAE=0.1391 NRMSE=0.2057 Training_time=306.1 s
+INFO:7:|2024-01-07 19:24:54| Round=2 BestEpoch=128 MAE=0.0022 RMSE=0.0041 NMAE=0.1392 NRMSE=0.2068 Training_time=284.9 s
+INFO:7:|2024-01-07 19:37:06| Round=3 BestEpoch=138 MAE=0.0023 RMSE=0.0039 NMAE=0.1442 NRMSE=0.1984 Training_time=294.4 s
+INFO:7:|2024-01-07 19:49:23| Round=4 BestEpoch=146 MAE=0.0022 RMSE=0.0040 NMAE=0.1389 NRMSE=0.2032 Training_time=294.4 s
+INFO:7:|2024-01-07 20:01:32| Round=5 BestEpoch=141 MAE=0.0022 RMSE=0.0040 NMAE=0.1381 NRMSE=0.2018 Training_time=294.1 s
+INFO:7:|2024-01-07 20:01:32| ********************Experiment Results:*******************
+INFO:7:|2024-01-07 20:01:32| NMAE: 0.1399 ± 0.002
+INFO:7:|2024-01-07 20:01:32| NRMSE: 0.2032 ± 0.003
+INFO:7:|2024-01-07 20:01:32| TIME: 294.7768 ± 6.731
+INFO:7:|2024-01-07 20:01:32| ********************Experiment Success********************
+INFO:7:|2024-01-07 20:42:59| Round=1 BestEpoch=76 MAE=0.0023 RMSE=0.0042 NMAE=0.1451 NRMSE=0.2125 Training_time=327.8 s
+INFO:7:|2024-01-19 12:50:25| Namespace(ablation=0, bs=32, dataset='1', debug=0, decay=0.001, density=0.1, device='cpu', dimension=128, epochs=150, exper=7, experiment=0, loss_func='L1Loss', lr=0.001, lr_step=100, model='7', optim='AdamW', path='./datasets/cpu/', patience=20, program_test=1, record=0, rounds=5, saved=1, seed=0, valid=1, verbose=1, windows=5
+INFO:4:|2024-01-19 12:50:25| Namespace(ablation=0, bs=64, dataset='1', debug=0, decay=0.001, density=0.1, device='cpu', dimension=64, epochs=150, exper=4, experiment=0, loss_func='L1Loss', lr=0.001, lr_step=100, model='4', optim='AdamW', path='./datasets/', patience=20, program_test=0, record=0, rounds=5, saved=1, seed=0, valid=1, verbose=10, windows=5
+INFO:7:|2024-01-19 12:50:25| cpu_Density_0.1
+INFO:7:|2024-01-19 12:50:25| ********************Experiment Start*******************

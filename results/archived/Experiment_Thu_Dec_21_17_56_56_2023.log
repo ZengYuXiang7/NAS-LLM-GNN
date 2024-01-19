@@ -1,0 +1,3 @@
+INFO:6:|2023-12-21 17:56:56| Namespace(ablation=0, bs=32, dataset='1', debug=0, decay=0.001, density=0.1, device='gpu', dimension=128, epochs=150, exper=6, experiment=1, loss_func='L1Loss', lr=0.001, lr_step=100, model='6', optim='AdamW', path='./datasets/cpu/', patience=20, program_test=0, record=1, rounds=5, saved=1, seed=0, valid=1, verbose=10, windows=5
+INFO:6:|2023-12-21 17:56:56| cpu_Density_0.1
+INFO:6:|2023-12-21 17:56:56| ********************Experiment Start*******************
