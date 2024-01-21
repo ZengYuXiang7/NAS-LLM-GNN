@@ -69,6 +69,7 @@ class NAS_Model_Chatgpt_GNN_2(MetaModel):
         # self.op_embeds = torch.tensor([[0.391, 1.000, 0.318, 0.004, 0.035, 0.0]])
         self.op_embeds = torch.tensor([[0, 0, 1, 2, 3, 0],
                                        [1, 3, 3, 0, 0, 0]]).to(torch.float32)
+
         self.op_transfer = torch.nn.Linear(2, self.dim)
         self.gnn = GraphSAGEConv(self.dim, 2)
         self.readout = ReadoutLayer()
