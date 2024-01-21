@@ -16,7 +16,6 @@ def run_in_py():
     # 6 大语言模型 + GNN
     # 7 大模型 + GNN修改 + 嵌入重构 + GNN强化
     def Runonce(args):
-        # args.experiment = 1
         set_settings(args)
         log = Logger(args)
         log.log(str(args))

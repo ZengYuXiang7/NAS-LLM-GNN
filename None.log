@@ -187,3 +187,18 @@ INFO:7:|2024-01-21 16:06:10| ********************Experiment Start***************
 INFO:7:|2024-01-21 16:06:55| Namespace(ablation=0, bs=32, dataset='1', debug=0, decay=0.001, density=0.1, device='cpu', dimension=128, epochs=300, exper=7, experiment=0, loss_func='L1Loss', lr=0.001, lr_step=100, model='7', optim='AdamW', path='./datasets/cpu/', patience=20, program_test=0, record=0, rounds=5, saved=1, seed=0, valid=1, verbose=1, windows=5
 INFO:7:|2024-01-21 16:06:55| cpu_Density_0.1
 INFO:7:|2024-01-21 16:06:55| ********************Experiment Start*******************
+INFO:7:|2024-01-21 16:10:20| Namespace(ablation=0, bs=32, dataset='1', debug=0, decay=0.001, density=0.1, device='cpu', dimension=128, epochs=300, exper=7, experiment=0, loss_func='L1Loss', lr=0.001, lr_step=100, model='7', optim='AdamW', path='./datasets/cpu/', patience=20, program_test=0, record=0, rounds=5, saved=1, seed=0, valid=1, verbose=10, windows=5
+INFO:7:|2024-01-21 16:10:20| cpu_Density_0.1
+INFO:7:|2024-01-21 16:10:20| ********************Experiment Start*******************
+INFO:7:|2024-01-21 16:12:30| Round=1 BestEpoch=104 MAE=0.0018 RMSE=0.0037 NMAE=0.1159 NRMSE=0.1853 Training_time=76.0 s
+INFO:7:|2024-01-21 16:14:25| Round=2 BestEpoch=109 MAE=0.0018 RMSE=0.0037 NMAE=0.1154 NRMSE=0.1860 Training_time=79.8 s
+INFO:7:|2024-01-21 16:16:21| Round=3 BestEpoch=109 MAE=0.0018 RMSE=0.0037 NMAE=0.1159 NRMSE=0.1868 Training_time=80.1 s
+INFO:7:|2024-01-21 16:17:52| Round=4 BestEpoch=80 MAE=0.0018 RMSE=0.0036 NMAE=0.1157 NRMSE=0.1806 Training_time=58.8 s
+INFO:7:|2024-01-21 16:19:48| Round=5 BestEpoch=109 MAE=0.0018 RMSE=0.0037 NMAE=0.1171 NRMSE=0.1894 Training_time=80.3 s
+INFO:7:|2024-01-21 16:19:48| ********************Experiment Results:*******************
+INFO:7:|2024-01-21 16:19:48| MAE: 0.0018 ± 0.000
+INFO:7:|2024-01-21 16:19:48| RMSE: 0.0037 ± 0.000
+INFO:7:|2024-01-21 16:19:48| NMAE: 0.1160 ± 0.000
+INFO:7:|2024-01-21 16:19:48| NRMSE: 0.1856 ± 0.002
+INFO:7:|2024-01-21 16:19:48| TIME: 74.9821 ± 8.265
+INFO:7:|2024-01-21 16:19:48| ********************Experiment Success********************
