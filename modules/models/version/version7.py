@@ -66,8 +66,10 @@ class NAS_Model_Chatgpt_GNN_2(MetaModel):
         # self.op_embeds = torch.nn.Embedding(6, self.dim)
         # self.op_transfer = torch.nn.Linear(self.dim, self.dim)
         # 0 con1 1 con3 2 max3 3 input 4 output 5 None
-        self.op_embeds = torch.tensor([0.391, 1.000, 0.318, 0.004, 0.035, 0.0])
-        self.op_transfer = torch.nn.Linear(1, self.dim)
+        # self.op_embeds = torch.tensor([[0.391, 1.000, 0.318, 0.004, 0.035, 0.0]])
+        self.op_embeds = torch.tensor([[0, 0, 1, 2, 3, 0],
+                                       [1, 3, 3, 0, 0, 0]]).to(torch.float32)
+        self.op_transfer = torch.nn.Linear(2, self.dim)
         self.gnn = GraphSAGEConv(self.dim, 2)
         self.readout = ReadoutLayer()
 
@@ -105,7 +107,7 @@ class NAS_Model_Chatgpt_GNN_2(MetaModel):
 
         # DNN network
         # op_embeds = self.op_embeds(op_idx)
-        op_embeds = self.op_embeds[op_idx].reshape(-1, 8, 1)
+        op_embeds = self.op_embeds[:, op_idx].permute(1, 2, 0)
         op_embeds = self.op_transfer(op_embeds)
         # 形状为 [32, 8, dim]
         op_embeds = op_embeds.view(-1, self.dim)  # 重塑为 [32*8, dim]
