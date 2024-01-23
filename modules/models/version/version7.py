@@ -39,7 +39,7 @@ class ReadoutLayer(torch.nn.Module):
             cum_node_count += num_nodes
             mask = (op_idx[i] != 5)  # 去除掉不在图中的点
             nodes = nodes[mask == True]
-            hg = batched_g.ndata['h'][nodes].mean(dim=0)
+            hg = batched_g.ndata['h'][nodes].sum(dim=0)
             hg_list.append(hg)
         hg = torch.stack(hg_list)
         return hg
@@ -69,7 +69,6 @@ class NAS_Model_Chatgpt_GNN_2(MetaModel):
         # self.op_embeds = torch.tensor([[0.391, 1.000, 0.318, 0.004, 0.035, 0.0]])
         self.op_embeds = torch.tensor([[0, 0, 1, 2, 3, 0],
                                        [1, 3, 3, 0, 0, 0]]).to(torch.float32)
-
         self.op_transfer = torch.nn.Linear(2, self.dim)
         self.gnn = GraphSAGEConv(self.dim, 2)
         self.readout = ReadoutLayer()

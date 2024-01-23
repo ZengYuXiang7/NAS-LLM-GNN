@@ -25,7 +25,7 @@ def run_in_py():
         RunExperiments(log, args)
 
     for exper in [7]:
-        for device_type in ['cpu']:
+        for device_type in ['gpu']:
             for dim in [128]:
                 for density in [0.1]:
                     if exper in [4, 5, 6, 7]:

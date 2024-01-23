@@ -29,7 +29,7 @@ class experiment7:
         # 大语言模型进行数据增强
         try:
             makedir('./pretrained')
-            with open(f'./pretrained/pretrained.pkl', 'rb') as f:
+            with open(f'./pretrained/pretrained_{self.args.dataset_type}.pkl', 'rb') as f:
                 device_info = pickle.load(f)
         except:
             print(df)
@@ -49,8 +49,8 @@ class experiment7:
                     memory_speed = float(match.group('memory_speed'))
                 device_info.append([frequency, cores, threads, memory_size, memory_speed])
             device_info = np.array(device_info)
-            with open(f'./pretrained/pretrained.pkl', 'wb') as f:
-                pickle.dump(device_info, f)
+            # with open(f'./pretrained/pretrained.pkl', 'wb') as f:
+            #     pickle.dump(device_info, f)
         # print(df)                                                  # 打印原始信息
         # print(device_info)                                         # 打印数据增强信息
         device_info = device_info / np.max(device_info, axis=0)  # 归一化
