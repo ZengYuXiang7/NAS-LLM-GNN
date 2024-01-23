@@ -16,6 +16,7 @@ def run_in_py():
     # 6 大语言模型 + GNN
     # 7 大模型 + GNN修改 + 嵌入重构 + GNN强化
     def Runonce(args):
+        # args.experiment = 1
         set_settings(args)
         log = Logger(args)
         log.log(str(args))
@@ -29,6 +30,7 @@ def run_in_py():
                 for density in [0.1]:
                     if exper in [4, 5, 6, 7]:
                         args.path = './datasets/' + device_type + '/'
+                    args.dataset_type = device_type
                     args.rounds = 5
                     args.exper = exper
                     args.model = str(exper)

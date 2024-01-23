@@ -8,6 +8,7 @@ from modules.datasets.chatgpt import NAS_ChatGPT
 from utils.utils import *
 import copy
 
+
 # 图神经网络
 class experiment7:
     def __init__(self, args):
@@ -110,7 +111,7 @@ class experiment7:
 
     def preprocess_data(self, data, args):
         try:
-            tensor = pickle.load(open(f'./pretrained/tensor_{torch.initial_seed()}.pkl', 'rb'))
+            tensor = pickle.load(open(f'./pretrained/tensor_{args.dataset_type}_{torch.initial_seed()}.pkl', 'rb'))
         except:
             tensor = []
             for i in trange(len(data)):
@@ -129,9 +130,8 @@ class experiment7:
                     now.append(y)
                     tensor.append(now)
             tensor = np.array(tensor)
-            pickle.dump(tensor, open(f'./pretrained/tensor_{torch.initial_seed()}.pkl', 'wb'))
+            pickle.dump(tensor, open(f'./pretrained/tensor_{args.dataset_type}_{torch.initial_seed()}.pkl', 'wb'))
         return tensor
-
 
     def get_pytorch_index(self, data):
         value = data[:, -1]
@@ -141,7 +141,6 @@ class experiment7:
         data = np.concatenate([data, value], axis=1).astype(np.float)
         idx = torch.as_tensor(data), graph
         return idx
-
 
 
 def get_arch_vector_from_arch_str(arch_str):

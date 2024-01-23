@@ -37,7 +37,7 @@ class ReadoutLayer(torch.nn.Module):
         for i, num_nodes in enumerate(batched_g.batch_num_nodes()):
             nodes = torch.arange(cum_node_count, cum_node_count + num_nodes, device=node_embeddings.device)
             cum_node_count += num_nodes
-            mask = (op_idx[i] != 5)  # 将 op_idx 扁平化并创建掩码
+            mask = (op_idx[i] != 5)  # 去除掉不在图中的点
             nodes = nodes[mask == True]
             hg = batched_g.ndata['h'][nodes].mean(dim=0)
             hg_list.append(hg)
@@ -110,7 +110,7 @@ class NAS_Model_Chatgpt_GNN_2(MetaModel):
         # op_embeds = self.op_embeds(op_idx)
         op_embeds = self.op_embeds[:, op_idx].permute(1, 2, 0)
         op_embeds = self.op_transfer(op_embeds)
-        # 形状为 [32, 8, dim]
+        # 形状为 [32, 8, dim]  Batch graph need it operation
         op_embeds = op_embeds.view(-1, self.dim)  # 重塑为 [32*8, dim]
         dnn_embeds = self.gnn(graph, op_embeds)
         dnn_embeds = self.readout(graph, dnn_embeds, op_idx).reshape(-1, 1, self.dim)
@@ -123,7 +123,6 @@ class NAS_Model_Chatgpt_GNN_2(MetaModel):
         ], dim=-1)
 
         estimated = self.NeuCF(final_input).sigmoid().reshape(-1)
-
         return estimated
 
     def prepare_test_model(self):
