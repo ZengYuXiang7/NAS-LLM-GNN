@@ -647,3 +647,84 @@ INFO:8:|2024-01-29 15:29:38| ********************Experiment Start***************
 INFO:8:|2024-01-29 15:30:11| Namespace(ablation=0, bs=32, dataset='1', dataset_type='gpu', debug=0, decay=0.001, density=0.1, device='cpu', dimension=128, epochs=300, exper=8, experiment=0, loss_func='L1Loss', lr=0.001, lr_step=100, model='8', optim='AdamW', path='./datasets/', patience=20, program_test=0, record=0, rounds=5, saved=1, seed=0, valid=1, verbose=1, windows=5
 INFO:8:|2024-01-29 15:30:11| gpu_Density_0.1
 INFO:8:|2024-01-29 15:30:11| ********************Experiment Start*******************
+INFO:8:|2024-01-29 15:35:10| Namespace(ablation=0, bs=32, dataset='1', dataset_type='gpu', debug=0, decay=0.001, density=0.1, device='cpu', dimension=128, epochs=300, exper=8, experiment=0, loss_func='L1Loss', lr=0.001, lr_step=100, model='8', optim='AdamW', path='./datasets/gpu/', patience=20, program_test=0, record=0, rounds=5, saved=1, seed=0, valid=1, verbose=1, windows=5
+INFO:8:|2024-01-29 15:35:10| gpu_Density_0.1
+INFO:8:|2024-01-29 15:35:10| ********************Experiment Start*******************
+INFO:8:|2024-01-29 15:42:37| Round=1 BestEpoch=103 MAE=0.0003 RMSE=0.0009 NMAE=0.0381 NRMSE=0.1096 Training_time=322.5 s
+INFO:8:|2024-01-29 15:46:24| Namespace(ablation=0, bs=32, dataset='1', dataset_type='gpu', debug=0, decay=0.001, density=0.1, device='cpu', dimension=128, epochs=300, exper=8, experiment=0, loss_func='L1Loss', lr=0.001, lr_step=100, model='8', optim='AdamW', path='./datasets/gpu/', patience=20, program_test=0, record=0, rounds=5, saved=1, seed=0, valid=1, verbose=10, windows=5
+INFO:8:|2024-01-29 15:46:24| gpu_Density_0.1
+INFO:8:|2024-01-29 15:46:24| ********************Experiment Start*******************
+INFO:7:|2024-01-29 15:46:28| Namespace(ablation=0, bs=32, dataset='1', debug=0, decay=0.001, density=0.1, device='cpu', dimension=64, epochs=150, exper=7, experiment=0, loss_func='L1Loss', lr=0.001, lr_step=100, model='7', optim='AdamW', path='./datasets/', patience=20, program_test=0, record=0, rounds=5, saved=1, seed=0, valid=1, verbose=10
+INFO:7:|2024-01-29 15:46:28| ********************Experiment Start*******************
+INFO:7:|2024-01-29 15:47:56| Round=1 BestEpoch=39 MAE=0.0003 RMSE=0.0009 NMAE=0.0404 NRMSE=0.1103 Training_time=47.2 s
+INFO:7:|2024-01-29 15:51:20| Round=1 BestEpoch=70 MAE=0.0007 RMSE=0.0015 NMAE=0.1035 NRMSE=0.1834 Training_time=113.2 s
+INFO:7:|2024-01-29 15:54:27| Round=2 BestEpoch=107 MAE=0.0002 RMSE=0.0009 NMAE=0.0356 NRMSE=0.1091 Training_time=133.5 s
+INFO:7:|2024-01-29 15:58:07| Round=2 BestEpoch=55 MAE=0.0007 RMSE=0.0014 NMAE=0.1028 NRMSE=0.1792 Training_time=90.6 s
+INFO:7:|2024-01-29 16:00:32| Round=3 BestEpoch=79 MAE=0.0003 RMSE=0.0009 NMAE=0.0377 NRMSE=0.1092 Training_time=96.9 s
+INFO:7:|2024-01-29 16:03:28| Round=3 BestEpoch=55 MAE=0.0007 RMSE=0.0014 NMAE=0.1086 NRMSE=0.1774 Training_time=90.2 s
+INFO:7:|2024-01-29 16:05:30| Round=4 BestEpoch=61 MAE=0.0003 RMSE=0.0009 NMAE=0.0393 NRMSE=0.1121 Training_time=75.4 s
+INFO:7:|2024-01-29 16:08:39| Round=4 BestEpoch=59 MAE=0.0007 RMSE=0.0014 NMAE=0.1094 NRMSE=0.1777 Training_time=100.0 s
+INFO:7:|2024-01-29 16:10:19| Round=5 BestEpoch=47 MAE=0.0003 RMSE=0.0009 NMAE=0.0387 NRMSE=0.1104 Training_time=57.7 s
+INFO:7:|2024-01-29 16:14:57| Round=5 BestEpoch=108 MAE=0.0007 RMSE=0.0015 NMAE=0.1016 NRMSE=0.1833 Training_time=180.0 s
+INFO:7:|2024-01-29 16:14:57| ********************Experiment Results:*******************
+INFO:7:|2024-01-29 16:14:57| MAE: 0.0007 ± 0.000
+INFO:7:|2024-01-29 16:14:57| RMSE: 0.0014 ± 0.000
+INFO:7:|2024-01-29 16:14:57| NMAE: 0.1052 ± 0.003
+INFO:7:|2024-01-29 16:14:57| NRMSE: 0.1802 ± 0.002
+INFO:7:|2024-01-29 16:14:57| TIME: 114.7931 ± 33.674
+INFO:7:|2024-01-29 16:14:57| ********************Experiment Success********************
+INFO:7:|2024-01-29 21:45:34| Namespace(ablation=0, bs=32, dataset='1', debug=0, decay=0.001, density=0.1, device='cpu', dimension=64, epochs=150, exper=7, experiment=0, loss_func='L1Loss', lr=0.001, lr_step=100, model='7', optim='AdamW', path='./datasets/', patience=20, program_test=0, record=0, rounds=5, saved=1, seed=0, valid=1, verbose=10
+INFO:7:|2024-01-29 21:45:34| ********************Experiment Start*******************
+INFO:7:|2024-01-29 21:46:17| Namespace(ablation=0, bs=32, dataset='1', debug=0, decay=0.001, density=0.1, device='cpu', dimension=64, epochs=150, exper=7, experiment=0, loss_func='L1Loss', lr=0.001, lr_step=100, model='7', optim='AdamW', path='./datasets/', patience=20, program_test=0, record=0, rounds=5, saved=1, seed=0, valid=1, verbose=10
+INFO:7:|2024-01-29 21:46:17| ********************Experiment Start*******************
+INFO:7:|2024-01-29 21:46:33| Namespace(ablation=0, bs=32, dataset='1', debug=0, decay=0.001, density=0.1, device='cpu', dimension=64, epochs=150, exper=7, experiment=0, loss_func='L1Loss', lr=0.001, lr_step=100, model='7', optim='AdamW', path='./datasets/', patience=20, program_test=0, record=0, rounds=5, saved=1, seed=0, valid=1, verbose=10
+INFO:7:|2024-01-29 21:46:33| ********************Experiment Start*******************
+INFO:7:|2024-01-29 21:48:00| Round=1 BestEpoch=57 MAE=0.0009 RMSE=0.0028 NMAE=0.0541 NRMSE=0.1401 Training_time=52.4 s
+INFO:7:|2024-01-29 21:49:00| Namespace(ablation=0, bs=32, dataset='1', debug=0, decay=0.001, density=0.1, device='cpu', dimension=64, epochs=150, exper=7, experiment=0, loss_func='L1Loss', lr=0.001, lr_step=100, model='7', optim='AdamW', path='./datasets/', patience=20, program_test=0, record=0, rounds=5, saved=1, seed=0, valid=1, verbose=10
+INFO:7:|2024-01-29 21:49:00| ********************Experiment Start*******************
+INFO:7:|2024-01-29 21:49:09| Namespace(ablation=0, bs=1, dataset='1', debug=1, decay=0.001, density=0.1, device='cpu', dimension=64, epochs=1, exper=7, experiment=0, loss_func='L1Loss', lr=0.001, lr_step=100, model='7', optim='AdamW', path='./datasets/', patience=20, program_test=0, record=1, rounds=2, saved=1, seed=0, valid=1, verbose=10
+INFO:7:|2024-01-29 21:49:09| ********************Experiment Start*******************
+INFO:7:|2024-01-29 21:49:26| Round=1 BestEpoch=1 MAE=0.0024 RMSE=0.0038 NMAE=0.1532 NRMSE=0.1915 Training_time=11.1 s
+INFO:7:|2024-01-29 21:49:44| Namespace(ablation=0, bs=1, dataset='1', debug=1, decay=0.001, density=0.1, device='cpu', dimension=64, epochs=1, exper=7, experiment=0, loss_func='L1Loss', lr=0.001, lr_step=100, model='7', optim='AdamW', path='./datasets/', patience=20, program_test=0, record=1, rounds=2, saved=1, seed=0, valid=1, verbose=10
+INFO:7:|2024-01-29 21:49:44| ********************Experiment Start*******************
+INFO:7:|2024-01-29 21:50:01| Round=1 BestEpoch=1 MAE=0.0024 RMSE=0.0038 NMAE=0.1532 NRMSE=0.1915 Training_time=11.1 s
+INFO:7:|2024-01-29 21:54:24| Namespace(ablation=0, bs=1, dataset='1', debug=1, decay=0.001, density=0.1, device='cpu', dimension=64, epochs=1, exper=7, experiment=0, loss_func='L1Loss', lr=0.001, lr_step=100, model='7', optim='AdamW', path='./datasets/', patience=20, program_test=0, record=1, rounds=2, saved=1, seed=0, valid=1, verbose=10
+INFO:7:|2024-01-29 21:54:24| ********************Experiment Start*******************
+INFO:7:|2024-01-29 21:54:34| Namespace(ablation=0, bs=1, dataset='1', debug=1, decay=0.001, density=0.1, device='cpu', dimension=64, epochs=1, exper=7, experiment=0, loss_func='L1Loss', lr=0.001, lr_step=100, model='7', optim='AdamW', path='./datasets/', patience=20, program_test=0, record=1, rounds=2, saved=1, seed=0, valid=1, verbose=10
+INFO:7:|2024-01-29 21:54:34| ********************Experiment Start*******************
+INFO:7:|2024-01-29 21:54:51| Round=1 BestEpoch=1 MAE=0.0024 RMSE=0.0038 NMAE=0.1532 NRMSE=0.1915 Training_time=11.1 s
+INFO:7:|2024-01-29 21:56:06| Namespace(ablation=0, bs=1, dataset='1', debug=1, decay=0.001, density=0.1, device='cpu', dimension=64, epochs=1, exper=7, experiment=0, loss_func='L1Loss', lr=0.001, lr_step=100, model='7', optim='AdamW', path='./datasets/', patience=20, program_test=0, record=1, rounds=2, saved=1, seed=0, valid=1, verbose=10
+INFO:7:|2024-01-29 21:56:06| ********************Experiment Start*******************
+INFO:7:|2024-01-29 21:56:24| Round=1 BestEpoch=1 MAE=0.0024 RMSE=0.0038 NMAE=0.1532 NRMSE=0.1915 Training_time=11.4 s
+INFO:7:|2024-01-29 21:57:26| Namespace(ablation=0, bs=1, dataset='1', debug=1, decay=0.001, density=0.1, device='cpu', dimension=64, epochs=1, exper=7, experiment=0, loss_func='L1Loss', lr=0.001, lr_step=100, model='7', optim='AdamW', path='./datasets/', patience=20, program_test=0, record=1, rounds=2, saved=1, seed=0, valid=1, verbose=10
+INFO:7:|2024-01-29 21:57:26| ********************Experiment Start*******************
+INFO:7:|2024-01-29 21:57:43| Round=1 BestEpoch=1 MAE=0.0024 RMSE=0.0038 NMAE=0.1532 NRMSE=0.1915 Training_time=11.0 s
+INFO:7:|2024-01-29 21:58:52| Namespace(ablation=0, bs=1, dataset='1', debug=1, decay=0.001, density=0.1, device='cpu', dimension=64, epochs=1, exper=7, experiment=0, loss_func='L1Loss', lr=0.001, lr_step=100, model='7', optim='AdamW', path='./datasets/', patience=20, program_test=0, record=1, rounds=2, saved=1, seed=0, valid=1, verbose=10
+INFO:7:|2024-01-29 21:58:52| ********************Experiment Start*******************
+INFO:7:|2024-01-29 21:59:09| Round=1 BestEpoch=1 MAE=0.0024 RMSE=0.0038 NMAE=0.1532 NRMSE=0.1915 Training_time=11.0 s
+INFO:7:|2024-01-29 22:00:02| Round=1 BestEpoch=1 MAE=0.0027 RMSE=0.0041 NMAE=0.1726 NRMSE=0.2080 Training_time=19.7 s
+INFO:7:|2024-01-29 22:00:15| Namespace(ablation=0, bs=1, dataset='1', debug=1, decay=0.001, density=0.1, device='cpu', dimension=64, epochs=1, exper=7, experiment=0, loss_func='L1Loss', lr=0.001, lr_step=100, model='7', optim='AdamW', path='./datasets/', patience=20, program_test=0, record=1, rounds=2, saved=1, seed=0, valid=1, verbose=10
+INFO:7:|2024-01-29 22:00:15| ********************Experiment Start*******************
+INFO:7:|2024-01-29 22:00:32| Round=1 BestEpoch=1 MAE=0.0024 RMSE=0.0038 NMAE=0.1532 NRMSE=0.1915 Training_time=10.9 s
+INFO:7:|2024-01-29 22:01:34| Namespace(ablation=0, bs=32, dataset='1', debug=0, decay=0.001, density=0.1, device='cpu', dimension=64, epochs=150, exper=7, experiment=0, loss_func='L1Loss', lr=0.001, lr_step=100, model='7', optim='AdamW', path='./datasets/', patience=20, program_test=0, record=0, rounds=5, saved=1, seed=0, valid=1, verbose=10
+INFO:7:|2024-01-29 22:01:34| ********************Experiment Start*******************
+INFO:7:|2024-01-29 22:03:02| Round=1 BestEpoch=57 MAE=0.0009 RMSE=0.0028 NMAE=0.0541 NRMSE=0.1401 Training_time=52.6 s
+INFO:7:|2024-01-29 22:04:55| Namespace(ablation=0, bs=32, dataset='1', debug=0, decay=0.001, density=0.1, device='cpu', dimension=64, epochs=150, exper=7, experiment=0, loss_func='L1Loss', lr=0.001, lr_step=100, model='7', optim='AdamW', path='./datasets/', patience=20, program_test=0, record=0, rounds=5, saved=1, seed=0, valid=1, verbose=10
+INFO:7:|2024-01-29 22:04:55| ********************Experiment Start*******************
+INFO:7:|2024-01-29 22:06:24| Round=1 BestEpoch=57 MAE=0.0009 RMSE=0.0028 NMAE=0.0541 NRMSE=0.1401 Training_time=54.2 s
+INFO:7:|2024-01-29 22:08:37| Round=1 BestEpoch=54 MAE=0.0017 RMSE=0.0035 NMAE=0.1067 NRMSE=0.1768 Training_time=66.1 s
+INFO:7:|2024-01-29 22:09:34| Round=2 BestEpoch=29 MAE=0.0013 RMSE=0.0031 NMAE=0.0819 NRMSE=0.1566 Training_time=27.0 s
+INFO:7:|2024-01-29 22:12:34| Round=2 BestEpoch=83 MAE=0.0017 RMSE=0.0034 NMAE=0.1048 NRMSE=0.1696 Training_time=105.6 s
+INFO:7:|2024-01-29 22:13:50| Round=3 BestEpoch=43 MAE=0.0009 RMSE=0.0028 NMAE=0.0552 NRMSE=0.1399 Training_time=41.8 s
+INFO:7:|2024-01-29 22:16:35| Round=3 BestEpoch=73 MAE=0.0017 RMSE=0.0036 NMAE=0.1093 NRMSE=0.1833 Training_time=93.7 s
+INFO:7:|2024-01-29 22:17:14| Round=4 BestEpoch=12 MAE=0.0009 RMSE=0.0028 NMAE=0.0588 NRMSE=0.1405 Training_time=11.3 s
+INFO:7:|2024-01-29 22:20:21| Round=4 BestEpoch=87 MAE=0.0016 RMSE=0.0035 NMAE=0.1044 NRMSE=0.1776 Training_time=111.5 s
+INFO:7:|2024-01-29 22:21:31| Round=5 BestEpoch=36 MAE=0.0010 RMSE=0.0028 NMAE=0.0649 NRMSE=0.1415 Training_time=35.7 s
+INFO:7:|2024-01-29 22:24:38| Round=5 BestEpoch=83 MAE=0.0017 RMSE=0.0035 NMAE=0.1057 NRMSE=0.1781 Training_time=111.7 s
+INFO:7:|2024-01-29 22:24:38| ********************Experiment Results:*******************
+INFO:7:|2024-01-29 22:24:38| MAE: 0.0017 ± 0.000
+INFO:7:|2024-01-29 22:24:38| RMSE: 0.0035 ± 0.000
+INFO:7:|2024-01-29 22:24:38| NMAE: 0.1062 ± 0.001
+INFO:7:|2024-01-29 22:24:38| NRMSE: 0.1771 ± 0.004
+INFO:7:|2024-01-29 22:24:38| TIME: 97.7253 ± 17.136
+INFO:7:|2024-01-29 22:24:38| ********************Experiment Success********************

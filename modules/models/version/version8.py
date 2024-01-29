@@ -17,14 +17,17 @@ class NAS_Model_Chatgpt_GNN_3(MetaModel):
         self.device_name_embeds = torch.nn.Embedding(6, self.dim)
         self.precision_embeds = torch.nn.Embedding(6, self.dim)
 
-        self.first_embeds = torch.nn.Embedding(6, self.dim)
-        self.second_embeds = torch.nn.Embedding(6, self.dim)
-        self.third_embeds = torch.nn.Embedding(6, self.dim)
-        self.fourth_embeds = torch.nn.Embedding(6, self.dim)
-        self.fifth_embeds = torch.nn.Embedding(6, self.dim)
-        self.sixth_embeds = torch.nn.Embedding(6, self.dim)
-        self.seventh_embeds = torch.nn.Embedding(6, self.dim)
-        self.eighth_embeds = torch.nn.Embedding(6, self.dim)
+        # self.first_embeds = torch.nn.Embedding(6, self.dim)
+        # self.second_embeds = torch.nn.Embedding(6, self.dim)
+        # self.third_embeds = torch.nn.Embedding(6, self.dim)
+        # self.fourth_embeds = torch.nn.Embedding(6, self.dim)
+        # self.fifth_embeds = torch.nn.Embedding(6, self.dim)
+        # self.sixth_embeds = torch.nn.Embedding(6, self.dim)
+        # self.seventh_embeds = torch.nn.Embedding(6, self.dim)
+        # self.eighth_embeds = torch.nn.Embedding(6, self.dim)
+
+        # 第二个想法
+        self.op_embeds = torch.nn.Embedding(6, self.dim)
 
         input_dim = 12 * self.dim
         self.NeuCF = torch.nn.Sequential(
@@ -60,15 +63,23 @@ class NAS_Model_Chatgpt_GNN_3(MetaModel):
         device_name_embeds = self.device_name_embeds(device_name_Idx)
         precision_embeds = self.precision_embeds(precisionIdx)
 
-        first_embeds = self.first_embeds(firstIdx)
-        second_embeds = self.second_embeds(secondIdx)
-        third_embeds = self.third_embeds(thirdIdx)
-        fourth_embeds = self.fourth_embeds(fourthIdx)
-        fifth_embeds = self.fifth_embeds(fifthIdx)
-        sixth_embeds = self.sixth_embeds(sixthIdx)
-        seventh_embeds = self.seventh_embeds(seventhIdx)
-        eighth_embeds = self.eighth_embeds(eighthIdx)
+        # first_embeds = self.first_embeds(firstIdx)
+        # second_embeds = self.second_embeds(secondIdx)
+        # third_embeds = self.third_embeds(thirdIdx)
+        # fourth_embeds = self.fourth_embeds(fourthIdx)
+        # fifth_embeds = self.fifth_embeds(fifthIdx)
+        # sixth_embeds = self.sixth_embeds(sixthIdx)
+        # seventh_embeds = self.seventh_embeds(seventhIdx)
+        # eighth_embeds = self.eighth_embeds(eighthIdx)
 
+        first_embeds = self.op_embeds(firstIdx)
+        second_embeds = self.op_embeds(secondIdx)
+        third_embeds = self.op_embeds(thirdIdx)
+        fourth_embeds = self.op_embeds(fourthIdx)
+        fifth_embeds = self.op_embeds(fifthIdx)
+        sixth_embeds = self.op_embeds(sixthIdx)
+        seventh_embeds = self.op_embeds(seventhIdx)
+        eighth_embeds = self.op_embeds(eighthIdx)
 
         # Final interaction
         final_input = torch.cat([

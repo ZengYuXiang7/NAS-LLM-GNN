@@ -15,6 +15,7 @@ def run_in_py():
     # 5 大语言模型
     # 6 大语言模型 + GNN
     # 7 大模型 + GNN修改 + 嵌入重构 + GNN强化
+    # 8 修正版 节点拆解嵌入
     def Runonce(args):
         # args.experiment = 1
         set_settings(args)
@@ -28,7 +29,7 @@ def run_in_py():
         for device_type in ['gpu']:
             for dim in [128]:
                 for density in [0.1]:
-                    if exper in [4, 5, 7]:
+                    if exper in [4, 5, 7, 8]:
                         args.path = './datasets/' + device_type + '/'
                     args.dataset_type = device_type
                     args.rounds = 5
@@ -39,7 +40,7 @@ def run_in_py():
                     args.bs = 32
                     args.dimension = dim
                     # 慢设备运行
-                    args.verbose = 1
+                    args.verbose = 10
                     args.program_test = 0
                     Runonce(args)
 

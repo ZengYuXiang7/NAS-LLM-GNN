@@ -68,7 +68,7 @@ class NAS_Model_Chatgpt_GNN_2(MetaModel):
         # 0 con1 1 con3 2 max3 3 input 4 output 5 None
         # self.op_embeds = torch.tensor([[0.391, 1.000, 0.318, 0.004, 0.035, 0.0]])  # 此idea已废
         self.op_embeds = None
-        self.op_transfer = torch.nn.Linear(8, self.dim)
+        self.op_transfer = torch.nn.Linear(self.dim, self.dim)
         self.gnn = GraphSAGEConv(self.dim, 2)
         self.readout = ReadoutLayer()
 
@@ -107,8 +107,12 @@ class NAS_Model_Chatgpt_GNN_2(MetaModel):
         # DNN network
         # op_embeds = self.op_embeds(op_idx)
         # print(op_idx)
+        # print(self.op_embeds.shape)
+        # print(self.op_embeds[:, op_idx].shape)
+        # print(self.op_embeds[:, op_idx].permute(1, 2, 0).shape)
         op_embeds = self.op_embeds[:, op_idx].permute(1, 2, 0)
-        op_embeds = self.op_transfer(op_embeds)
+        # op_embeds = self.op_transfer(op_embeds)
+        # print(op_embeds.shape)
         # 形状为 [32, 8, dim]  Batch graph need it operation
         op_embeds = op_embeds.view(-1, self.dim)  # 重塑为 [32*8, dim]
         dnn_embeds = self.gnn(graph, op_embeds)
