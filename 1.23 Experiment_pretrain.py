@@ -154,7 +154,7 @@ def get_args():
 
     # Training tool
     parser.add_argument('--device', type=str, default='cpu')  # gpu cpu mps
-    parser.add_argument('--bs', type=int, default=64)  #
+    parser.add_argument('--bs', type=int, default=32)  #
     parser.add_argument('--lr', type=float, default=1e-3)
     parser.add_argument('--decay', type=float, default=1e-3)
     parser.add_argument('--epochs', type=int, default=150)

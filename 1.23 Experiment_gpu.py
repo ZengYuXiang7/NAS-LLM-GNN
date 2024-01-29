@@ -24,11 +24,11 @@ def run_in_py():
         args.log = log
         RunExperiments(log, args)
 
-    for exper in [7]:
+    for exper in [8, 7]:
         for device_type in ['gpu']:
             for dim in [128]:
                 for density in [0.1]:
-                    if exper in [4, 5, 6, 7]:
+                    if exper in [4, 5, 7]:
                         args.path = './datasets/' + device_type + '/'
                     args.dataset_type = device_type
                     args.rounds = 5
