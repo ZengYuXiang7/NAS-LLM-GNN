@@ -11,7 +11,8 @@ class ChatGPT:
             self.model = "gpt-4"
             # self.model = "gpt-3.5-turbo"
         else:
-            self.model = "gpt-3.5-turbo"
+            self.model = "gpt-4"
+            # self.model = "gpt-3.5-turbo"
 
     def chat_once(self, user_input):
         # user_input = input("用户：")  # 获取用户输入

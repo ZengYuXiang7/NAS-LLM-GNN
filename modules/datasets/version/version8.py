@@ -10,7 +10,7 @@ import copy
 
 
 # 图神经网络
-class experiment7:
+class experiment8:
     def __init__(self, args):
         self.args = args
         self.chatgpt = NAS_ChatGPT(args)
@@ -25,45 +25,10 @@ class experiment7:
             if match:
                 data.append(match.groupdict())
         df = pandas.DataFrame(data).to_numpy()
-
-        # 大语言模型进行数据增强
-        try:
-            makedir('./pretrained')
-            with open(f'./pretrained/pretrained_{self.args.dataset_type}.pkl', 'rb') as f:
-                device_info = pickle.load(f)
-        except:
-            print(df)
-            device_info = []
-            for i in range(len(df)):
-                device_base_info = df[i, 2]
-                device_more_info = self.chatgpt.get_device_more_info(device_base_info)
-                print(device_more_info)
-                pattern = re.compile(
-                    r'^(?P<frequency>[\d.]+)\sGHz::(?P<cores>\d+)\scores::(?P<threads>\d+)\sThreads::(?P<memory_size>[\d.]+)\sMB::(?P<memory_speed>[\d.]+)\sGB/s$')
-                match = pattern.match(device_more_info)
-                if match:
-                    frequency = float(match.group('frequency'))
-                    cores = int(match.group('cores'))
-                    threads = int(match.group('threads'))
-                    memory_size = float(match.group('memory_size'))
-                    memory_speed = float(match.group('memory_speed'))
-                device_info.append([frequency, cores, threads, memory_size, memory_speed])
-            device_info = np.array(device_info)
-            with open(f'./pretrained/pretrained_{self.args.dataset_type}.pkl', 'wb') as f:
-                pickle.dump(device_info, f)
-        # print(df)                                                  # 打印原始信息
-        # print(device_info)                                         # 打印数据增强信息
-        device_info = device_info / np.max(device_info, axis=0)  # 归一化
-        # device_info = (device_info - np.mean(device_info, axis=0)) / np.std(device_info, axis=0)    # 归一化
-        # print(device_info)
-        df = np.delete(df, 2, axis=1)  # 删掉设备名
-        # print(df)                                                # 打印删掉设备名的信息
         # 对每一列进行标签编码
         label_encoder = LabelEncoder()
         encoded_data = np.apply_along_axis(label_encoder.fit_transform, axis=0, arr=df)
-        # print(encoded_data.shape, device_info.shape)
-        final_data = np.concatenate([encoded_data, device_info], axis=1)
-        # print(encoded_data)
+        final_data = np.concatenate([encoded_data], axis=1)
         return final_data
 
     # 只是读取大文件
@@ -80,12 +45,9 @@ class experiment7:
             data.append([now])
         data = np.array(data)
         data = np.concatenate([device_label, data], axis=1)
-        # print('-' * 100)
-        # print(data[:, :7])  # 数列在8
-        # data = list(data)
         return data
 
-    def get_graph(self, op_seq):
+    def get_idx(self, op_seq):
         # 全部代码
         op_seq = list(op_seq)
         matrix, label = get_matrix_and_ops(op_seq)
@@ -112,17 +74,7 @@ class experiment7:
         # print(label)
         # print(op_idx)
         # print('-' * 100)
-
-        def matirx_to_graph(matrix):
-            # 将邻接矩阵转换为 DGLGraph
-            adjacency_matrix = np.nonzero(np.array(matrix, dtype='object'))
-            graph = dgl.graph(adjacency_matrix)
-            return graph
-
-        graph = matirx_to_graph(matrix)
-        graph = dgl.to_bidirected(graph)
-        graph = dgl.add_self_loop(graph)  # 添加自环
-        return graph, op_idx
+        return op_idx
 
     def preprocess_data(self, data, args):
         try:
@@ -130,32 +82,24 @@ class experiment7:
         except:
             tensor = []
             for i in trange(len(data)):
-                for key in (data[i][8].keys()):
+                for key in (data[i][-1].keys()):
                     now = []
                     # 添加设备号
                     for j in range(len(data[0]) - 1):
                         now.append(data[i][j])
                     # 添加模型号 转成的图 和 idx
-                    graph, op_idx = self.get_graph(key)
-                    # 8 - 15 为 op_idx
+                    op_idx = self.get_idx(key)
+                    # 4 - 10 为 op_idx
                     for j in range(len(op_idx)):
                         now.append(op_idx[j])
-                    now.append(graph)
-                    y = data[i][8][key]
+                    y = data[i][-1][key]
                     now.append(y)
                     tensor.append(now)
             tensor = np.array(tensor)
-            # pickle.dump(tensor, open(f'./pretrained/tensor_{args.dataset_type}_{torch.initial_seed()}.pkl', 'wb'))
         return tensor
 
     def get_pytorch_index(self, data):
-        value = data[:, -1]
-        graph = data[:, -2]
-        data = data[:, :-2]
-        value = value.reshape(-1, 1)
-        data = np.concatenate([data, value], axis=1).astype(np.float)
-        idx = torch.as_tensor(data), graph
-        return idx
+        return torch.as_tensor(data)
 
 
 def get_arch_vector_from_arch_str(arch_str):

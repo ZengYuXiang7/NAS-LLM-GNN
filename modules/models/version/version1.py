@@ -13,15 +13,15 @@ class NAS_Model(MetaModel):
         self.args = args
         self.dim = args.dimension
 
-        self.first_embeds = torch.nn.Embedding(15, self.dim)
+        self.first_embeds = torch.nn.Embedding(5, self.dim)
         self.second_embeds = torch.nn.Embedding(5, self.dim)
         self.third_embeds = torch.nn.Embedding(5, self.dim)
         self.fourth_embeds = torch.nn.Embedding(5, self.dim)
         self.fifth_embeds = torch.nn.Embedding(5, self.dim)
         self.sixth_embeds = torch.nn.Embedding(5, self.dim)
-        self.seventh_embeds = torch.nn.Embedding(5, self.dim)
 
-        input_dim = 6 * self.dim
+
+        input_dim = 8 * self.dim
         self.NeuCF = torch.nn.Sequential(
             torch.nn.Linear(input_dim, input_dim // 2),  # FFN
             torch.nn.LayerNorm(input_dim // 2),  # LayerNorm
@@ -41,7 +41,7 @@ class NAS_Model(MetaModel):
         torch.nn.init.kaiming_normal_(self.fourth_embeds.weight)
         torch.nn.init.kaiming_normal_(self.fifth_embeds.weight)
         torch.nn.init.kaiming_normal_(self.sixth_embeds.weight)
-        torch.nn.init.kaiming_normal_(self.seventh_embeds.weight)
+        # torch.nn.init.kaiming_normal_(self.seventh_embeds.weight)
 
     def forward(self, inputs, train = True):
         firstIdx, secondIdx, thirdIdx, fourthIdx, fifthIdx, sixthIdx = self.get_inputs(inputs)

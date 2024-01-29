@@ -14,7 +14,7 @@ class experiment3:
         file_names = os.listdir(args.path)
         pickle_files = [file for file in file_names if file.endswith('.pickle')]
         data = []
-        for i in range(14):
+        for i in range(len(pickle_files)):
             pickle_file = args.path + pickle_files[i]
             # print(pickle_file)
             with open(pickle_file, 'rb') as f:

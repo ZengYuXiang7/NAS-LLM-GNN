@@ -35,7 +35,7 @@ class NAS_Model_3(MetaModel):
         self.initialize()
 
     def initialize(self):
-        torch.nn.init.kaiming_normal_(self.first_embeds.weight)
+        # torch.nn.init.kaiming_normal_(self.first_embeds.weight)
         torch.nn.init.kaiming_normal_(self.second_embeds.weight)
         torch.nn.init.kaiming_normal_(self.third_embeds.weight)
         torch.nn.init.kaiming_normal_(self.fourth_embeds.weight)
@@ -56,6 +56,7 @@ class NAS_Model_3(MetaModel):
         estimated = self.NeuCF(
             torch.cat(
                 (first_embeds, second_embeds, third_embeds, fourth_embeds, fifth_embeds, sixth_embeds, seventh_embeds),
+                # (second_embeds, third_embeds, fourth_embeds, fifth_embeds, sixth_embeds, seventh_embeds),
                 dim=-1)).sigmoid().reshape(-1)
         return estimated
 
