@@ -5,6 +5,7 @@ from modules.datasets.version.version4 import experiment4
 from modules.datasets.version.version5 import experiment5
 from modules.datasets.version.version6 import experiment6
 from modules.datasets.version.version7 import experiment7
+from modules.datasets.version.version8 import experiment8
 
 
 def get_exper(args):
@@ -22,3 +23,5 @@ def get_exper(args):
         return experiment6(args)
     elif args.exper == 7:
         return experiment7(args)
+    elif args.exper == 8:
+        return experiment8(args)

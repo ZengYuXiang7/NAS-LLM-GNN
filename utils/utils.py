@@ -18,7 +18,7 @@ def set_settings(args):
         args.record = 1
         args.lr = 1e-3
         args.decay = 1e-3
-        args.bs = 2
+        args.bs = 1
         args.experiment = 0
 
     if args.experiment:
