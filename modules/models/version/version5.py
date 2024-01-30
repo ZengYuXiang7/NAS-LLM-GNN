@@ -25,12 +25,7 @@ class NAS_Model_Chatgpt(MetaModel):
             torch.nn.Linear(self.dim, self.dim),
         )
 
-        self.first_embeds = torch.nn.Embedding(5, self.dim)
-        self.second_embeds = torch.nn.Embedding(5, self.dim)
-        self.third_embeds = torch.nn.Embedding(5, self.dim)
-        self.fourth_embeds = torch.nn.Embedding(5, self.dim)
-        self.fifth_embeds = torch.nn.Embedding(5, self.dim)
-        self.sixth_embeds = torch.nn.Embedding(5, self.dim)
+        self.op_embeds = torch.nn.Embedding(6, self.dim)
 
         input_dim = 10 * self.dim
         # input_dim = 4 * self.dim
@@ -74,12 +69,12 @@ class NAS_Model_Chatgpt(MetaModel):
         device_features = self.info_embeds(device_info)
 
         # DNN network
-        first_embeds = self.first_embeds(firstIdx)
-        second_embeds = self.second_embeds(secondIdx)
-        third_embeds = self.third_embeds(thirdIdx)
-        fourth_embeds = self.fourth_embeds(fourthIdx)
-        fifth_embeds = self.fifth_embeds(fifthIdx)
-        sixth_embeds = self.sixth_embeds(sixthIdx)
+        first_embeds = self.op_embeds(firstIdx)
+        second_embeds = self.op_embeds(secondIdx)
+        third_embeds = self.op_embeds(thirdIdx)
+        fourth_embeds = self.op_embeds(fourthIdx)
+        fifth_embeds = self.op_embeds(fifthIdx)
+        sixth_embeds = self.op_embeds(sixthIdx)
 
         # print(platform_embeds.shape)
         # print(device_info.shape)
