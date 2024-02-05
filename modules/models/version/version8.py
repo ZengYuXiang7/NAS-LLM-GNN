@@ -17,14 +17,10 @@ class NAS_Model_Chatgpt_GNN_3(MetaModel):
         self.device_name_embeds = torch.nn.Embedding(6, self.dim)
         self.precision_embeds = torch.nn.Embedding(6, self.dim)
 
-        self.first_embeds = torch.nn.Embedding(6, self.dim)
-        self.second_embeds = torch.nn.Embedding(6, self.dim)
-        self.third_embeds = torch.nn.Embedding(6, self.dim)
-        self.fourth_embeds = torch.nn.Embedding(6, self.dim)
-        self.fifth_embeds = torch.nn.Embedding(6, self.dim)
-        self.sixth_embeds = torch.nn.Embedding(6, self.dim)
-        self.seventh_embeds = torch.nn.Embedding(6, self.dim)
-        self.eighth_embeds = torch.nn.Embedding(6, self.dim)
+        # 第二个想法
+        self.transfer = torch.nn.Linear(5, self.dim)
+        self.op_embeds = torch.nn.Embedding(6, self.dim)
+
 
         input_dim = 12 * self.dim
         self.NeuCF = torch.nn.Sequential(
@@ -43,7 +39,10 @@ class NAS_Model_Chatgpt_GNN_3(MetaModel):
         pass
 
     def forward(self, inputs, train=True):
-        platformIdx, deviceIdx, device_name_Idx, precisionIdx, op_idx = self.get_inputs(inputs)
+        if self.args.llm:
+            platformIdx, deviceIdx, device_info_llm, precisionIdx, op_idx = self.get_inputs(inputs)
+        else:
+            platformIdx, deviceIdx, device_name_Idx, precisionIdx, op_idx = self.get_inputs2(inputs)
 
         # DNN network
         firstIdx = op_idx[:, 0]
@@ -57,18 +56,21 @@ class NAS_Model_Chatgpt_GNN_3(MetaModel):
 
         platform_embeds = self.platform_embeds(platformIdx)
         device_embeds = self.device_embeds(deviceIdx)
-        device_name_embeds = self.device_name_embeds(device_name_Idx)
+
+        if self.args.llm:
+            device_name_embeds = self.transfer(device_info_llm)
+        else:
+            device_name_embeds = self.device_name_embeds(device_name_Idx)
         precision_embeds = self.precision_embeds(precisionIdx)
 
-        first_embeds = self.first_embeds(firstIdx)
-        second_embeds = self.second_embeds(secondIdx)
-        third_embeds = self.third_embeds(thirdIdx)
-        fourth_embeds = self.fourth_embeds(fourthIdx)
-        fifth_embeds = self.fifth_embeds(fifthIdx)
-        sixth_embeds = self.sixth_embeds(sixthIdx)
-        seventh_embeds = self.seventh_embeds(seventhIdx)
-        eighth_embeds = self.eighth_embeds(eighthIdx)
-
+        first_embeds = self.op_embeds(firstIdx)
+        second_embeds = self.op_embeds(secondIdx)
+        third_embeds = self.op_embeds(thirdIdx)
+        fourth_embeds = self.op_embeds(fourthIdx)
+        fifth_embeds = self.op_embeds(fifthIdx)
+        sixth_embeds = self.op_embeds(sixthIdx)
+        seventh_embeds = self.op_embeds(seventhIdx)
+        eighth_embeds = self.op_embeds(eighthIdx)
 
         # Final interaction
         final_input = torch.cat([
@@ -83,11 +85,33 @@ class NAS_Model_Chatgpt_GNN_3(MetaModel):
         pass
 
     def get_inputs(self, inputs):
-        op = inputs
-        firstIdx, secondIdx, thirdIdx, fourthIdx,\
+
+        platformIdx, deviceIdx, precisionIdx, \
+            frequency, cores, threads, memory_size, memory_speed, \
+            fifthIdx, sixthIdx, seventhIdx, eighthIdx, ninthIdx, tenthIdx, elemIdx = inputs
+
+        # firstIdx, secondIdx, thirdIdx, fourthIdx,\
+        op_idx = torch.vstack([fifthIdx, sixthIdx, seventhIdx, eighthIdx, ninthIdx, tenthIdx, elemIdx])
+        insert_back = 4 * torch.ones(1, op_idx.shape[1])
+        # 添加输入输出节点
+        op_idx = torch.cat([op_idx, insert_back]).transpose(0, 1)
+        op_idx = op_idx.to(torch.long)
+        # 获得计算节点信息
+        # platformIdx = firstIdx
+        # deviceIdx = secondIdx
+        # device_name_Idx = thirdIdx
+        # precisionIdx = fourthIdx
+
+        device_info_llm = torch.vstack([frequency, cores, threads, memory_size, memory_speed]).T
+
+        # return platformIdx.long(), deviceIdx.long(), device_name_Idx.long(), precisionIdx.long(), op_idx.long()
+        return platformIdx.long(), deviceIdx.long(), device_info_llm.float(), precisionIdx.long(), op_idx.long(),
+
+
+    def get_inputs2(self, inputs):
+        firstIdx, secondIdx, thirdIdx, fourthIdx, \
             fifthIdx, sixthIdx, seventhIdx, eighthIdx, ninthIdx, tenthIdx, elemIdx = inputs
         op_idx = torch.vstack([fifthIdx, sixthIdx, seventhIdx, eighthIdx, ninthIdx, tenthIdx, elemIdx])
-        insert_front = 3.
         insert_back = 4 * torch.ones(1, op_idx.shape[1])
         # 添加输入输出节点
         op_idx = torch.cat([op_idx, insert_back]).transpose(0, 1)

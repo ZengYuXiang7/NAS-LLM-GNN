@@ -56,18 +56,18 @@ def RunOnce(args, runId, Runtime, log):
     log(f'Round={runId + 1} BestEpoch={monitor.best_epoch:d} MAE={results["MAE"]:.4f} RMSE={results["RMSE"]:.4f} NMAE={results["NMAE"]:.4f} NRMSE={results["NRMSE"]:.4f} Training_time={sum_time:.1f} s\n')
 
     # Get pretrained embeddings
-    first_embeds = model.first_embeds.weight.detach()
-    second_embeds = model.second_embeds.weight.detach()
-    third_embeds = model.third_embeds.weight.detach()
-    fourth_embeds = model.fourth_embeds.weight.detach()
-    fifth_embeds = model.fifth_embeds.weight.detach()
-    sixth_embeds = model.sixth_embeds.weight.detach()
-    seventh_embeds = model.seventh_embeds.weight.detach()
-    eighth_embeds = model.eighth_embeds.weight.detach()
-
-    features = np.stack([first_embeds, second_embeds, third_embeds, fourth_embeds,
-                         fifth_embeds, sixth_embeds, seventh_embeds, eighth_embeds])
-    features = np.mean(features, axis=1)
+    # first_embeds = model.first_embeds.weight.detach()
+    # second_embeds = model.second_embeds.weight.detach()
+    # third_embeds = model.third_embeds.weight.detach()
+    # fourth_embeds = model.fourth_embeds.weight.detach()
+    # fifth_embeds = model.fifth_embeds.weight.detach()
+    # sixth_embeds = model.sixth_embeds.weight.detach()
+    # seventh_embeds = model.seventh_embeds.weight.detach()
+    # eighth_embeds = model.eighth_embeds.weight.detach()
+    # features = np.stack([first_embeds, second_embeds, third_embeds, fourth_embeds,
+    #                      fifth_embeds, sixth_embeds, seventh_embeds, eighth_embeds])
+    # features = np.mean(features, axis=1).T
+    features = model.op_embeds.weight.detach().T
 
     # Formal model
     args.exper = 7
@@ -94,12 +94,10 @@ def RunOnce(args, runId, Runtime, log):
                 f"Round={runId + 1} Epoch={epoch + 1:02d} Loss={epoch_loss:.4f} vMAE={valid_error['MAE']:.4f} vRMSE={valid_error['RMSE']:.4f} vNMAE={valid_error['NMAE']:.4f} vNRMSE={valid_error['NRMSE']:.4f} time={sum(train_time):.1f} s")
         if monitor.early_stop:
             break
-
     model.load_state_dict(monitor.best_model)
     sum_time = sum(train_time[: monitor.best_epoch])
     results = model.test_one_epoch(datamodule) if args.valid else valid_error
     log(f'Round={runId + 1} BestEpoch={monitor.best_epoch:d} MAE={results["MAE"]:.4f} RMSE={results["RMSE"]:.4f} NMAE={results["NMAE"]:.4f} NRMSE={results["NRMSE"]:.4f} Training_time={sum_time:.1f} s\n')
-
     return {
         'MAE': results["MAE"],
         'RMSE': results["RMSE"],
@@ -154,7 +152,7 @@ def get_args():
 
     # Training tool
     parser.add_argument('--device', type=str, default='cpu')  # gpu cpu mps
-    parser.add_argument('--bs', type=int, default=64)  #
+    parser.add_argument('--bs', type=int, default=32)  #
     parser.add_argument('--lr', type=float, default=1e-3)
     parser.add_argument('--decay', type=float, default=1e-3)
     parser.add_argument('--epochs', type=int, default=150)
