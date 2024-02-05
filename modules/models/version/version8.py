@@ -21,7 +21,6 @@ class NAS_Model_Chatgpt_GNN_3(MetaModel):
         self.transfer = torch.nn.Linear(5, self.dim)
         self.op_embeds = torch.nn.Embedding(6, self.dim)
 
-
         input_dim = 12 * self.dim
         self.NeuCF = torch.nn.Sequential(
             torch.nn.Linear(input_dim, input_dim // 2),  # FFN
@@ -61,8 +60,10 @@ class NAS_Model_Chatgpt_GNN_3(MetaModel):
             device_name_embeds = self.transfer(device_info_llm)
         else:
             device_name_embeds = self.device_name_embeds(device_name_Idx)
+
         precision_embeds = self.precision_embeds(precisionIdx)
 
+        # DNN
         first_embeds = self.op_embeds(firstIdx)
         second_embeds = self.op_embeds(secondIdx)
         third_embeds = self.op_embeds(thirdIdx)
@@ -73,11 +74,18 @@ class NAS_Model_Chatgpt_GNN_3(MetaModel):
         eighth_embeds = self.op_embeds(eighthIdx)
 
         # Final interaction
-        final_input = torch.cat([
-            platform_embeds, device_embeds, device_name_embeds, precision_embeds,
-            first_embeds, second_embeds, third_embeds, fourth_embeds,
-            fifth_embeds, sixth_embeds, seventh_embeds, eighth_embeds
-        ], dim=-1)
+        if self.args.llm:
+            final_input = torch.cat([
+                platform_embeds, device_embeds, device_name_embeds, precision_embeds,
+                first_embeds, second_embeds, third_embeds, fourth_embeds,
+                fifth_embeds, sixth_embeds, seventh_embeds, eighth_embeds
+            ], dim=-1)
+        else:
+            final_input = torch.cat([
+                platform_embeds, device_embeds, precision_embeds,
+                first_embeds, second_embeds, third_embeds, fourth_embeds,
+                fifth_embeds, sixth_embeds, seventh_embeds, eighth_embeds
+            ], dim=-1)
         estimated = self.NeuCF(final_input).sigmoid().reshape(-1)
         return estimated
 
