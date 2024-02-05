@@ -18,7 +18,11 @@ class NAS_Model_Chatgpt_GNN_3(MetaModel):
         self.precision_embeds = torch.nn.Embedding(6, self.dim)
 
         # 第二个想法
-        self.transfer = torch.nn.Linear(5, self.dim)
+        if args.llm:
+            self.transfer = torch.nn.Linear(5, self.dim)
+        else:
+            self.transfer = torch.nn.Linear(1, self.dim)
+
         self.op_embeds = torch.nn.Embedding(6, self.dim)
 
         input_dim = 12 * self.dim
@@ -59,7 +63,9 @@ class NAS_Model_Chatgpt_GNN_3(MetaModel):
         if self.args.llm:
             device_name_embeds = self.transfer(device_info_llm)
         else:
-            device_name_embeds = self.device_name_embeds(device_name_Idx)
+            # print(device_name_Idx.shape)
+            device_name_embeds = self.transfer(device_name_Idx.reshape(-1, 1).float())
+            # device_name_embeds = self.device_name_embeds(device_name_Idx)
 
         precision_embeds = self.precision_embeds(precisionIdx)
 
@@ -74,18 +80,11 @@ class NAS_Model_Chatgpt_GNN_3(MetaModel):
         eighth_embeds = self.op_embeds(eighthIdx)
 
         # Final interaction
-        if self.args.llm:
-            final_input = torch.cat([
-                platform_embeds, device_embeds, device_name_embeds, precision_embeds,
-                first_embeds, second_embeds, third_embeds, fourth_embeds,
-                fifth_embeds, sixth_embeds, seventh_embeds, eighth_embeds
-            ], dim=-1)
-        else:
-            final_input = torch.cat([
-                platform_embeds, device_embeds, precision_embeds,
-                first_embeds, second_embeds, third_embeds, fourth_embeds,
-                fifth_embeds, sixth_embeds, seventh_embeds, eighth_embeds
-            ], dim=-1)
+        final_input = torch.cat([
+            platform_embeds, device_embeds, device_name_embeds, precision_embeds,
+            first_embeds, second_embeds, third_embeds, fourth_embeds,
+            fifth_embeds, sixth_embeds, seventh_embeds, eighth_embeds
+        ], dim=-1)
         estimated = self.NeuCF(final_input).sigmoid().reshape(-1)
         return estimated
 
