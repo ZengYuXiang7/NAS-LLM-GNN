@@ -19,14 +19,16 @@ def ErrorMetrics(realVec, estiVec):
     MAE = np.mean(absError)
     RMSE = np.linalg.norm(absError) / np.sqrt(np.array(absError.shape[0]))
     NMAE = np.sum(np.abs(realVec - estiVec)) / np.sum(realVec)
-    relativeError = absError / realVec
     NRMSE = np.sqrt(np.sum((realVec - estiVec) ** 2)) / np.sqrt(np.sum(realVec ** 2))
-    NPRE = np.array(np.percentile(relativeError, 90))  #
+
+    threshold = realVec * 0.05  # 定义阈值为真实值的5%
+    accurate_predictions = absError < threshold
+    accuracy = np.mean(accurate_predictions.astype(float))
 
     return {
         'MAE' : MAE,
         'RMSE' : RMSE,
         'NMAE': NMAE,
         'NRMSE': NRMSE,
-        'NPRE' : NPRE,
+        'Acc' : accuracy,
     }

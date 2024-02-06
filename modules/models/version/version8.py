@@ -63,9 +63,8 @@ class NAS_Model_Chatgpt_GNN_3(MetaModel):
         if self.args.llm:
             device_name_embeds = self.transfer(device_info_llm)
         else:
-            # print(device_name_Idx.shape)
-            device_name_embeds = self.transfer(device_name_Idx.reshape(-1, 1).float())
             # device_name_embeds = self.device_name_embeds(device_name_Idx)
+            device_name_embeds = self.transfer(device_name_Idx.reshape(-1, 1).float())
 
         precision_embeds = self.precision_embeds(precisionIdx)
 
@@ -92,7 +91,6 @@ class NAS_Model_Chatgpt_GNN_3(MetaModel):
         pass
 
     def get_inputs(self, inputs):
-
         platformIdx, deviceIdx, precisionIdx, \
             frequency, cores, threads, memory_size, memory_speed, \
             fifthIdx, sixthIdx, seventhIdx, eighthIdx, ninthIdx, tenthIdx, elemIdx = inputs
@@ -103,14 +101,7 @@ class NAS_Model_Chatgpt_GNN_3(MetaModel):
         # 添加输入输出节点
         op_idx = torch.cat([op_idx, insert_back]).transpose(0, 1)
         op_idx = op_idx.to(torch.long)
-        # 获得计算节点信息
-        # platformIdx = firstIdx
-        # deviceIdx = secondIdx
-        # device_name_Idx = thirdIdx
-        # precisionIdx = fourthIdx
-
         device_info_llm = torch.vstack([frequency, cores, threads, memory_size, memory_speed]).T
-
         # return platformIdx.long(), deviceIdx.long(), device_name_Idx.long(), precisionIdx.long(), op_idx.long()
         return platformIdx.long(), deviceIdx.long(), device_info_llm.float(), precisionIdx.long(), op_idx.long(),
 

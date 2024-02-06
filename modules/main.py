@@ -40,20 +40,22 @@ def RunOnce(args, runId, Runtime, log):
         monitor.track(epoch, model.state_dict(), valid_error['MAE'])
         train_time.append(time_cost)
         if args.verbose and epoch % args.verbose == 0:
-            log.only_print(f"Round={runId+1} Epoch={epoch+1:02d} Loss={epoch_loss:.4f} vMAE={valid_error['MAE']:.4f} vRMSE={valid_error['RMSE']:.4f} vNMAE={valid_error['NMAE']:.4f} vNRMSE={valid_error['NRMSE']:.4f} time={sum(train_time):.1f} s")
+            log.only_print(
+                f"Round={runId + 1} Epoch={epoch + 1:02d} Loss={epoch_loss:.4f} vMAE={valid_error['MAE']:.4f} vRMSE={valid_error['RMSE']:.4f} vNMAE={valid_error['NMAE']:.4f} vNRMSE={valid_error['NRMSE']:.4f}, vAcc={valid_error['Acc']:.4f} time={sum(train_time):.1f} s")
         if monitor.early_stop:
             break
 
     model.load_state_dict(monitor.best_model)
     sum_time = sum(train_time[: monitor.best_epoch])
     results = model.test_one_epoch(datamodule) if args.valid else valid_error
-    log(f'Round={runId+1} BestEpoch={monitor.best_epoch:d} MAE={results["MAE"]:.4f} RMSE={results["RMSE"]:.4f} NMAE={results["NMAE"]:.4f} NRMSE={results["NRMSE"]:.4f} Training_time={sum_time:.1f} s\n')
+    log(f'Round={runId + 1} BestEpoch={monitor.best_epoch:d} MAE={results["MAE"]:.4f} RMSE={results["RMSE"]:.4f} NMAE={results["NMAE"]:.4f} NRMSE={results["NRMSE"]:.4f} Acc={results["Acc"]:.4f} Training_time={sum_time:.1f} s\n')
 
     return {
         'MAE': results["MAE"],
         'RMSE': results["RMSE"],
         'NMAE': results["NMAE"],
         'NRMSE': results["NRMSE"],
+        'Acc': results["Acc"],
         'TIME': sum_time,
     }
 

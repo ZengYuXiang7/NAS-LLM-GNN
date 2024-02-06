@@ -11,8 +11,10 @@ def get_train_valid_test_dataset(tensor, args):
     # print(np.array(X).shape)
     # print(np.array(Y).shape)
     # args.valid = 1
-    trainsize = int(len(X) * args.density)
-    validsize = int(len(X) * 0.05) if args.valid else int((len(X) - trainsize) * 1.0)
+    # trainsize = int(len(X) * args.density)
+    # validsize = int(len(X) * 0.05) if args.valid else int((len(X) - trainsize) * 1.0)
+    trainsize = 900
+    validsize = 100
 
     Idx = np.arange(len(X))
     p = np.random.permutation(len(X))

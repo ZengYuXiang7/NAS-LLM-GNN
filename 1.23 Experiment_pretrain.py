@@ -23,6 +23,7 @@ global log
 def RunOnce(args, runId, Runtime, log):
     args.path = './datasets/' + 'cpu' + '/'
     args.dataset_type = 'cpu'
+    args.llm = 1
 
     # Set seed
     set_seed(args.seed + runId)

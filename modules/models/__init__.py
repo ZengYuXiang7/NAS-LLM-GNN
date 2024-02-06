@@ -6,6 +6,7 @@ from modules.models.version.version5 import NAS_Model_Chatgpt
 from modules.models.version.version6 import NAS_Model_Chatgpt_GNN
 from modules.models.version.version7 import NAS_Model_Chatgpt_GNN_2
 from modules.models.version.version8 import NAS_Model_Chatgpt_GNN_3
+from modules.models.version.version9 import GCN
 
 
 def get_model(args):
@@ -25,5 +26,7 @@ def get_model(args):
         return NAS_Model_Chatgpt_GNN_2(args)  # 大语言模型 + GNN
     elif args.model == '8':
         return NAS_Model_Chatgpt_GNN_3(args)  # 大语言模型 + GNN
+    elif args.model == '9':
+        return GCN(args)
     else:
         raise NotImplementedError

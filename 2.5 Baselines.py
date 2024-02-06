@@ -16,6 +16,7 @@ def run_in_py():
     # 6 大语言模型 + GNN
     # 7 大模型 + GNN修改 + 嵌入重构 + GNN强化
     # 8 修正版 节点拆解嵌入
+    # 9 baselines
     def Runonce(args):
         # args.experiment = 1
         set_settings(args)
@@ -25,27 +26,25 @@ def run_in_py():
         args.log = log
         RunExperiments(log, args)
 
-    for exper in [8]:
+    for exper in [9]:
         for device_type in ['cpu']:
             for dim in [128]:
                 for density in [0.1]:
-                    for llm in [0, 1]:
-                        if exper in [4, 5, 7, 8]:
-                            args.path = './datasets/' + device_type + '/'
-                        args.dataset_type = device_type
-                        args.rounds = 5
-                        args.exper = exper
-                        args.model = str(exper)
-                        args.density = density
-                        args.epochs = 300
-                        args.bs = 16
-                        args.dimension = dim
-                        # 慢设备运行
-                        args.verbose = 10
-                        args.program_test = 0
+                    if exper in [4, 5, 7, 8, 9]:
+                        args.path = './datasets/' + device_type + '/'
+                    args.dataset_type = device_type
+                    args.rounds = 5
+                    args.exper = exper
+                    args.model = str(exper)
+                    args.density = density
+                    args.epochs = 300
+                    args.bs = 32
+                    args.dimension = dim
+                    # 慢设备运行
+                    args.verbose = 10
+                    args.program_test = 0
 
-                        args.llm = llm
-                        Runonce(args)
+                    Runonce(args)
 
 
 if __name__ == '__main__':
