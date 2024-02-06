@@ -39,7 +39,6 @@ def run_in_py():
                         args.density = density
                         args.epochs = args.patience = 500
                         args.bs = 1
-                        args.debug = 1
                         args.dimension = dim
                         # 慢设备运行
                         args.verbose = 10

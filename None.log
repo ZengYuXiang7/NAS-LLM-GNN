@@ -699,3 +699,13 @@ INFO:8:|2024-02-06 15:38:42| Acc1: 0.0630 ± 0.009
 INFO:8:|2024-02-06 15:38:42| Acc5: 0.2969 ± 0.023
 INFO:8:|2024-02-06 15:38:42| Acc10: 0.5318 ± 0.024
 INFO:8:|2024-02-06 15:38:42| ********************Experiment Success********************
+INFO:CF:|2024-02-06 15:40:01| Namespace(ablation=0, bs=16, dataset='rt', debug=0, decay=0.001, density=0.1, device='cpu', dimension=32, epochs=500, experiment=0, log=<utils.logger.Logger object at 0x7fb01000c190>, loss_func='L1Loss', lr=0.001, lr_step=50, model='CF', optim='AdamW', path='./datasets/', patience=10, program_test=0, record=1, rounds=5, saved=1, seed=0, valid=1, verbose=10
+INFO:CF:|2024-02-06 15:40:01| ********************Experiment Start*******************
+INFO:CF:|2024-02-06 15:40:52| Namespace(ablation=0, bs=16, dataset='rt', debug=0, decay=0.001, density=0.1, device='cpu', dimension=32, epochs=500, experiment=0, log=<utils.logger.Logger object at 0x7faf3001c190>, loss_func='L1Loss', lr=0.001, lr_step=50, model='CF', optim='AdamW', path='./datasets/', patience=10, program_test=0, record=1, rounds=5, saved=1, seed=0, valid=1, verbose=10
+INFO:CF:|2024-02-06 15:40:52| ********************Experiment Start*******************
+INFO:CF:|2024-02-06 15:40:58| Namespace(ablation=0, bs=16, dataset='rt', debug=0, decay=0.001, density=0.1, device='cpu', dimension=32, epochs=500, experiment=0, log=<utils.logger.Logger object at 0x7fa180084190>, loss_func='L1Loss', lr=0.001, lr_step=50, model='CF', optim='AdamW', path='./datasets/', patience=10, program_test=0, record=1, rounds=5, saved=1, seed=0, valid=1, verbose=10
+INFO:CF:|2024-02-06 15:40:58| ********************Experiment Start*******************
+INFO:CF:|2024-02-06 15:41:47| Namespace(ablation=0, bs=1, dataset='rt', debug=0, decay=0.001, density=0.1, device='cpu', dimension=32, epochs=500, experiment=0, log=<utils.logger.Logger object at 0x7f902801c190>, loss_func='L1Loss', lr=0.001, lr_step=50, model='CF', optim='AdamW', path='./datasets/', patience=10, program_test=0, record=1, rounds=5, saved=1, seed=0, valid=1, verbose=10
+INFO:CF:|2024-02-06 15:41:47| ********************Experiment Start*******************
+INFO:CF:|2024-02-06 15:43:25| Namespace(ablation=0, bs=1, dataset='rt', debug=0, decay=0.001, density=0.1, device='cpu', dimension=32, epochs=500, experiment=0, log=<utils.logger.Logger object at 0x7ff63800c190>, loss_func='L1Loss', lr=0.001, lr_step=50, model='CF', optim='AdamW', path='./datasets/', patience=10, program_test=0, record=1, rounds=5, saved=1, seed=0, valid=1, verbose=10
+INFO:CF:|2024-02-06 15:43:25| ********************Experiment Start*******************
