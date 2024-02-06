@@ -1,0 +1,32 @@
+INFO:6:|2024-01-04 21:42:04| Namespace(ablation=0, bs=32, dataset='1', debug=0, decay=0.001, density=0.1, device='cpu', dimension=128, epochs=1, exper=6, experiment=1, loss_func='L1Loss', lr=0.001, lr_step=100, model='6', optim='AdamW', path='./datasets/cpu/', patience=20, program_test=1, record=1, rounds=5, saved=1, seed=0, valid=1, verbose=1, windows=5
+INFO:6:|2024-01-04 21:42:04| cpu_Density_0.1
+INFO:6:|2024-01-04 21:42:04| ********************Experiment Start*******************
+INFO:6:|2024-01-04 21:42:32| Round=1 BestEpoch=1 MAE=0.0023 RMSE=0.0040 NMAE=0.1451 NRMSE=0.2046 Training_time=4.5 s
+INFO:6:|2024-01-04 21:43:04| Round=2 BestEpoch=1 MAE=0.0023 RMSE=0.0042 NMAE=0.1463 NRMSE=0.2139 Training_time=4.2 s
+INFO:6:|2024-01-04 21:43:47| Round=3 BestEpoch=1 MAE=0.0032 RMSE=0.0052 NMAE=0.2033 NRMSE=0.2618 Training_time=4.3 s
+INFO:6:|2024-01-04 21:44:29| Round=4 BestEpoch=1 MAE=0.0026 RMSE=0.0046 NMAE=0.1636 NRMSE=0.2319 Training_time=4.5 s
+INFO:6:|2024-01-04 21:45:11| Round=5 BestEpoch=1 MAE=0.0035 RMSE=0.0053 NMAE=0.2240 NRMSE=0.2671 Training_time=4.2 s
+INFO:6:|2024-01-04 21:45:11| ********************Experiment Results:*******************
+INFO:6:|2024-01-04 21:45:11| NMAE: 0.1765 ± 0.031
+INFO:6:|2024-01-04 21:45:11| NRMSE: 0.2359 ± 0.025
+INFO:6:|2024-01-04 21:45:11| TIME: 4.3502 ± 0.111
+INFO:6:|2024-01-04 21:45:11| ********************Experiment Success********************
+INFO:6:|2024-01-04 21:45:11| Namespace(ablation=0, bs=32, dataset='1', debug=0, decay=0.001, density=0.2, device='cpu', dimension=128, epochs=1, exper=6, experiment=1, log=<utils.logger.Logger object at 0x7fdd202b9fa0>, loss_func='L1Loss', lr=0.001, lr_step=100, model='6', optim='AdamW', path='./datasets/cpu/', patience=20, program_test=1, record=1, rounds=5, saved=1, seed=0, valid=1, verbose=1, windows=5
+INFO:6:|2024-01-04 21:45:11| cpu_Density_0.2
+INFO:6:|2024-01-04 21:45:11| ********************Experiment Start*******************
+INFO:6:|2024-01-04 21:45:44| Round=1 BestEpoch=1 MAE=0.0024 RMSE=0.0040 NMAE=0.1553 NRMSE=0.2025 Training_time=8.6 s
+INFO:6:|2024-01-04 21:46:17| Round=2 BestEpoch=1 MAE=0.0023 RMSE=0.0041 NMAE=0.1462 NRMSE=0.2062 Training_time=8.4 s
+INFO:6:|2024-01-04 21:46:49| Round=3 BestEpoch=1 MAE=0.0022 RMSE=0.0039 NMAE=0.1397 NRMSE=0.1988 Training_time=8.3 s
+INFO:6:|2024-01-04 21:47:23| Round=4 BestEpoch=1 MAE=0.0019 RMSE=0.0038 NMAE=0.1232 NRMSE=0.1899 Training_time=8.6 s
+INFO:6:|2024-01-04 21:48:02| Round=5 BestEpoch=1 MAE=0.0021 RMSE=0.0037 NMAE=0.1357 NRMSE=0.1863 Training_time=8.5 s
+INFO:6:|2024-01-04 21:48:03| ********************Experiment Results:*******************
+INFO:6:|2024-01-04 21:48:03| NMAE: 0.1400 ± 0.010
+INFO:6:|2024-01-04 21:48:03| NRMSE: 0.1967 ± 0.007
+INFO:6:|2024-01-04 21:48:03| TIME: 8.4802 ± 0.127
+INFO:6:|2024-01-04 21:48:03| ********************Experiment Success********************
+INFO:6:|2024-01-04 21:48:03| Namespace(ablation=0, bs=32, dataset='1', debug=0, decay=0.001, density=0.3, device='cpu', dimension=128, epochs=1, exper=6, experiment=1, log=<utils.logger.Logger object at 0x7fdd349ad160>, loss_func='L1Loss', lr=0.001, lr_step=100, model='6', optim='AdamW', path='./datasets/cpu/', patience=20, program_test=1, record=1, rounds=5, saved=1, seed=0, valid=1, verbose=1, windows=5
+INFO:6:|2024-01-04 21:48:03| cpu_Density_0.3
+INFO:6:|2024-01-04 21:48:03| ********************Experiment Start*******************
+INFO:6:|2024-01-04 21:48:35| Round=1 BestEpoch=1 MAE=0.0026 RMSE=0.0041 NMAE=0.1667 NRMSE=0.2093 Training_time=12.6 s
+INFO:6:|2024-01-04 21:49:12| Round=2 BestEpoch=1 MAE=0.0025 RMSE=0.0044 NMAE=0.1561 NRMSE=0.2211 Training_time=12.5 s
+INFO:6:|2024-01-04 21:49:47| Round=3 BestEpoch=1 MAE=0.0026 RMSE=0.0041 NMAE=0.1665 NRMSE=0.2084 Training_time=12.7 s
