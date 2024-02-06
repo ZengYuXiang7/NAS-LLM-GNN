@@ -601,8 +601,7 @@ def get_args():
     parser.add_argument('--lr', type=float, default=4e-4)
     parser.add_argument('--epochs', type=int, default=500)
     parser.add_argument('--decay', type=float, default=5e-4)
-    parser.add_argument('--lr_step', type=int, default=50)
-    parser.add_argument('--patience', type=int, default=500)
+    parser.add_argument('--patience', type=int, default=50)
     parser.add_argument('--saved', type=int, default=1)
 
     parser.add_argument('--loss_func', type=str, default='L1Loss')

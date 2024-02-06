@@ -37,12 +37,12 @@ def run_in_py():
                         args.exper = exper
                         args.model = str(exper)
                         args.density = density
-                        args.epochs = 500
-                        args.patience = 100
-                        args.bs = 16
+                        args.epochs = 300
+                        args.patience = 50
+                        args.bs = 1
                         args.dimension = dim
                         # 慢设备运行
-                        args.verbose = 10
+                        args.verbose = 1
                         args.program_test = 0
                         args.llm = llm
                         Runonce(args)

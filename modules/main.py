@@ -2,9 +2,9 @@
 # Author : yuxiang Zeng
 import os
 import time
+import torch
 import numpy as np
 import collections
-
 from modules.datasets import get_exper
 from modules.models import get_model
 from utils.datamodule import DataModule
@@ -13,8 +13,8 @@ from utils.monitor import EarlyStopping
 from utils.utils import set_seed, set_settings
 
 os.environ['KMP_DUPLICATE_LIB_OK'] = 'True'
-
 global log
+torch.set_default_dtype(torch.double)
 
 
 # Run Experiments
@@ -35,6 +35,7 @@ def RunOnce(args, runId, Runtime, log):
     train_time = []
     valid_error = None
     for epoch in range(args.epochs):
+        model.set_epochs(epoch)
         epoch_loss, time_cost = model.train_one_epoch(datamodule)
         valid_error = model.valid_one_epoch(datamodule)
         monitor.track(epoch, model.state_dict(), valid_error['MAE'])
@@ -49,8 +50,10 @@ def RunOnce(args, runId, Runtime, log):
     model.load_state_dict(monitor.best_model)
     sum_time = sum(train_time[: monitor.best_epoch])
     results = model.test_one_epoch(datamodule) if args.valid else valid_error
-    log(f'Round={runId + 1} BestEpoch={monitor.best_epoch:d} MAE={results["MAE"]:.4f} RMSE={results["RMSE"]:.4f} NMAE={results["NMAE"]:.4f} NRMSE={results["NRMSE"]:.4f} Training_time={sum_time:.1f} s\n')
-    log.only_print(f"Acc = [1%={results['Acc'][0]:.4f}, 5%={results['Acc'][1]:.4f}, 10%={results['Acc'][2]:.4f}]")
+    log.only_print(f'Round={runId + 1} BestEpoch={monitor.best_epoch:d} vMAE={valid_error["MAE"]:.4f} vRMSE={valid_error["RMSE"]:.4f} vNMAE={valid_error["NMAE"]:.4f} vNRMSE={valid_error["NRMSE"]:.4f} Training_time={sum_time:.1f} s\n')
+    log.only_print(f"Acc = [1%={valid_error['Acc'][0]:.4f}, 5%={valid_error['Acc'][1]:.4f}, 10%={valid_error['Acc'][2]:.4f}]")
+    log(f'Round={runId + 1} BestEpoch={monitor.best_epoch:d} tMAE={results["MAE"]:.4f} tRMSE={results["RMSE"]:.4f} tNMAE={results["NMAE"]:.4f} tNRMSE={results["NRMSE"]:.4f} Training_time={sum_time:.1f} s\n')
+    log(f"Acc = [1%={results['Acc'][0]:.4f}, 5%={results['Acc'][1]:.4f}, 10%={results['Acc'][2]:.4f}]")
 
     return {
         'MAE': results["MAE"],
@@ -110,8 +113,8 @@ def get_args():
     # Training tool
     parser.add_argument('--device', type=str, default='cpu')  # gpu cpu mps
     parser.add_argument('--bs', type=int, default=64)  #
-    parser.add_argument('--lr', type=float, default=1e-3)
-    parser.add_argument('--decay', type=float, default=1e-3)
+    parser.add_argument('--lr', type=float, default=4e-4)
+    parser.add_argument('--decay', type=float, default=5e-4)
     parser.add_argument('--epochs', type=int, default=150)
     parser.add_argument('--lr_step', type=int, default=100)
     parser.add_argument('--patience', type=int, default=20)

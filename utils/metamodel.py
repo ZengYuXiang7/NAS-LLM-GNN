@@ -26,6 +26,9 @@ class MetaModel(torch.nn.Module, ABC):
     def prepare_test_model(self):
         pass
 
+    def set_epochs(self, epochs):
+        self.epochs = epochs
+
     def setup_optimizer(self, args):
         if args.device != 'cpu':
             self.to(self.args.device)
@@ -33,7 +36,7 @@ class MetaModel(torch.nn.Module, ABC):
         else:
             self.loss_function = get_loss_function(args)
         self.optimizer = get_optimizer(self.parameters(), lr=args.lr, decay=args.decay, args=args)
-        self.scheduler = torch.optim.lr_scheduler.StepLR(self.optimizer, step_size=args.lr_step, gamma=0.50)
+        self.scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(self.optimizer, mode='min', factor=0.5, patience=10, threshold=0.01)
 
 
     def train_one_epoch(self, dataModule):
@@ -57,12 +60,12 @@ class MetaModel(torch.nn.Module, ABC):
         t2 = time.time()
         self.eval()
         torch.set_grad_enabled(False)
-        lr_scheduler_step(self.scheduler)
 
         return loss, t2 - t1
 
     def valid_one_epoch(self, dataModule):
         writeIdx = 0
+        val_loss = 0.
         preds = torch.zeros((len(dataModule.valid_loader.dataset),)).to('cuda') if self.args.device != 'cpu' else torch.zeros((len(dataModule.valid_loader.dataset),))
         reals = torch.zeros((len(dataModule.valid_loader.dataset),)).to('cuda') if self.args.device != 'cpu' else torch.zeros((len(dataModule.valid_loader.dataset),))
         self.prepare_test_model()
@@ -78,7 +81,8 @@ class MetaModel(torch.nn.Module, ABC):
             preds[writeIdx:writeIdx + len(pred)] = pred
             reals[writeIdx:writeIdx + len(value)] = value
             writeIdx += len(pred)
-        # print(torch.max(reals), torch.max(preds))
+            val_loss += self.loss_function(pred.to(torch.double), value.to(torch.double)).item()
+        self.scheduler.step(val_loss)
         valid_error = ErrorMetrics(reals * dataModule.max_value, preds * dataModule.max_value)
         return valid_error
 

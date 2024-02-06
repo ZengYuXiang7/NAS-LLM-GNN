@@ -61,7 +61,7 @@ class NAS_Model_Chatgpt_GNN_3(MetaModel):
         device_embeds = self.device_embeds(deviceIdx)
 
         if self.args.llm:
-            device_name_embeds = self.transfer(device_info_llm)
+            device_name_embeds = self.transfer(device_info_llm.double())
         else:
             # device_name_embeds = self.device_name_embeds(device_name_Idx)
             device_name_embeds = self.transfer(device_name_Idx.reshape(-1, 1).float())
@@ -102,7 +102,6 @@ class NAS_Model_Chatgpt_GNN_3(MetaModel):
         op_idx = torch.cat([op_idx, insert_back]).transpose(0, 1)
         op_idx = op_idx.to(torch.long)
         device_info_llm = torch.vstack([frequency, cores, threads, memory_size, memory_speed]).T
-        # return platformIdx.long(), deviceIdx.long(), device_name_Idx.long(), precisionIdx.long(), op_idx.long()
         return platformIdx.long(), deviceIdx.long(), device_info_llm.float(), precisionIdx.long(), op_idx.long(),
 
 

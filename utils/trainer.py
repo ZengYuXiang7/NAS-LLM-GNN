@@ -6,7 +6,7 @@ import torch.optim
 def get_loss_function(args):
     loss_function = None
     if args.loss_func == 'L1Loss':
-        loss_function = t.nn.L1Loss()
+        loss_function = t.nn.L1Loss(reduction='sum')
     elif args.loss_func == 'MSELoss':
         loss_function = t.nn.MSELoss()
     elif args.loss_func == 'SmoothL1Loss':
