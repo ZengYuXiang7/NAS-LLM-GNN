@@ -29,7 +29,7 @@ def run_in_py():
         for device_type in ['cpu']:
             for dim in [128]:
                 for density in [0.1]:
-                    for llm in [0, 1]:
+                    for llm in [1]:
                         if exper in [4, 5, 7, 8]:
                             args.path = './datasets/' + device_type + '/'
                         args.dataset_type = device_type
