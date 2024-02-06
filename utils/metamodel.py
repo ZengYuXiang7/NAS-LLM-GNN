@@ -53,7 +53,7 @@ class MetaModel(torch.nn.Module, ABC):
             if self.args.device != 'cpu':
                 inputs, value = to_cuda(inputs, value)
             pred = self.forward(inputs, True)
-            loss = self.loss_function(pred.to(torch.float32), value.to(torch.float32))
+            loss = self.loss_function(pred, value)
             optimizer_zero_grad(self.optimizer)
             loss.backward()
             optimizer_step(self.optimizer)
@@ -81,7 +81,7 @@ class MetaModel(torch.nn.Module, ABC):
             preds[writeIdx:writeIdx + len(pred)] = pred
             reals[writeIdx:writeIdx + len(value)] = value
             writeIdx += len(pred)
-            val_loss += self.loss_function(pred.to(torch.double), value.to(torch.double)).item()
+            val_loss += self.loss_function(pred, value).item()
         self.scheduler.step(val_loss)
         valid_error = ErrorMetrics(reals * dataModule.max_value, preds * dataModule.max_value)
         return valid_error

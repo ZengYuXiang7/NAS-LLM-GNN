@@ -102,7 +102,7 @@ class NAS_Model_Chatgpt_GNN_2(MetaModel):
 
         # Device more info
         device_info = torch.stack([frequency, cores, threads, memory_size, memory_speed], dim=-1)
-        device_features = self.info_embeds(device_info)
+        device_features = self.info_embeds(device_info.double())
 
         # DNN network
         # op_embeds = self.op_embeds(op_idx)

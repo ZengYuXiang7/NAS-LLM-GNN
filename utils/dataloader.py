@@ -51,8 +51,8 @@ def custom_collate_fn(batch):
         return default_collate(batch)
     else:
         op_idxs, graphs, values = zip(*batch)
-        # graphs = dgl.batch(graphs)
-        graphs = list(graphs)
-        op_idxs = list(op_idxs)
+        graphs = dgl.batch(graphs)
+        # graphs = list(graphs)
+        op_idxs = default_collate(op_idxs)
         values = default_collate(values)
         return op_idxs, graphs, values

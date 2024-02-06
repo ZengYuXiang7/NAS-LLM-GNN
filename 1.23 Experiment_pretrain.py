@@ -17,7 +17,7 @@ from utils.utils import set_seed, set_settings
 os.environ['KMP_DUPLICATE_LIB_OK'] = 'True'
 
 global log
-
+torch.set_default_dtype(torch.double)
 
 # Run Experiments
 def RunOnce(args, runId, Runtime, log):
@@ -41,6 +41,7 @@ def RunOnce(args, runId, Runtime, log):
     train_time = []
     valid_error = None
     for epoch in range(args.epochs):
+        model.set_epochs(epoch)
         epoch_loss, time_cost = model.train_one_epoch(datamodule)
         valid_error = model.valid_one_epoch(datamodule)
         monitor.track(epoch, model.state_dict(), valid_error['MAE'])
@@ -48,26 +49,16 @@ def RunOnce(args, runId, Runtime, log):
         if args.verbose and epoch % args.verbose == 0:
             log.only_print(
                 f"Round={runId + 1} Epoch={epoch + 1:02d} Loss={epoch_loss:.4f} vMAE={valid_error['MAE']:.4f} vRMSE={valid_error['RMSE']:.4f} vNMAE={valid_error['NMAE']:.4f} vNRMSE={valid_error['NRMSE']:.4f} time={sum(train_time):.1f} s")
+            log.only_print(
+                f"Acc = [1%={valid_error['Acc'][0]:.4f}, 5%={valid_error['Acc'][1]:.4f}, 10%={valid_error['Acc'][2]:.4f}]")
         if monitor.early_stop:
             break
-
     model.load_state_dict(monitor.best_model)
     sum_time = sum(train_time[: monitor.best_epoch])
     results = model.test_one_epoch(datamodule) if args.valid else valid_error
-    log(f'Round={runId + 1} BestEpoch={monitor.best_epoch:d} MAE={results["MAE"]:.4f} RMSE={results["RMSE"]:.4f} NMAE={results["NMAE"]:.4f} NRMSE={results["NRMSE"]:.4f} Training_time={sum_time:.1f} s\n')
+    log(f'Round={runId + 1} BestEpoch={monitor.best_epoch:d} MAE={results["MAE"]:.4f} RMSE={results["RMSE"]:.4f} NMAE={results["NMAE"]:.4f} NRMSE={results["NRMSE"]:.4f} Training_time={sum_time:.1f} s')
+    log.only_print(f"Acc = [1%={results['Acc'][0]:.4f}, 5%={results['Acc'][1]:.4f}, 10%={results['Acc'][2]:.4f}]")
 
-    # Get pretrained embeddings
-    # first_embeds = model.first_embeds.weight.detach()
-    # second_embeds = model.second_embeds.weight.detach()
-    # third_embeds = model.third_embeds.weight.detach()
-    # fourth_embeds = model.fourth_embeds.weight.detach()
-    # fifth_embeds = model.fifth_embeds.weight.detach()
-    # sixth_embeds = model.sixth_embeds.weight.detach()
-    # seventh_embeds = model.seventh_embeds.weight.detach()
-    # eighth_embeds = model.eighth_embeds.weight.detach()
-    # features = np.stack([first_embeds, second_embeds, third_embeds, fourth_embeds,
-    #                      fifth_embeds, sixth_embeds, seventh_embeds, eighth_embeds])
-    # features = np.mean(features, axis=1).T
     features = model.op_embeds.weight.detach().T
 
     # Formal model
@@ -93,19 +84,22 @@ def RunOnce(args, runId, Runtime, log):
         if args.verbose and epoch % args.verbose == 0:
             log.only_print(
                 f"Round={runId + 1} Epoch={epoch + 1:02d} Loss={epoch_loss:.4f} vMAE={valid_error['MAE']:.4f} vRMSE={valid_error['RMSE']:.4f} vNMAE={valid_error['NMAE']:.4f} vNRMSE={valid_error['NRMSE']:.4f} time={sum(train_time):.1f} s")
+            log.only_print(
+                f"Acc = [1%={valid_error['Acc'][0]:.4f}, 5%={valid_error['Acc'][1]:.4f}, 10%={valid_error['Acc'][2]:.4f}]")
         if monitor.early_stop:
             break
     model.load_state_dict(monitor.best_model)
     sum_time = sum(train_time[: monitor.best_epoch])
     results = model.test_one_epoch(datamodule) if args.valid else valid_error
-    log(f'Round={runId + 1} BestEpoch={monitor.best_epoch:d} MAE={results["MAE"]:.4f} RMSE={results["RMSE"]:.4f} NMAE={results["NMAE"]:.4f} NRMSE={results["NRMSE"]:.4f} Training_time={sum_time:.1f} s\n')
+    log(f'Round={runId + 1} BestEpoch={monitor.best_epoch:d} MAE={results["MAE"]:.4f} RMSE={results["RMSE"]:.4f} NMAE={results["NMAE"]:.4f} NRMSE={results["NRMSE"]:.4f} Training_time={sum_time:.1f} s')
+    log.only_print(f"Acc = [1%={results['Acc'][0]:.4f}, 5%={results['Acc'][1]:.4f}, 10%={results['Acc'][2]:.4f}]")
     return {
         'MAE': results["MAE"],
         'RMSE': results["RMSE"],
         'NMAE': results["NMAE"],
         'NRMSE': results["NRMSE"],
         'TIME': sum_time,
-    }
+    }, results['Acc']
 
 
 def RunExperiments(log, args):
@@ -114,9 +108,12 @@ def RunExperiments(log, args):
 
     for runId in range(args.rounds):
         runHash = int(time.time())
-        results = RunOnce(args, runId, runHash, log)
+        results, acc = RunOnce(args, runId, runHash, log)
         for key in results:
             metrics[key].append(results[key])
+
+        for key, item in zip(['Acc1', 'Acc5', 'Acc10'], [0, 1, 2]):
+            metrics[key].append(acc[item])
 
     log('*' * 20 + 'Experiment Results:' + '*' * 20)
 
@@ -129,7 +126,6 @@ def RunExperiments(log, args):
     log('*' * 20 + 'Experiment Success' + '*' * 20 + '\n')
 
     return metrics
-
 
 def get_args():
     import argparse
@@ -153,12 +149,12 @@ def get_args():
 
     # Training tool
     parser.add_argument('--device', type=str, default='cpu')  # gpu cpu mps
-    parser.add_argument('--bs', type=int, default=32)  #
-    parser.add_argument('--lr', type=float, default=1e-3)
-    parser.add_argument('--decay', type=float, default=1e-3)
-    parser.add_argument('--epochs', type=int, default=150)
+    parser.add_argument('--bs', type=int, default=1)  #
+    parser.add_argument('--lr', type=float, default=4e-4)
+    parser.add_argument('--decay', type=float, default=5e-4)
+    parser.add_argument('--epochs', type=int, default=300)
     parser.add_argument('--lr_step', type=int, default=100)
-    parser.add_argument('--patience', type=int, default=20)
+    parser.add_argument('--patience', type=int, default=100)
     parser.add_argument('--saved', type=int, default=1)
 
     parser.add_argument('--loss_func', type=str, default='L1Loss')

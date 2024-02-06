@@ -10,6 +10,7 @@ import argparse
 import copy
 
 from sklearn.model_selection import train_test_split
+from torch.utils.data import DataLoader
 from tqdm import *
 import torch
 from utils.dataloader import get_dataloaders
@@ -213,7 +214,6 @@ class experiment:
         for idx, op in enumerate(labels):
             if op != None and op != 'input' and op != 'output':
                 features[idx + 1][int(op) - 2] = 1
-
         return matrix, features
 
 
@@ -243,7 +243,7 @@ class DataModule:
         self.train_tensor, self.valid_tensor, self.test_tensor, self.max_value = get_train_valid_test_dataset(self.data, args)
         self.train_set, self.valid_set, self.test_set = self.get_dataset(self.train_tensor, self.valid_tensor, self.test_tensor, exper_type, args)
         self.train_loader, self.valid_loader, self.test_loader = get_dataloaders(self.train_set, self.valid_set, self.test_set, args)
-        args.log.only_print(f'Train_length : {len(self.train_loader) * args.bs} Valid_length : {len(self.valid_loader) * args.bs * 16} Test_length : {len(self.test_loader) * args.bs * 16}')
+        args.log.only_print(f'Train_length : {len(self.train_loader.dataset) * args.bs} Valid_length : {len(self.valid_loader.dataset)} Test_length : {len(self.test_loader.dataset)}')
 
     def get_dataset(self, train_tensor, valid_tensor, test_tensor, exper_type, args):
         return (
@@ -310,6 +310,25 @@ class GraphConvolution(torch.torch.nn.Module):
                + str(self.in_features) + ' -> ' \
                + str(self.out_features) + ')'
 
+    def init_tensor(self, tensor, init_type, nonlinearity):
+        if tensor is None or init_type is None:
+            return
+        if init_type == 'thomas':
+            size = tensor.size(-1)
+            stdv = 1. / math.sqrt(size)
+            torch.nn.init.uniform_(tensor, -stdv, stdv)
+        elif init_type == 'kaiming_normal_in':
+            torch.nn.init.kaiming_normal_(tensor, mode='fan_in', nonlinearity=nonlinearity)
+        elif init_type == 'kaiming_normal_out':
+            torch.nn.init.kaiming_normal_(tensor, mode='fan_out', nonlinearity=nonlinearity)
+        elif init_type == 'kaiming_uniform_in':
+            torch.nn.init.kaiming_uniform_(tensor, mode='fan_in', nonlinearity=nonlinearity)
+        elif init_type == 'kaiming_uniform_out':
+            torch.nn.init.kaiming_uniform_(tensor, mode='fan_out', nonlinearity=nonlinearity)
+        elif init_type == 'orthogonal':
+            torch.nn.init.orthogonal_(tensor, gain=torch.nn.init.calculate_gain(nonlinearity))
+        else:
+            raise ValueError(f'Unknown initialization type: {init_type}')
 
 
 class Model(torch.torch.nn.Module):
@@ -488,26 +507,52 @@ class Model(torch.torch.nn.Module):
         test_error = ErrorMetrics(reals * dataModule.max_value, preds * dataModule.max_value)
         return test_error
 
-def init_tensor(tensor, init_type, nonlinearity):
-    if tensor is None or init_type is None:
-        return
 
-    if init_type =='thomas':
-        size = tensor.size(-1)
-        stdv = 1. / math.sqrt(size)
-        torch.nn.init.uniform_(tensor, -stdv, stdv)
-    elif init_type == 'kaiming_normal_in':
-        torch.nn.init.kaiming_normal_(tensor, mode='fan_in', nonlinearity=nonlinearity)
-    elif init_type == 'kaiming_normal_out':
-        torch.nn.init.kaiming_normal_(tensor, mode='fan_out', nonlinearity=nonlinearity)
-    elif init_type == 'kaiming_uniform_in':
-        torch.nn.init.kaiming_uniform_(tensor, mode='fan_in', nonlinearity=nonlinearity)
-    elif init_type == 'kaiming_uniform_out':
-        torch.nn.init.kaiming_uniform_(tensor, mode='fan_out', nonlinearity=nonlinearity)
-    elif init_type == 'orthogonal':
-        torch.nn.init.orthogonal_(tensor, gain=torch.nn.init.calculate_gain(nonlinearity))
+def get_dataloaders(train_set, valid_set, test_set, args):
+    # max_workers = multiprocessing.cpu_count()
+    # max_workers = 1
+
+    train_loader = DataLoader(
+        train_set,
+        batch_size=args.bs,
+        drop_last=False,
+        shuffle=True,
+        pin_memory=True,
+        collate_fn=custom_collate_fn
+    )
+    valid_loader = DataLoader(
+        valid_set,
+        batch_size=args.bs * 16,
+        drop_last=False,
+        shuffle=False,
+        pin_memory=True,
+        collate_fn=custom_collate_fn
+    )
+    test_loader = DataLoader(
+        test_set,
+        batch_size=args.bs * 16,  # 8192
+        drop_last=False,
+        shuffle=False,
+        pin_memory=True,
+        collate_fn=custom_collate_fn
+    )
+
+    return train_loader, valid_loader, test_loader
+
+
+
+def custom_collate_fn(batch):
+    from torch.utils.data.dataloader import default_collate
+    import dgl
+    if len(batch[0]) == 2:  # 当 self.args.exper != 6
+        return default_collate(batch)
     else:
-        raise ValueError(f'Unknown initialization type: {init_type}')
+        op_idxs, graphs, values = zip(*batch)
+        # graphs = dgl.batch(graphs)
+        graphs = list(graphs)
+        op_idxs = list(op_idxs)
+        values = default_collate(values)
+        return op_idxs, graphs, values
 
 def RunOnce(args, runId, Runtime, log):
     # Set seed
@@ -599,7 +644,7 @@ def get_args():
     parser.add_argument('--device', type=str, default='cpu')  # gpu cpu mps
     parser.add_argument('--bs', type=int, default=1)  #
     parser.add_argument('--lr', type=float, default=4e-4)
-    parser.add_argument('--epochs', type=int, default=500)
+    parser.add_argument('--epochs', type=int, default=300)
     parser.add_argument('--decay', type=float, default=5e-4)
     parser.add_argument('--patience', type=int, default=50)
     parser.add_argument('--saved', type=int, default=1)
