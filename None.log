@@ -562,3 +562,9 @@ INFO:8:|2024-02-06 13:37:13| Namespace(ablation=0, bs=16, dataset='1', dataset_t
 INFO:8:|2024-02-06 13:37:13| cpu_Density_0.1
 INFO:8:|2024-02-06 13:37:13| ********************Experiment Start*******************
 INFO:8:|2024-02-06 13:38:31| Round=1 BestEpoch=104 MAE=0.0001 RMSE=0.0002 NMAE=0.0304 NRMSE=0.0446 Acc=0.7952 Training_time=58.3 s
+INFO:8:|2024-02-06 13:39:20| Round=2 BestEpoch=56 MAE=0.0002 RMSE=0.0002 NMAE=0.0368 NRMSE=0.0478 Acc=0.7308 Training_time=33.7 s
+INFO:8:|2024-02-06 13:39:54| Namespace(ablation=0, bs=16, dataset='1', dataset_type='cpu', debug=0, decay=0.001, density=0.1, device='cpu', dimension=128, epochs=500, exper=8, experiment=0, llm=1, loss_func='L1Loss', lr=0.001, lr_step=100, model='8', optim='AdamW', path='./datasets/cpu/', patience=50, program_test=0, record=0, rounds=5, saved=1, seed=0, valid=1, verbose=10, windows=5
+INFO:8:|2024-02-06 13:39:54| cpu_Density_0.1
+INFO:8:|2024-02-06 13:39:54| ********************Experiment Start*******************
+INFO:8:|2024-02-06 13:42:09| Round=1 BestEpoch=182 MAE=0.0001 RMSE=0.0002 NMAE=0.0290 NRMSE=0.0442 Acc=0.8330 Training_time=101.8 s
+INFO:8:|2024-02-06 13:43:44| Round=2 BestEpoch=111 MAE=0.0002 RMSE=0.0002 NMAE=0.0311 NRMSE=0.0451 Acc=0.7802 Training_time=62.8 s

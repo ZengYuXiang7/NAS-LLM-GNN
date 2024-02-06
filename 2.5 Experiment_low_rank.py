@@ -37,7 +37,8 @@ def run_in_py():
                         args.exper = exper
                         args.model = str(exper)
                         args.density = density
-                        args.epochs = 300
+                        args.epochs = 500
+                        args.patience = 100
                         args.bs = 16
                         args.dimension = dim
                         # 慢设备运行
