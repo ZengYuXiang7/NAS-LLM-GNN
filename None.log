@@ -670,3 +670,9 @@ INFO:8:|2024-02-06 15:14:49| Acc5: 0.2969 ± 0.023
 INFO:8:|2024-02-06 15:14:49| Acc10: 0.5318 ± 0.024
 INFO:8:|2024-02-06 15:14:49| ********************Experiment Success********************
 >>>>>>> 4e690ae (2.6)
+INFO:8:|2024-02-06 15:32:09| Namespace(ablation=0, bs=16, dataset='1', dataset_type='cpu', debug=0, decay=0.001, density=0.1, device='cpu', dimension=128, epochs=500, exper=8, experiment=0, llm=1, loss_func='L1Loss', lr=0.001, lr_step=100, model='8', optim='AdamW', path='./datasets/cpu/', patience=100, program_test=0, record=0, rounds=5, saved=1, seed=0, valid=1, verbose=10, windows=5
+INFO:8:|2024-02-06 15:32:09| cpu_Density_0.1
+INFO:8:|2024-02-06 15:32:09| ********************Experiment Start*******************
+INFO:8:|2024-02-06 15:32:25| Namespace(ablation=0, bs=16, dataset='1', dataset_type='cpu', debug=0, decay=0.001, density=0.1, device='cpu', dimension=128, epochs=500, exper=8, experiment=0, llm=1, loss_func='L1Loss', lr=0.001, lr_step=100, model='8', optim='AdamW', path='./datasets/cpu/', patience=100, program_test=0, record=0, rounds=5, saved=1, seed=0, valid=1, verbose=10, windows=5
+INFO:8:|2024-02-06 15:32:25| cpu_Density_0.1
+INFO:8:|2024-02-06 15:32:25| ********************Experiment Start*******************

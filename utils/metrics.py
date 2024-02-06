@@ -21,11 +21,6 @@ def ErrorMetrics(realVec, estiVec):
     NMAE = np.sum(np.abs(realVec - estiVec)) / np.sum(realVec)
     NRMSE = np.sqrt(np.sum((realVec - estiVec) ** 2)) / np.sqrt(np.sum(realVec ** 2))
 
-<<<<<<< HEAD
-    threshold = realVec * 0.05  # 定义阈值为真实值的5%
-    accurate_predictions = absError < threshold
-    accuracy = np.mean(accurate_predictions.astype(float))
-=======
     Acc = []
     thresholds = [0.01, 0.05, 0.10]
     for threshold in thresholds:
@@ -33,16 +28,11 @@ def ErrorMetrics(realVec, estiVec):
         accurate_predictions = absError < threshold
         accuracy = np.mean(accurate_predictions.astype(float))
         Acc.append(accuracy)
->>>>>>> 4e690ae (2.6)
 
     return {
         'MAE' : MAE,
         'RMSE' : RMSE,
         'NMAE': NMAE,
         'NRMSE': NRMSE,
-<<<<<<< HEAD
-        'Acc' : accuracy,
-=======
         'Acc' : Acc,
->>>>>>> 4e690ae (2.6)
     }

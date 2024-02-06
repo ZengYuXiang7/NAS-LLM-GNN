@@ -41,24 +41,16 @@ def RunOnce(args, runId, Runtime, log):
         train_time.append(time_cost)
         if args.verbose and epoch % args.verbose == 0:
             log.only_print(
-<<<<<<< HEAD
-                f"Round={runId + 1} Epoch={epoch + 1:02d} Loss={epoch_loss:.4f} vMAE={valid_error['MAE']:.4f} vRMSE={valid_error['RMSE']:.4f} vNMAE={valid_error['NMAE']:.4f} vNRMSE={valid_error['NRMSE']:.4f}, vAcc={valid_error['Acc']:.4f} time={sum(train_time):.1f} s")
-=======
                 f"Round={runId + 1} Epoch={epoch + 1:02d} Loss={epoch_loss:.4f} vMAE={valid_error['MAE']:.4f} vRMSE={valid_error['RMSE']:.4f} vNMAE={valid_error['NMAE']:.4f} vNRMSE={valid_error['NRMSE']:.4f} time={sum(train_time):.1f} s")
             log.only_print(f"Acc = [1%={valid_error['Acc'][0]:.4f}, 5%={valid_error['Acc'][1]:.4f}, 10%={valid_error['Acc'][2]:.4f}]")
->>>>>>> 4e690ae (2.6)
         if monitor.early_stop:
             break
 
     model.load_state_dict(monitor.best_model)
     sum_time = sum(train_time[: monitor.best_epoch])
     results = model.test_one_epoch(datamodule) if args.valid else valid_error
-<<<<<<< HEAD
-    log(f'Round={runId + 1} BestEpoch={monitor.best_epoch:d} MAE={results["MAE"]:.4f} RMSE={results["RMSE"]:.4f} NMAE={results["NMAE"]:.4f} NRMSE={results["NRMSE"]:.4f} Acc={results["Acc"]:.4f} Training_time={sum_time:.1f} s\n')
-=======
     log(f'Round={runId + 1} BestEpoch={monitor.best_epoch:d} MAE={results["MAE"]:.4f} RMSE={results["RMSE"]:.4f} NMAE={results["NMAE"]:.4f} NRMSE={results["NRMSE"]:.4f} Training_time={sum_time:.1f} s\n')
     log.only_print(f"Acc = [1%={results['Acc'][0]:.4f}, 5%={results['Acc'][1]:.4f}, 10%={results['Acc'][2]:.4f}]")
->>>>>>> 4e690ae (2.6)
 
     return {
         'MAE': results["MAE"],
