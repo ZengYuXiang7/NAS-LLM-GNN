@@ -1,6 +1,7 @@
 # coding : utf-8
 # Author : yuxiang Zeng
 import collections
+import math
 import time
 
 import pickle
@@ -19,7 +20,7 @@ from utils.trainer import get_loss_function, get_optimizer
 from utils.utils import optimizer_zero_grad, optimizer_step, lr_scheduler_step, set_settings, set_seed
 
 global log
-
+torch.set_default_dtype(torch.double)
 
 class experiment:
     def __init__(self, args):
@@ -56,8 +57,8 @@ class experiment:
                     now = []
                     # 添加设备号
                     matrix, features = self.get_graph(key)
-                    now.append(np.array(matrix))
-                    now.append(np.array(features))
+                    now.append(matrix)
+                    now.append(features)
                     y = data[i][0][key]
                     now.append(y)
                     tensor.append(now)
@@ -110,26 +111,19 @@ class experiment:
         ops = [_opindex_to_name[opindex] for opindex in arch_vector]
         return '|{}~0|+|{}~0|{}~1|+|{}~0|{}~1|{}~2|'.format(*ops)
 
-
     def get_matrix_and_ops(self, g, prune=True, keep_dims=True):
-        """
-        返回邻接矩阵和节点标签。
-        Args:
-            g : 来自 Nasbench102 搜索空间的一个点（图结构）（列表形式）
-            prune : 是否删除只连接到零操作的悬挂节点，默认为 True
-            keep_dims : 在剪枝后是否保持原始矩阵大小，默认为 False
-        """
-        # 初始化8x8的邻接矩阵，所有元素都设为0
+        ''' Return the adjacency matrix and label vector.
+
+            Args:
+                g : should be a point from Nasbench102 search space
+                prune : remove dangling nodes that only connected to zero ops
+                keep_dims : keep the original matrix size after pruning
+        '''
+
         matrix = [[0 for _ in range(8)] for _ in range(8)]
-
-        # 初始化节点标签列表，初始时所有节点标签都为 None
         labels = [None for _ in range(8)]
-
-        # 设置输入节点和输出节点的标签
         labels[0] = 'input'
         labels[-1] = 'output'
-
-        # 初始化部分邻接矩阵的连接关系
         matrix[0][1] = matrix[0][2] = matrix[0][4] = 1
         matrix[1][3] = matrix[1][5] = 1
         matrix[2][6] = 1
@@ -138,48 +132,31 @@ class experiment:
         matrix[5][7] = 1
         matrix[6][7] = 1
 
-        # 遍历输入的图结构
         for idx, op in enumerate(g):
-            # 如果操作是零
-            if op == 0:
-                # 删除与该节点连接的边
-                for other in range(8):  # 将这该序列点与全部节点断边
-                    # print(other, idx + 1)
+            if op == 0:  # zero
+                for other in range(8):
                     if matrix[other][idx + 1]:
                         matrix[other][idx + 1] = 0
                     if matrix[idx + 1][other]:
                         matrix[idx + 1][other] = 0
-            # 如果操作是跳跃连接
-            elif op == 1:
-                # 处理跳跃连接的情况
+            elif op == 1:  # skip-connection:
                 to_del = []
                 for other in range(8):
-                    # 若有谁连接到我，定点到这个谁
                     if matrix[other][idx + 1]:
                         for other2 in range(8):
-                            # 若我也连接到别人
                             if matrix[idx + 1][other2]:
-                                # 就把连接到我的直接连到我连接的下一位
                                 matrix[other][other2] = 1
-                                # 断掉别人连向我的边
                                 matrix[other][idx + 1] = 0
                                 to_del.append(other2)
-
-                # 删掉这些边
                 for d in to_del:
                     matrix[idx + 1][d] = 0
-            # 如果操作是其他数字
             else:
-                # 设置节点标签为操作的字符串表示
                 labels[idx + 1] = str(op)
 
-        # 如果选择剪枝操作
         if prune:
-            # 初始化前向和后向访问标记列表
             visited_fw = [False for _ in range(8)]
             visited_bw = copy.copy(visited_fw)
 
-            # 定义广度优先搜索函数
             def bfs(beg, vis, con_f):
                 q = [beg]
                 vis[beg] = True
@@ -190,44 +167,33 @@ class experiment:
                             q.append(other)
                             vis[other] = True
 
-            # 前向搜索
-            bfs(0, visited_fw, lambda src, dst: matrix[src][dst])
-            # 后向搜索
-            bfs(7, visited_bw, lambda src, dst: matrix[dst][src])
+            bfs(0, visited_fw, lambda src, dst: matrix[src][dst])  # forward
+            bfs(7, visited_bw, lambda src, dst: matrix[dst][src])  # backward
 
-            # 遍历节点，删除未访问到的节点
             for v in range(7, -1, -1):
                 if not visited_fw[v] or not visited_bw[v]:
                     labels[v] = None
-                    # 如果选择保持原始矩阵大小
                     if keep_dims:
                         matrix[v] = [0] * 8
                     else:
                         del matrix[v]
                     for other in range(len(matrix)):
-                        # 如果选择保持原始矩阵大小
                         if keep_dims:
                             matrix[other][v] = 0
                         else:
                             del matrix[other][v]
 
-            # 如果不保持原始矩阵大小
             if not keep_dims:
-                # 移除标签中的 None 元素
                 labels = list(filter(lambda l: l is not None, labels))
 
-            # 断言保证首尾节点被访问到
             assert visited_fw[-1] == visited_bw[0]
-            # 断言保证至少存在一个连接或者矩阵非空
             assert visited_fw[-1] == False or matrix
 
-            # 断言确保矩阵的维度正确
             verts = len(matrix)
             assert verts == len(labels)
             for row in matrix:
                 assert len(row) == verts
 
-        # 返回最终邻接矩阵和节点标签
         return matrix, labels
 
     def get_adjacency_and_features(self, matrix, labels):
@@ -247,16 +213,18 @@ class experiment:
         for idx, op in enumerate(labels):
             if op != None and op != 'input' and op != 'output':
                 features[idx + 1][int(op) - 2] = 1
+
         return matrix, features
 
 
 def get_train_valid_test_dataset(tensor, args):
     X = tensor[:, :-1]
     Y = tensor[:, -1].reshape(-1, 1)
-    max_value = Y.max()
+    # max_value = Y.max()
+    max_value = 1
     Y /= max_value
     train_size = 900 / len(X)  # 1000是训练集和验证集总和的样本数
-    valid_size = 100 / (len(X) - 900)  # 测试集占测试集和验证集总和的比例
+    valid_size = 113 / (len(X) - 900)  # 测试集占测试集和验证集总和的比例
     X_train, X_temp, Y_train, Y_temp = train_test_split(X, Y, train_size=train_size)
     X_valid, X_test, Y_valid, Y_test = train_test_split(X_temp, Y_temp, train_size=valid_size)
     train_tensor = np.hstack((X_train, Y_train))
@@ -294,7 +262,7 @@ class TensorDataset(torch.utils.data.Dataset):
 
     def __getitem__(self, idx):
         matrix, features = self.indices[idx, 0], self.indices[idx, 1]
-        matrix, features = torch.as_tensor(matrix), torch.as_tensor(features)
+        matrix, features = list(matrix), list(features)
         value = torch.as_tensor(self.indices[idx, -1])  # 最后一列作为真实值
         return matrix, features, value
 
@@ -313,9 +281,9 @@ class GraphConvolution(torch.torch.nn.Module):
         super(GraphConvolution, self).__init__()
         self.in_features = in_features
         self.out_features = out_features
-        self.weight = torch.torch.nn.Parameter(torch.FloatTensor(in_features, out_features))
+        self.weight = torch.torch.nn.Parameter(torch.DoubleTensor(in_features, out_features))
         if bias:
-            self.bias = torch.torch.nn.Parameter(torch.FloatTensor(out_features))
+            self.bias = torch.torch.nn.Parameter(torch.DoubleTensor(out_features))
         else:
             self.register_parameter('bias', None)
 
@@ -324,7 +292,9 @@ class GraphConvolution(torch.torch.nn.Module):
         self.reset_parameters()
 
     def reset_parameters(self):
-        torch.nn.init.xavier_uniform_(self.weight)
+        init_tensor(self.weight, self.weight_init, 'relu')
+        init_tensor(self.bias, self.bias_init, 'relu')
+
 
     def forward(self, adjacency, features):
         support = torch.matmul(features, self.weight)
@@ -335,6 +305,13 @@ class GraphConvolution(torch.torch.nn.Module):
             return output
 
 
+    def __repr__(self):
+        return self.__class__.__name__ + ' (' \
+               + str(self.in_features) + ' -> ' \
+               + str(self.out_features) + ')'
+
+
+
 class Model(torch.torch.nn.Module):
     def __init__(self, args):
         super(Model, self).__init__()
@@ -342,7 +319,7 @@ class Model(torch.torch.nn.Module):
         num_features = 6
         num_layers = 4
         num_hidden = 600
-        dropout_ratio = 0
+        dropout_ratio = 0.02
         weight_init = 'thomas'
         bias_init = 'thomas'
         binary_classifier = False
@@ -352,26 +329,26 @@ class Model(torch.torch.nn.Module):
         self.nlayer = num_layers
         self.nhid = num_hidden
         self.dropout_ratio = dropout_ratio
-
         self.gc = torch.nn.ModuleList([GraphConvolution(self.nfeat if i == 0 else self.nhid, self.nhid, bias=True, weight_init=weight_init, bias_init=bias_init) for i in range(self.nlayer)])
-        self.bn = torch.nn.ModuleList([torch.nn.LayerNorm(self.nhid).float() for i in range(self.nlayer)])
-        self.relu = torch.nn.ModuleList([torch.nn.ReLU().float() for i in range(self.nlayer)])
+        self.bn = torch.nn.ModuleList([torch.nn.LayerNorm(self.nhid).double() for i in range(self.nlayer)])
+        self.relu = torch.nn.ModuleList([torch.nn.ReLU().double() for i in range(self.nlayer)])
         if not binary_classifier:
-            self.fc = torch.nn.Linear(self.nhid + augments, 1).float()
+            self.fc = torch.nn.Linear(self.nhid + augments, 1).double()
         else:
             if binary_classifier == 'naive':
-                self.fc = torch.nn.Linear(self.nhid + augments, 1).float()
+                self.fc = torch.nn.Linear(self.nhid + augments, 1).double()
             elif binary_classifier == 'oneway' or binary_classifier == 'oneway-hard':
-                self.fc = torch.nn.Linear((self.nhid + augments) * 2, 1).float()
+                self.fc = torch.nn.Linear((self.nhid + augments) * 2, 1).double()
             else:
-                self.fc = torch.nn.Linear((self.nhid + augments) * 2, 2).float()
+                self.fc = torch.nn.Linear((self.nhid + augments) * 2, 2).double()
 
             if binary_classifier != 'oneway' and binary_classifier != 'oneway-hard':
                 self.final_act = torch.nn.LogSoftmax(dim=1)
             else:
                 self.final_act = torch.nn.Sigmoid()
-        self.dropout = torch.nn.ModuleList([torch.nn.Dropout(self.dropout_ratio).float() for i in range(self.nlayer)])
+        self.dropout = torch.nn.ModuleList([torch.nn.Dropout(self.dropout_ratio).double() for i in range(self.nlayer)])
         self.binary_classifier = binary_classifier
+
 
     def forward_single_model(self, adjacency, features):
         x = self.relu[0](self.bn[0](self.gc[0](adjacency, features)))
@@ -410,8 +387,15 @@ class Model(torch.torch.nn.Module):
         return x
 
     def forward(self, adjacency, features):
-        adjacency = adjacency.to(dtype=torch.float)
-        features = features.to(dtype=torch.float)
+
+        a = []
+        b = []
+        for i in range(len(adjacency)):
+            a.append(adjacency[i])
+            b.append(features[i])
+
+        adjacency = torch.DoubleTensor(a)
+        features = torch.DoubleTensor(b)
         augments = None
         if not self.binary_classifier:
             x = self.forward_single_model(adjacency, features)
@@ -452,7 +436,10 @@ class Model(torch.torch.nn.Module):
         self.to(args.device)
         self.loss_function = get_loss_function(args).to(args.device)
         self.optimizer = get_optimizer(self.parameters(), lr=args.lr, decay=args.decay, args=args)
-        self.scheduler = torch.optim.lr_scheduler.StepLR(self.optimizer, step_size=args.lr_step, gamma=0.50)
+        self.scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(self.optimizer, mode='min', factor=0.5, patience=10, threshold=0.01)
+
+    def set_epochs(self, epochs):
+        self.epochs = epochs
 
     def train_one_epoch(self, dataModule):
         loss = None
@@ -462,18 +449,18 @@ class Model(torch.torch.nn.Module):
         for train_Batch in tqdm(dataModule.train_loader, disable=not self.args.program_test):
             adjmatrix, features, value = train_Batch
             pred = self.forward(adjmatrix, features)
-            loss = self.loss_function(pred.to(torch.float32), value.to(torch.float32))
+            loss = self.loss_function(pred, value)
             optimizer_zero_grad(self.optimizer)
             loss.backward()
             optimizer_step(self.optimizer)
         t2 = time.time()
         self.eval()
         torch.set_grad_enabled(False)
-        lr_scheduler_step(self.scheduler)
         return loss, t2 - t1
 
     def valid_one_epoch(self, dataModule):
         writeIdx = 0
+        val_loss = 0.
         preds = torch.zeros((len(dataModule.valid_loader.dataset),)).to(self.args.device)
         reals = torch.zeros((len(dataModule.valid_loader.dataset),)).to(self.args.device)
         for valid_Batch in tqdm(dataModule.valid_loader, disable=not self.args.program_test):
@@ -482,6 +469,9 @@ class Model(torch.torch.nn.Module):
             preds[writeIdx:writeIdx + len(pred)] = pred
             reals[writeIdx:writeIdx + len(value)] = value
             writeIdx += len(pred)
+            val_loss += self.loss_function(pred, value).item()
+        if self.epochs > 20:
+            self.scheduler.step(val_loss)
         valid_error = ErrorMetrics(reals * dataModule.max_value, preds * dataModule.max_value)
         return valid_error
 
@@ -498,6 +488,26 @@ class Model(torch.torch.nn.Module):
         test_error = ErrorMetrics(reals * dataModule.max_value, preds * dataModule.max_value)
         return test_error
 
+def init_tensor(tensor, init_type, nonlinearity):
+    if tensor is None or init_type is None:
+        return
+
+    if init_type =='thomas':
+        size = tensor.size(-1)
+        stdv = 1. / math.sqrt(size)
+        torch.nn.init.uniform_(tensor, -stdv, stdv)
+    elif init_type == 'kaiming_normal_in':
+        torch.nn.init.kaiming_normal_(tensor, mode='fan_in', nonlinearity=nonlinearity)
+    elif init_type == 'kaiming_normal_out':
+        torch.nn.init.kaiming_normal_(tensor, mode='fan_out', nonlinearity=nonlinearity)
+    elif init_type == 'kaiming_uniform_in':
+        torch.nn.init.kaiming_uniform_(tensor, mode='fan_in', nonlinearity=nonlinearity)
+    elif init_type == 'kaiming_uniform_out':
+        torch.nn.init.kaiming_uniform_(tensor, mode='fan_out', nonlinearity=nonlinearity)
+    elif init_type == 'orthogonal':
+        torch.nn.init.orthogonal_(tensor, gain=torch.nn.init.calculate_gain(nonlinearity))
+    else:
+        raise ValueError(f'Unknown initialization type: {init_type}')
 
 def RunOnce(args, runId, Runtime, log):
     # Set seed
@@ -514,6 +524,7 @@ def RunOnce(args, runId, Runtime, log):
     model.max_value = datamodule.max_value
     train_time = []
     for epoch in range(args.epochs):
+        model.set_epochs(epoch)
         epoch_loss, time_cost = model.train_one_epoch(datamodule)
         valid_error = model.valid_one_epoch(datamodule)
         monitor.track(epoch, model.state_dict(), valid_error['MAE'])
@@ -522,13 +533,12 @@ def RunOnce(args, runId, Runtime, log):
             log.only_print(
                 f"Round={runId + 1} Epoch={epoch + 1:02d} Loss={epoch_loss:.4f} vMAE={valid_error['MAE']:.4f} vRMSE={valid_error['RMSE']:.4f} vNMAE={valid_error['NMAE']:.4f} vNRMSE={valid_error['NRMSE']:.4f} time={sum(train_time):.1f} s")
             log.only_print(f"Acc = [1%={valid_error['Acc'][0]:.4f}, 5%={valid_error['Acc'][1]:.4f}, 10%={valid_error['Acc'][2]:.4f}]")
-
         if monitor.early_stop:
             break
     model.load_state_dict(monitor.best_model)
     sum_time = sum(train_time[: monitor.best_epoch])
     results = model.test_one_epoch(datamodule) if args.valid else valid_error
-    log(f'Round={runId + 1} BestEpoch={monitor.best_epoch:d} MAE={results["MAE"]:.4f} RMSE={results["RMSE"]:.4f} NMAE={results["NMAE"]:.4f} NRMSE={results["NRMSE"]:.4f} Training_time={sum_time:.1f} s\n')
+    log(f'Round={runId + 1} BestEpoch={monitor.best_epoch:d} MAE={results["MAE"]:.4f} RMSE={results["RMSE"]:.4f} NMAE={results["NMAE"]:.4f} NRMSE={results["NRMSE"]:.4f} Training_time={sum_time:.1f} s')
     log.only_print(f"Acc = [1%={results['Acc'][0]:.4f}, 5%={results['Acc'][1]:.4f}, 10%={results['Acc'][2]:.4f}]")
     return {
         'MAE': results["MAE"],
@@ -582,17 +592,17 @@ def get_args():
     parser.add_argument('--program_test', type=int, default=0)
     parser.add_argument('--valid', type=int, default=1)
     parser.add_argument('--experiment', type=int, default=0)
-    parser.add_argument('--verbose', type=int, default=10)
+    parser.add_argument('--verbose', type=int, default=1)
     parser.add_argument('--path', nargs='?', default='./datasets/')
 
     # Training tool
     parser.add_argument('--device', type=str, default='cpu')  # gpu cpu mps
     parser.add_argument('--bs', type=int, default=1)  #
-    parser.add_argument('--lr', type=float, default=1e-3)
+    parser.add_argument('--lr', type=float, default=4e-4)
     parser.add_argument('--epochs', type=int, default=500)
-    parser.add_argument('--decay', type=float, default=1e-3)
+    parser.add_argument('--decay', type=float, default=5e-4)
     parser.add_argument('--lr_step', type=int, default=50)
-    parser.add_argument('--patience', type=int, default=10)
+    parser.add_argument('--patience', type=int, default=500)
     parser.add_argument('--saved', type=int, default=1)
 
     parser.add_argument('--loss_func', type=str, default='L1Loss')
