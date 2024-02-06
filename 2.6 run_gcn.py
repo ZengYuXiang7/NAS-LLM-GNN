@@ -521,20 +521,22 @@ def RunOnce(args, runId, Runtime, log):
         if args.verbose and epoch % args.verbose == 0:
             log.only_print(
                 f"Round={runId + 1} Epoch={epoch + 1:02d} Loss={epoch_loss:.4f} vMAE={valid_error['MAE']:.4f} vRMSE={valid_error['RMSE']:.4f} vNMAE={valid_error['NMAE']:.4f} vNRMSE={valid_error['NRMSE']:.4f}, vAcc={valid_error['Acc']:.4f} time={sum(train_time):.1f} s")
+            log.only_print(f"Acc = [1%={valid_error['Acc'][0]:.4f}, 5%={valid_error['Acc'][1]:.4f}, 10%={valid_error['Acc'][2]:.4f}]")
+
         if monitor.early_stop:
             break
     model.load_state_dict(monitor.best_model)
     sum_time = sum(train_time[: monitor.best_epoch])
     results = model.test_one_epoch(datamodule) if args.valid else valid_error
     log(f'Round={runId + 1} BestEpoch={monitor.best_epoch:d} MAE={results["MAE"]:.4f} RMSE={results["RMSE"]:.4f} NMAE={results["NMAE"]:.4f} NRMSE={results["NRMSE"]:.4f} Acc={results["Acc"]:.4f} Training_time={sum_time:.1f} s\n')
+    log.only_print(f"Acc = [1%={results['Acc'][0]:.4f}, 5%={results['Acc'][1]:.4f}, 10%={results['Acc'][2]:.4f}]")
     return {
         'MAE': results["MAE"],
         'RMSE': results["RMSE"],
         'NMAE': results["NMAE"],
         'NRMSE': results["NRMSE"],
-        'Acc' : results["Acc"],
         'TIME': sum_time,
-    }
+    }, results['Acc']
 
 
 def RunExperiments(log, args):
@@ -543,9 +545,12 @@ def RunExperiments(log, args):
 
     for runId in range(args.rounds):
         runHash = int(time.time())
-        results = RunOnce(args, runId, runHash, log)
+        results, acc = RunOnce(args, runId, runHash, log)
         for key in results:
             metrics[key].append(results[key])
+
+        for key, item in zip(['Acc1', 'Acc5', 'Acc10'], [0, 1, 2]):
+            metrics[key].append(acc[item])
 
     log('*' * 20 + 'Experiment Results:' + '*' * 20)
 
@@ -555,9 +560,11 @@ def RunExperiments(log, args):
     if args.record:
         log.save_result(metrics)
 
-    log('*' * 20 + 'Experiment Success' + '*' * 20)
+    log('*' * 20 + 'Experiment Success' + '*' * 20 + '\n')
 
     return metrics
+
+
 
 
 def get_args():

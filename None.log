@@ -676,3 +676,26 @@ INFO:8:|2024-02-06 15:32:09| ********************Experiment Start***************
 INFO:8:|2024-02-06 15:32:25| Namespace(ablation=0, bs=16, dataset='1', dataset_type='cpu', debug=0, decay=0.001, density=0.1, device='cpu', dimension=128, epochs=500, exper=8, experiment=0, llm=1, loss_func='L1Loss', lr=0.001, lr_step=100, model='8', optim='AdamW', path='./datasets/cpu/', patience=100, program_test=0, record=0, rounds=5, saved=1, seed=0, valid=1, verbose=10, windows=5
 INFO:8:|2024-02-06 15:32:25| cpu_Density_0.1
 INFO:8:|2024-02-06 15:32:25| ********************Experiment Start*******************
+INFO:CF:|2024-02-06 15:36:52| Namespace(ablation=0, bs=16, dataset='rt', debug=0, decay=0.001, density=0.1, device='cpu', dimension=32, epochs=500, experiment=0, log=<utils.logger.Logger object at 0x7f9dc8114190>, loss_func='L1Loss', lr=0.001, lr_step=50, model='CF', optim='AdamW', path='./datasets/', patience=10, program_test=0, record=1, rounds=5, saved=1, seed=0, valid=1, verbose=10
+INFO:CF:|2024-02-06 15:36:52| ********************Experiment Start*******************
+INFO:8:|2024-02-06 15:38:14| Namespace(ablation=0, bs=1, dataset='1', dataset_type='cpu', debug=0, decay=0.001, density=0.1, device='cpu', dimension=128, epochs=500, exper=8, experiment=0, llm=1, loss_func='L1Loss', lr=0.001, lr_step=100, model='8', optim='AdamW', path='./datasets/cpu/', patience=500, program_test=0, record=0, rounds=5, saved=1, seed=0, valid=1, verbose=10, windows=5
+INFO:8:|2024-02-06 15:38:14| cpu_Density_0.1
+INFO:8:|2024-02-06 15:38:14| ********************Experiment Start*******************
+INFO:8:|2024-02-06 15:38:26| Namespace(ablation=0, bs=1, dataset='1', dataset_type='cpu', debub=1, debug=0, decay=0.001, density=0.1, device='cpu', dimension=128, epochs=500, exper=8, experiment=0, llm=1, loss_func='L1Loss', lr=0.001, lr_step=100, model='8', optim='AdamW', path='./datasets/cpu/', patience=500, program_test=0, record=0, rounds=5, saved=1, seed=0, valid=1, verbose=10, windows=5
+INFO:8:|2024-02-06 15:38:26| cpu_Density_0.1
+INFO:8:|2024-02-06 15:38:26| ********************Experiment Start*******************
+INFO:8:|2024-02-06 15:38:28| Namespace(ablation=0, bs=1, dataset='1', dataset_type='cpu', debug=1, decay=0.001, density=0.1, device='cpu', dimension=128, epochs=1, exper=8, experiment=0, llm=1, loss_func='L1Loss', lr=0.001, lr_step=100, model='8', optim='AdamW', path='./datasets/cpu/', patience=500, program_test=0, record=1, rounds=2, saved=1, seed=0, valid=1, verbose=10, windows=5
+INFO:8:|2024-02-06 15:38:28| cpu_Density_0.1
+INFO:8:|2024-02-06 15:38:28| ********************Experiment Start*******************
+INFO:8:|2024-02-06 15:38:35| Round=1 BestEpoch=1 MAE=0.0005 RMSE=0.0006 NMAE=0.1064 NRMSE=0.1237 Training_time=4.0 s
+INFO:8:|2024-02-06 15:38:42| Round=2 BestEpoch=1 MAE=0.0005 RMSE=0.0007 NMAE=0.1121 NRMSE=0.1357 Training_time=3.9 s
+INFO:8:|2024-02-06 15:38:42| ********************Experiment Results:*******************
+INFO:8:|2024-02-06 15:38:42| MAE: 0.0005 ± 0.000
+INFO:8:|2024-02-06 15:38:42| RMSE: 0.0007 ± 0.000
+INFO:8:|2024-02-06 15:38:42| NMAE: 0.1092 ± 0.002
+INFO:8:|2024-02-06 15:38:42| NRMSE: 0.1297 ± 0.006
+INFO:8:|2024-02-06 15:38:42| TIME: 3.9721 ± 0.031
+INFO:8:|2024-02-06 15:38:42| Acc1: 0.0630 ± 0.009
+INFO:8:|2024-02-06 15:38:42| Acc5: 0.2969 ± 0.023
+INFO:8:|2024-02-06 15:38:42| Acc10: 0.5318 ± 0.024
+INFO:8:|2024-02-06 15:38:42| ********************Experiment Success********************

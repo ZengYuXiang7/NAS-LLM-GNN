@@ -57,7 +57,6 @@ def RunOnce(args, runId, Runtime, log):
         'RMSE': results["RMSE"],
         'NMAE': results["NMAE"],
         'NRMSE': results["NRMSE"],
-        'Acc': results["Acc"],
         'TIME': sum_time,
     }, results['Acc']
 
