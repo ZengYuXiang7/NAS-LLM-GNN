@@ -980,3 +980,83 @@ INFO:7:|2024-02-07 19:04:07| ********************Experiment Start***************
 INFO:7:|2024-02-07 19:04:36| Namespace(ablation=0, bs=1, dataset='1', debug=0, decay=0.0005, density=0.1, device='cpu', dimension=64, epochs=300, exper=7, experiment=0, loss_func='L1Loss', lr=0.0004, lr_step=100, model='7', optim='AdamW', path='./datasets/', patience=100, program_test=0, record=0, rounds=5, saved=1, seed=0, valid=1, verbose=10
 INFO:7:|2024-02-07 19:04:36| ********************Experiment Start*******************
 INFO:7:|2024-02-07 19:15:08| Round=1 BestEpoch=157 MAE=0.0001 RMSE=0.0002 NMAE=0.0275 NRMSE=0.0426 Training_time=379.3 
+INFO:7:|2024-02-12 20:32:39| Namespace(ablation=0, bs=1, dataset='1', debug=0, decay=0.0005, density=0.1, device='cpu', dimension=64, epochs=300, exper=7, experiment=0, loss_func='L1Loss', lr=0.0004, lr_step=100, model='7', optim='AdamW', path='./datasets/', patience=100, program_test=0, record=0, rounds=5, saved=1, seed=0, valid=1, verbose=10
+INFO:7:|2024-02-12 20:32:39| ********************Experiment Start*******************
+INFO:8:|2024-02-12 20:32:41| Namespace(ablation=0, bs=1, dataset='1', dataset_type='gpu', debug=0, decay=0.0005, density=0.1, device='cpu', dimension=128, epochs=500, exper=8, experiment=0, llm=1, loss_func='L1Loss', lr=0.0004, lr_step=100, model='8', optim='AdamW', path='./datasets/gpu/', patience=500, program_test=0, record=0, rounds=5, saved=1, seed=0, valid=1, verbose=10, windows=5
+INFO:8:|2024-02-12 20:32:41| gpu_Density_0.1
+INFO:8:|2024-02-12 20:32:41| ********************Experiment Start*******************
+INFO:8:|2024-02-12 20:33:45| Namespace(ablation=0, bs=1, dataset='1', dataset_type='gpu', debug=0, decay=0.0005, density=0.1, device='cpu', dimension=128, epochs=500, exper=8, experiment=0, llm=1, loss_func='L1Loss', lr=0.0004, lr_step=100, model='8', optim='AdamW', path='./datasets/gpu/', patience=500, program_test=0, record=0, rounds=5, saved=1, seed=0, valid=1, verbose=10, windows=5
+INFO:8:|2024-02-12 20:33:45| gpu_Density_0.1
+INFO:8:|2024-02-12 20:33:45| ********************Experiment Start*******************
+INFO:8:|2024-02-12 20:40:01| Namespace(ablation=0, bs=1, dataset='1', dataset_type='gpu', debug=0, decay=0.0005, density=0.1, device='cpu', dimension=128, epochs=500, exper=8, experiment=0, llm=1, loss_func='L1Loss', lr=0.0004, lr_step=100, model='8', optim='AdamW', path='./datasets/gpu/', patience=500, program_test=0, record=0, rounds=5, saved=1, seed=0, valid=1, verbose=10, windows=5
+INFO:8:|2024-02-12 20:40:01| gpu_Density_0.1
+INFO:8:|2024-02-12 20:40:01| ********************Experiment Start*******************
+INFO:8:|2024-02-12 20:40:23| Namespace(ablation=0, bs=1, dataset='1', dataset_type='gpu', debug=0, decay=0.0005, density=0.1, device='cpu', dimension=128, epochs=500, exper=8, experiment=0, llm=1, loss_func='L1Loss', lr=0.0004, lr_step=100, model='8', optim='AdamW', path='./datasets/gpu/', patience=500, program_test=0, record=0, rounds=5, saved=1, seed=0, valid=1, verbose=10, windows=5
+INFO:8:|2024-02-12 20:40:23| gpu_Density_0.1
+INFO:8:|2024-02-12 20:40:23| ********************Experiment Start*******************
+INFO:8:|2024-02-12 20:44:22| Namespace(ablation=0, bs=1, dataset='1', dataset_type='gpu', debug=0, decay=0.0005, density=0.1, device='cpu', dimension=128, epochs=500, exper=8, experiment=0, llm=1, loss_func='L1Loss', lr=0.0004, lr_step=100, model='8', optim='AdamW', path='./datasets/gpu/', patience=500, program_test=0, record=0, rounds=5, saved=1, seed=0, valid=1, verbose=10, windows=5
+INFO:8:|2024-02-12 20:44:22| gpu_Density_0.1
+INFO:8:|2024-02-12 20:44:22| ********************Experiment Start*******************
+INFO:8:|2024-02-12 20:44:29| Namespace(ablation=0, bs=1, dataset='1', dataset_type='gpu', debug=0, decay=0.0005, density=0.1, device='cpu', dimension=128, epochs=500, exper=8, experiment=0, llm=1, loss_func='L1Loss', lr=0.0004, lr_step=100, model='8', optim='AdamW', path='./datasets/gpu/', patience=500, program_test=0, record=0, rounds=5, saved=1, seed=0, valid=1, verbose=10, windows=5
+INFO:8:|2024-02-12 20:44:29| gpu_Density_0.1
+INFO:8:|2024-02-12 20:44:29| ********************Experiment Start*******************
+INFO:8:|2024-02-12 20:48:43| Namespace(ablation=0, bs=1, dataset='1', dataset_type='gpu', debug=0, decay=0.0005, density=0.1, device='cpu', dimension=128, epochs=500, exper=8, experiment=0, llm=1, loss_func='L1Loss', lr=0.0004, lr_step=100, model='8', optim='AdamW', path='./datasets/gpu/', patience=500, program_test=0, record=0, rounds=5, saved=1, seed=0, valid=1, verbose=10, windows=5
+INFO:8:|2024-02-12 20:48:43| gpu_Density_0.1
+INFO:8:|2024-02-12 20:48:43| ********************Experiment Start*******************
+INFO:8:|2024-02-12 20:50:16| Namespace(ablation=0, bs=1, dataset='1', dataset_type='gpu', debug=0, decay=0.0005, density=0.1, device='cpu', dimension=128, epochs=500, exper=8, experiment=0, llm=1, loss_func='L1Loss', lr=0.0004, lr_step=100, model='8', optim='AdamW', path='./datasets/gpu/', patience=500, program_test=0, record=0, rounds=5, saved=1, seed=0, valid=1, verbose=10, windows=5
+INFO:8:|2024-02-12 20:50:16| gpu_Density_0.1
+INFO:8:|2024-02-12 20:50:16| ********************Experiment Start*******************
+INFO:8:|2024-02-12 20:51:18| Namespace(ablation=0, bs=1, dataset='1', dataset_type='gpu', debug=0, decay=0.0005, density=0.1, device='cpu', dimension=128, epochs=500, exper=8, experiment=0, llm=1, loss_func='L1Loss', lr=0.0004, lr_step=100, model='8', optim='AdamW', path='./datasets/gpu/', patience=500, program_test=0, record=0, rounds=5, saved=1, seed=0, valid=1, verbose=10, windows=5
+INFO:8:|2024-02-12 20:51:18| gpu_Density_0.1
+INFO:8:|2024-02-12 20:51:18| ********************Experiment Start*******************
+INFO:8:|2024-02-12 20:51:23| Namespace(ablation=0, bs=1, dataset='1', dataset_type='gpu', debug=0, decay=0.0005, density=0.1, device='cpu', dimension=128, epochs=500, exper=8, experiment=0, llm=1, loss_func='L1Loss', lr=0.0004, lr_step=100, model='8', optim='AdamW', path='./datasets/gpu/', patience=500, program_test=0, record=0, rounds=5, saved=1, seed=0, valid=1, verbose=10, windows=5
+INFO:8:|2024-02-12 20:51:23| gpu_Density_0.1
+INFO:8:|2024-02-12 20:51:23| ********************Experiment Start*******************
+INFO:8:|2024-02-12 20:51:28| Namespace(ablation=0, bs=1, dataset='1', dataset_type='gpu', debug=0, decay=0.0005, density=0.1, device='cpu', dimension=128, epochs=500, exper=8, experiment=0, llm=1, loss_func='L1Loss', lr=0.0004, lr_step=100, model='8', optim='AdamW', path='./datasets/gpu/', patience=500, program_test=0, record=0, rounds=5, saved=1, seed=0, valid=1, verbose=10, windows=5
+INFO:8:|2024-02-12 20:51:28| gpu_Density_0.1
+INFO:8:|2024-02-12 20:51:28| ********************Experiment Start*******************
+INFO:8:|2024-02-12 20:52:28| Namespace(ablation=0, bs=1, dataset='1', dataset_type='gpu', debug=0, decay=0.0005, density=0.1, device='cpu', dimension=128, epochs=500, exper=8, experiment=0, llm=1, loss_func='L1Loss', lr=0.0004, lr_step=100, model='8', optim='AdamW', path='./datasets/gpu/', patience=500, program_test=0, record=0, rounds=5, saved=1, seed=0, valid=1, verbose=10, windows=5
+INFO:8:|2024-02-12 20:52:28| gpu_Density_0.1
+INFO:8:|2024-02-12 20:52:28| ********************Experiment Start*******************
+INFO:8:|2024-02-12 20:54:47| Namespace(ablation=0, bs=1, dataset='1', dataset_type='gpu', debug=0, decay=0.0005, density=0.1, device='cpu', dimension=128, epochs=500, exper=8, experiment=0, llm=1, loss_func='L1Loss', lr=0.0004, lr_step=100, model='8', optim='AdamW', path='./datasets/gpu/', patience=500, program_test=0, record=0, rounds=5, saved=1, seed=0, valid=1, verbose=10, windows=5
+INFO:8:|2024-02-12 20:54:47| gpu_Density_0.1
+INFO:8:|2024-02-12 20:54:47| ********************Experiment Start*******************
+INFO:8:|2024-02-12 20:55:04| Namespace(ablation=0, bs=1, dataset='1', dataset_type='gpu', debug=0, decay=0.0005, density=0.1, device='cpu', dimension=128, epochs=500, exper=8, experiment=0, llm=1, loss_func='L1Loss', lr=0.0004, lr_step=100, model='8', optim='AdamW', path='./datasets/gpu/', patience=500, program_test=0, record=0, rounds=5, saved=1, seed=0, valid=1, verbose=10, windows=5
+INFO:8:|2024-02-12 20:55:04| gpu_Density_0.1
+INFO:8:|2024-02-12 20:55:04| ********************Experiment Start*******************
+INFO:8:|2024-02-12 20:55:37| Namespace(ablation=0, bs=1, dataset='1', dataset_type='gpu', debug=0, decay=0.0005, density=0.1, device='cpu', dimension=128, epochs=500, exper=8, experiment=0, llm=1, loss_func='L1Loss', lr=0.0004, lr_step=100, model='8', optim='AdamW', path='./datasets/gpu/', patience=500, program_test=0, record=0, rounds=5, saved=1, seed=0, valid=1, verbose=10, windows=5
+INFO:8:|2024-02-12 20:55:37| gpu_Density_0.1
+INFO:8:|2024-02-12 20:55:37| ********************Experiment Start*******************
+INFO:8:|2024-02-12 20:56:02| Namespace(ablation=0, bs=1, dataset='1', dataset_type='gpu', debug=0, decay=0.0005, density=0.1, device='cpu', dimension=128, epochs=500, exper=8, experiment=0, llm=1, loss_func='L1Loss', lr=0.0004, lr_step=100, model='8', optim='AdamW', path='./datasets/gpu/', patience=500, program_test=0, record=0, rounds=5, saved=1, seed=0, valid=1, verbose=10, windows=5
+INFO:8:|2024-02-12 20:56:02| gpu_Density_0.1
+INFO:8:|2024-02-12 20:56:02| ********************Experiment Start*******************
+INFO:8:|2024-02-12 20:57:26| Namespace(ablation=0, bs=1, dataset='1', dataset_type='gpu', debug=0, decay=0.0005, density=0.1, device='cpu', dimension=128, epochs=500, exper=8, experiment=0, llm=1, loss_func='L1Loss', lr=0.0004, lr_step=100, model='8', optim='AdamW', path='./datasets/gpu/', patience=500, program_test=0, record=0, rounds=5, saved=1, seed=0, valid=1, verbose=10, windows=5
+INFO:8:|2024-02-12 20:57:26| gpu_Density_0.1
+INFO:8:|2024-02-12 20:57:26| ********************Experiment Start*******************
+INFO:8:|2024-02-12 20:57:33| Namespace(ablation=0, bs=1, dataset='1', dataset_type='gpu', debug=0, decay=0.0005, density=0.1, device='cpu', dimension=128, epochs=500, exper=8, experiment=0, llm=1, loss_func='L1Loss', lr=0.0004, lr_step=100, model='8', optim='AdamW', path='./datasets/gpu/', patience=500, program_test=0, record=0, rounds=5, saved=1, seed=0, valid=1, verbose=10, windows=5
+INFO:8:|2024-02-12 20:57:33| gpu_Density_0.1
+INFO:8:|2024-02-12 20:57:33| ********************Experiment Start*******************
+INFO:8:|2024-02-12 20:59:12| Namespace(ablation=0, bs=1, dataset='1', dataset_type='gpu', debug=0, decay=0.0005, density=0.1, device='cpu', dimension=128, epochs=500, exper=8, experiment=0, llm=1, loss_func='L1Loss', lr=0.0004, lr_step=100, model='8', optim='AdamW', path='./datasets/gpu/', patience=500, program_test=0, record=0, rounds=5, saved=1, seed=0, valid=1, verbose=10, windows=5
+INFO:8:|2024-02-12 20:59:12| gpu_Density_0.1
+INFO:8:|2024-02-12 20:59:12| ********************Experiment Start*******************
+INFO:8:|2024-02-12 21:00:10| Namespace(ablation=0, bs=1, dataset='1', dataset_type='gpu', debug=0, decay=0.0005, density=0.1, device='cpu', dimension=128, epochs=500, exper=8, experiment=0, llm=1, loss_func='L1Loss', lr=0.0004, lr_step=100, model='8', optim='AdamW', path='./datasets/gpu/', patience=500, program_test=0, record=0, rounds=5, saved=1, seed=0, valid=1, verbose=10, windows=5
+INFO:8:|2024-02-12 21:00:10| gpu_Density_0.1
+INFO:8:|2024-02-12 21:00:10| ********************Experiment Start*******************
+INFO:8:|2024-02-12 21:00:45| Namespace(ablation=0, bs=1, dataset='1', dataset_type='gpu', debug=0, decay=0.0005, density=0.1, device='cpu', dimension=128, epochs=500, exper=8, experiment=0, llm=1, loss_func='L1Loss', lr=0.0004, lr_step=100, model='8', optim='AdamW', path='./datasets/gpu/', patience=500, program_test=0, record=0, rounds=5, saved=1, seed=0, valid=1, verbose=10, windows=5
+INFO:8:|2024-02-12 21:00:45| gpu_Density_0.1
+INFO:8:|2024-02-12 21:00:45| ********************Experiment Start*******************
+INFO:8:|2024-02-12 21:01:00| Namespace(ablation=0, bs=1, dataset='1', dataset_type='gpu', debug=0, decay=0.0005, density=0.1, device='cpu', dimension=128, epochs=500, exper=8, experiment=0, llm=1, loss_func='L1Loss', lr=0.0004, lr_step=100, model='8', optim='AdamW', path='./datasets/gpu/', patience=500, program_test=0, record=0, rounds=5, saved=1, seed=0, valid=1, verbose=10, windows=5
+INFO:8:|2024-02-12 21:01:00| gpu_Density_0.1
+INFO:8:|2024-02-12 21:01:00| ********************Experiment Start*******************
+INFO:8:|2024-02-12 21:01:02| Namespace(ablation=0, bs=1, dataset='1', dataset_type='gpu', debug=0, decay=0.0005, density=0.1, device='cpu', dimension=128, epochs=500, exper=8, experiment=0, llm=1, loss_func='L1Loss', lr=0.0004, lr_step=100, model='8', optim='AdamW', path='./datasets/gpu/', patience=500, program_test=0, record=0, rounds=5, saved=1, seed=0, valid=1, verbose=10, windows=5
+INFO:8:|2024-02-12 21:01:02| gpu_Density_0.1
+INFO:8:|2024-02-12 21:01:02| ********************Experiment Start*******************
+INFO:8:|2024-02-12 21:18:16| Namespace(ablation=0, bs=1, dataset='1', dataset_type='gpu', debug=0, decay=0.0005, density=0.1, device='cpu', dimension=128, epochs=500, exper=8, experiment=0, llm=1, loss_func='L1Loss', lr=0.0004, lr_step=100, model='8', optim='AdamW', path='./datasets/gpu/', patience=500, program_test=0, record=0, rounds=5, saved=1, seed=0, valid=1, verbose=10, windows=5
+INFO:8:|2024-02-12 21:18:16| gpu_Density_0.1
+INFO:8:|2024-02-12 21:18:16| ********************Experiment Start*******************
+INFO:8:|2024-02-12 21:19:57| Namespace(ablation=0, bs=1, dataset='1', dataset_type='gpu', debug=0, decay=0.0005, density=0.1, device='cpu', dimension=128, epochs=500, exper=8, experiment=0, llm=1, loss_func='L1Loss', lr=0.0004, lr_step=100, model='8', optim='AdamW', path='./datasets/gpu/', patience=500, program_test=0, record=0, rounds=5, saved=1, seed=0, valid=1, verbose=10, windows=5
+INFO:8:|2024-02-12 21:19:57| gpu_Density_0.1
+INFO:8:|2024-02-12 21:19:57| ********************Experiment Start*******************
+INFO:8:|2024-02-12 21:20:11| Namespace(ablation=0, bs=1, dataset='1', dataset_type='gpu', debug=0, decay=0.0005, density=0.1, device='cpu', dimension=128, epochs=500, exper=8, experiment=0, llm=1, loss_func='L1Loss', lr=0.0004, lr_step=100, model='8', optim='AdamW', path='./datasets/gpu/', patience=500, program_test=0, record=0, rounds=5, saved=1, seed=0, valid=1, verbose=10, windows=5
+INFO:8:|2024-02-12 21:20:11| gpu_Density_0.1
+INFO:8:|2024-02-12 21:20:11| ********************Experiment Start*******************

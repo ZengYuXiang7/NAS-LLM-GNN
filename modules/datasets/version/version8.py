@@ -7,6 +7,7 @@ from tqdm import *
 from modules.datasets.chatgpt import NAS_ChatGPT
 from utils.utils import *
 import copy
+import re, pandas
 
 
 # 图神经网络
@@ -15,8 +16,59 @@ class experiment8:
         self.args = args
         self.chatgpt = NAS_ChatGPT(args)
 
+    def get_cpu(self, string):
+        print(string)
+        pattern = re.compile(
+            r'^(?P<frequency>[\d.]+)\sGHz::(?P<cores>\d+)\scores::(?P<threads>\d+)\sThreads::(?P<memory_size>[\d.]+)\sMB::(?P<memory_speed>[\d.]+)\sGB/s$')
+        match = pattern.match(string)
+        if match:
+            frequency = float(match.group('frequency'))
+            cores = int(match.group('cores'))
+            threads = int(match.group('threads'))
+            memory_size = float(match.group('memory_size'))
+            memory_speed = float(match.group('memory_speed'))
+        return [frequency, cores, threads, memory_size, memory_speed]
+
+    def get_gpu(self, string):
+        # 3584::1480 MHz::11 GB::352-bit
+        print(string)
+        pattern = re.compile(
+            r'^(?P<Stream_processor_count>\d+)::(?P<Core_clock_frequency>\d+)\sMHz::(?P<Video_memory>\d+)\sGB::(?P<Memory_bus_width>\d+)-bit$')
+        match = pattern.match(string)
+        if match:
+            Stream_processor_count = int(match.group('Stream_processor_count'))
+            Core_clock_frequency = int(match.group('Core_clock_frequency'))
+            Video_memory = int(match.group('Video_memory'))
+            Memory_bus_width = float(match.group('Memory_bus_width'))
+        return [Stream_processor_count, Core_clock_frequency, Video_memory, Memory_bus_width]
+
+    def get_dsp(self, string):
+        # 3584::1480 MHz::11 GB::352-bit
+        print(string)
+        pattern = re.compile(
+            r'^(?P<Stream_processor_count>\d+)::(?P<Core_clock_frequency>\d+)\sMHz::(?P<Video_memory>\d+)\sGB::(?P<Memory_bus_width>\d+)-bit$')
+        match = pattern.match(string)
+        if match:
+            Stream_processor_count = int(match.group('Stream_processor_count'))
+            Core_clock_frequency = int(match.group('Core_clock_frequency'))
+            Video_memory = int(match.group('Video_memory'))
+            Memory_bus_width = float(match.group('Memory_bus_width'))
+        return [Stream_processor_count, Core_clock_frequency, Video_memory, Memory_bus_width]
+
+    def get_tpu(self, string):
+        # 3584::1480 MHz::11 GB::352-bit
+        print(string)
+        pattern = re.compile(
+            r'^(?P<Stream_processor_count>\d+)::(?P<Core_clock_frequency>\d+)\sMHz::(?P<Video_memory>\d+)\sGB::(?P<Memory_bus_width>\d+)-bit$')
+        match = pattern.match(string)
+        if match:
+            Stream_processor_count = int(match.group('Stream_processor_count'))
+            Core_clock_frequency = int(match.group('Core_clock_frequency'))
+            Video_memory = int(match.group('Video_memory'))
+            Memory_bus_width = float(match.group('Memory_bus_width'))
+        return [Stream_processor_count, Core_clock_frequency, Video_memory, Memory_bus_width]
+
     def get_device_item(self, file_names):
-        import re, pandas
         from sklearn.preprocessing import LabelEncoder
         pattern = re.compile(r'^(?P<device_type>\w+)-(?P<unit>\w+)-(?P<devices>[\w-]+)-(?P<precision>\w+).pickle$')
         data = []
@@ -37,17 +89,11 @@ class experiment8:
             for i in range(len(df)):
                 device_base_info = df[i, 2]
                 device_more_info = self.chatgpt.get_device_more_info(device_base_info)
-                print(device_more_info)
-                pattern = re.compile(
-                    r'^(?P<frequency>[\d.]+)\sGHz::(?P<cores>\d+)\scores::(?P<threads>\d+)\sThreads::(?P<memory_size>[\d.]+)\sMB::(?P<memory_speed>[\d.]+)\sGB/s$')
-                match = pattern.match(device_more_info)
-                if match:
-                    frequency = float(match.group('frequency'))
-                    cores = int(match.group('cores'))
-                    threads = int(match.group('threads'))
-                    memory_size = float(match.group('memory_size'))
-                    memory_speed = float(match.group('memory_speed'))
-                device_info.append([frequency, cores, threads, memory_size, memory_speed])
+                if self.args.dataset_type == 'cpu':
+                    device_info.append(self.get_cpu(device_more_info))
+                elif self.args.dataset_type == 'gpu':
+                    device_info.append(self.get_gpu(device_more_info))
+            print(device_info)
             device_info = np.array(device_info)
             with open(f'./pretrained/pretrained_{self.args.dataset_type}.pkl', 'wb') as f:
                 pickle.dump(device_info, f)
@@ -61,7 +107,6 @@ class experiment8:
         # 对每一列进行标签编码
         label_encoder = LabelEncoder()
         encoded_data = np.apply_along_axis(label_encoder.fit_transform, axis=0, arr=df)
-        # print(encoded_data.shape, device_info.shape)
         final_data = np.concatenate([encoded_data, device_info], axis=1)
         # print(encoded_data)
         return final_data

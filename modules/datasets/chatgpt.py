@@ -68,7 +68,11 @@ class NAS_ChatGPT:
         self.gpt = ChatGPT(args)
 
     def get_device_more_info(self, input_device):
-        prompt = self.contructing_cpu_promote(input_device)
+        prompt = None
+        if self.args.dataset_type == 'cpu':
+            prompt = self.contructing_cpu_promote(input_device)
+        elif self.args.dataset_type == 'gpu':
+            prompt = self.contructing_gpu_promote(input_device)
         model_reply = self.gpt.chat_once(prompt)
         return model_reply
 
@@ -102,6 +106,7 @@ class NAS_ChatGPT:
                                 Stream_processor_count::Core_clock_frequency::Video_memory::Memory_bus_width \
                                 please output only the content in the form above,  \
                                 i.e., Stream_processor_count::Core_clock_frequency::Video_memory::Memory_bus_width\n, \
+                                please output only the content in the form above, i.e., %d ::%d MHz::%d GB::%d-bit\n, \
                                 but no other thing else, no reasoning, no index, only number.\n\n"
         prompt = pre_str + input_device + output_format
         return prompt
