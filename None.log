@@ -1060,3 +1060,25 @@ INFO:8:|2024-02-12 21:19:57| ********************Experiment Start***************
 INFO:8:|2024-02-12 21:20:11| Namespace(ablation=0, bs=1, dataset='1', dataset_type='gpu', debug=0, decay=0.0005, density=0.1, device='cpu', dimension=128, epochs=500, exper=8, experiment=0, llm=1, loss_func='L1Loss', lr=0.0004, lr_step=100, model='8', optim='AdamW', path='./datasets/gpu/', patience=500, program_test=0, record=0, rounds=5, saved=1, seed=0, valid=1, verbose=10, windows=5
 INFO:8:|2024-02-12 21:20:11| gpu_Density_0.1
 INFO:8:|2024-02-12 21:20:11| ********************Experiment Start*******************
+INFO:8:|2024-02-13 12:15:04| Namespace(ablation=0, bs=1, dataset='1', dataset_type='tpu', debug=0, decay=0.0005, density=0.1, device='cpu', dimension=128, epochs=500, exper=8, experiment=0, llm=1, loss_func='L1Loss', lr=0.0004, lr_step=100, model='8', optim='AdamW', path='./datasets/tpu/', patience=500, program_test=0, record=0, rounds=5, saved=1, seed=0, valid=1, verbose=10, windows=5
+INFO:8:|2024-02-13 12:15:04| tpu_Density_0.1
+INFO:8:|2024-02-13 12:15:04| ********************Experiment Start*******************
+INFO:openai:error_code=None error_message="Invalid value for 'content': expected a string, got null." error_param=messages.[0].content error_type=invalid_request_error message='OpenAI API error received' stream_error=False
+INFO:8:|2024-02-13 12:16:02| Namespace(ablation=0, bs=1, dataset='1', dataset_type='tpu', debug=0, decay=0.0005, density=0.1, device='cpu', dimension=128, epochs=500, exper=8, experiment=0, llm=1, loss_func='L1Loss', lr=0.0004, lr_step=100, model='8', optim='AdamW', path='./datasets/tpu/', patience=500, program_test=0, record=0, rounds=5, saved=1, seed=0, valid=1, verbose=10, windows=5
+INFO:8:|2024-02-13 12:16:02| tpu_Density_0.1
+INFO:8:|2024-02-13 12:16:02| ********************Experiment Start*******************
+INFO:8:|2024-02-13 13:20:03| Namespace(ablation=0, bs=1, dataset='1', dataset_type='dsp', debug=0, decay=0.0005, density=0.1, device='cpu', dimension=128, epochs=500, exper=8, experiment=0, llm=1, loss_func='L1Loss', lr=0.0004, lr_step=100, model='8', optim='AdamW', path='./datasets/dsp/', patience=500, program_test=0, record=0, rounds=5, saved=1, seed=0, valid=1, verbose=10, windows=5
+INFO:8:|2024-02-13 13:20:03| dsp_Density_0.1
+INFO:8:|2024-02-13 13:20:03| ********************Experiment Start*******************
+INFO:8:|2024-02-13 13:20:28| Namespace(ablation=0, bs=1, dataset='1', dataset_type='dsp', debug=0, decay=0.0005, density=0.1, device='cpu', dimension=128, epochs=500, exper=8, experiment=0, llm=1, loss_func='L1Loss', lr=0.0004, lr_step=100, model='8', optim='AdamW', path='./datasets/dsp/', patience=500, program_test=0, record=0, rounds=5, saved=1, seed=0, valid=1, verbose=10, windows=5
+INFO:8:|2024-02-13 13:20:28| dsp_Density_0.1
+INFO:8:|2024-02-13 13:20:28| ********************Experiment Start*******************
+INFO:8:|2024-02-13 13:20:43| Namespace(ablation=0, bs=1, dataset='1', dataset_type='dsp', debug=0, decay=0.0005, density=0.1, device='cpu', dimension=128, epochs=500, exper=8, experiment=0, llm=1, loss_func='L1Loss', lr=0.0004, lr_step=100, model='8', optim='AdamW', path='./datasets/dsp/', patience=500, program_test=0, record=0, rounds=5, saved=1, seed=0, valid=1, verbose=10, windows=5
+INFO:8:|2024-02-13 13:20:43| dsp_Density_0.1
+INFO:8:|2024-02-13 13:20:43| ********************Experiment Start*******************
+INFO:8:|2024-02-13 13:26:11| Namespace(ablation=0, bs=1, dataset='1', dataset_type='dsp', debug=0, decay=0.0005, density=0.1, device='cpu', dimension=128, epochs=500, exper=8, experiment=0, llm=1, loss_func='L1Loss', lr=0.0004, lr_step=100, model='8', optim='AdamW', path='./datasets/dsp/', patience=500, program_test=0, record=0, rounds=5, saved=1, seed=0, valid=1, verbose=10, windows=5
+INFO:8:|2024-02-13 13:26:11| dsp_Density_0.1
+INFO:8:|2024-02-13 13:26:11| ********************Experiment Start*******************
+INFO:8:|2024-02-13 13:26:24| Namespace(ablation=0, bs=1, dataset='1', dataset_type='dsp', debug=0, decay=0.0005, density=0.1, device='cpu', dimension=128, epochs=500, exper=8, experiment=0, llm=1, loss_func='L1Loss', lr=0.0004, lr_step=100, model='8', optim='AdamW', path='./datasets/dsp/', patience=500, program_test=0, record=0, rounds=5, saved=1, seed=0, valid=1, verbose=10, windows=5
+INFO:8:|2024-02-13 13:26:24| dsp_Density_0.1
+INFO:8:|2024-02-13 13:26:24| ********************Experiment Start*******************
