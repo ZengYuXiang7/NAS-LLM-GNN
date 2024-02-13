@@ -13,33 +13,158 @@ from sklearn.model_selection import train_test_split
 from torch.utils.data import DataLoader
 from tqdm import *
 import torch
+
+from modules.datasets.chatgpt import NAS_ChatGPT
 from utils.dataloader import get_dataloaders
 from utils.logger import Logger
 from utils.metrics import ErrorMetrics
 from utils.monitor import EarlyStopping
 from utils.trainer import get_loss_function, get_optimizer
 from utils.utils import optimizer_zero_grad, optimizer_step, lr_scheduler_step, set_settings, set_seed
-
+import pandas
+import re
 global log
+from utils.utils import *
+
 torch.set_default_dtype(torch.double)
+
+
 
 class experiment:
     def __init__(self, args):
         self.args = args
+        self.chatgpt = NAS_ChatGPT(args)
+
+    def get_cpu(self, string):
+        print(string)
+        pattern = re.compile(
+            r'^(?P<frequency>[\d.]+)\sGHz::(?P<cores>\d+)\scores::(?P<threads>\d+)\sThreads::(?P<memory_size>[\d.]+)\sMB::(?P<memory_speed>[\d.]+)\sGB/s$')
+        match = pattern.match(string)
+        if match:
+            frequency = float(match.group('frequency'))
+            cores = int(match.group('cores'))
+            threads = int(match.group('threads'))
+            memory_size = float(match.group('memory_size'))
+            memory_speed = float(match.group('memory_speed'))
+        return [frequency, cores, threads, memory_size, memory_speed]
+
+    def get_gpu(self, string):
+        # 3584::1480 MHz::11 GB::352-bit
+        print(string)
+        pattern = re.compile(
+            r'^(?P<Stream_processor_count>\d+)::(?P<Core_clock_frequency>\d+)\sMHz::(?P<Video_memory>\d+)\sGB::(?P<Memory_bus_width>\d+)-bit$')
+        match = pattern.match(string)
+        if match:
+            Stream_processor_count = int(match.group('Stream_processor_count'))
+            Core_clock_frequency = int(match.group('Core_clock_frequency'))
+            Video_memory = int(match.group('Video_memory'))
+            Memory_bus_width = float(match.group('Memory_bus_width'))
+        return [Stream_processor_count, Core_clock_frequency, Video_memory, Memory_bus_width]
+
+    def get_dsp(self, string):
+        # 3584::1480 MHz::11 GB::352-bit
+        print(string)
+        pattern = re.compile(
+            r'^(?P<Stream_processor_count>\d+)::(?P<Core_clock_frequency>\d+)\sMHz::(?P<Video_memory>\d+)\sGB::(?P<Memory_bus_width>\d+)-bit$')
+        match = pattern.match(string)
+        if match:
+            Stream_processor_count = int(match.group('Stream_processor_count'))
+            Core_clock_frequency = int(match.group('Core_clock_frequency'))
+            Video_memory = int(match.group('Video_memory'))
+            Memory_bus_width = float(match.group('Memory_bus_width'))
+        return [Stream_processor_count, Core_clock_frequency, Video_memory, Memory_bus_width]
+
+    def get_tpu(self, string):
+        # 3584::1480 MHz::11 GB::352-bit
+        print(string)
+        pattern = re.compile(
+            r'^(?P<Stream_processor_count>\d+)::(?P<Core_clock_frequency>\d+)\sMHz::(?P<Video_memory>\d+)\sGB::(?P<Memory_bus_width>\d+)-bit$')
+        match = pattern.match(string)
+        if match:
+            Stream_processor_count = int(match.group('Stream_processor_count'))
+            Core_clock_frequency = int(match.group('Core_clock_frequency'))
+            Video_memory = int(match.group('Video_memory'))
+            Memory_bus_width = float(match.group('Memory_bus_width'))
+        return [Stream_processor_count, Core_clock_frequency, Video_memory, Memory_bus_width]
+
+    def get_device_item(self, file_names):
+        from sklearn.preprocessing import LabelEncoder
+        pattern = re.compile(r'^(?P<device_type>\w+)-(?P<unit>\w+)-(?P<devices>[\w-]+)-(?P<precision>\w+).pickle$')
+        data = []
+        for file_name in file_names:
+            match = pattern.match(file_name)
+            if match:
+                data.append(match.groupdict())
+        df = pandas.DataFrame(data).to_numpy()
+
+        # 大语言模型进行数据增强
+        try:
+            makedir('./pretrained')
+            with open(f'./pretrained/pretrained_{self.args.dataset_type}.pkl', 'rb') as f:
+                device_info = pickle.load(f)
+        except:
+            print(df)
+            device_info = []
+            for i in range(len(df)):
+                device_base_info = df[i, 2]
+                device_more_info = self.chatgpt.get_device_more_info(device_base_info)
+                if self.args.dataset_type == 'cpu':
+                    device_info.append(self.get_cpu(device_more_info))
+                elif self.args.dataset_type == 'gpu':
+                    device_info.append(self.get_gpu(device_more_info))
+            print(device_info)
+            device_info = np.array(device_info)
+            with open(f'./pretrained/pretrained_{self.args.dataset_type}.pkl', 'wb') as f:
+                pickle.dump(device_info, f)
+        # print(df)                                                  # 打印原始信息
+        # print(device_info)                                         # 打印数据增强信息
+        device_info = device_info / np.max(device_info, axis=0)  # 归一化
+        # device_info = (device_info - np.mean(device_info, axis=0)) / np.std(device_info, axis=0)    # 归一化
+        # print(device_info)
+        df = np.delete(df, 2, axis=1)  # 删掉设备名
+        # print(df)                                                # 打印删掉设备名的信息
+        # 对每一列进行标签编码
+        label_encoder = LabelEncoder()
+        encoded_data = np.apply_along_axis(label_encoder.fit_transform, axis=0, arr=df)
+        # print(encoded_data.shape, device_info.shape)
+        final_data = np.concatenate([encoded_data, device_info], axis=1)
+        # print(encoded_data)
+        return final_data
+
+    def get_device_item2(self, file_names):
+        import re, pandas
+        from sklearn.preprocessing import LabelEncoder
+        pattern = re.compile(r'^(?P<device_type>\w+)-(?P<unit>\w+)-(?P<devices>[\w-]+)-(?P<precision>\w+).pickle$')
+        data = []
+        for file_name in file_names:
+            match = pattern.match(file_name)
+            if match:
+                data.append(match.groupdict())
+        df = pandas.DataFrame(data).to_numpy()
+        # 对每一列进行标签编码
+        label_encoder = LabelEncoder()
+        encoded_data = np.apply_along_axis(label_encoder.fit_transform, axis=0, arr=df)
+        final_data = np.concatenate([encoded_data], axis=1)
+        return final_data
 
     # 只是读取大文件
     def load_data(self, args):
         import os
-        file_names = os.listdir(args.path)
+        file_names = os.listdir(args.path + '/' + args.dataset_type)
         pickle_files = [file for file in file_names if file.endswith('.pickle')]
+        if args.llm:
+            device_label = self.get_device_item(pickle_files)
+            # print(device_label)
+        else:
+            device_label = self.get_device_item2(pickle_files)
         data = []
         for i in range(len(pickle_files)):
             pickle_file = args.path + pickle_files[i]
             with open(pickle_file, 'rb') as f:
                 now = pickle.load(f)
             data.append([now])
-            break
         data = np.array(data)
+        data = np.concatenate([device_label, data], axis=1)
         return data
 
     def get_graph(self, op_seq):
@@ -54,13 +179,21 @@ class experiment:
         except:
             tensor = []
             for i in trange(len(data)):
-                for key in (data[i][0].keys()):
+                for key in (data[i][8].keys()):
                     now = []
                     # 添加设备号
+                    for j in range(len(data[0]) - 1):
+                        now.append(data[i][j])
+                    # 获得编码取嵌入
+                    op_idx = self.get_idx(key)
+                    for j in range(len(op_idx)):
+                        now.append(op_idx[j])
+                    # now.append(4)  # 这个是最后一个输出节点
+                    # 图和 one-hot Feature
                     matrix, features = self.get_graph(key)
                     now.append(matrix)
                     now.append(features)
-                    y = data[i][0][key]
+                    y = data[i][8][key]
                     now.append(y)
                     tensor.append(now)
             tensor = np.array(tensor)
@@ -69,6 +202,34 @@ class experiment:
     def get_pytorch_index(self, data):
         return data
 
+    def get_idx(self, op_seq):
+        # 全部代码
+        op_seq = list(op_seq)
+        matrix, label = self.get_matrix_and_ops(op_seq)
+        matrix, features = self.get_adjacency_and_features(matrix, label)
+
+        def get_op_idx(features):
+            result = [row.index(1) if 1 in row else 5 for row in features]
+            return np.array(result)
+        op_idx = get_op_idx(features)
+        """
+            本人定义：0 con1 1 con3 2 max3 3 input 4 output 5 None
+            数据集定义：
+                0 : None 5
+                1 : None 5
+                2 ： 0  con1
+                3 ： 1  con2
+                4 ： 2  max3
+                input : 3
+                output : 4
+                [0, 1, 2, 3, 4, 5]
+                [5, 5, 0, 1, 2, 3]
+        """
+        # print(op_seq)
+        # print(label)
+        # print(op_idx)
+        # print('-' * 100)
+        return op_idx
 
     def get_arch_vector_from_arch_str(self, arch_str):
         """
@@ -95,7 +256,6 @@ class experiment:
         # arch_vector is equivalent to a decision vector produced by autocaml when using Nasbench201 backend
         arch_vector = [_opname_to_index[op] for node in nodes for op in node]
         return arch_vector
-
 
     def get_arch_str_from_arch_vector(self, arch_vector):
         _opname_to_index = {
@@ -273,10 +433,12 @@ class TensorDataset(torch.utils.data.Dataset):
         # self.indices = self.delete_zero_row(self.indices)
 
     def __getitem__(self, idx):
-        matrix, features = self.indices[idx, 0], self.indices[idx, 1]
+        device_features = self.indices[idx, :-3]
+        device_features = list(device_features)
+        matrix, features = self.indices[idx, -3], self.indices[idx, -2]
         matrix, features = list(matrix), list(features)
         value = torch.as_tensor(self.indices[idx, -1])  # 最后一列作为真实值
-        return matrix, features, value
+        return device_features, matrix, features, value
 
     def __len__(self):
         return self.indices.shape[0]
@@ -340,10 +502,11 @@ class GraphConvolution(torch.torch.nn.Module):
             raise ValueError(f'Unknown initialization type: {init_type}')
 
 
-class Model(torch.torch.nn.Module):
+class GCN(torch.nn.Module):
     def __init__(self, args):
-        super(Model, self).__init__()
+        super(GCN, self).__init__()
         self.args = args
+
         num_features = 6
         num_layers = 4
         num_hidden = 600
@@ -358,7 +521,9 @@ class Model(torch.torch.nn.Module):
         self.nhid = num_hidden
         self.dropout_ratio = dropout_ratio
 
-        self.gc = torch.nn.ModuleList([GraphConvolution(self.nfeat if i == 0 else self.nhid, self.nhid, bias=True, weight_init=weight_init, bias_init=bias_init) for i in range(self.nlayer)])
+        self.gc = torch.nn.ModuleList([GraphConvolution(self.nfeat if i == 0 else self.nhid, self.nhid, bias=True,
+                                                        weight_init=weight_init, bias_init=bias_init) for i in
+                                       range(self.nlayer)])
         self.bn = torch.nn.ModuleList([torch.nn.LayerNorm(self.nhid).double() for i in range(self.nlayer)])
         self.relu = torch.nn.ModuleList([torch.nn.ReLU().double() for i in range(self.nlayer)])
         self.dropout = torch.nn.ModuleList([torch.nn.Dropout(self.dropout_ratio).double() for i in range(self.nlayer)])
@@ -378,7 +543,6 @@ class Model(torch.torch.nn.Module):
             else:
                 self.final_act = torch.nn.Sigmoid()
         self.binary_classifier = binary_classifier
-
 
     def forward_single_model(self, adjacency, features):
         x = self.relu[0](self.bn[0](self.gc[0](adjacency, features)))
@@ -417,22 +581,27 @@ class Model(torch.torch.nn.Module):
         return x
 
     def forward(self, adjacency, features):
+
         a = []
         b = []
         for i in range(len(adjacency)):
             a.append(adjacency[i])
             b.append(features[i])
+
         adjacency = torch.DoubleTensor(a)
         features = torch.DoubleTensor(b)
         # print(adjacency.shape, features.shape)
+
         augments = None
         if not self.binary_classifier:
             x = self.forward_single_model(adjacency, features)
             x = x[:, 0]  # use global node
             if augments is not None:
                 x = torch.cat([x, augments], dim=1)
-            y = self.fc(x).flatten()
-            return y
+            # print(x.shape)
+            # y = self.fc(x).flatten()
+            # return y
+            return  x
         else:
             x1 = self.forward_single_model(adjacency[:, 0], features[:, 0])
             x1 = x1[:, 0]
@@ -461,6 +630,146 @@ class Model(torch.torch.nn.Module):
     def final_params(self):
         return self.fc.parameters()
 
+class Device_encoder(torch.nn.Module):
+
+    def __init__(self, args):
+        super(Device_encoder, self).__init__()
+        self.args = args
+        self.dim = args.dimension
+
+        self.platform_embeds = torch.nn.Embedding(6, self.dim)
+        self.device_embeds = torch.nn.Embedding(6, self.dim)
+        self.device_name_embeds = torch.nn.Embedding(6, self.dim)
+        self.precision_embeds = torch.nn.Embedding(6, self.dim)
+
+        # 第二个想法
+        if args.llm:
+            input_dim = None
+            if args.dataset_type == 'cpu':
+                input_dim = 5
+            elif args.dataset_type == 'gpu':
+                input_dim = 4
+            self.transfer = torch.nn.Linear(input_dim, self.dim)
+        else:
+            self.transfer = torch.nn.Linear(1, self.dim)
+
+        self.op_embeds = torch.nn.Embedding(6, self.dim)
+
+        self.initialize()
+        self.cache = {}
+
+    def initialize(self):
+        pass
+
+    def forward(self, inputs):
+        if self.args.llm:
+            platformIdx, deviceIdx, device_info_llm, precisionIdx, op_idx = self.get_inputs(inputs)
+        else:
+            platformIdx, deviceIdx, device_name_Idx, precisionIdx, op_idx = self.get_inputs2(inputs)
+
+        # DNN network
+        firstIdx = op_idx[:, 0]
+        secondIdx = op_idx[:, 1]
+        thirdIdx = op_idx[:, 2]
+        fourthIdx = op_idx[:, 3]
+        fifthIdx = op_idx[:, 4]
+        sixthIdx = op_idx[:, 5]
+        seventhIdx = op_idx[:, 6]
+        eighthIdx = op_idx[:, 7]
+        ninethIdx = op_idx[:, 8]
+
+        platform_embeds = self.platform_embeds(platformIdx)
+        device_embeds = self.device_embeds(deviceIdx)
+
+        if self.args.llm:
+            device_name_embeds = self.transfer(device_info_llm.double())
+        else:
+            device_name_embeds = self.transfer(device_name_Idx.reshape(-1, 1).double())
+
+        precision_embeds = self.precision_embeds(precisionIdx)
+
+        # DNN
+        first_embeds = self.op_embeds(firstIdx)
+        second_embeds = self.op_embeds(secondIdx)
+        third_embeds = self.op_embeds(thirdIdx)
+        fourth_embeds = self.op_embeds(fourthIdx)
+        fifth_embeds = self.op_embeds(fifthIdx)
+        sixth_embeds = self.op_embeds(sixthIdx)
+        seventh_embeds = self.op_embeds(seventhIdx)
+        eighth_embeds = self.op_embeds(eighthIdx)
+        nineth_embeds = self.op_embeds(ninethIdx)
+        # Final interaction
+        final_input = torch.cat([
+            platform_embeds, device_embeds, device_name_embeds, precision_embeds,
+            first_embeds, second_embeds, third_embeds, fourth_embeds,
+            fifth_embeds, sixth_embeds, seventh_embeds, eighth_embeds, nineth_embeds
+        ], dim=-1)
+        return final_input
+
+
+    def get_inputs(self, inputs):
+        if self.args.dataset_type == 'cpu':
+            platformIdx, deviceIdx, precisionIdx, \
+                frequency, cores, threads, memory_size, memory_speed, \
+                firstIdx, secondIdx, thirdIdx, fourthIdx, fifthIdx, sixthIdx, seventhIdx, eighthIdx, nineIdx = inputs
+            device_info_llm = torch.vstack([frequency, cores, threads, memory_size, memory_speed]).T
+        elif self.args.dataset_type == 'gpu':
+            platformIdx, deviceIdx, precisionIdx, \
+                Stream_processor_count, Core_clock_frequency, Video_memory, Memory_bus_width, \
+                firstIdx, secondIdx, thirdIdx, fourthIdx, fifthIdx, sixthIdx, seventhIdx, eighthIdx, nineIdx = inputs
+            device_info_llm = torch.vstack([Stream_processor_count, Core_clock_frequency, Video_memory, Memory_bus_width]).T
+
+        # firstIdx, secondIdx, thirdIdx, fourthIdx,\
+        op_idx = torch.vstack([firstIdx, secondIdx, thirdIdx, fourthIdx, fifthIdx, sixthIdx, seventhIdx, eighthIdx, nineIdx]).T
+        op_idx = op_idx.to(torch.long)
+        return platformIdx.long(), deviceIdx.long(), device_info_llm.float(), precisionIdx.long(), op_idx.long(),
+
+
+    def get_inputs2(self, inputs):
+        firstIdx, secondIdx, thirdIdx, fourthIdx, \
+            fifthIdx, sixthIdx, seventhIdx, eighthIdx, ninthIdx, tenthIdx, elemIdx = inputs
+        op_idx = torch.vstack([fifthIdx, sixthIdx, seventhIdx, eighthIdx, ninthIdx, tenthIdx, elemIdx])
+        op_idx = op_idx.to(torch.long)
+        # 获得计算节点信息
+        platformIdx = firstIdx
+        deviceIdx = secondIdx
+        device_name_Idx = thirdIdx
+        precisionIdx = fourthIdx
+
+        return platformIdx.long(), deviceIdx.long(), device_name_Idx.long(), precisionIdx.long(), op_idx.long()
+
+
+class MLP(torch.nn.Module):
+    def __init__(self, input_dim, hidden_dim, output_dim):
+        super(MLP, self).__init__()
+        self.layer = torch.nn.Sequential(
+            torch.nn.Linear(input_dim, hidden_dim // 2),  # FFN
+            torch.nn.LayerNorm(hidden_dim // 2),  # LayerNorm
+            torch.nn.ReLU(),  # ReLU
+            torch.nn.Linear(hidden_dim // 2, hidden_dim // 2),  # FFN
+            torch.nn.LayerNorm(hidden_dim // 2),  # LayerNorm
+            torch.nn.ReLU(),  # ReLU
+            torch.nn.Linear(hidden_dim // 2, output_dim)  # y
+        )
+
+    def forward(self, x):
+        return self.layer(x)
+
+class Model(torch.nn.Module):
+    def __init__(self, args):
+        super(Model, self).__init__()
+        self.args = args
+        self.gcn = GCN(args)
+        self.device_encoder = Device_encoder(args)
+        final_input = args.dimension * 13 + 600
+        self.mlp = MLP(final_input, final_input // 2, 1)
+
+    def forward(self, device_features, matrix, features):
+        device_features = self.device_encoder(device_features)
+        graph_features = self.gcn(matrix, features)
+        y = self.mlp(torch.cat([device_features, graph_features], dim = -1))
+        return y.flatten()
+
     def setup_optimizer(self, args):
         self.to(args.device)
         self.loss_function = get_loss_function(args).to(args.device)
@@ -476,8 +785,8 @@ class Model(torch.torch.nn.Module):
         torch.set_grad_enabled(True)
         t1 = time.time()
         for train_Batch in tqdm(dataModule.train_loader, disable=not self.args.program_test):
-            adjmatrix, features, value = train_Batch
-            pred = self.forward(adjmatrix, features)
+            device_features, matrix, features, value = train_Batch
+            pred = self.forward(device_features, matrix, features)
             loss = self.loss_function(pred, value)
             optimizer_zero_grad(self.optimizer)
             loss.backward()
@@ -493,8 +802,8 @@ class Model(torch.torch.nn.Module):
         preds = torch.zeros((len(dataModule.valid_loader.dataset),)).to(self.args.device)
         reals = torch.zeros((len(dataModule.valid_loader.dataset),)).to(self.args.device)
         for valid_Batch in tqdm(dataModule.valid_loader, disable=not self.args.program_test):
-            adjmatrix, features, value = valid_Batch
-            pred = self.forward(adjmatrix, features)
+            device_features, matrix, features, value = valid_Batch
+            pred = self.forward(device_features, matrix, features)
             val_loss += self.loss_function(pred, value).item()
             preds[writeIdx:writeIdx + len(pred)] = pred
             reals[writeIdx:writeIdx + len(value)] = value
@@ -509,8 +818,8 @@ class Model(torch.torch.nn.Module):
         preds = torch.zeros((len(dataModule.test_loader.dataset),)).to(self.args.device)
         reals = torch.zeros((len(dataModule.test_loader.dataset),)).to(self.args.device)
         for test_Batch in tqdm(dataModule.test_loader, disable=not self.args.program_test):
-            adjmatrix, features, value = test_Batch
-            pred = self.forward(adjmatrix, features)
+            device_features, matrix, features, value = test_Batch
+            pred = self.forward(device_features, matrix, features)
             preds[writeIdx:writeIdx + len(pred)] = pred
             reals[writeIdx:writeIdx + len(value)] = value
             writeIdx += len(pred)
@@ -556,12 +865,21 @@ def custom_collate_fn(batch):
     import dgl
     if len(batch[0]) == 2:  # 当 self.args.exper != 6
         return default_collate(batch)
-    else:
+    elif len(batch[0]) == 3:
         op_idxs, graphs, values = zip(*batch)
+        # graphs = dgl.batch(graphs)
         graphs = list(graphs)
         op_idxs = list(op_idxs)
         values = default_collate(values)
         return op_idxs, graphs, values
+    else:
+        device_features, matrix, features, value = zip(*batch)
+        device_features = default_collate(device_features)
+        matrix = list(matrix)
+        features = list(features)
+        value = default_collate(value)
+        return device_features, matrix, features, value
+
 
 def RunOnce(args, runId, Runtime, log):
     # Set seed
@@ -664,6 +982,8 @@ def get_args():
 
     # Other Experiment
     parser.add_argument('--ablation', type=int, default=0)
+    parser.add_argument('--dataset_type', type=str, default='cpu')
+    parser.add_argument('--llm', type=int, default=1)
     args = parser.parse_args([])
     return args
 

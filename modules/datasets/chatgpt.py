@@ -73,6 +73,11 @@ class NAS_ChatGPT:
             prompt = self.contructing_cpu_promote(input_device)
         elif self.args.dataset_type == 'gpu':
             prompt = self.contructing_gpu_promote(input_device)
+        elif self.args.dataset_type == 'tpu':
+            prompt = self.contructing_tpu_promote(input_device)
+        elif self.args.dataset_type == 'dsp':
+            prompt = self.contructing_dsp_promote(input_device)
+
         model_reply = self.gpt.chat_once(prompt)
         return model_reply
 
@@ -101,31 +106,45 @@ class NAS_ChatGPT:
             Stream_processor_count::Core_clock_frequency::Video_memory::Memory_bus_width
         """
         pre_str = "You are now a search engines, and required to provide the inquired information of the given processer.\n"
-        output_format = "The inquired information is : .\n \
-                                And please output them in form of: Stream processor count, Core clock frequency, Video memory, Memory bus width\n \
-                                Stream_processor_count::Core_clock_frequency::Video_memory::Memory_bus_width \
-                                please output only the content in the form above,  \
-                                i.e., Stream_processor_count::Core_clock_frequency::Video_memory::Memory_bus_width\n, \
-                                please output only the content in the form above, i.e., %d ::%d MHz::%d GB::%d-bit\n, \
-                                but no other thing else, no reasoning, no index, only number.\n\n"
+        input_device = 'The processer is ' + input_device + '.\n'
+        output_format = "The inquired information is : Stream processor count, Core clock frequency, Video memory, Memory bus width\n \
+                         And please output them in form of: Stream_processor_count::Core_clock_frequency::Video_memory::Memory_bus_width, \
+                         please output only the content in the form above, i.e., %d ::%d MHz::%d GB::%d-bit\n, \
+                         but no other thing else, no reasoning, no index, only number.\n\n"
         prompt = pre_str + input_device + output_format
         return prompt
 
     def contructing_dsp_promote(self, input_device):
         """
-            流处理器数量::核芯频率::显存::位宽
-            Stream processor count, Core clock frequency, Video memory, Memory bus width
-            Stream_processor_count::Core_clock_frequency::Video_memory::Memory_bus_width
+            时钟频率::硬件架构::浮点运算性能::内存带宽和缓存
+            Clock frequency, Hardware architecture, Floating point performance, Memory bandwidth and cache
+            Clock_frequency::Hardware_architecture::Floating_point_performance::Memory_bandwidth_and_cache
         """
         pre_str = "You are now a search engines, and required to provide the inquired information of the given processer.\n"
-        output_format = "The inquired information is : .\n \
-                                And please output them in form of: Stream processor count, Core clock frequency, Video memory, Memory bus width\n \
-                                Stream_processor_count::Core_clock_frequency::Video_memory::Memory_bus_width \
-                                please output only the content in the form above,  \
-                                i.e., Stream_processor_count::Core_clock_frequency::Video_memory::Memory_bus_width\n, \
-                                but no other thing else, no reasoning, no index, only number.\n\n"
+        input_device = 'The processer is ' + input_device + '.\n'
+        output_format = "The inquired information is : Clock frequency, Hardware architecture, Floating point performance, Memory bandwidth and cache\n \
+                         And please output them in form of: Clock_frequency::Hardware_architecture::Floating_point_performance::Memory_bandwidth_and_cache, \
+                         # please output only the content in the form above, i.e., %d ::%d MHz::%d GB::%d-bit\n, \
+                         but no other thing else, no reasoning, no index, only number.\n\n"
         prompt = pre_str + input_device + output_format
+        # print(prompt)
         return prompt
 
+
+    def contructing_tpu_promote(self, input_device):
+        """
+            矩阵乘法性能::硬件架构::对特定深度学习框架的优化::内存带宽和容量
+            Matrix multiplication performance, Hardware architecture, Optimization for specific deep learning frameworks, Memory bandwidth and capacity
+            Matrix_multiplication_performance::Hardware_architecture::Optimization_for_specific_deep_learning_frameworks::Memory_bandwidth_and_capacity
+        """
+        pre_str = "You are now a search engines, and required to provide the inquired information of the given processer.\n"
+        input_device = 'The processer is ' + input_device + '.\n'
+        output_format = "The inquired information is : Matrix multiplication performance, Hardware architecture, Optimization for specific deep learning frameworks, Memory bandwidth and capacity\n \
+                         And please output them in form of: Matrix_multiplication_performance::Hardware_architecture::Optimization_for_specific_deep_learning_frameworks::Memory_bandwidth_and_capacity \
+                         please output only the content in the form above, i.e.,  :: :: :: :: \n, \
+                         but no other thing else, no reasoning, no index, only number.\n\n"
+        prompt = pre_str + input_device + output_format
+        # print(prompt)
+        return prompt
 
 
