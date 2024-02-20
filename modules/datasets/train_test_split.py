@@ -14,8 +14,12 @@ def get_train_valid_test_dataset(tensor, args):
     # args.valid = 1
     # trainsize = int(len(X) * args.density)
     # validsize = int(len(X) * 0.05) if args.valid else int((len(X) - trainsize) * 1.0)
-    trainsize = 900
-    validsize = 100
+    if args.dataset_type == 'cpu':
+        trainsize = 900
+        validsize = 100
+    else:
+        trainsize = 900 * 2
+        validsize = 100 * 2
 
     Idx = np.arange(len(X))
     p = np.random.permutation(len(X))

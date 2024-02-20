@@ -50,8 +50,6 @@ def RunOnce(args, runId, Runtime, log):
     model.load_state_dict(monitor.best_model)
     sum_time = sum(train_time[: monitor.best_epoch])
     results = model.test_one_epoch(datamodule) if args.valid else valid_error
-    log.only_print(f'Round={runId + 1} BestEpoch={monitor.best_epoch:d} vMAE={valid_error["MAE"]:.4f} vRMSE={valid_error["RMSE"]:.4f} vNMAE={valid_error["NMAE"]:.4f} vNRMSE={valid_error["NRMSE"]:.4f} Training_time={sum_time:.1f} s\n')
-    log.only_print(f"Acc = [1%={valid_error['Acc'][0]:.4f}, 5%={valid_error['Acc'][1]:.4f}, 10%={valid_error['Acc'][2]:.4f}]")
     log(f'Round={runId + 1} BestEpoch={monitor.best_epoch:d} tMAE={results["MAE"]:.4f} tRMSE={results["RMSE"]:.4f} tNMAE={results["NMAE"]:.4f} tNRMSE={results["NRMSE"]:.4f} Training_time={sum_time:.1f} s\n')
     log(f"Acc = [1%={results['Acc'][0]:.4f}, 5%={results['Acc'][1]:.4f}, 10%={results['Acc'][2]:.4f}]")
 
