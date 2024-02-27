@@ -12,24 +12,21 @@ from utils.utils import makedir
 
 class Logger:
     def save_result(self, metrics):
-        makedir('./results/metrics/' + str(self.args.dataset))
+        args = self.args
+        makedir('./results/metrics/')
+        address = f'./results/metrics/{args.dataset}_{args.density}_{args.dimension}_'
         for key in metrics:
-            pickle.dump(np.mean(metrics[key]), open('./results/metrics/' + str(self.args.dataset) + '/' + self.args.model + '_' + f'{self.args.density:.3f}' + '_' + key + '1.pkl', 'wb'))
-            pickle.dump(np.std(metrics[key]), open('./results/metrics/' + str(self.args.dataset) + '/' + self.args.model + '_' + f'{self.args.density:.3f}' + '_' + key + '2.pkl', 'wb'))
+            pickle.dump(np.mean(metrics[key]), open(address + key + 'mean.pkl', 'wb'))
+            pickle.dump(np.std(metrics[key]), open(address + key + 'std.pkl', 'wb'))
 
     def __init__(self, args):
         self.args = args
         makedir('./results/log/')
         if args.experiment:
-            if platform.system() == 'Linux':
-                ts = time.asctime().replace(' ', '_').replace(':', '_')
-                logging.basicConfig(level=logging.INFO, filename=f'./results/log/{args.density}_{args.dimension}_{ts}.log', filemode='w')
-            else:
-                ts = time.asctime().replace(' ', '_').replace(':', '_')
-                logging.basicConfig(level=logging.INFO, filename=f'./results/log/Experiment_{ts}.log', filemode='w')
+            ts = time.asctime().replace(' ', '_').replace(':', '_')
+            logging.basicConfig(level=logging.INFO, filename=f'./results/log/{args.dataset}_{args.density}_{args.dimension}_{ts}.log', filemode='w')
         else:
             logging.basicConfig(level=logging.INFO, filename=f'./' + 'None.log', filemode='a')
-
         self.logger = logging.getLogger(self.args.model)
 
     # 日志记录

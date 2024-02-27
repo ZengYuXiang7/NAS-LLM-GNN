@@ -1,5 +1,0 @@
-INFO:6:|2024-01-04 20:57:40| Namespace(ablation=0, bs=32, dataset='1', debug=0, decay=0.001, density=0.1, device='cpu', dimension=128, epochs=150, exper=6, experiment=1, loss_func='L1Loss', lr=0.001, lr_step=100, model='6', optim='AdamW', path='./datasets/cpu/', patience=20, program_test=1, record=1, rounds=5, saved=1, seed=0, valid=1, verbose=1, windows=5
-INFO:6:|2024-01-04 20:57:40| cpu_Density_0.1
-INFO:6:|2024-01-04 20:57:40| ********************Experiment Start*******************
-INFO:6:|2024-01-04 21:00:45| Round=1 BestEpoch=12 MAE=0.0019 RMSE=0.0037 NMAE=0.1224 NRMSE=0.1885 Training_time=50.9 s
-INFO:6:|2024-01-04 21:05:00| Round=2 BestEpoch=24 MAE=0.0017 RMSE=0.0036 NMAE=0.1094 NRMSE=0.1804 Training_time=103.1 s
