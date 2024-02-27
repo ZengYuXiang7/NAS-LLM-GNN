@@ -100,7 +100,7 @@ class experiment:
         # 大语言模型进行数据增强
         try:
             makedir('./pretrained')
-            with open(f'./pretrained/pretrained_{self.args.dataset_type}.pkl', 'rb') as f:
+            with open(f'./pretrained/pretrained_{self.args.dataset}.pkl', 'rb') as f:
                 device_info = pickle.load(f)
         except:
             print(df)
@@ -108,13 +108,13 @@ class experiment:
             for i in range(len(df)):
                 device_base_info = df[i, 2]
                 device_more_info = self.chatgpt.get_device_more_info(device_base_info)
-                if self.args.dataset_type == 'cpu':
+                if self.args.dataset == 'cpu':
                     device_info.append(self.get_cpu(device_more_info))
-                elif self.args.dataset_type == 'gpu':
+                elif self.args.dataset == 'gpu':
                     device_info.append(self.get_gpu(device_more_info))
             print(device_info)
             device_info = np.array(device_info)
-            with open(f'./pretrained/pretrained_{self.args.dataset_type}.pkl', 'wb') as f:
+            with open(f'./pretrained/pretrained_{self.args.dataset}.pkl', 'wb') as f:
                 pickle.dump(device_info, f)
         # print(df)                                                  # 打印原始信息
         # print(device_info)                                         # 打印数据增强信息
@@ -150,7 +150,7 @@ class experiment:
     # 只是读取大文件
     def load_data(self, args):
         import os
-        file_names = os.listdir(args.path + '/' + args.dataset_type)
+        file_names = os.listdir(args.path + '/' + args.dataset)
         pickle_files = [file for file in file_names if file.endswith('.pickle')]
         if args.llm:
             device_label = self.get_device_item(pickle_files)
@@ -386,7 +386,7 @@ def get_train_valid_test_dataset(tensor, args):
     max_value = 1
     Y /= max_value
 
-    train_size = int(900)  # Assuming 900 samples for training
+    train_size = int(len(tensor) * args.density)  # Assuming 900 samples for training
     valid_size = int(100)  # Assuming 113 samples for validation
 
     X_train = X[:train_size]
@@ -472,7 +472,6 @@ class GraphConvolution(torch.torch.nn.Module):
 
     def forward(self, adjacency, features):
         support = torch.matmul(features, self.weight)
-        # print(adjacency.shape, support.shape)
         output = torch.bmm(adjacency, support)
         if self.bias is not None:
             return output + self.bias
@@ -507,6 +506,7 @@ class GCN(torch.nn.Module):
     def __init__(self, args):
         super(GCN, self).__init__()
         self.args = args
+
         num_features = 6
         num_layers = 4
         num_hidden = 600
@@ -520,8 +520,10 @@ class GCN(torch.nn.Module):
         self.nlayer = num_layers
         self.nhid = num_hidden
         self.dropout_ratio = dropout_ratio
+
         self.gc = torch.nn.ModuleList([GraphConvolution(self.nfeat if i == 0 else self.nhid, self.nhid, bias=True,
-                                                        weight_init=weight_init, bias_init=bias_init) for i in range(self.nlayer)])
+                                                        weight_init=weight_init, bias_init=bias_init) for i in
+                                       range(self.nlayer)])
         self.bn = torch.nn.ModuleList([torch.nn.LayerNorm(self.nhid).double() for i in range(self.nlayer)])
         self.relu = torch.nn.ModuleList([torch.nn.ReLU().double() for i in range(self.nlayer)])
         self.dropout = torch.nn.ModuleList([torch.nn.Dropout(self.dropout_ratio).double() for i in range(self.nlayer)])
@@ -541,9 +543,6 @@ class GCN(torch.nn.Module):
             else:
                 self.final_act = torch.nn.Sigmoid()
         self.binary_classifier = binary_classifier
-
-
-        self.transfer = torch.nn.Linear(2, 6)
 
     def forward_single_model(self, adjacency, features):
         x = self.relu[0](self.bn[0](self.gc[0](adjacency, features)))
@@ -581,36 +580,16 @@ class GCN(torch.nn.Module):
         x = self.final_act(x)
         return x
 
-    def get_model_features(self, features):
-        def get_op_idx(features):
-            res = []
-            for i in range(len(features)):
-                result = [row.index(1) if 1 in row else 5 for row in features[i]]
-                res.append(result)
-            result = np.vstack(res)
-            return np.array(result)
-        op_idx = get_op_idx(features)
-        return op_idx
-
     def forward(self, adjacency, features):
 
-        idx = self.get_model_features(features)
-        dnn_model = torch.tensor([[0., 0, 1, 2, 3, 4],
-                                  [1, 3, 3, 0, 0, 0]])
-        # print('idx', idx.shape)
-        features = dnn_model[:, idx].permute([1, 2, 0])
-        # print('feature', features.shape)
-        features = self.transfer(features)
         a = []
         b = []
         for i in range(len(adjacency)):
             a.append(adjacency[i])
-            # b.append(features[i])
+            b.append(features[i])
 
         adjacency = torch.DoubleTensor(a)
-        # print(adjacency.shape, features.shape)
-        # features = torch.DoubleTensor(b)
-        # print(adjacency.shape, features.shape)
+        features = torch.DoubleTensor(b)
 
         augments = None
         if not self.binary_classifier:
@@ -618,10 +597,7 @@ class GCN(torch.nn.Module):
             x = x[:, 0]  # use global node
             if augments is not None:
                 x = torch.cat([x, augments], dim=1)
-            # print(x.shape)
-            # y = self.fc(x).flatten()
-            # return y
-            return  x
+            return x
         else:
             x1 = self.forward_single_model(adjacency[:, 0], features[:, 0])
             x1 = x1[:, 0]
@@ -650,8 +626,8 @@ class GCN(torch.nn.Module):
     def final_params(self):
         return self.fc.parameters()
 
-class Device_encoder(torch.nn.Module):
 
+class Device_encoder(torch.nn.Module):
     def __init__(self, args):
         super(Device_encoder, self).__init__()
         self.args = args
@@ -665,9 +641,9 @@ class Device_encoder(torch.nn.Module):
         # 第二个想法
         if args.llm:
             input_dim = None
-            if args.dataset_type == 'cpu':
+            if args.dataset == 'cpu':
                 input_dim = 5
-            elif args.dataset_type == 'gpu':
+            elif args.dataset == 'gpu':
                 input_dim = 4
             self.transfer = torch.nn.Linear(input_dim, self.dim)
         else:
@@ -728,12 +704,12 @@ class Device_encoder(torch.nn.Module):
 
 
     def get_inputs(self, inputs):
-        if self.args.dataset_type == 'cpu':
+        if self.args.dataset == 'cpu':
             platformIdx, deviceIdx, precisionIdx, \
                 frequency, cores, threads, memory_size, memory_speed, \
                 firstIdx, secondIdx, thirdIdx, fourthIdx, fifthIdx, sixthIdx, seventhIdx, eighthIdx, nineIdx = inputs
             device_info_llm = torch.vstack([frequency, cores, threads, memory_size, memory_speed]).T
-        elif self.args.dataset_type == 'gpu':
+        elif self.args.dataset == 'gpu':
             platformIdx, deviceIdx, precisionIdx, \
                 Stream_processor_count, Core_clock_frequency, Video_memory, Memory_bus_width, \
                 firstIdx, secondIdx, thirdIdx, fourthIdx, fifthIdx, sixthIdx, seventhIdx, eighthIdx, nineIdx = inputs
@@ -755,7 +731,6 @@ class Device_encoder(torch.nn.Module):
         deviceIdx = secondIdx
         device_name_Idx = thirdIdx
         precisionIdx = fourthIdx
-
         return platformIdx.long(), deviceIdx.long(), device_name_Idx.long(), precisionIdx.long(), op_idx.long()
 
 
@@ -804,7 +779,7 @@ class Model(torch.nn.Module):
         self.train()
         torch.set_grad_enabled(True)
         t1 = time.time()
-        for train_Batch in tqdm(dataModule.train_loader, disable=not self.args.program_test):
+        for train_Batch in dataModule.train_loader:
             device_features, matrix, features, value = train_Batch
             pred = self.forward(device_features, matrix, features)
             loss = self.loss_function(pred, value)
@@ -821,7 +796,7 @@ class Model(torch.nn.Module):
         val_loss = 0.
         preds = torch.zeros((len(dataModule.valid_loader.dataset),)).to(self.args.device)
         reals = torch.zeros((len(dataModule.valid_loader.dataset),)).to(self.args.device)
-        for valid_Batch in tqdm(dataModule.valid_loader, disable=not self.args.program_test):
+        for valid_Batch in dataModule.valid_loader:
             device_features, matrix, features, value = valid_Batch
             pred = self.forward(device_features, matrix, features)
             val_loss += self.loss_function(pred, value).item()
@@ -837,7 +812,7 @@ class Model(torch.nn.Module):
         writeIdx = 0
         preds = torch.zeros((len(dataModule.test_loader.dataset),)).to(self.args.device)
         reals = torch.zeros((len(dataModule.test_loader.dataset),)).to(self.args.device)
-        for test_Batch in tqdm(dataModule.test_loader, disable=not self.args.program_test):
+        for test_Batch in dataModule.test_loader:
             device_features, matrix, features, value = test_Batch
             pred = self.forward(device_features, matrix, features)
             preds[writeIdx:writeIdx + len(pred)] = pred
@@ -915,20 +890,20 @@ def RunOnce(args, runId, Runtime, log):
     model.setup_optimizer(args)
     model.max_value = datamodule.max_value
     train_time = []
-    for epoch in range(args.epochs):
+    for epoch in trange(args.epochs, disable=not args.program_test):
         model.set_epochs(epoch)
         epoch_loss, time_cost = model.train_one_epoch(datamodule)
         valid_error = model.valid_one_epoch(datamodule)
         monitor.track(epoch, model.state_dict(), valid_error['MAE'])
         train_time.append(time_cost)
-        if args.verbose and epoch % args.verbose == 0:
+        if args.verbose and epoch % args.verbose == 0 and not args.program_test:
             log.only_print(f"Round={runId + 1} Epoch={epoch + 1:02d} Loss={epoch_loss:.4f} vMAE={valid_error['MAE']:.4f} vRMSE={valid_error['RMSE']:.4f} vNMAE={valid_error['NMAE']:.4f} vNRMSE={valid_error['NRMSE']:.4f} time={sum(train_time):.1f} s")
             log.only_print(f"Acc = [1%={valid_error['Acc'][0]:.4f}, 5%={valid_error['Acc'][1]:.4f}, 10%={valid_error['Acc'][2]:.4f}]")
         if monitor.early_stop:
             break
     model.load_state_dict(monitor.best_model)
     sum_time = sum(train_time[: monitor.best_epoch])
-    results = model.test_one_epoch(datamodule) if args.valid else valid_error
+    results = model.test_one_epoch(datamodule)
     log(f'Round={runId + 1} BestEpoch={monitor.best_epoch:d} MAE={results["MAE"]:.4f} RMSE={results["RMSE"]:.4f} NMAE={results["NMAE"]:.4f} NRMSE={results["NRMSE"]:.4f} Training_time={sum_time:.1f} s')
     log(f"Acc = [1%={results['Acc'][0]:.4f}, 5%={results['Acc'][1]:.4f}, 10%={results['Acc'][2]:.4f}]")
     return {
@@ -949,20 +924,14 @@ def RunExperiments(log, args):
         results, acc = RunOnce(args, runId, runHash, log)
         for key in results:
             metrics[key].append(results[key])
-
         for key, item in zip(['Acc1', 'Acc5', 'Acc10'], [0, 1, 2]):
             metrics[key].append(acc[item])
-
     log('*' * 20 + 'Experiment Results:' + '*' * 20)
-
     for key in metrics:
         log(f'{key}: {np.mean(metrics[key]):.4f} ± {np.std(metrics[key]):.4f}')
-
     if args.record:
         log.save_result(metrics)
-
     log('*' * 20 + 'Experiment Success' + '*' * 20 + '\n')
-
     return metrics
 
 
@@ -972,15 +941,14 @@ def get_args():
     parser.add_argument('--seed', type=int, default=0)
     parser.add_argument('--rounds', type=int, default=5)
 
-    parser.add_argument('--dataset', type=str, default='rt')  #
+    parser.add_argument('--dataset', type=str, default='cpu')  #
     parser.add_argument('--model', type=str, default='CF')  #
 
     # Experiment
-    parser.add_argument('--density', type=float, default=0.10)
+    parser.add_argument('--density', type=float, default=0.01)
     parser.add_argument('--debug', type=int, default=0)
     parser.add_argument('--record', type=int, default=1)
     parser.add_argument('--program_test', type=int, default=0)
-    parser.add_argument('--valid', type=int, default=1)
     parser.add_argument('--experiment', type=int, default=0)
     parser.add_argument('--verbose', type=int, default=1)
     parser.add_argument('--path', nargs='?', default='./datasets/')
@@ -1002,14 +970,48 @@ def get_args():
 
     # Other Experiment
     parser.add_argument('--ablation', type=int, default=0)
-    parser.add_argument('--dataset_type', type=str, default='cpu')
+    # parser.add_argument('--dataset', type=str, default='cpu')
     parser.add_argument('--llm', type=int, default=1)
     args = parser.parse_args([])
     return args
 
 
 if __name__ == '__main__':
-    args = get_args()
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--seed', type=int, default=0)
+    parser.add_argument('--rounds', type=int, default=5)
+
+    parser.add_argument('--dataset', type=str, default='cpu')  #
+    parser.add_argument('--model', type=str, default='CF')  #
+
+    # Experiment
+    parser.add_argument('--density', type=float, default=0.10)
+    parser.add_argument('--debug', type=int, default=0)
+    parser.add_argument('--record', type=int, default=1)
+    parser.add_argument('--program_test', type=int, default=0)
+    parser.add_argument('--experiment', type=int, default=0)
+    parser.add_argument('--verbose', type=int, default=1)
+    parser.add_argument('--path', nargs='?', default='./datasets/')
+
+    # Training tool
+    parser.add_argument('--device', type=str, default='cpu')  # gpu cpu mps
+    parser.add_argument('--bs', type=int, default=1)  #
+    parser.add_argument('--lr', type=float, default=4e-4)
+    parser.add_argument('--epochs', type=int, default=300)
+    parser.add_argument('--decay', type=float, default=5e-4)
+    parser.add_argument('--patience', type=int, default=50)
+    parser.add_argument('--saved', type=int, default=1)
+
+    parser.add_argument('--loss_func', type=str, default='L1Loss')
+    parser.add_argument('--optim', type=str, default='AdamW')
+
+    # Hyper parameters
+    parser.add_argument('--dimension', type=int, default=32)
+
+    # Other Experiment
+    parser.add_argument('--ablation', type=int, default=0)
+    parser.add_argument('--llm', type=int, default=1)
+    args = parser.parse_args()
     set_settings(args)
     log = Logger(args)
     args.log = log

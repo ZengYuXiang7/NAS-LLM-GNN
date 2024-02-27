@@ -1,16 +1,16 @@
 from utils.utils import create_sh_file
 order = []
-for dim in [16, 32, 64, 128]:
-    for model in ['3']:
-        for density in [0.10, 0.20, 0.30, 0.40, 0.50]:
-            string = f'python Experiment.py --rounds {3} --exper {model} --model {model} '
-            string += f'--density {density} '
-            string += f'--epochs {150} '
-            string += f'--bs {32} --lr {0.001} --decay {0.001} '
-            string += f'--dimension {dim} '
-            string += f'--experiment 1 '
-            string += f'--valid {1}'
-            order.append(string)
+for dataset in ['cpu', 'gpu']:
+    for density in [0.01, 0.02, 0.03, 0.04, 0.05]:
+        string = f'python run_llm_gcn.py --rounds {5} '
+        string += f'--density {density} '
+        string += f'--dataset {dataset} '
+        string += f'--epochs {300} '
+        string += f'--bs {1} --lr {4e-4} --decay {5e-4} '
+        string += f'--program_test {1} '
+        string += f'--dimension {64} '
+        string += f'--experiment {1} --record {1}'
+        order.append(string)
     order.append('   ')
 
 create_sh_file(order, 'Experiment')
