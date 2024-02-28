@@ -25,7 +25,7 @@ def set_settings(args):
         args.record = 1
 
     if platform.system() == 'Linux':
-        args.program_test = 0
+        args.program_test = 1
         args.verbose = 10
         args.experiment = 1
 
