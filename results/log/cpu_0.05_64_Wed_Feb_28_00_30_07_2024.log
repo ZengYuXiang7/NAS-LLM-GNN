@@ -1,0 +1,22 @@
+INFO:CF:|2024-02-28 00:30:07| Namespace(ablation=0, bs=1, dataset='cpu', debug=0, decay=0.0005, density=0.05, device='cpu', dimension=64, epochs=300, experiment=1, llm=1, log=<utils.logger.Logger object at 0x7fa40ed04e50>, loss_func='L1Loss', lr=0.0004, model='CF', optim='AdamW', path='./datasets/', patience=50, program_test=1, record=1, rounds=5, saved=1, seed=0, verbose=10
+INFO:CF:|2024-02-28 00:30:07| ********************Experiment Start*******************
+INFO:CF:|2024-02-28 00:43:56| Round=1 BestEpoch=145 MAE=0.0001 RMSE=0.0002 NMAE=0.0270 NRMSE=0.0417 Training_time=594.8 
+INFO:CF:|2024-02-28 00:43:56| Acc = [1%=0.3778, 5%=0.8449, 10%=0.9617
+INFO:CF:|2024-02-28 00:55:17| Round=2 BestEpoch=134 MAE=0.0001 RMSE=0.0002 NMAE=0.0277 NRMSE=0.0429 Training_time=487.7 
+INFO:CF:|2024-02-28 00:55:17| Acc = [1%=0.3664, 5%=0.8438, 10%=0.9561
+INFO:CF:|2024-02-28 01:04:56| Round=3 BestEpoch=114 MAE=0.0001 RMSE=0.0002 NMAE=0.0270 NRMSE=0.0386 Training_time=398.0 
+INFO:CF:|2024-02-28 01:04:56| Acc = [1%=0.3285, 5%=0.8469, 10%=0.9682
+INFO:CF:|2024-02-28 01:22:01| Round=4 BestEpoch=140 MAE=0.0001 RMSE=0.0002 NMAE=0.0293 NRMSE=0.0428 Training_time=738.8 
+INFO:CF:|2024-02-28 01:22:01| Acc = [1%=0.3138, 5%=0.8316, 10%=0.9565
+INFO:CF:|2024-02-28 01:50:46| Round=5 BestEpoch=126 MAE=0.0001 RMSE=0.0002 NMAE=0.0298 NRMSE=0.0437 Training_time=1127.6 
+INFO:CF:|2024-02-28 01:50:46| Acc = [1%=0.3103, 5%=0.8141, 10%=0.9621
+INFO:CF:|2024-02-28 01:50:46| ********************Experiment Results:*******************
+INFO:CF:|2024-02-28 01:50:46| MAE: 0.0001 ± 0.000
+INFO:CF:|2024-02-28 01:50:46| RMSE: 0.0002 ± 0.000
+INFO:CF:|2024-02-28 01:50:46| NMAE: 0.0282 ± 0.001
+INFO:CF:|2024-02-28 01:50:46| NRMSE: 0.0419 ± 0.001
+INFO:CF:|2024-02-28 01:50:46| TIME: 669.3726 ± 255.725
+INFO:CF:|2024-02-28 01:50:46| Acc1: 0.3394 ± 0.027
+INFO:CF:|2024-02-28 01:50:46| Acc5: 0.8362 ± 0.012
+INFO:CF:|2024-02-28 01:50:46| Acc10: 0.9609 ± 0.004
+INFO:CF:|2024-02-28 01:50:46| ********************Experiment Success********************

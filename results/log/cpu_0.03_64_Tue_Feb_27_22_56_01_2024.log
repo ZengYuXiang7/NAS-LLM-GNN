@@ -1,0 +1,22 @@
+INFO:CF:|2024-02-27 22:56:01| Namespace(ablation=0, bs=1, dataset='cpu', debug=0, decay=0.0005, density=0.03, device='cpu', dimension=64, epochs=300, experiment=1, llm=1, log=<utils.logger.Logger object at 0x7f471b467f10>, loss_func='L1Loss', lr=0.0004, model='CF', optim='AdamW', path='./datasets/', patience=50, program_test=1, record=1, rounds=5, saved=1, seed=0, verbose=10
+INFO:CF:|2024-02-27 22:56:01| ********************Experiment Start*******************
+INFO:CF:|2024-02-27 23:04:24| Round=1 BestEpoch=161 MAE=0.0001 RMSE=0.0002 NMAE=0.0306 NRMSE=0.0440 Training_time=386.6 
+INFO:CF:|2024-02-27 23:04:24| Acc = [1%=0.3222, 5%=0.8087, 10%=0.9538
+INFO:CF:|2024-02-27 23:10:37| Round=2 BestEpoch=103 MAE=0.0002 RMSE=0.0003 NMAE=0.0355 NRMSE=0.0509 Training_time=239.7 
+INFO:CF:|2024-02-27 23:10:37| Acc = [1%=0.2729, 5%=0.7635, 10%=0.9308
+INFO:CF:|2024-02-27 23:19:07| Round=3 BestEpoch=134 MAE=0.0002 RMSE=0.0003 NMAE=0.0361 NRMSE=0.0523 Training_time=343.5 
+INFO:CF:|2024-02-27 23:19:07| Acc = [1%=0.2538, 5%=0.7661, 10%=0.9348
+INFO:CF:|2024-02-27 23:28:13| Round=4 BestEpoch=127 MAE=0.0002 RMSE=0.0002 NMAE=0.0326 NRMSE=0.0464 Training_time=365.0 
+INFO:CF:|2024-02-27 23:28:13| Acc = [1%=0.2835, 5%=0.7877, 10%=0.9540
+INFO:CF:|2024-02-27 23:37:46| Round=5 BestEpoch=174 MAE=0.0002 RMSE=0.0002 NMAE=0.0318 NRMSE=0.0436 Training_time=426.3 
+INFO:CF:|2024-02-27 23:37:46| Acc = [1%=0.2921, 5%=0.7824, 10%=0.9483
+INFO:CF:|2024-02-27 23:37:46| ********************Experiment Results:*******************
+INFO:CF:|2024-02-27 23:37:46| MAE: 0.0002 ± 0.000
+INFO:CF:|2024-02-27 23:37:46| RMSE: 0.0002 ± 0.000
+INFO:CF:|2024-02-27 23:37:46| NMAE: 0.0333 ± 0.002
+INFO:CF:|2024-02-27 23:37:46| NRMSE: 0.0475 ± 0.003
+INFO:CF:|2024-02-27 23:37:46| TIME: 352.2275 ± 62.553
+INFO:CF:|2024-02-27 23:37:46| Acc1: 0.2849 ± 0.022
+INFO:CF:|2024-02-27 23:37:46| Acc5: 0.7817 ± 0.016
+INFO:CF:|2024-02-27 23:37:46| Acc10: 0.9443 ± 0.009
+INFO:CF:|2024-02-27 23:37:46| ********************Experiment Success********************

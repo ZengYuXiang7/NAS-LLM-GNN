@@ -1,0 +1,2 @@
+INFO:CF:|2024-02-28 15:52:43| Namespace(ablation=0, bs=1, dataset='gpu', debug=0, decay=0.0005, density=0.01, device='cpu', dimension=64, epochs=300, experiment=1, llm=1, log=<utils.logger.Logger object at 0x7f0cd627ae80>, loss_func='L1Loss', lr=0.0004, model='CF', optim='AdamW', path='./datasets/', patience=50, program_test=1, record=1, rounds=5, saved=1, seed=0, verbose=10
+INFO:CF:|2024-02-28 15:52:43| ********************Experiment Start*******************
