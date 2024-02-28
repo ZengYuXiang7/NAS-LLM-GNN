@@ -178,8 +178,12 @@ class experiment:
             tensor = pickle.load(open(f'./pretrained/tensor_{torch.initial_seed()}.pkl', 'rb'))
         except:
             tensor = []
+            if args.dataset == 'cpu':
+                idx = 8
+            elif args.dataset == 'gpu':
+                idx = 7
             for i in trange(len(data)):
-                for key in (data[i][8].keys()):
+                for key in (data[i][idx].keys()):
                     now = []
                     # 添加设备号
                     for j in range(len(data[0]) - 1):
@@ -193,7 +197,7 @@ class experiment:
                     matrix, features = self.get_graph(key)
                     now.append(matrix)
                     now.append(features)
-                    y = data[i][8][key]
+                    y = data[i][idx][key]
                     now.append(y)
                     tensor.append(now)
             tensor = np.array(tensor)
@@ -905,7 +909,7 @@ def RunOnce(args, runId, Runtime, log):
     sum_time = sum(train_time[: monitor.best_epoch])
     results = model.test_one_epoch(datamodule)
     log(f'Round={runId + 1} BestEpoch={monitor.best_epoch:d} MAE={results["MAE"]:.4f} RMSE={results["RMSE"]:.4f} NMAE={results["NMAE"]:.4f} NRMSE={results["NRMSE"]:.4f} Training_time={sum_time:.1f} s')
-    log(f"Acc = [1%={results['Acc'][0]:.4f}, 5%={results['Acc'][1]:.4f}, 10%={results['Acc'][2]:.4f}]")
+    log(f"Acc = [1%={results['Acc'][0]:.4f}, 5%={results['Acc'][1]:.4f}, 10%={results['Acc'][2]:.4f}] ")
     return {
         'MAE': results["MAE"],
         'RMSE': results["RMSE"],
