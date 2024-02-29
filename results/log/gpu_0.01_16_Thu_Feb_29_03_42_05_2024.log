@@ -1,0 +1,22 @@
+INFO:CF:|2024-02-29 03:42:05| Namespace(ablation=0, bs=1, dataset='gpu', debug=0, decay=0.0005, density=0.01, device='cpu', dimension=16, epochs=300, experiment=1, llm=1, log=<utils.logger.Logger object at 0x7f0106120e80>, loss_func='L1Loss', lr=0.0004, model='CF', optim='AdamW', path='./datasets/', patience=50, program_test=1, record=1, rounds=5, saved=1, seed=0, verbose=10
+INFO:CF:|2024-02-29 03:42:05| ********************Experiment Start*******************
+INFO:CF:|2024-02-29 03:47:34| Round=1 BestEpoch=223 MAE=0.0002 RMSE=0.0003 NMAE=0.0465 NRMSE=0.0608 Training_time=257.3 
+INFO:CF:|2024-02-29 03:47:34| Acc = [1%=0.1826, 5%=0.6385, 10%=0.8792]
+INFO:CF:|2024-02-29 03:51:57| Round=2 BestEpoch=171 MAE=0.0002 RMSE=0.0003 NMAE=0.0457 NRMSE=0.0600 Training_time=197.8 
+INFO:CF:|2024-02-29 03:51:57| Acc = [1%=0.1764, 5%=0.6481, 10%=0.8848]
+INFO:CF:|2024-02-29 03:56:08| Round=3 BestEpoch=174 MAE=0.0002 RMSE=0.0003 NMAE=0.0451 NRMSE=0.0608 Training_time=186.7 
+INFO:CF:|2024-02-29 03:56:08| Acc = [1%=0.1865, 5%=0.6648, 10%=0.8831]
+INFO:CF:|2024-02-29 04:00:20| Round=4 BestEpoch=174 MAE=0.0002 RMSE=0.0003 NMAE=0.0451 NRMSE=0.0608 Training_time=182.3 
+INFO:CF:|2024-02-29 04:00:20| Acc = [1%=0.2053, 5%=0.6660, 10%=0.8767]
+INFO:CF:|2024-02-29 04:04:10| Round=5 BestEpoch=157 MAE=0.0002 RMSE=0.0003 NMAE=0.0447 NRMSE=0.0613 Training_time=165.0 
+INFO:CF:|2024-02-29 04:04:10| Acc = [1%=0.1954, 5%=0.6712, 10%=0.8867]
+INFO:CF:|2024-02-29 04:04:10| ********************Experiment Results:*******************
+INFO:CF:|2024-02-29 04:04:10| MAE: 0.0002 ± 0.000
+INFO:CF:|2024-02-29 04:04:10| RMSE: 0.0003 ± 0.000
+INFO:CF:|2024-02-29 04:04:10| NMAE: 0.0454 ± 0.000
+INFO:CF:|2024-02-29 04:04:10| NRMSE: 0.0607 ± 0.000
+INFO:CF:|2024-02-29 04:04:10| TIME: 197.8341 ± 31.568
+INFO:CF:|2024-02-29 04:04:10| Acc1: 0.1892 ± 0.010
+INFO:CF:|2024-02-29 04:04:10| Acc5: 0.6577 ± 0.012
+INFO:CF:|2024-02-29 04:04:10| Acc10: 0.8821 ± 0.003
+INFO:CF:|2024-02-29 04:04:10| ********************Experiment Success********************
