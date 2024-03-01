@@ -472,7 +472,7 @@ class Model(torch.torch.nn.Module):
         self.train()
         torch.set_grad_enabled(True)
         t1 = time.time()
-        for train_Batch in tqdm(dataModule.train_loader, disable=not self.args.program_test):
+        for train_Batch in (dataModule.train_loader):
             adjmatrix, features, value = train_Batch
             pred = self.forward(adjmatrix, features)
             loss = self.loss_function(pred, value)
@@ -489,7 +489,7 @@ class Model(torch.torch.nn.Module):
         val_loss = 0.
         preds = torch.zeros((len(dataModule.valid_loader.dataset),)).to(self.args.device)
         reals = torch.zeros((len(dataModule.valid_loader.dataset),)).to(self.args.device)
-        for valid_Batch in tqdm(dataModule.valid_loader, disable=not self.args.program_test):
+        for valid_Batch in (dataModule.valid_loader):
             adjmatrix, features, value = valid_Batch
             pred = self.forward(adjmatrix, features)
             val_loss += self.loss_function(pred, value).item()
@@ -505,7 +505,7 @@ class Model(torch.torch.nn.Module):
         writeIdx = 0
         preds = torch.zeros((len(dataModule.test_loader.dataset),)).to(self.args.device)
         reals = torch.zeros((len(dataModule.test_loader.dataset),)).to(self.args.device)
-        for test_Batch in tqdm(dataModule.test_loader, disable=not self.args.program_test):
+        for test_Batch in (dataModule.test_loader):
             adjmatrix, features, value = test_Batch
             pred = self.forward(adjmatrix, features)
             preds[writeIdx:writeIdx + len(pred)] = pred
@@ -574,13 +574,13 @@ def RunOnce(args, runId, Runtime, log):
     model.setup_optimizer(args)
     model.max_value = datamodule.max_value
     train_time = []
-    for epoch in range(args.epochs):
+    for epoch in trange(args.epochs):
         model.set_epochs(epoch)
         epoch_loss, time_cost = model.train_one_epoch(datamodule)
         valid_error = model.valid_one_epoch(datamodule)
         monitor.track(epoch, model.state_dict(), valid_error['MAE'])
         train_time.append(time_cost)
-        if args.verbose and epoch % args.verbose == 0:
+        if args.verbose and epoch % args.verbose == 0 and not args.program_test:
             log.only_print(f"Round={runId + 1} Epoch={epoch + 1:02d} Loss={epoch_loss:.4f} vMAE={valid_error['MAE']:.4f} vRMSE={valid_error['RMSE']:.4f} vNMAE={valid_error['NMAE']:.4f} vNRMSE={valid_error['NRMSE']:.4f} time={sum(train_time):.1f} s")
             log.only_print(f"Acc = [1%={valid_error['Acc'][0]:.4f}, 5%={valid_error['Acc'][1]:.4f}, 10%={valid_error['Acc'][2]:.4f}]")
         if monitor.early_stop:
@@ -661,7 +661,7 @@ def get_args():
 
     # Other Experiment
     parser.add_argument('--ablation', type=int, default=0)
-    args = parser.parse_args([])
+    args = parser.parse_args()
     return args
 
 
