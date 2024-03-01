@@ -14,7 +14,10 @@ class Logger:
     def save_result(self, metrics):
         args = self.args
         makedir('./results/metrics/')
-        address = f'./results/metrics/Machine_learning_{args.dataset}_{args.density}'
+        if args.dimension == None:
+            address = f'./results/metrics/Machine_learning_{args.dataset}_{args.density}'
+        else:
+            address = f'./results/metrics/{args.dataset}_{args.density}_{args.dimension}'
         for key in metrics:
             pickle.dump(np.mean(metrics[key]), open(address + key + 'mean.pkl', 'wb'))
             pickle.dump(np.std(metrics[key]), open(address + key + 'std.pkl', 'wb'))
@@ -24,7 +27,11 @@ class Logger:
         makedir('./results/log/')
         if args.experiment:
             ts = time.asctime().replace(' ', '_').replace(':', '_')
-            logging.basicConfig(level=logging.INFO, filename=f'./results/log/{args.dataset}_{args.density}_{args.dimension}_{ts}.log', filemode='w')
+            if args.dimension == None:
+                address = f'./results/log/Machine_learning_{args.dataset}_{args.density}'
+            else:
+                address = f'./results/log/{args.dataset}_{args.density}_{args.dimension}'
+            logging.basicConfig(level=logging.INFO, filename=f'{address}_{ts}.log', filemode='w')
         else:
             logging.basicConfig(level=logging.INFO, filename=f'./' + 'None.log', filemode='a')
         self.logger = logging.getLogger(self.args.model)

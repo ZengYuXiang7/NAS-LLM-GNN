@@ -226,8 +226,11 @@ def get_train_valid_test_dataset(tensor, args):
     max_value = 1
     Y /= max_value
 
-    train_size = int(900)  # Assuming 900 samples for training
-    valid_size = int(100)  # Assuming 113 samples for validation
+    train_size = int(len(tensor) * args.density)
+    if args.dataset == 'cpu':
+        valid_size = int(100)
+    elif args.dataset == 'gpu':
+        valid_size = int(200)
 
     X_train = X[:train_size]
     Y_train = Y[:train_size]

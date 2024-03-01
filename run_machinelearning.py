@@ -1,28 +1,19 @@
 # coding : utf-8
 # Author : yuxiang Zeng
 import collections
-import math
 import time
-
 import pickle
 import numpy as np
 import argparse
-import copy
-
-from skimage.metrics import mean_squared_error
-from sklearn.model_selection import train_test_split, ParameterGrid
-from torch.utils.data import DataLoader
 from tqdm import *
 import torch
-from utils.dataloader import get_dataloaders
 from utils.logger import Logger
 from utils.metrics import ErrorMetrics
-from utils.monitor import EarlyStopping
-from utils.trainer import get_loss_function, get_optimizer
-from utils.utils import optimizer_zero_grad, optimizer_step, lr_scheduler_step, set_settings, set_seed
+from utils.utils import set_settings, set_seed
 
 global log
 torch.set_default_dtype(torch.double)
+
 
 class experiment:
     def __init__(self, args):
@@ -67,33 +58,6 @@ class experiment:
         return data
 
 
-def get_train_valid_test_dataset(tensor, args):
-    np.random.shuffle(tensor)
-
-    X = tensor[:, :-1]
-    Y = tensor[:, -1].reshape(-1, 1)
-    # max_value = Y.max()
-    max_value = 1
-    Y /= max_value
-
-    train_size = int(900)  # Assuming 900 samples for training
-    valid_size = int(100)  # Assuming 113 samples for validation
-
-    X_train = X[:train_size]
-    Y_train = Y[:train_size]
-
-    X_valid = X[train_size:train_size + valid_size]
-    Y_valid = Y[train_size:train_size + valid_size]
-
-    X_test = X[train_size + valid_size:]
-    Y_test = Y[train_size + valid_size:]
-
-    train_tensor = np.hstack((X_train, Y_train))
-    valid_tensor = np.hstack((X_valid, Y_valid))
-    test_tensor = np.hstack((X_test, Y_test))
-
-    return train_tensor, valid_tensor, test_tensor, max_value
-
 
 # 数据集定义
 class DataModule:
@@ -102,9 +66,38 @@ class DataModule:
         self.path = args.path
         self.data = exper_type.load_data(args)
         self.data = exper_type.preprocess_data(self.data, args)
-        self.train_tensor, self.valid_tensor, self.test_tensor, self.max_value = get_train_valid_test_dataset(self.data, args)
-        # args.log.only_print(f'Train_length : {len(self.train_tensor)} Valid_length : {len(self.valid_tensor)} Test_length : {len(self.test_tensor)}')
+        self.train_tensor, self.valid_tensor, self.test_tensor, self.max_value = self.get_train_valid_test_dataset(self.data, args)
+        args.log.only_print(f'Train_length : {len(self.train_tensor)} Valid_length : {len(self.valid_tensor)} Test_length : {len(self.test_tensor)}')
 
+    def get_train_valid_test_dataset(self, tensor, args):
+        np.random.shuffle(tensor)
+
+        X = tensor[:, :-1]
+        Y = tensor[:, -1].reshape(-1, 1)
+        # max_value = Y.max()
+        max_value = 1
+        Y /= max_value
+
+        train_size = int(len(tensor) * args.density)
+        if args.dataset == 'cpu':
+            valid_size = int(100)
+        elif args.dataset == 'gpu':
+            valid_size = int(200)
+
+        X_train = X[:train_size]
+        Y_train = Y[:train_size]
+
+        X_valid = X[train_size:train_size + valid_size]
+        Y_valid = Y[train_size:train_size + valid_size]
+
+        X_test = X[train_size + valid_size:]
+        Y_test = Y[train_size + valid_size:]
+
+        train_tensor = np.hstack((X_train, Y_train))
+        valid_tensor = np.hstack((X_valid, Y_valid))
+        test_tensor = np.hstack((X_test, Y_test))
+
+        return train_tensor, valid_tensor, test_tensor, max_value
 
 
 
@@ -112,9 +105,14 @@ class Model(torch.torch.nn.Module):
     def __init__(self, args):
         super(Model, self).__init__()
         self.args = args
-
+        self.log = args.log
     def forward(self, adjacency, features):
         pass
+
+    def set_runid(self, runid):
+        self.runid = runid
+        self.log('-' * 80)
+        self.log(f'Runid : {self.runid + 1}')
 
     def machine_learning_model_train_evaluation(self, train_x, train_y, valid_x, valid_y, test_x, test_y, max_value):
         from sklearn.metrics import mean_squared_error
@@ -156,11 +154,9 @@ class Model(torch.torch.nn.Module):
                 'max_depth': [3, 5, 7]
             }
         }
-        # 在开始训练模型之前，初始化一个空字典来存储结果
         results_dict = {}
         for name, model in models.items():
-            # print('-' * 80)
-            # print(f"正在训练模型: {name}")
+            self.log(f"模型: {name}")
             if name in param_grids:
                 best_score = float('inf')
                 best_params = None
@@ -179,19 +175,19 @@ class Model(torch.torch.nn.Module):
                 model.fit(train_x, train_y)
             predict_test_y = model.predict(test_x)
             results_test = ErrorMetrics(predict_test_y * max_value, test_y * max_value)
-            # print(f"测试集上的表现 - MAE={results_test['MAE']:.4f}, RMSE={results_test['RMSE']:.4f}, NMAE={results_test['NMAE']:.4f}, NRMSE={results_test['NRMSE']:.4f}")
-            # print(f"Acc = [1%={results_test['Acc'][0]:.4f}, 5%={results_test['Acc'][1]:.4f}, 10%={results_test['Acc'][2]:.4f}]")
+            self.log(f"测试集上的表现 - MAE={results_test['MAE']:.4f}, RMSE={results_test['RMSE']:.4f}, NMAE={results_test['NMAE']:.4f}, NRMSE={results_test['NRMSE']:.4f}")
+            self.log(f"Acc = [1%={results_test['Acc'][0]:.4f}, 5%={results_test['Acc'][1]:.4f}, 10%={results_test['Acc'][2]:.4f}]  ")
             results_dict[name] = results_test
         return results_dict
+
 def RunOnce(args, runId, Runtime, log):
     # Set seed
     set_seed(args.seed + runId)
-
     # Initialize
     exper = experiment(args)
     datamodule = DataModule(exper, args)
     model = Model(args)
-
+    model.set_runid(runId)
     # Prepare the data for machine learning
     train_x, train_y = datamodule.train_tensor[:, :-1], datamodule.train_tensor[:, -1]
     valid_x, valid_y = datamodule.valid_tensor[:, :-1], datamodule.valid_tensor[:, -1]
@@ -205,7 +201,7 @@ def RunExperiments(log, args):
     log('*' * 20 + 'Experiment Start' + '*' * 20)
     metrics = collections.defaultdict(list)
 
-    for runId in trange(args.rounds, desc=f'机器学习大实验'):
+    for runId in range(args.rounds):
         runHash = int(time.time())
         results = RunOnce(args, runId, runHash, log)
         for model_name, model_results in results.items():
@@ -231,7 +227,7 @@ def get_args():
     parser.add_argument('--seed', type=int, default=0)
     parser.add_argument('--rounds', type=int, default=5)
 
-    parser.add_argument('--dataset', type=str, default='rt')  #
+    parser.add_argument('--dataset', type=str, default='cpu')  #
     parser.add_argument('--model', type=str, default='CF')  #
 
     # Experiment
@@ -240,12 +236,13 @@ def get_args():
     parser.add_argument('--record', type=int, default=1)
     parser.add_argument('--program_test', type=int, default=0)
     parser.add_argument('--valid', type=int, default=1)
-    parser.add_argument('--experiment', type=int, default=0)
+    parser.add_argument('--experiment', type=int, default=1)
     parser.add_argument('--verbose', type=int, default=1)
     parser.add_argument('--path', nargs='?', default='./datasets/')
 
     # Training tool
     parser.add_argument('--epochs', type=int, default=300)
+    parser.add_argument('--dimension', type=int, default=None)
     args = parser.parse_args()
     return args
 
