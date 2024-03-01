@@ -14,7 +14,7 @@ class Logger:
     def save_result(self, metrics):
         args = self.args
         makedir('./results/metrics/')
-        address = f'./results/metrics/{args.dataset}_{args.density}_{args.dimension}_'
+        address = f'./results/metrics/Machine_learning_{args.dataset}_{args.density}'
         for key in metrics:
             pickle.dump(np.mean(metrics[key]), open(address + key + 'mean.pkl', 'wb'))
             pickle.dump(np.std(metrics[key]), open(address + key + 'std.pkl', 'wb'))

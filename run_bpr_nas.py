@@ -255,7 +255,7 @@ class DataModule:
         self.train_tensor, self.valid_tensor, self.test_tensor, self.max_value = get_train_valid_test_dataset(self.data, args)
         self.train_set, self.valid_set, self.test_set = self.get_dataset(self.train_tensor, self.valid_tensor, self.test_tensor, exper_type, args)
         self.train_loader, self.valid_loader, self.test_loader = get_dataloaders(self.train_set, self.valid_set, self.test_set, args)
-        args.log.only_print(f'Train_length : {len(self.train_loader.dataset) * args.bs} Valid_length : {len(self.valid_loader.dataset)} Test_length : {len(self.test_loader.dataset)}')
+        args.log.only_print(f'Train_length : {len(self.train_loader.dataset)} Valid_length : {len(self.valid_loader.dataset)} Test_length : {len(self.test_loader.dataset)}')
 
     def get_dataset(self, train_tensor, valid_tensor, test_tensor, exper_type, args):
         return (
@@ -270,7 +270,6 @@ class TensorDataset(torch.utils.data.Dataset):
         self.args = args
         self.tensor = tensor
         self.indices = exper_type.get_pytorch_index(tensor)
-        # self.indices = self.delete_zero_row(self.indices)
 
     def __getitem__(self, idx):
         matrix, features = self.indices[idx, 0], self.indices[idx, 1]
@@ -281,11 +280,6 @@ class TensorDataset(torch.utils.data.Dataset):
     def __len__(self):
         return self.indices.shape[0]
 
-    def delete_zero_row(self, tensor):
-        row_sums = tensor.sum(axis=1)
-        nonzero_rows = (row_sums != 0).nonzero().squeeze()
-        filtered_tensor = tensor[nonzero_rows]
-        return filtered_tensor
 
 
 class GraphConvolution(torch.torch.nn.Module):

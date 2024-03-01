@@ -1447,3 +1447,529 @@ INFO:CF:|2024-02-27 21:40:28| Namespace(ablation=0, bs=1, dataset='cpu', debug=0
 INFO:CF:|2024-02-27 21:40:28| ********************Experiment Start*******************
 INFO:CF:|2024-02-27 21:40:48| Namespace(ablation=0, bs=1, dataset='cpu', debug=0, decay=0.0005, density=0.1, device='cpu', dimension=32, epochs=300, experiment=0, llm=1, log=<utils.logger.Logger object at 0x7fcc1130dc40>, loss_func='L1Loss', lr=0.0004, model='CF', optim='AdamW', path='./datasets/', patience=50, program_test=0, record=1, rounds=5, saved=1, seed=0, verbose=1
 INFO:CF:|2024-02-27 21:40:48| ********************Experiment Start*******************
+INFO:CF:|2024-03-01 13:38:13| Namespace(ablation=0, dataset='rt', debug=0, density=0.1, dimension=32, epochs=300, experiment=0, log=<utils.logger.Logger object at 0x7f80f8111f10>, loss_func='L1Loss', model='CF', optim='AdamW', path='./datasets/', program_test=0, record=1, rounds=5, seed=0, valid=1, verbose=1
+INFO:CF:|2024-03-01 13:38:13| ********************Experiment Start*******************
+INFO:CF:|2024-03-01 13:40:00| Namespace(ablation=0, dataset='rt', debug=0, density=0.1, dimension=32, epochs=300, experiment=0, log=<utils.logger.Logger object at 0x7fd0e0131f10>, loss_func='L1Loss', model='CF', optim='AdamW', path='./datasets/', program_test=0, record=1, rounds=5, seed=0, valid=1, verbose=1
+INFO:CF:|2024-03-01 13:40:00| ********************Experiment Start*******************
+INFO:CF:|2024-03-01 13:40:58| Namespace(ablation=0, dataset='rt', debug=0, density=0.1, dimension=32, epochs=300, experiment=0, log=<utils.logger.Logger object at 0x7fa068029f10>, loss_func='L1Loss', model='CF', optim='AdamW', path='./datasets/', program_test=0, record=1, rounds=5, seed=0, valid=1, verbose=1
+INFO:CF:|2024-03-01 13:40:58| ********************Experiment Start*******************
+INFO:CF:|2024-03-01 13:41:35| Namespace(ablation=0, dataset='rt', debug=0, density=0.1, dimension=32, epochs=300, experiment=0, log=<utils.logger.Logger object at 0x7fe028151f10>, loss_func='L1Loss', model='CF', optim='AdamW', path='./datasets/', program_test=0, record=1, rounds=5, seed=0, valid=1, verbose=1
+INFO:CF:|2024-03-01 13:41:35| ********************Experiment Start*******************
+INFO:CF:|2024-03-01 13:42:02| Namespace(ablation=0, dataset='rt', debug=0, density=0.1, dimension=32, epochs=300, experiment=0, log=<utils.logger.Logger object at 0x7fb8e8131f10>, loss_func='L1Loss', model='CF', optim='AdamW', path='./datasets/', program_test=0, record=1, rounds=5, seed=0, valid=1, verbose=1
+INFO:CF:|2024-03-01 13:42:02| ********************Experiment Start*******************
+INFO:CF:|2024-03-01 13:42:15| Namespace(ablation=0, dataset='rt', debug=0, density=0.1, dimension=32, epochs=300, experiment=0, log=<utils.logger.Logger object at 0x7fa1180d1f10>, loss_func='L1Loss', model='CF', optim='AdamW', path='./datasets/', program_test=0, record=1, rounds=5, seed=0, valid=1, verbose=1
+INFO:CF:|2024-03-01 13:42:15| ********************Experiment Start*******************
+INFO:CF:|2024-03-01 13:42:35| Namespace(ablation=0, dataset='rt', debug=0, density=0.1, dimension=32, epochs=300, experiment=0, log=<utils.logger.Logger object at 0x7f8250151f10>, loss_func='L1Loss', model='CF', optim='AdamW', path='./datasets/', program_test=0, record=1, rounds=5, seed=0, valid=1, verbose=1
+INFO:CF:|2024-03-01 13:42:35| ********************Experiment Start*******************
+INFO:CF:|2024-03-01 13:42:43| Namespace(ablation=0, dataset='rt', debug=0, density=0.1, dimension=32, epochs=300, experiment=0, log=<utils.logger.Logger object at 0x7fc228151f10>, loss_func='L1Loss', model='CF', optim='AdamW', path='./datasets/', program_test=0, record=1, rounds=5, seed=0, valid=1, verbose=1
+INFO:CF:|2024-03-01 13:42:43| ********************Experiment Start*******************
+INFO:CF:|2024-03-01 13:42:49| Namespace(ablation=0, dataset='rt', debug=0, density=0.1, dimension=32, epochs=300, experiment=0, log=<utils.logger.Logger object at 0x7fc308151f10>, loss_func='L1Loss', model='CF', optim='AdamW', path='./datasets/', program_test=0, record=1, rounds=5, seed=0, valid=1, verbose=1
+INFO:CF:|2024-03-01 13:42:49| ********************Experiment Start*******************
+INFO:CF:|2024-03-01 13:43:02| Namespace(ablation=0, dataset='rt', debug=0, density=0.1, dimension=32, epochs=300, experiment=0, log=<utils.logger.Logger object at 0x7fb900151f10>, loss_func='L1Loss', model='CF', optim='AdamW', path='./datasets/', program_test=0, record=1, rounds=5, seed=0, valid=1, verbose=1
+INFO:CF:|2024-03-01 13:43:02| ********************Experiment Start*******************
+INFO:CF:|2024-03-01 13:43:04| Namespace(ablation=0, dataset='rt', debug=0, density=0.1, dimension=32, epochs=300, experiment=0, log=<utils.logger.Logger object at 0x7faa00131f10>, loss_func='L1Loss', model='CF', optim='AdamW', path='./datasets/', program_test=0, record=1, rounds=5, seed=0, valid=1, verbose=1
+INFO:CF:|2024-03-01 13:43:04| ********************Experiment Start*******************
+INFO:CF:|2024-03-01 13:47:14| Namespace(ablation=0, dataset='rt', debug=0, density=0.1, dimension=32, epochs=300, experiment=0, log=<utils.logger.Logger object at 0x7f7990029f10>, loss_func='L1Loss', model='CF', optim='AdamW', path='./datasets/', program_test=0, record=1, rounds=5, seed=0, valid=1, verbose=1
+INFO:CF:|2024-03-01 13:47:14| ********************Experiment Start*******************
+INFO:CF:|2024-03-01 13:47:42| Namespace(ablation=0, dataset='rt', debug=0, density=0.1, dimension=32, epochs=300, experiment=0, log=<utils.logger.Logger object at 0x7fd578151f10>, loss_func='L1Loss', model='CF', optim='AdamW', path='./datasets/', program_test=0, record=1, rounds=5, seed=0, valid=1, verbose=1
+INFO:CF:|2024-03-01 13:47:42| ********************Experiment Start*******************
+INFO:CF:|2024-03-01 13:47:53| Namespace(ablation=0, dataset='rt', debug=0, density=0.1, dimension=32, epochs=300, experiment=0, log=<utils.logger.Logger object at 0x7ff0f0151f10>, loss_func='L1Loss', model='CF', optim='AdamW', path='./datasets/', program_test=0, record=1, rounds=5, seed=0, valid=1, verbose=1
+INFO:CF:|2024-03-01 13:47:53| ********************Experiment Start*******************
+INFO:CF:|2024-03-01 13:48:20| Namespace(ablation=0, dataset='rt', debug=0, density=0.1, dimension=32, epochs=300, experiment=0, log=<utils.logger.Logger object at 0x7fa9400d1f10>, loss_func='L1Loss', model='CF', optim='AdamW', path='./datasets/', program_test=0, record=1, rounds=5, seed=0, valid=1, verbose=1
+INFO:CF:|2024-03-01 13:48:20| ********************Experiment Start*******************
+INFO:CF:|2024-03-01 13:50:10| Namespace(ablation=0, dataset='rt', debug=0, density=0.1, dimension=32, epochs=300, experiment=0, log=<utils.logger.Logger object at 0x7f87e0259f10>, loss_func='L1Loss', model='CF', optim='AdamW', path='./datasets/', program_test=0, record=1, rounds=5, seed=0, valid=1, verbose=1
+INFO:CF:|2024-03-01 13:50:10| ********************Experiment Start*******************
+INFO:CF:|2024-03-01 13:50:42| Namespace(ablation=0, dataset='rt', debug=0, density=0.1, dimension=32, epochs=300, experiment=0, log=<utils.logger.Logger object at 0x7f8690029f10>, loss_func='L1Loss', model='CF', optim='AdamW', path='./datasets/', program_test=0, record=1, rounds=5, seed=0, valid=1, verbose=1
+INFO:CF:|2024-03-01 13:50:42| ********************Experiment Start*******************
+INFO:CF:|2024-03-01 13:51:31| Namespace(ablation=0, dataset='rt', debug=0, density=0.1, dimension=32, epochs=300, experiment=0, log=<utils.logger.Logger object at 0x7fad78151f10>, loss_func='L1Loss', model='CF', optim='AdamW', path='./datasets/', program_test=0, record=1, rounds=5, seed=0, valid=1, verbose=1
+INFO:CF:|2024-03-01 13:51:31| ********************Experiment Start*******************
+INFO:CF:|2024-03-01 13:52:07| Namespace(ablation=0, dataset='rt', debug=0, density=0.1, dimension=32, epochs=300, experiment=0, log=<utils.logger.Logger object at 0x7fdb18029f10>, loss_func='L1Loss', model='CF', optim='AdamW', path='./datasets/', program_test=0, record=1, rounds=5, seed=0, valid=1, verbose=1
+INFO:CF:|2024-03-01 13:52:07| ********************Experiment Start*******************
+INFO:CF:|2024-03-01 13:53:33| Namespace(ablation=0, dataset='rt', debug=0, density=0.1, dimension=32, epochs=300, experiment=0, log=<utils.logger.Logger object at 0x7fbe10131f10>, loss_func='L1Loss', model='CF', optim='AdamW', path='./datasets/', program_test=0, record=1, rounds=5, seed=0, valid=1, verbose=1
+INFO:CF:|2024-03-01 13:53:33| ********************Experiment Start*******************
+INFO:CF:|2024-03-01 13:53:53| Namespace(ablation=0, dataset='rt', debug=0, density=0.1, dimension=32, epochs=300, experiment=0, log=<utils.logger.Logger object at 0x7f9c10151f10>, loss_func='L1Loss', model='CF', optim='AdamW', path='./datasets/', program_test=0, record=1, rounds=5, seed=0, valid=1, verbose=1
+INFO:CF:|2024-03-01 13:53:53| ********************Experiment Start*******************
+INFO:CF:|2024-03-01 13:54:21| ********************Experiment Results:*******************
+INFO:CF:|2024-03-01 13:54:21| LinearRegression_MAE: 0.0007 ± 0.000
+INFO:CF:|2024-03-01 13:54:21| LinearRegression_RMSE: 0.0009 ± 0.000
+INFO:CF:|2024-03-01 13:54:21| LinearRegression_NMAE: 0.1491 ± 0.000
+INFO:CF:|2024-03-01 13:54:21| LinearRegression_NRMSE: 0.1820 ± 0.000
+INFO:CF:|2024-03-01 13:54:21| LinearRegression_Acc: 0.2274 ± 0.153
+INFO:CF:|2024-03-01 13:54:21| Ridge_MAE: 0.0007 ± 0.000
+INFO:CF:|2024-03-01 13:54:21| Ridge_RMSE: 0.0009 ± 0.000
+INFO:CF:|2024-03-01 13:54:21| Ridge_NMAE: 0.1490 ± 0.000
+INFO:CF:|2024-03-01 13:54:21| Ridge_NRMSE: 0.1820 ± 0.000
+INFO:CF:|2024-03-01 13:54:21| Ridge_Acc: 0.2275 ± 0.153
+INFO:CF:|2024-03-01 13:54:21| Lasso_MAE: 0.0013 ± 0.000
+INFO:CF:|2024-03-01 13:54:21| Lasso_RMSE: 0.0016 ± 0.000
+INFO:CF:|2024-03-01 13:54:21| Lasso_NMAE: 0.2562 ± 0.004
+INFO:CF:|2024-03-01 13:54:21| Lasso_NRMSE: 0.3195 ± 0.005
+INFO:CF:|2024-03-01 13:54:21| Lasso_Acc: 0.1087 ± 0.076
+INFO:CF:|2024-03-01 13:54:21| KNeighborsRegressor_MAE: 0.0005 ± 0.000
+INFO:CF:|2024-03-01 13:54:21| KNeighborsRegressor_RMSE: 0.0007 ± 0.000
+INFO:CF:|2024-03-01 13:54:21| KNeighborsRegressor_NMAE: 0.1010 ± 0.001
+INFO:CF:|2024-03-01 13:54:21| KNeighborsRegressor_NRMSE: 0.1292 ± 0.002
+INFO:CF:|2024-03-01 13:54:21| KNeighborsRegressor_Acc: 0.3392 ± 0.214
+INFO:CF:|2024-03-01 13:54:21| SVR_MAE: 0.0014 ± 0.000
+INFO:CF:|2024-03-01 13:54:21| SVR_RMSE: 0.0018 ± 0.000
+INFO:CF:|2024-03-01 13:54:21| SVR_NMAE: 0.2794 ± 0.002
+INFO:CF:|2024-03-01 13:54:21| SVR_NRMSE: 0.3446 ± 0.002
+INFO:CF:|2024-03-01 13:54:21| SVR_Acc: 0.0876 ± 0.063
+INFO:CF:|2024-03-01 13:54:21| DecisionTreeRegressor_MAE: 0.0003 ± 0.000
+INFO:CF:|2024-03-01 13:54:21| DecisionTreeRegressor_RMSE: 0.0004 ± 0.000
+INFO:CF:|2024-03-01 13:54:21| DecisionTreeRegressor_NMAE: 0.0608 ± 0.001
+INFO:CF:|2024-03-01 13:54:21| DecisionTreeRegressor_NRMSE: 0.0854 ± 0.003
+INFO:CF:|2024-03-01 13:54:21| DecisionTreeRegressor_Acc: 0.5211 ± 0.244
+INFO:CF:|2024-03-01 13:54:21| RandomForestRegressor_MAE: 0.0002 ± 0.000
+INFO:CF:|2024-03-01 13:54:21| RandomForestRegressor_RMSE: 0.0003 ± 0.000
+INFO:CF:|2024-03-01 13:54:21| RandomForestRegressor_NMAE: 0.0479 ± 0.003
+INFO:CF:|2024-03-01 13:54:21| RandomForestRegressor_NRMSE: 0.0626 ± 0.003
+INFO:CF:|2024-03-01 13:54:21| RandomForestRegressor_Acc: 0.5429 ± 0.289
+INFO:CF:|2024-03-01 13:54:21| GradientBoostingRegressor_MAE: 0.0002 ± 0.000
+INFO:CF:|2024-03-01 13:54:21| GradientBoostingRegressor_RMSE: 0.0003 ± 0.000
+INFO:CF:|2024-03-01 13:54:21| GradientBoostingRegressor_NMAE: 0.0405 ± 0.001
+INFO:CF:|2024-03-01 13:54:21| GradientBoostingRegressor_NRMSE: 0.0530 ± 0.002
+INFO:CF:|2024-03-01 13:54:21| GradientBoostingRegressor_Acc: 0.5852 ± 0.294
+INFO:CF:|2024-03-01 13:54:21| ********************Experiment Success********************
+INFO:CF:|2024-03-01 13:57:02| Namespace(ablation=0, dataset='rt', debug=0, density=0.1, dimension=32, epochs=300, experiment=0, log=<utils.logger.Logger object at 0x7f7ee0151f10>, loss_func='L1Loss', model='CF', optim='AdamW', path='./datasets/', program_test=0, record=1, rounds=100, seed=0, valid=1, verbose=1
+INFO:CF:|2024-03-01 13:57:02| ********************Experiment Start*******************
+INFO:CF:|2024-03-01 13:57:17| Namespace(ablation=0, dataset='rt', debug=0, density=0.1, dimension=32, epochs=300, experiment=0, log=<utils.logger.Logger object at 0x7f9818151f10>, loss_func='L1Loss', model='CF', optim='AdamW', path='./datasets/', program_test=0, record=1, rounds=100, seed=0, valid=1, verbose=1
+INFO:CF:|2024-03-01 13:57:17| ********************Experiment Start*******************
+INFO:CF:|2024-03-01 13:57:48| Namespace(ablation=0, dataset='rt', debug=0, density=0.1, dimension=32, epochs=300, experiment=0, log=<utils.logger.Logger object at 0x7fb798151f10>, loss_func='L1Loss', model='CF', optim='AdamW', path='./datasets/', program_test=0, record=1, rounds=100, seed=0, valid=1, verbose=1
+INFO:CF:|2024-03-01 13:57:48| ********************Experiment Start*******************
+INFO:CF:|2024-03-01 13:58:38| Namespace(ablation=0, dataset='rt', debug=0, density=0.1, dimension=32, epochs=300, experiment=0, log=<utils.logger.Logger object at 0x7fd888151f10>, loss_func='L1Loss', model='CF', optim='AdamW', path='./datasets/', program_test=0, record=1, rounds=100, seed=0, valid=1, verbose=1
+INFO:CF:|2024-03-01 13:58:38| ********************Experiment Start*******************
+INFO:CF:|2024-03-01 13:59:14| Namespace(ablation=0, dataset='rt', debug=0, density=0.1, dimension=32, epochs=300, experiment=0, log=<utils.logger.Logger object at 0x7fc440029f10>, loss_func='L1Loss', model='CF', optim='AdamW', path='./datasets/', program_test=0, record=1, rounds=5, seed=0, valid=1, verbose=1
+INFO:CF:|2024-03-01 13:59:14| ********************Experiment Start*******************
+INFO:CF:|2024-03-01 13:59:42| ********************Experiment Results:*******************
+INFO:CF:|2024-03-01 13:59:42| LinearRegression_MAE: 0.0007 ± 0.000
+INFO:CF:|2024-03-01 13:59:42| LinearRegression_RMSE: 0.0009 ± 0.000
+INFO:CF:|2024-03-01 13:59:42| LinearRegression_NMAE: 0.1491 ± 0.000
+INFO:CF:|2024-03-01 13:59:42| LinearRegression_NRMSE: 0.1820 ± 0.000
+INFO:CF:|2024-03-01 13:59:42| LinearRegression_Acc: 0.2274 ± 0.153
+INFO:CF:|2024-03-01 13:59:42| Ridge_MAE: 0.0007 ± 0.000
+INFO:CF:|2024-03-01 13:59:42| Ridge_RMSE: 0.0009 ± 0.000
+INFO:CF:|2024-03-01 13:59:42| Ridge_NMAE: 0.1490 ± 0.000
+INFO:CF:|2024-03-01 13:59:42| Ridge_NRMSE: 0.1820 ± 0.000
+INFO:CF:|2024-03-01 13:59:42| Ridge_Acc: 0.2275 ± 0.153
+INFO:CF:|2024-03-01 13:59:42| Lasso_MAE: 0.0013 ± 0.000
+INFO:CF:|2024-03-01 13:59:42| Lasso_RMSE: 0.0016 ± 0.000
+INFO:CF:|2024-03-01 13:59:42| Lasso_NMAE: 0.2562 ± 0.004
+INFO:CF:|2024-03-01 13:59:42| Lasso_NRMSE: 0.3195 ± 0.005
+INFO:CF:|2024-03-01 13:59:42| Lasso_Acc: 0.1087 ± 0.076
+INFO:CF:|2024-03-01 13:59:42| KNeighborsRegressor_MAE: 0.0005 ± 0.000
+INFO:CF:|2024-03-01 13:59:42| KNeighborsRegressor_RMSE: 0.0007 ± 0.000
+INFO:CF:|2024-03-01 13:59:42| KNeighborsRegressor_NMAE: 0.1010 ± 0.001
+INFO:CF:|2024-03-01 13:59:42| KNeighborsRegressor_NRMSE: 0.1292 ± 0.002
+INFO:CF:|2024-03-01 13:59:42| KNeighborsRegressor_Acc: 0.3392 ± 0.214
+INFO:CF:|2024-03-01 13:59:42| SVR_MAE: 0.0014 ± 0.000
+INFO:CF:|2024-03-01 13:59:42| SVR_RMSE: 0.0018 ± 0.000
+INFO:CF:|2024-03-01 13:59:42| SVR_NMAE: 0.2794 ± 0.002
+INFO:CF:|2024-03-01 13:59:42| SVR_NRMSE: 0.3446 ± 0.002
+INFO:CF:|2024-03-01 13:59:42| SVR_Acc: 0.0876 ± 0.063
+INFO:CF:|2024-03-01 13:59:42| DecisionTreeRegressor_MAE: 0.0003 ± 0.000
+INFO:CF:|2024-03-01 13:59:42| DecisionTreeRegressor_RMSE: 0.0004 ± 0.000
+INFO:CF:|2024-03-01 13:59:42| DecisionTreeRegressor_NMAE: 0.0608 ± 0.001
+INFO:CF:|2024-03-01 13:59:42| DecisionTreeRegressor_NRMSE: 0.0854 ± 0.003
+INFO:CF:|2024-03-01 13:59:42| DecisionTreeRegressor_Acc: 0.5211 ± 0.244
+INFO:CF:|2024-03-01 13:59:42| RandomForestRegressor_MAE: 0.0002 ± 0.000
+INFO:CF:|2024-03-01 13:59:42| RandomForestRegressor_RMSE: 0.0003 ± 0.000
+INFO:CF:|2024-03-01 13:59:42| RandomForestRegressor_NMAE: 0.0479 ± 0.003
+INFO:CF:|2024-03-01 13:59:42| RandomForestRegressor_NRMSE: 0.0626 ± 0.003
+INFO:CF:|2024-03-01 13:59:42| RandomForestRegressor_Acc: 0.5429 ± 0.289
+INFO:CF:|2024-03-01 13:59:42| GradientBoostingRegressor_MAE: 0.0002 ± 0.000
+INFO:CF:|2024-03-01 13:59:42| GradientBoostingRegressor_RMSE: 0.0003 ± 0.000
+INFO:CF:|2024-03-01 13:59:42| GradientBoostingRegressor_NMAE: 0.0405 ± 0.001
+INFO:CF:|2024-03-01 13:59:42| GradientBoostingRegressor_NRMSE: 0.0530 ± 0.002
+INFO:CF:|2024-03-01 13:59:42| GradientBoostingRegressor_Acc: 0.5852 ± 0.294
+INFO:CF:|2024-03-01 13:59:42| ********************Experiment Success********************
+INFO:CF:|2024-03-01 14:05:33| Namespace(dataset='rt', debug=0, density=0.1, epochs=300, experiment=0, log=<utils.logger.Logger object at 0x7fded0019f10>, model='CF', path='./datasets/', program_test=0, record=1, rounds=5, seed=0, valid=1, verbose=1
+INFO:CF:|2024-03-01 14:05:33| ********************Experiment Start*******************
+INFO:CF:|2024-03-01 14:05:56| Namespace(dataset='rt', debug=0, density=0.1, epochs=300, experiment=0, log=<utils.logger.Logger object at 0x7f7b18029f10>, model='CF', path='./datasets/', program_test=0, record=1, rounds=5, seed=0, valid=1, verbose=1
+INFO:CF:|2024-03-01 14:05:56| ********************Experiment Start*******************
+INFO:CF:|2024-03-01 14:06:38| Namespace(dataset='rt', debug=0, density=0.1, epochs=300, experiment=0, log=<utils.logger.Logger object at 0x7ff6380a9f10>, model='CF', path='./datasets/', program_test=0, record=1, rounds=5, seed=0, valid=1, verbose=1
+INFO:CF:|2024-03-01 14:06:38| ********************Experiment Start*******************
+INFO:CF:|2024-03-01 14:07:16| Namespace(dataset='rt', debug=0, density=0.1, epochs=300, experiment=0, log=<utils.logger.Logger object at 0x7f9e90029f10>, model='CF', path='./datasets/', program_test=0, record=1, rounds=5, seed=0, valid=1, verbose=1
+INFO:CF:|2024-03-01 14:07:16| ********************Experiment Start*******************
+INFO:CF:|2024-03-01 14:08:07| Namespace(dataset='rt', debug=0, density=0.1, epochs=300, experiment=0, log=<utils.logger.Logger object at 0x7fcb78151f10>, model='CF', path='./datasets/', program_test=0, record=1, rounds=5, seed=0, valid=1, verbose=1
+INFO:CF:|2024-03-01 14:08:07| ********************Experiment Start*******************
+INFO:CF:|2024-03-01 14:08:35| Namespace(dataset='rt', debug=0, density=0.1, epochs=300, experiment=0, log=<utils.logger.Logger object at 0x7fb570111f10>, model='CF', path='./datasets/', program_test=0, record=1, rounds=5, seed=0, valid=1, verbose=1
+INFO:CF:|2024-03-01 14:08:35| ********************Experiment Start*******************
+INFO:CF:|2024-03-01 14:08:39| Namespace(dataset='rt', debug=0, density=0.1, epochs=300, experiment=0, log=<utils.logger.Logger object at 0x7fe800029f10>, model='CF', path='./datasets/', program_test=0, record=1, rounds=1, seed=0, valid=1, verbose=1
+INFO:CF:|2024-03-01 14:08:39| ********************Experiment Start*******************
+INFO:CF:|2024-03-01 14:09:14| Namespace(dataset='rt', debug=0, density=0.1, epochs=300, experiment=0, log=<utils.logger.Logger object at 0x7faa40259f10>, model='CF', path='./datasets/', program_test=0, record=1, rounds=1, seed=0, valid=1, verbose=1
+INFO:CF:|2024-03-01 14:09:14| ********************Experiment Start*******************
+INFO:CF:|2024-03-01 14:10:43| Namespace(dataset='rt', debug=0, density=0.1, epochs=300, experiment=0, log=<utils.logger.Logger object at 0x7f9e78259f10>, model='CF', path='./datasets/', program_test=0, record=1, rounds=1, seed=0, valid=1, verbose=1
+INFO:CF:|2024-03-01 14:10:43| ********************Experiment Start*******************
+INFO:CF:|2024-03-01 14:11:54| Namespace(dataset='rt', debug=0, density=0.1, epochs=300, experiment=0, log=<utils.logger.Logger object at 0x7f85a8259f10>, model='CF', path='./datasets/', program_test=0, record=1, rounds=1, seed=0, valid=1, verbose=1
+INFO:CF:|2024-03-01 14:11:54| ********************Experiment Start*******************
+INFO:CF:|2024-03-01 14:12:00| ********************Experiment Results:*******************
+INFO:CF:|2024-03-01 14:12:00| LinearRegression_MAE: 0.0007 ± 0.000
+INFO:CF:|2024-03-01 14:12:00| LinearRegression_RMSE: 0.0009 ± 0.000
+INFO:CF:|2024-03-01 14:12:00| LinearRegression_NMAE: 0.1492 ± 0.000
+INFO:CF:|2024-03-01 14:12:00| LinearRegression_NRMSE: 0.1816 ± 0.000
+INFO:CF:|2024-03-01 14:12:00| LinearRegression_Acc_1: 0.0426 ± 0.000
+INFO:CF:|2024-03-01 14:12:00| LinearRegression_Acc_5: 0.2174 ± 0.000
+INFO:CF:|2024-03-01 14:12:00| LinearRegression_Acc_10: 0.4164 ± 0.000
+INFO:CF:|2024-03-01 14:12:00| Ridge_MAE: 0.0007 ± 0.000
+INFO:CF:|2024-03-01 14:12:00| Ridge_RMSE: 0.0009 ± 0.000
+INFO:CF:|2024-03-01 14:12:00| Ridge_NMAE: 0.1492 ± 0.000
+INFO:CF:|2024-03-01 14:12:00| Ridge_NRMSE: 0.1816 ± 0.000
+INFO:CF:|2024-03-01 14:12:00| Ridge_Acc_1: 0.0426 ± 0.000
+INFO:CF:|2024-03-01 14:12:00| Ridge_Acc_5: 0.2174 ± 0.000
+INFO:CF:|2024-03-01 14:12:00| Ridge_Acc_10: 0.4164 ± 0.000
+INFO:CF:|2024-03-01 14:12:00| Lasso_MAE: 0.0012 ± 0.000
+INFO:CF:|2024-03-01 14:12:00| Lasso_RMSE: 0.0015 ± 0.000
+INFO:CF:|2024-03-01 14:12:00| Lasso_NMAE: 0.2517 ± 0.000
+INFO:CF:|2024-03-01 14:12:00| Lasso_NRMSE: 0.3140 ± 0.000
+INFO:CF:|2024-03-01 14:12:00| Lasso_Acc_1: 0.0191 ± 0.000
+INFO:CF:|2024-03-01 14:12:00| Lasso_Acc_5: 0.0993 ± 0.000
+INFO:CF:|2024-03-01 14:12:00| Lasso_Acc_10: 0.2091 ± 0.000
+INFO:CF:|2024-03-01 14:12:00| KNeighborsRegressor_MAE: 0.0005 ± 0.000
+INFO:CF:|2024-03-01 14:12:00| KNeighborsRegressor_RMSE: 0.0006 ± 0.000
+INFO:CF:|2024-03-01 14:12:00| KNeighborsRegressor_NMAE: 0.0986 ± 0.000
+INFO:CF:|2024-03-01 14:12:00| KNeighborsRegressor_NRMSE: 0.1256 ± 0.000
+INFO:CF:|2024-03-01 14:12:00| KNeighborsRegressor_Acc_1: 0.0716 ± 0.000
+INFO:CF:|2024-03-01 14:12:00| KNeighborsRegressor_Acc_5: 0.3478 ± 0.000
+INFO:CF:|2024-03-01 14:12:00| KNeighborsRegressor_Acc_10: 0.6042 ± 0.000
+INFO:CF:|2024-03-01 14:12:00| SVR_MAE: 0.0014 ± 0.000
+INFO:CF:|2024-03-01 14:12:00| SVR_RMSE: 0.0018 ± 0.000
+INFO:CF:|2024-03-01 14:12:00| SVR_NMAE: 0.2775 ± 0.000
+INFO:CF:|2024-03-01 14:12:00| SVR_NRMSE: 0.3425 ± 0.000
+INFO:CF:|2024-03-01 14:12:00| SVR_Acc_1: 0.0154 ± 0.000
+INFO:CF:|2024-03-01 14:12:00| SVR_Acc_5: 0.0844 ± 0.000
+INFO:CF:|2024-03-01 14:12:00| SVR_Acc_10: 0.1716 ± 0.000
+INFO:CF:|2024-03-01 14:12:00| DecisionTreeRegressor_MAE: 0.0003 ± 0.000
+INFO:CF:|2024-03-01 14:12:00| DecisionTreeRegressor_RMSE: 0.0004 ± 0.000
+INFO:CF:|2024-03-01 14:12:00| DecisionTreeRegressor_NMAE: 0.0597 ± 0.000
+INFO:CF:|2024-03-01 14:12:00| DecisionTreeRegressor_NRMSE: 0.0826 ± 0.000
+INFO:CF:|2024-03-01 14:12:00| DecisionTreeRegressor_Acc_1: 0.1891 ± 0.000
+INFO:CF:|2024-03-01 14:12:00| DecisionTreeRegressor_Acc_5: 0.5814 ± 0.000
+INFO:CF:|2024-03-01 14:12:00| DecisionTreeRegressor_Acc_10: 0.7928 ± 0.000
+INFO:CF:|2024-03-01 14:12:00| RandomForestRegressor_MAE: 0.0002 ± 0.000
+INFO:CF:|2024-03-01 14:12:00| RandomForestRegressor_RMSE: 0.0003 ± 0.000
+INFO:CF:|2024-03-01 14:12:00| RandomForestRegressor_NMAE: 0.0469 ± 0.000
+INFO:CF:|2024-03-01 14:12:00| RandomForestRegressor_NRMSE: 0.0623 ± 0.000
+INFO:CF:|2024-03-01 14:12:00| RandomForestRegressor_Acc_1: 0.1595 ± 0.000
+INFO:CF:|2024-03-01 14:12:00| RandomForestRegressor_Acc_5: 0.6325 ± 0.000
+INFO:CF:|2024-03-01 14:12:00| RandomForestRegressor_Acc_10: 0.8615 ± 0.000
+INFO:CF:|2024-03-01 14:12:00| GradientBoostingRegressor_MAE: 0.0002 ± 0.000
+INFO:CF:|2024-03-01 14:12:00| GradientBoostingRegressor_RMSE: 0.0003 ± 0.000
+INFO:CF:|2024-03-01 14:12:00| GradientBoostingRegressor_NMAE: 0.0398 ± 0.000
+INFO:CF:|2024-03-01 14:12:00| GradientBoostingRegressor_NRMSE: 0.0516 ± 0.000
+INFO:CF:|2024-03-01 14:12:00| GradientBoostingRegressor_Acc_1: 0.1869 ± 0.000
+INFO:CF:|2024-03-01 14:12:00| GradientBoostingRegressor_Acc_5: 0.6945 ± 0.000
+INFO:CF:|2024-03-01 14:12:00| GradientBoostingRegressor_Acc_10: 0.8819 ± 0.000
+INFO:CF:|2024-03-01 14:12:09| Namespace(dataset='rt', debug=0, density=0.1, epochs=300, experiment=0, log=<utils.logger.Logger object at 0x7fcb48019f10>, model='CF', path='./datasets/', program_test=0, record=1, rounds=1, seed=0, valid=1, verbose=1
+INFO:CF:|2024-03-01 14:12:09| ********************Experiment Start*******************
+INFO:CF:|2024-03-01 14:12:15| ********************Experiment Results:*******************
+INFO:CF:|2024-03-01 14:12:15| LinearRegression_MAE: 0.0007 ± 0.000
+INFO:CF:|2024-03-01 14:12:15| LinearRegression_RMSE: 0.0009 ± 0.000
+INFO:CF:|2024-03-01 14:12:15| LinearRegression_NMAE: 0.1492 ± 0.000
+INFO:CF:|2024-03-01 14:12:15| LinearRegression_NRMSE: 0.1816 ± 0.000
+INFO:CF:|2024-03-01 14:12:15| LinearRegression_Acc_1: 0.0426 ± 0.000
+INFO:CF:|2024-03-01 14:12:15| LinearRegression_Acc_5: 0.2174 ± 0.000
+INFO:CF:|2024-03-01 14:12:15| LinearRegression_Acc_10: 0.4164 ± 0.000
+INFO:CF:|2024-03-01 14:12:15| Ridge_MAE: 0.0007 ± 0.000
+INFO:CF:|2024-03-01 14:12:15| Ridge_RMSE: 0.0009 ± 0.000
+INFO:CF:|2024-03-01 14:12:15| Ridge_NMAE: 0.1492 ± 0.000
+INFO:CF:|2024-03-01 14:12:15| Ridge_NRMSE: 0.1816 ± 0.000
+INFO:CF:|2024-03-01 14:12:15| Ridge_Acc_1: 0.0426 ± 0.000
+INFO:CF:|2024-03-01 14:12:15| Ridge_Acc_5: 0.2174 ± 0.000
+INFO:CF:|2024-03-01 14:12:15| Ridge_Acc_10: 0.4164 ± 0.000
+INFO:CF:|2024-03-01 14:12:15| Lasso_MAE: 0.0012 ± 0.000
+INFO:CF:|2024-03-01 14:12:15| Lasso_RMSE: 0.0015 ± 0.000
+INFO:CF:|2024-03-01 14:12:15| Lasso_NMAE: 0.2517 ± 0.000
+INFO:CF:|2024-03-01 14:12:15| Lasso_NRMSE: 0.3140 ± 0.000
+INFO:CF:|2024-03-01 14:12:15| Lasso_Acc_1: 0.0191 ± 0.000
+INFO:CF:|2024-03-01 14:12:15| Lasso_Acc_5: 0.0993 ± 0.000
+INFO:CF:|2024-03-01 14:12:15| Lasso_Acc_10: 0.2091 ± 0.000
+INFO:CF:|2024-03-01 14:12:15| KNeighborsRegressor_MAE: 0.0005 ± 0.000
+INFO:CF:|2024-03-01 14:12:15| KNeighborsRegressor_RMSE: 0.0006 ± 0.000
+INFO:CF:|2024-03-01 14:12:15| KNeighborsRegressor_NMAE: 0.0986 ± 0.000
+INFO:CF:|2024-03-01 14:12:15| KNeighborsRegressor_NRMSE: 0.1256 ± 0.000
+INFO:CF:|2024-03-01 14:12:15| KNeighborsRegressor_Acc_1: 0.0716 ± 0.000
+INFO:CF:|2024-03-01 14:12:15| KNeighborsRegressor_Acc_5: 0.3478 ± 0.000
+INFO:CF:|2024-03-01 14:12:15| KNeighborsRegressor_Acc_10: 0.6042 ± 0.000
+INFO:CF:|2024-03-01 14:12:15| SVR_MAE: 0.0014 ± 0.000
+INFO:CF:|2024-03-01 14:12:15| SVR_RMSE: 0.0018 ± 0.000
+INFO:CF:|2024-03-01 14:12:15| SVR_NMAE: 0.2775 ± 0.000
+INFO:CF:|2024-03-01 14:12:15| SVR_NRMSE: 0.3425 ± 0.000
+INFO:CF:|2024-03-01 14:12:15| SVR_Acc_1: 0.0154 ± 0.000
+INFO:CF:|2024-03-01 14:12:15| SVR_Acc_5: 0.0844 ± 0.000
+INFO:CF:|2024-03-01 14:12:15| SVR_Acc_10: 0.1716 ± 0.000
+INFO:CF:|2024-03-01 14:12:15| DecisionTreeRegressor_MAE: 0.0003 ± 0.000
+INFO:CF:|2024-03-01 14:12:15| DecisionTreeRegressor_RMSE: 0.0004 ± 0.000
+INFO:CF:|2024-03-01 14:12:15| DecisionTreeRegressor_NMAE: 0.0597 ± 0.000
+INFO:CF:|2024-03-01 14:12:15| DecisionTreeRegressor_NRMSE: 0.0826 ± 0.000
+INFO:CF:|2024-03-01 14:12:15| DecisionTreeRegressor_Acc_1: 0.1891 ± 0.000
+INFO:CF:|2024-03-01 14:12:15| DecisionTreeRegressor_Acc_5: 0.5814 ± 0.000
+INFO:CF:|2024-03-01 14:12:15| DecisionTreeRegressor_Acc_10: 0.7928 ± 0.000
+INFO:CF:|2024-03-01 14:12:15| RandomForestRegressor_MAE: 0.0002 ± 0.000
+INFO:CF:|2024-03-01 14:12:15| RandomForestRegressor_RMSE: 0.0003 ± 0.000
+INFO:CF:|2024-03-01 14:12:15| RandomForestRegressor_NMAE: 0.0469 ± 0.000
+INFO:CF:|2024-03-01 14:12:15| RandomForestRegressor_NRMSE: 0.0623 ± 0.000
+INFO:CF:|2024-03-01 14:12:15| RandomForestRegressor_Acc_1: 0.1595 ± 0.000
+INFO:CF:|2024-03-01 14:12:15| RandomForestRegressor_Acc_5: 0.6325 ± 0.000
+INFO:CF:|2024-03-01 14:12:15| RandomForestRegressor_Acc_10: 0.8615 ± 0.000
+INFO:CF:|2024-03-01 14:12:15| GradientBoostingRegressor_MAE: 0.0002 ± 0.000
+INFO:CF:|2024-03-01 14:12:15| GradientBoostingRegressor_RMSE: 0.0003 ± 0.000
+INFO:CF:|2024-03-01 14:12:15| GradientBoostingRegressor_NMAE: 0.0398 ± 0.000
+INFO:CF:|2024-03-01 14:12:15| GradientBoostingRegressor_NRMSE: 0.0516 ± 0.000
+INFO:CF:|2024-03-01 14:12:15| GradientBoostingRegressor_Acc_1: 0.1869 ± 0.000
+INFO:CF:|2024-03-01 14:12:15| GradientBoostingRegressor_Acc_5: 0.6945 ± 0.000
+INFO:CF:|2024-03-01 14:12:15| GradientBoostingRegressor_Acc_10: 0.8819 ± 0.000
+INFO:CF:|2024-03-01 14:12:39| Namespace(dataset='rt', debug=0, density=0.1, epochs=300, experiment=0, log=<utils.logger.Logger object at 0x7fe6b0029f10>, model='CF', path='./datasets/', program_test=0, record=1, rounds=1, seed=0, valid=1, verbose=1
+INFO:CF:|2024-03-01 14:12:39| ********************Experiment Start*******************
+INFO:CF:|2024-03-01 14:12:45| ********************Experiment Results:*******************
+INFO:CF:|2024-03-01 14:12:45| LinearRegression_MAE: 0.0007 ± 0.000
+INFO:CF:|2024-03-01 14:12:45| LinearRegression_RMSE: 0.0009 ± 0.000
+INFO:CF:|2024-03-01 14:12:45| LinearRegression_NMAE: 0.1492 ± 0.000
+INFO:CF:|2024-03-01 14:12:45| LinearRegression_NRMSE: 0.1816 ± 0.000
+INFO:CF:|2024-03-01 14:12:45| LinearRegression_Acc_1: 0.0426 ± 0.000
+INFO:CF:|2024-03-01 14:12:45| LinearRegression_Acc_5: 0.2174 ± 0.000
+INFO:CF:|2024-03-01 14:12:45| LinearRegression_Acc_10: 0.4164 ± 0.000
+INFO:CF:|2024-03-01 14:12:45| Ridge_MAE: 0.0007 ± 0.000
+INFO:CF:|2024-03-01 14:12:45| Ridge_RMSE: 0.0009 ± 0.000
+INFO:CF:|2024-03-01 14:12:45| Ridge_NMAE: 0.1492 ± 0.000
+INFO:CF:|2024-03-01 14:12:45| Ridge_NRMSE: 0.1816 ± 0.000
+INFO:CF:|2024-03-01 14:12:45| Ridge_Acc_1: 0.0426 ± 0.000
+INFO:CF:|2024-03-01 14:12:45| Ridge_Acc_5: 0.2174 ± 0.000
+INFO:CF:|2024-03-01 14:12:45| Ridge_Acc_10: 0.4164 ± 0.000
+INFO:CF:|2024-03-01 14:12:45| Lasso_MAE: 0.0012 ± 0.000
+INFO:CF:|2024-03-01 14:12:45| Lasso_RMSE: 0.0015 ± 0.000
+INFO:CF:|2024-03-01 14:12:45| Lasso_NMAE: 0.2517 ± 0.000
+INFO:CF:|2024-03-01 14:12:45| Lasso_NRMSE: 0.3140 ± 0.000
+INFO:CF:|2024-03-01 14:12:45| Lasso_Acc_1: 0.0191 ± 0.000
+INFO:CF:|2024-03-01 14:12:45| Lasso_Acc_5: 0.0993 ± 0.000
+INFO:CF:|2024-03-01 14:12:45| Lasso_Acc_10: 0.2091 ± 0.000
+INFO:CF:|2024-03-01 14:12:45| KNeighborsRegressor_MAE: 0.0005 ± 0.000
+INFO:CF:|2024-03-01 14:12:45| KNeighborsRegressor_RMSE: 0.0006 ± 0.000
+INFO:CF:|2024-03-01 14:12:45| KNeighborsRegressor_NMAE: 0.0986 ± 0.000
+INFO:CF:|2024-03-01 14:12:45| KNeighborsRegressor_NRMSE: 0.1256 ± 0.000
+INFO:CF:|2024-03-01 14:12:45| KNeighborsRegressor_Acc_1: 0.0716 ± 0.000
+INFO:CF:|2024-03-01 14:12:45| KNeighborsRegressor_Acc_5: 0.3478 ± 0.000
+INFO:CF:|2024-03-01 14:12:45| KNeighborsRegressor_Acc_10: 0.6042 ± 0.000
+INFO:CF:|2024-03-01 14:12:45| SVR_MAE: 0.0014 ± 0.000
+INFO:CF:|2024-03-01 14:12:45| SVR_RMSE: 0.0018 ± 0.000
+INFO:CF:|2024-03-01 14:12:45| SVR_NMAE: 0.2775 ± 0.000
+INFO:CF:|2024-03-01 14:12:45| SVR_NRMSE: 0.3425 ± 0.000
+INFO:CF:|2024-03-01 14:12:45| SVR_Acc_1: 0.0154 ± 0.000
+INFO:CF:|2024-03-01 14:12:45| SVR_Acc_5: 0.0844 ± 0.000
+INFO:CF:|2024-03-01 14:12:45| SVR_Acc_10: 0.1716 ± 0.000
+INFO:CF:|2024-03-01 14:12:45| DecisionTreeRegressor_MAE: 0.0003 ± 0.000
+INFO:CF:|2024-03-01 14:12:45| DecisionTreeRegressor_RMSE: 0.0004 ± 0.000
+INFO:CF:|2024-03-01 14:12:45| DecisionTreeRegressor_NMAE: 0.0597 ± 0.000
+INFO:CF:|2024-03-01 14:12:45| DecisionTreeRegressor_NRMSE: 0.0826 ± 0.000
+INFO:CF:|2024-03-01 14:12:45| DecisionTreeRegressor_Acc_1: 0.1891 ± 0.000
+INFO:CF:|2024-03-01 14:12:45| DecisionTreeRegressor_Acc_5: 0.5814 ± 0.000
+INFO:CF:|2024-03-01 14:12:45| DecisionTreeRegressor_Acc_10: 0.7928 ± 0.000
+INFO:CF:|2024-03-01 14:12:45| RandomForestRegressor_MAE: 0.0002 ± 0.000
+INFO:CF:|2024-03-01 14:12:45| RandomForestRegressor_RMSE: 0.0003 ± 0.000
+INFO:CF:|2024-03-01 14:12:45| RandomForestRegressor_NMAE: 0.0469 ± 0.000
+INFO:CF:|2024-03-01 14:12:45| RandomForestRegressor_NRMSE: 0.0623 ± 0.000
+INFO:CF:|2024-03-01 14:12:45| RandomForestRegressor_Acc_1: 0.1595 ± 0.000
+INFO:CF:|2024-03-01 14:12:45| RandomForestRegressor_Acc_5: 0.6325 ± 0.000
+INFO:CF:|2024-03-01 14:12:45| RandomForestRegressor_Acc_10: 0.8615 ± 0.000
+INFO:CF:|2024-03-01 14:12:45| GradientBoostingRegressor_MAE: 0.0002 ± 0.000
+INFO:CF:|2024-03-01 14:12:45| GradientBoostingRegressor_RMSE: 0.0003 ± 0.000
+INFO:CF:|2024-03-01 14:12:45| GradientBoostingRegressor_NMAE: 0.0398 ± 0.000
+INFO:CF:|2024-03-01 14:12:45| GradientBoostingRegressor_NRMSE: 0.0516 ± 0.000
+INFO:CF:|2024-03-01 14:12:45| GradientBoostingRegressor_Acc_1: 0.1869 ± 0.000
+INFO:CF:|2024-03-01 14:12:45| GradientBoostingRegressor_Acc_5: 0.6945 ± 0.000
+INFO:CF:|2024-03-01 14:12:45| GradientBoostingRegressor_Acc_10: 0.8819 ± 0.000
+INFO:CF:|2024-03-01 14:12:45| ********************Experiment Success********************
+INFO:CF:|2024-03-01 14:13:10| Namespace(dataset='rt', debug=0, density=0.1, epochs=300, experiment=0, log=<utils.logger.Logger object at 0x7fdcb0029f10>, model='CF', path='./datasets/', program_test=0, record=1, rounds=5, seed=0, valid=1, verbose=1
+INFO:CF:|2024-03-01 14:13:10| ********************Experiment Start*******************
+INFO:CF:|2024-03-01 14:13:39| ********************Experiment Results:*******************
+INFO:CF:|2024-03-01 14:13:39| LinearRegression_MAE: 0.0007 ± 0.000
+INFO:CF:|2024-03-01 14:13:39| LinearRegression_RMSE: 0.0009 ± 0.000
+INFO:CF:|2024-03-01 14:13:39| LinearRegression_NMAE: 0.1491 ± 0.000
+INFO:CF:|2024-03-01 14:13:39| LinearRegression_NRMSE: 0.1820 ± 0.000
+INFO:CF:|2024-03-01 14:13:39| LinearRegression_Acc_1: 0.0437 ± 0.001
+INFO:CF:|2024-03-01 14:13:39| LinearRegression_Acc_5: 0.2188 ± 0.001
+INFO:CF:|2024-03-01 14:13:39| LinearRegression_Acc_10: 0.4197 ± 0.002
+INFO:CF:|2024-03-01 14:13:39| Ridge_MAE: 0.0007 ± 0.000
+INFO:CF:|2024-03-01 14:13:39| Ridge_RMSE: 0.0009 ± 0.000
+INFO:CF:|2024-03-01 14:13:39| Ridge_NMAE: 0.1490 ± 0.000
+INFO:CF:|2024-03-01 14:13:39| Ridge_NRMSE: 0.1820 ± 0.000
+INFO:CF:|2024-03-01 14:13:39| Ridge_Acc_1: 0.0438 ± 0.001
+INFO:CF:|2024-03-01 14:13:39| Ridge_Acc_5: 0.2188 ± 0.001
+INFO:CF:|2024-03-01 14:13:39| Ridge_Acc_10: 0.4198 ± 0.002
+INFO:CF:|2024-03-01 14:13:39| Lasso_MAE: 0.0013 ± 0.000
+INFO:CF:|2024-03-01 14:13:39| Lasso_RMSE: 0.0016 ± 0.000
+INFO:CF:|2024-03-01 14:13:39| Lasso_NMAE: 0.2562 ± 0.004
+INFO:CF:|2024-03-01 14:13:39| Lasso_NRMSE: 0.3195 ± 0.005
+INFO:CF:|2024-03-01 14:13:39| Lasso_Acc_1: 0.0198 ± 0.003
+INFO:CF:|2024-03-01 14:13:39| Lasso_Acc_5: 0.1005 ± 0.006
+INFO:CF:|2024-03-01 14:13:39| Lasso_Acc_10: 0.2057 ± 0.004
+INFO:CF:|2024-03-01 14:13:39| KNeighborsRegressor_MAE: 0.0005 ± 0.000
+INFO:CF:|2024-03-01 14:13:39| KNeighborsRegressor_RMSE: 0.0007 ± 0.000
+INFO:CF:|2024-03-01 14:13:39| KNeighborsRegressor_NMAE: 0.1010 ± 0.001
+INFO:CF:|2024-03-01 14:13:39| KNeighborsRegressor_NRMSE: 0.1292 ± 0.002
+INFO:CF:|2024-03-01 14:13:39| KNeighborsRegressor_Acc_1: 0.0729 ± 0.002
+INFO:CF:|2024-03-01 14:13:39| KNeighborsRegressor_Acc_5: 0.3459 ± 0.005
+INFO:CF:|2024-03-01 14:13:39| KNeighborsRegressor_Acc_10: 0.5988 ± 0.004
+INFO:CF:|2024-03-01 14:13:39| SVR_MAE: 0.0014 ± 0.000
+INFO:CF:|2024-03-01 14:13:39| SVR_RMSE: 0.0018 ± 0.000
+INFO:CF:|2024-03-01 14:13:39| SVR_NMAE: 0.2794 ± 0.002
+INFO:CF:|2024-03-01 14:13:39| SVR_NRMSE: 0.3446 ± 0.002
+INFO:CF:|2024-03-01 14:13:39| SVR_Acc_1: 0.0140 ± 0.003
+INFO:CF:|2024-03-01 14:13:39| SVR_Acc_5: 0.0796 ± 0.005
+INFO:CF:|2024-03-01 14:13:39| SVR_Acc_10: 0.1692 ± 0.006
+INFO:CF:|2024-03-01 14:13:39| DecisionTreeRegressor_MAE: 0.0003 ± 0.000
+INFO:CF:|2024-03-01 14:13:39| DecisionTreeRegressor_RMSE: 0.0004 ± 0.000
+INFO:CF:|2024-03-01 14:13:39| DecisionTreeRegressor_NMAE: 0.0608 ± 0.001
+INFO:CF:|2024-03-01 14:13:39| DecisionTreeRegressor_NRMSE: 0.0854 ± 0.003
+INFO:CF:|2024-03-01 14:13:39| DecisionTreeRegressor_Acc_1: 0.2008 ± 0.009
+INFO:CF:|2024-03-01 14:13:39| DecisionTreeRegressor_Acc_5: 0.5694 ± 0.007
+INFO:CF:|2024-03-01 14:13:39| DecisionTreeRegressor_Acc_10: 0.7930 ± 0.002
+INFO:CF:|2024-03-01 14:13:39| RandomForestRegressor_MAE: 0.0002 ± 0.000
+INFO:CF:|2024-03-01 14:13:39| RandomForestRegressor_RMSE: 0.0003 ± 0.000
+INFO:CF:|2024-03-01 14:13:39| RandomForestRegressor_NMAE: 0.0479 ± 0.003
+INFO:CF:|2024-03-01 14:13:39| RandomForestRegressor_NRMSE: 0.0626 ± 0.003
+INFO:CF:|2024-03-01 14:13:39| RandomForestRegressor_Acc_1: 0.1571 ± 0.011
+INFO:CF:|2024-03-01 14:13:39| RandomForestRegressor_Acc_5: 0.6195 ± 0.027
+INFO:CF:|2024-03-01 14:13:39| RandomForestRegressor_Acc_10: 0.8522 ± 0.014
+INFO:CF:|2024-03-01 14:13:39| GradientBoostingRegressor_MAE: 0.0002 ± 0.000
+INFO:CF:|2024-03-01 14:13:39| GradientBoostingRegressor_RMSE: 0.0003 ± 0.000
+INFO:CF:|2024-03-01 14:13:39| GradientBoostingRegressor_NMAE: 0.0405 ± 0.001
+INFO:CF:|2024-03-01 14:13:39| GradientBoostingRegressor_NRMSE: 0.0530 ± 0.002
+INFO:CF:|2024-03-01 14:13:39| GradientBoostingRegressor_Acc_1: 0.1848 ± 0.008
+INFO:CF:|2024-03-01 14:13:39| GradientBoostingRegressor_Acc_5: 0.6856 ± 0.008
+INFO:CF:|2024-03-01 14:13:39| GradientBoostingRegressor_Acc_10: 0.8852 ± 0.004
+INFO:CF:|2024-03-01 14:13:39| ********************Experiment Success********************
+INFO:CF:|2024-03-01 14:13:53| Namespace(dataset='rt', debug=0, density=0.1, epochs=300, experiment=0, log=<utils.logger.Logger object at 0x7fc4e8151f10>, model='CF', path='./datasets/', program_test=0, record=1, rounds=5, seed=0, valid=1, verbose=1
+INFO:CF:|2024-03-01 14:13:53| ********************Experiment Start*******************
+INFO:CF:|2024-03-01 14:13:58| Namespace(dataset='rt', debug=0, density=0.1, epochs=300, experiment=0, log=<utils.logger.Logger object at 0x7fb370091f10>, model='CF', path='./datasets/', program_test=0, record=1, rounds=5, seed=0, valid=1, verbose=1
+INFO:CF:|2024-03-01 14:13:58| ********************Experiment Start*******************
+INFO:CF:|2024-03-01 14:14:26| ********************Experiment Results:*******************
+INFO:CF:|2024-03-01 14:14:26| LinearRegression_MAE: 0.0007 ± 0.000
+INFO:CF:|2024-03-01 14:14:26| LinearRegression_RMSE: 0.0009 ± 0.000
+INFO:CF:|2024-03-01 14:14:26| LinearRegression_NMAE: 0.1493 ± 0.000
+INFO:CF:|2024-03-01 14:14:26| LinearRegression_NRMSE: 0.1822 ± 0.000
+INFO:CF:|2024-03-01 14:14:26| LinearRegression_Acc_1: 0.0429 ± 0.001
+INFO:CF:|2024-03-01 14:14:26| LinearRegression_Acc_5: 0.2181 ± 0.001
+INFO:CF:|2024-03-01 14:14:26| LinearRegression_Acc_10: 0.4187 ± 0.002
+INFO:CF:|2024-03-01 14:14:26| Ridge_MAE: 0.0007 ± 0.000
+INFO:CF:|2024-03-01 14:14:26| Ridge_RMSE: 0.0009 ± 0.000
+INFO:CF:|2024-03-01 14:14:26| Ridge_NMAE: 0.1493 ± 0.000
+INFO:CF:|2024-03-01 14:14:26| Ridge_NRMSE: 0.1822 ± 0.000
+INFO:CF:|2024-03-01 14:14:26| Ridge_Acc_1: 0.0429 ± 0.001
+INFO:CF:|2024-03-01 14:14:26| Ridge_Acc_5: 0.2180 ± 0.001
+INFO:CF:|2024-03-01 14:14:26| Ridge_Acc_10: 0.4188 ± 0.002
+INFO:CF:|2024-03-01 14:14:26| Lasso_MAE: 0.0012 ± 0.000
+INFO:CF:|2024-03-01 14:14:26| Lasso_RMSE: 0.0016 ± 0.000
+INFO:CF:|2024-03-01 14:14:26| Lasso_NMAE: 0.2558 ± 0.005
+INFO:CF:|2024-03-01 14:14:26| Lasso_NRMSE: 0.3191 ± 0.006
+INFO:CF:|2024-03-01 14:14:26| Lasso_Acc_1: 0.0204 ± 0.004
+INFO:CF:|2024-03-01 14:14:26| Lasso_Acc_5: 0.1019 ± 0.006
+INFO:CF:|2024-03-01 14:14:26| Lasso_Acc_10: 0.2049 ± 0.005
+INFO:CF:|2024-03-01 14:14:26| KNeighborsRegressor_MAE: 0.0005 ± 0.000
+INFO:CF:|2024-03-01 14:14:26| KNeighborsRegressor_RMSE: 0.0007 ± 0.000
+INFO:CF:|2024-03-01 14:14:26| KNeighborsRegressor_NMAE: 0.1037 ± 0.002
+INFO:CF:|2024-03-01 14:14:26| KNeighborsRegressor_NRMSE: 0.1321 ± 0.003
+INFO:CF:|2024-03-01 14:14:26| KNeighborsRegressor_Acc_1: 0.0712 ± 0.003
+INFO:CF:|2024-03-01 14:14:26| KNeighborsRegressor_Acc_5: 0.3359 ± 0.006
+INFO:CF:|2024-03-01 14:14:26| KNeighborsRegressor_Acc_10: 0.5868 ± 0.007
+INFO:CF:|2024-03-01 14:14:26| SVR_MAE: 0.0014 ± 0.000
+INFO:CF:|2024-03-01 14:14:26| SVR_RMSE: 0.0018 ± 0.000
+INFO:CF:|2024-03-01 14:14:26| SVR_NMAE: 0.2796 ± 0.002
+INFO:CF:|2024-03-01 14:14:26| SVR_NRMSE: 0.3448 ± 0.002
+INFO:CF:|2024-03-01 14:14:26| SVR_Acc_1: 0.0134 ± 0.004
+INFO:CF:|2024-03-01 14:14:26| SVR_Acc_5: 0.0795 ± 0.005
+INFO:CF:|2024-03-01 14:14:26| SVR_Acc_10: 0.1688 ± 0.006
+INFO:CF:|2024-03-01 14:14:26| DecisionTreeRegressor_MAE: 0.0003 ± 0.000
+INFO:CF:|2024-03-01 14:14:26| DecisionTreeRegressor_RMSE: 0.0005 ± 0.000
+INFO:CF:|2024-03-01 14:14:26| DecisionTreeRegressor_NMAE: 0.0624 ± 0.002
+INFO:CF:|2024-03-01 14:14:26| DecisionTreeRegressor_NRMSE: 0.0873 ± 0.005
+INFO:CF:|2024-03-01 14:14:26| DecisionTreeRegressor_Acc_1: 0.1944 ± 0.015
+INFO:CF:|2024-03-01 14:14:26| DecisionTreeRegressor_Acc_5: 0.5554 ± 0.013
+INFO:CF:|2024-03-01 14:14:26| DecisionTreeRegressor_Acc_10: 0.7843 ± 0.013
+INFO:CF:|2024-03-01 14:14:26| RandomForestRegressor_MAE: 0.0002 ± 0.000
+INFO:CF:|2024-03-01 14:14:26| RandomForestRegressor_RMSE: 0.0003 ± 0.000
+INFO:CF:|2024-03-01 14:14:26| RandomForestRegressor_NMAE: 0.0497 ± 0.003
+INFO:CF:|2024-03-01 14:14:26| RandomForestRegressor_NRMSE: 0.0647 ± 0.003
+INFO:CF:|2024-03-01 14:14:26| RandomForestRegressor_Acc_1: 0.1509 ± 0.009
+INFO:CF:|2024-03-01 14:14:26| RandomForestRegressor_Acc_5: 0.6037 ± 0.023
+INFO:CF:|2024-03-01 14:14:26| RandomForestRegressor_Acc_10: 0.8440 ± 0.016
+INFO:CF:|2024-03-01 14:14:26| GradientBoostingRegressor_MAE: 0.0002 ± 0.000
+INFO:CF:|2024-03-01 14:14:26| GradientBoostingRegressor_RMSE: 0.0003 ± 0.000
+INFO:CF:|2024-03-01 14:14:26| GradientBoostingRegressor_NMAE: 0.0415 ± 0.001
+INFO:CF:|2024-03-01 14:14:26| GradientBoostingRegressor_NRMSE: 0.0541 ± 0.002
+INFO:CF:|2024-03-01 14:14:26| GradientBoostingRegressor_Acc_1: 0.1822 ± 0.008
+INFO:CF:|2024-03-01 14:14:26| GradientBoostingRegressor_Acc_5: 0.6742 ± 0.013
+INFO:CF:|2024-03-01 14:14:26| GradientBoostingRegressor_Acc_10: 0.8788 ± 0.006
+INFO:CF:|2024-03-01 14:14:26| ********************Experiment Success********************
+INFO:CF:|2024-03-01 14:15:14| Namespace(dataset='rt', debug=0, density=0.1, epochs=300, experiment=0, log=<utils.logger.Logger object at 0x7f7be0091f10>, model='CF', path='./datasets/', program_test=0, record=1, rounds=5, seed=0, valid=1, verbose=1
+INFO:CF:|2024-03-01 14:15:14| ********************Experiment Start*******************
+INFO:CF:|2024-03-01 14:15:42| ********************Experiment Results:*******************
+INFO:CF:|2024-03-01 14:15:42| LinearRegression_MAE: 0.0007 ± 0.000
+INFO:CF:|2024-03-01 14:15:42| LinearRegression_RMSE: 0.0009 ± 0.000
+INFO:CF:|2024-03-01 14:15:42| LinearRegression_NMAE: 0.1493 ± 0.000
+INFO:CF:|2024-03-01 14:15:42| LinearRegression_NRMSE: 0.1822 ± 0.000
+INFO:CF:|2024-03-01 14:15:42| Ridge_MAE: 0.0007 ± 0.000
+INFO:CF:|2024-03-01 14:15:42| Ridge_RMSE: 0.0009 ± 0.000
+INFO:CF:|2024-03-01 14:15:42| Ridge_NMAE: 0.1493 ± 0.000
+INFO:CF:|2024-03-01 14:15:42| Ridge_NRMSE: 0.1822 ± 0.000
+INFO:CF:|2024-03-01 14:15:42| Lasso_MAE: 0.0012 ± 0.000
+INFO:CF:|2024-03-01 14:15:42| Lasso_RMSE: 0.0016 ± 0.000
+INFO:CF:|2024-03-01 14:15:42| Lasso_NMAE: 0.2558 ± 0.005
+INFO:CF:|2024-03-01 14:15:42| Lasso_NRMSE: 0.3191 ± 0.006
+INFO:CF:|2024-03-01 14:15:42| KNeighborsRegressor_MAE: 0.0005 ± 0.000
+INFO:CF:|2024-03-01 14:15:42| KNeighborsRegressor_RMSE: 0.0007 ± 0.000
+INFO:CF:|2024-03-01 14:15:42| KNeighborsRegressor_NMAE: 0.1037 ± 0.002
+INFO:CF:|2024-03-01 14:15:42| KNeighborsRegressor_NRMSE: 0.1321 ± 0.003
+INFO:CF:|2024-03-01 14:15:42| SVR_MAE: 0.0014 ± 0.000
+INFO:CF:|2024-03-01 14:15:42| SVR_RMSE: 0.0018 ± 0.000
+INFO:CF:|2024-03-01 14:15:42| SVR_NMAE: 0.2796 ± 0.002
+INFO:CF:|2024-03-01 14:15:42| SVR_NRMSE: 0.3448 ± 0.002
+INFO:CF:|2024-03-01 14:15:42| DecisionTreeRegressor_MAE: 0.0003 ± 0.000
+INFO:CF:|2024-03-01 14:15:42| DecisionTreeRegressor_RMSE: 0.0005 ± 0.000
+INFO:CF:|2024-03-01 14:15:42| DecisionTreeRegressor_NMAE: 0.0624 ± 0.002
+INFO:CF:|2024-03-01 14:15:42| DecisionTreeRegressor_NRMSE: 0.0873 ± 0.005
+INFO:CF:|2024-03-01 14:15:42| RandomForestRegressor_MAE: 0.0002 ± 0.000
+INFO:CF:|2024-03-01 14:15:42| RandomForestRegressor_RMSE: 0.0003 ± 0.000
+INFO:CF:|2024-03-01 14:15:42| RandomForestRegressor_NMAE: 0.0497 ± 0.003
+INFO:CF:|2024-03-01 14:15:42| RandomForestRegressor_NRMSE: 0.0647 ± 0.003
+INFO:CF:|2024-03-01 14:15:42| GradientBoostingRegressor_MAE: 0.0002 ± 0.000
+INFO:CF:|2024-03-01 14:15:42| GradientBoostingRegressor_RMSE: 0.0003 ± 0.000
+INFO:CF:|2024-03-01 14:15:42| GradientBoostingRegressor_NMAE: 0.0415 ± 0.001
+INFO:CF:|2024-03-01 14:15:42| GradientBoostingRegressor_NRMSE: 0.0541 ± 0.002
+INFO:CF:|2024-03-01 14:15:42| ********************Experiment Success********************
+INFO:CF:|2024-03-01 14:16:44| Namespace(dataset='rt', debug=0, density=0.01, epochs=300, experiment=0, log=<utils.logger.Logger object at 0x7fd528151f10>, model='CF', path='./datasets/', program_test=0, record=1, rounds=5, seed=0, valid=1, verbose=1
+INFO:CF:|2024-03-01 14:16:44| ********************Experiment Start*******************
+INFO:CF:|2024-03-01 14:17:12| ********************Experiment Results:*******************
+INFO:CF:|2024-03-01 14:17:12| LinearRegression_MAE: 0.0007 ± 0.000
+INFO:CF:|2024-03-01 14:17:12| LinearRegression_RMSE: 0.0009 ± 0.000
+INFO:CF:|2024-03-01 14:17:12| LinearRegression_NMAE: 0.1493 ± 0.000
+INFO:CF:|2024-03-01 14:17:12| LinearRegression_NRMSE: 0.1822 ± 0.000
+INFO:CF:|2024-03-01 14:17:12| Ridge_MAE: 0.0007 ± 0.000
+INFO:CF:|2024-03-01 14:17:12| Ridge_RMSE: 0.0009 ± 0.000
+INFO:CF:|2024-03-01 14:17:12| Ridge_NMAE: 0.1493 ± 0.000
+INFO:CF:|2024-03-01 14:17:12| Ridge_NRMSE: 0.1822 ± 0.000
+INFO:CF:|2024-03-01 14:17:12| Lasso_MAE: 0.0012 ± 0.000
+INFO:CF:|2024-03-01 14:17:12| Lasso_RMSE: 0.0016 ± 0.000
+INFO:CF:|2024-03-01 14:17:12| Lasso_NMAE: 0.2558 ± 0.005
+INFO:CF:|2024-03-01 14:17:12| Lasso_NRMSE: 0.3191 ± 0.006
+INFO:CF:|2024-03-01 14:17:12| KNeighborsRegressor_MAE: 0.0005 ± 0.000
+INFO:CF:|2024-03-01 14:17:12| KNeighborsRegressor_RMSE: 0.0007 ± 0.000
+INFO:CF:|2024-03-01 14:17:12| KNeighborsRegressor_NMAE: 0.1037 ± 0.002
+INFO:CF:|2024-03-01 14:17:12| KNeighborsRegressor_NRMSE: 0.1321 ± 0.003
+INFO:CF:|2024-03-01 14:17:12| SVR_MAE: 0.0014 ± 0.000
+INFO:CF:|2024-03-01 14:17:12| SVR_RMSE: 0.0018 ± 0.000
+INFO:CF:|2024-03-01 14:17:12| SVR_NMAE: 0.2796 ± 0.002
+INFO:CF:|2024-03-01 14:17:12| SVR_NRMSE: 0.3448 ± 0.002
+INFO:CF:|2024-03-01 14:17:12| DecisionTreeRegressor_MAE: 0.0003 ± 0.000
+INFO:CF:|2024-03-01 14:17:12| DecisionTreeRegressor_RMSE: 0.0005 ± 0.000
+INFO:CF:|2024-03-01 14:17:12| DecisionTreeRegressor_NMAE: 0.0624 ± 0.002
+INFO:CF:|2024-03-01 14:17:12| DecisionTreeRegressor_NRMSE: 0.0873 ± 0.005
+INFO:CF:|2024-03-01 14:17:12| RandomForestRegressor_MAE: 0.0002 ± 0.000
+INFO:CF:|2024-03-01 14:17:12| RandomForestRegressor_RMSE: 0.0003 ± 0.000
+INFO:CF:|2024-03-01 14:17:12| RandomForestRegressor_NMAE: 0.0497 ± 0.003
+INFO:CF:|2024-03-01 14:17:12| RandomForestRegressor_NRMSE: 0.0647 ± 0.003
+INFO:CF:|2024-03-01 14:17:12| GradientBoostingRegressor_MAE: 0.0002 ± 0.000
+INFO:CF:|2024-03-01 14:17:12| GradientBoostingRegressor_RMSE: 0.0003 ± 0.000
+INFO:CF:|2024-03-01 14:17:12| GradientBoostingRegressor_NMAE: 0.0415 ± 0.001
+INFO:CF:|2024-03-01 14:17:12| GradientBoostingRegressor_NRMSE: 0.0541 ± 0.002
+INFO:CF:|2024-03-01 14:17:12| ********************Experiment Success********************
