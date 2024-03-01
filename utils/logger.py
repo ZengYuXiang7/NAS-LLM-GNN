@@ -17,7 +17,7 @@ class Logger:
         if args.dimension == None:
             address = f'./results/metrics/Machine_learning_{args.dataset}_{args.density}'
         else:
-            address = f'./results/metrics/{args.dataset}_{args.density}_{args.dimension}'
+            address = f'./results/metrics/{args.model}_{args.dataset}_{args.density}_{args.dimension}'
         for key in metrics:
             pickle.dump(np.mean(metrics[key]), open(address + key + 'mean.pkl', 'wb'))
             pickle.dump(np.std(metrics[key]), open(address + key + 'std.pkl', 'wb'))

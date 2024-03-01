@@ -1,0 +1,6 @@
+INFO:CF:|2024-03-01 15:50:23| Namespace(ablation=0, bs=1, dataset='cpu', debug=0, decay=0.0005, density=0.01, device='cpu', dimension=32, epochs=300, experiment=1, log=<utils.logger.Logger object at 0x7fe5bb9480a0>, loss_func='L1Loss', lr=0.0004, model='CF', optim='AdamW', path='./datasets/', patience=50, program_test=1, record=1, rounds=5, saved=1, seed=0, valid=1, verbose=10
+INFO:CF:|2024-03-01 15:50:23| ********************Experiment Start*******************
+INFO:CF:|2024-03-01 15:51:56| Round=1 BestEpoch=179 MAE=0.0004 RMSE=0.0010 NMAE=0.0705 NRMSE=0.1536 Training_time=69.1 
+INFO:CF:|2024-03-01 15:51:56| Acc = [1%=0.2039, 5%=0.6817, 10%=0.8601
+INFO:CF:|2024-03-01 15:53:46| Round=2 BestEpoch=207 MAE=0.0005 RMSE=0.0011 NMAE=0.0892 NRMSE=0.1599 Training_time=85.4 
+INFO:CF:|2024-03-01 15:53:46| Acc = [1%=0.1051, 5%=0.4930, 10%=0.7881
