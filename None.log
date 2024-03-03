@@ -3595,3 +3595,25 @@ INFO:CF:|2024-03-03 16:56:24| Round=1 BestEpoch=36 MAE=0.0002 RMSE=0.0009 NMAE=0
 INFO:CF:|2024-03-03 16:56:24| Acc = [1%=0.0007, 5%=0.0034, 10%=0.0078] 
 INFO:CF:|2024-03-03 16:59:00| Round=2 BestEpoch=141 MAE=0.0002 RMSE=0.0010 NMAE=0.6960 NRMSE=0.7962 Training_time=114.9 s
 INFO:CF:|2024-03-03 16:59:00| Acc = [1%=0.0008, 5%=0.0030, 10%=0.0055] 
+INFO:LSTM:|2024-03-03 17:08:08| Namespace(ablation=0, bs=1, dataset='cpu', debug=0, decay=0.0005, density=0.1, device='cpu', dimension=32, epochs=300, experiment=0, llm=1, log=<utils.logger.Logger object at 0x7f9eb92e6af0>, loss_func='L1Loss', lr=0.0004, model='LSTM', optim='AdamW', path='./datasets/', patience=50, program_test=0, record=1, rounds=5, saved=1, seed=0, verbose=1)
+INFO:LSTM:|2024-03-03 17:08:08| ********************Experiment Start********************
+INFO:LSTM:|2024-03-03 17:08:20| Namespace(ablation=0, bs=1, dataset='cpu', debug=0, decay=0.0005, density=0.05, device='cpu', dimension=32, epochs=300, experiment=0, llm=1, log=<utils.logger.Logger object at 0x7fac58d0eaf0>, loss_func='L1Loss', lr=0.0004, model='LSTM', optim='AdamW', path='./datasets/', patience=50, program_test=0, record=1, rounds=5, saved=1, seed=0, verbose=1)
+INFO:LSTM:|2024-03-03 17:08:20| ********************Experiment Start********************
+INFO:LSTM:|2024-03-03 17:09:18| Round=1 BestEpoch=82 MAE=0.0002 RMSE=0.0009 NMAE=0.5518 NRMSE=0.6527 Training_time=35.6 s
+INFO:LSTM:|2024-03-03 17:09:18| Acc = [1%=0.0007, 5%=0.0031, 10%=0.0067] 
+INFO:LSTM:|2024-03-03 17:11:24| Namespace(ablation=0, bs=1, dataset='cpu', debug=0, decay=0.0005, density=0.05, device='cpu', dimension=32, epochs=300, experiment=0, llm=1, log=<utils.logger.Logger object at 0x7fd300ba8a90>, loss_func='L1Loss', lr=0.0004, model='LSTM', optim='AdamW', path='./datasets/', patience=50, program_test=0, record=1, rounds=5, saved=1, seed=0, verbose=1)
+INFO:LSTM:|2024-03-03 17:11:24| ********************Experiment Start********************
+INFO:LSTM:|2024-03-03 17:11:40| Namespace(ablation=0, bs=1, dataset='cpu', debug=0, decay=0.0005, density=0.05, device='cpu', dimension=32, epochs=300, experiment=0, llm=1, log=<utils.logger.Logger object at 0x7fac987dcac0>, loss_func='L1Loss', lr=0.0004, model='LSTM', optim='AdamW', path='./datasets/', patience=50, program_test=1, record=1, rounds=5, saved=1, seed=0, verbose=1)
+INFO:LSTM:|2024-03-03 17:11:40| ********************Experiment Start********************
+INFO:LSTM:|2024-03-03 17:12:37| Round=1 BestEpoch=82 MAE=0.0002 RMSE=0.0009 NMAE=0.5518 NRMSE=0.6527 Training_time=34.6 s
+INFO:LSTM:|2024-03-03 17:12:37| Acc = [1%=0.0007, 5%=0.0031, 10%=0.0067] 
+INFO:LSTM:|2024-03-03 17:13:14| Round=2 BestEpoch=33 MAE=0.0011 RMSE=0.0046 NMAE=3.6769 NRMSE=3.4967 Training_time=14.3 s
+INFO:LSTM:|2024-03-03 17:13:14| Acc = [1%=0.0000, 5%=0.0000, 10%=0.0000] 
+INFO:LSTM:|2024-03-03 17:13:16| Namespace(ablation=0, bs=1, dataset='cpu', debug=0, decay=0.0005, density=0.01, device='cpu', dimension=32, epochs=300, experiment=0, llm=1, log=<utils.logger.Logger object at 0x7ff100429a60>, loss_func='L1Loss', lr=0.0004, model='LSTM', optim='AdamW', path='./datasets/', patience=50, program_test=1, record=1, rounds=5, saved=1, seed=0, verbose=1)
+INFO:LSTM:|2024-03-03 17:13:16| ********************Experiment Start********************
+INFO:LSTM:|2024-03-03 17:13:22| Round=1 BestEpoch=6 MAE=0.0025 RMSE=0.0104 NMAE=7.9280 NRMSE=7.9125 Training_time=0.6 s
+INFO:LSTM:|2024-03-03 17:13:22| Acc = [1%=0.0000, 5%=0.0000, 10%=0.0000] 
+INFO:LSTM:|2024-03-03 17:13:26| Round=2 BestEpoch=2 MAE=0.0021 RMSE=0.0090 NMAE=7.0551 NRMSE=7.0457 Training_time=0.2 s
+INFO:LSTM:|2024-03-03 17:13:26| Acc = [1%=0.0000, 5%=0.0000, 10%=0.0000] 
+INFO:LSTM:|2024-03-03 17:13:34| Round=3 BestEpoch=35 MAE=0.0010 RMSE=0.0049 NMAE=3.3065 NRMSE=3.7112 Training_time=2.9 s
+INFO:LSTM:|2024-03-03 17:13:34| Acc = [1%=0.0001, 5%=0.0006, 10%=0.0007] 

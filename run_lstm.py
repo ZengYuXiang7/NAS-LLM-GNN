@@ -346,10 +346,10 @@ if __name__ == '__main__':
     parser.add_argument('--model', type=str, default='LSTM')  #
 
     # Experiment
-    parser.add_argument('--density', type=float, default=0.10)
+    parser.add_argument('--density', type=float, default=0.01)
     parser.add_argument('--debug', type=int, default=0)
     parser.add_argument('--record', type=int, default=1)
-    parser.add_argument('--program_test', type=int, default=0)
+    parser.add_argument('--program_test', type=int, default=1)
     parser.add_argument('--experiment', type=int, default=0)
     parser.add_argument('--verbose', type=int, default=1)
     parser.add_argument('--path', nargs='?', default='./datasets/')
@@ -358,9 +358,9 @@ if __name__ == '__main__':
     parser.add_argument('--device', type=str, default='cpu')  # gpu cpu mps
     parser.add_argument('--bs', type=int, default=1)  #
     parser.add_argument('--lr', type=float, default=4e-4)
-    parser.add_argument('--epochs', type=int, default=300)
+    parser.add_argument('--epochs', type=int, default=500)
     parser.add_argument('--decay', type=float, default=5e-4)
-    parser.add_argument('--patience', type=int, default=50)
+    parser.add_argument('--patience', type=int, default=500)
     parser.add_argument('--saved', type=int, default=1)
 
     parser.add_argument('--loss_func', type=str, default='L1Loss')

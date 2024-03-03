@@ -1,0 +1,8 @@
+INFO:LTSM:|2024-03-03 17:06:46| Namespace(ablation=0, bs=1, dataset='cpu', debug=0, decay=0.0005, density=0.02, device='cpu', dimension=32, epochs=300, experiment=1, llm=1, log=<utils.logger.Logger object at 0x7fe621766040>, loss_func='L1Loss', lr=0.0004, model='LTSM', optim='AdamW', path='./datasets/', patience=50, program_test=1, record=1, rounds=5, saved=1, seed=0, verbose=1)
+INFO:LTSM:|2024-03-03 17:06:46| ********************Experiment Start********************
+INFO:LTSM:|2024-03-03 17:06:55| Round=1 BestEpoch=3 MAE=0.0015 RMSE=0.0063 NMAE=4.9190 NRMSE=4.8732 Training_time=0.5 s
+INFO:LTSM:|2024-03-03 17:06:55| Acc = [1%=0.0000, 5%=0.0000, 10%=0.0000] 
+INFO:LTSM:|2024-03-03 17:07:18| Round=2 BestEpoch=85 MAE=0.0011 RMSE=0.0045 NMAE=3.6959 NRMSE=3.5447 Training_time=14.1 s
+INFO:LTSM:|2024-03-03 17:07:18| Acc = [1%=0.0000, 5%=0.0000, 10%=0.0000] 
+INFO:LTSM:|2024-03-03 17:07:30| Round=3 BestEpoch=16 MAE=0.0011 RMSE=0.0047 NMAE=3.3877 NRMSE=3.5480 Training_time=2.7 s
+INFO:LTSM:|2024-03-03 17:07:30| Acc = [1%=0.0000, 5%=0.0000, 10%=0.0000] 
