@@ -1,0 +1,22 @@
+INFO:MLP:|2024-03-01 16:00:22| Namespace(ablation=0, bs=1, dataset='cpu', debug=0, decay=0.0005, density=0.03, device='cpu', dimension=32, epochs=300, experiment=1, llm=1, log=<utils.logger.Logger object at 0x7f3311dcb340>, loss_func='L1Loss', lr=0.0004, model='MLP', optim='AdamW', path='./datasets/', patience=50, program_test=1, record=1, rounds=5, saved=1, seed=0, verbose=10
+INFO:MLP:|2024-03-01 16:00:22| ********************Experiment Start*******************
+INFO:MLP:|2024-03-01 16:00:34| Round=1 BestEpoch=39 MAE=0.0020 RMSE=0.0025 NMAE=0.3314 NRMSE=0.3779 Training_time=5.9 
+INFO:MLP:|2024-03-01 16:00:34| Acc = [1%=0.0195, 5%=0.0973, 10%=0.1872]
+INFO:MLP:|2024-03-01 16:00:48| Round=2 BestEpoch=93 MAE=0.0020 RMSE=0.0025 NMAE=0.3268 NRMSE=0.3694 Training_time=9.6 
+INFO:MLP:|2024-03-01 16:00:48| Acc = [1%=0.0171, 5%=0.0845, 10%=0.1745]
+INFO:MLP:|2024-03-01 16:01:09| Round=3 BestEpoch=149 MAE=0.0020 RMSE=0.0025 NMAE=0.3317 NRMSE=0.3761 Training_time=15.3 
+INFO:MLP:|2024-03-01 16:01:09| Acc = [1%=0.0164, 5%=0.0919, 10%=0.1833]
+INFO:MLP:|2024-03-01 16:01:17| Round=4 BestEpoch=21 MAE=0.0020 RMSE=0.0025 NMAE=0.3280 NRMSE=0.3694 Training_time=2.2 
+INFO:MLP:|2024-03-01 16:01:17| Acc = [1%=0.0171, 5%=0.0879, 10%=0.1814]
+INFO:MLP:|2024-03-01 16:01:27| Round=5 BestEpoch=48 MAE=0.0020 RMSE=0.0025 NMAE=0.3355 NRMSE=0.3795 Training_time=4.9 
+INFO:MLP:|2024-03-01 16:01:27| Acc = [1%=0.0161, 5%=0.0785, 10%=0.1659]
+INFO:MLP:|2024-03-01 16:01:27| ********************Experiment Results:*******************
+INFO:MLP:|2024-03-01 16:01:27| MAE: 0.0020 ± 0.000
+INFO:MLP:|2024-03-01 16:01:27| RMSE: 0.0025 ± 0.000
+INFO:MLP:|2024-03-01 16:01:27| NMAE: 0.3307 ± 0.003
+INFO:MLP:|2024-03-01 16:01:27| NRMSE: 0.3745 ± 0.004
+INFO:MLP:|2024-03-01 16:01:27| TIME: 7.5887 ± 4.538
+INFO:MLP:|2024-03-01 16:01:27| Acc1: 0.0173 ± 0.001
+INFO:MLP:|2024-03-01 16:01:27| Acc5: 0.0880 ± 0.006
+INFO:MLP:|2024-03-01 16:01:27| Acc10: 0.1785 ± 0.007
+INFO:MLP:|2024-03-01 16:01:27| ********************Experiment Success********************
