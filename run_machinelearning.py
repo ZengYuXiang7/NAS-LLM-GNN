@@ -70,7 +70,8 @@ class DataModule:
         args.log.only_print(f'Train_length : {len(self.train_tensor)} Valid_length : {len(self.valid_tensor)} Test_length : {len(self.test_tensor)}')
 
     def get_train_valid_test_dataset(self, tensor, args):
-        np.random.shuffle(tensor)
+        p = np.random.permutation(len(tensor))
+        tensor = tensor[p]
 
         X = tensor[:, :-1]
         Y = tensor[:, -1].reshape(-1, 1)

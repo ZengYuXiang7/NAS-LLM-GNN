@@ -86,7 +86,8 @@ class DataModule:
         args.log.only_print(f'Train_length : {len(self.train_tensor)} Valid_length : {len(self.valid_tensor)} Test_length : {len(self.test_tensor)}')
 
     def get_train_valid_test_dataset(self, tensor, args):
-        np.random.shuffle(tensor)
+        p = np.random.permutation(len(tensor))
+        tensor = tensor[p]
 
         X = tensor[:, :-1]
         Y = tensor[:, -1].reshape(-1, 1)
@@ -329,7 +330,7 @@ if __name__ == '__main__':
     parser.add_argument('--model', type=str, default='MLP')  #
 
     # Experiment
-    parser.add_argument('--density', type=float, default=0.10)
+    parser.add_argument('--density', type=float, default=0.05)
     parser.add_argument('--debug', type=int, default=0)
     parser.add_argument('--record', type=int, default=1)
     parser.add_argument('--program_test', type=int, default=0)

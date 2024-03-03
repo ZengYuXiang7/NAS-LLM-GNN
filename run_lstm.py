@@ -86,7 +86,8 @@ class DataModule:
         args.log.only_print(f'Train_length : {len(self.train_tensor)} Valid_length : {len(self.valid_tensor)} Test_length : {len(self.test_tensor)}')
 
     def get_train_valid_test_dataset(self, tensor, args):
-        np.random.shuffle(tensor)
+        p = np.random.permutation(len(tensor))
+        tensor = tensor[p]
 
         X = tensor[:, :-1]
         Y = tensor[:, -1].reshape(-1, 1)
@@ -157,7 +158,6 @@ class LSTMModel(torch.nn.Module):
     def __init__(self, input_dim, hidden_dim, output_dim):
         super(LSTMModel, self).__init__()
         self.hidden_dim = hidden_dim
-        # Adjusted for input_dim to be dynamic
         self.transfer = torch.nn.Linear(input_dim, hidden_dim)
         self.lstm = torch.nn.LSTM(hidden_dim, hidden_dim, num_layers=1, batch_first=True)
         self.fc = torch.nn.Linear(hidden_dim, output_dim)
@@ -221,8 +221,7 @@ class Model(torch.nn.Module):
             preds[writeIdx:writeIdx + len(pred)] = pred
             reals[writeIdx:writeIdx + len(value)] = value
             writeIdx += len(pred)
-        if self.epochs > 20:
-            self.scheduler.step(val_loss)
+        self.scheduler.step(val_loss)
         valid_error = ErrorMetrics(reals * dataModule.max_value, preds * dataModule.max_value)
         return valid_error
 

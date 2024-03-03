@@ -218,7 +218,8 @@ class experiment:
 
 
 def get_train_valid_test_dataset(tensor, args):
-    np.random.shuffle(tensor)
+    p = np.random.permutation(len(tensor))
+    tensor = tensor[p]
 
     X = tensor[:, :-1]
     Y = tensor[:, -1].reshape(-1, 1)
