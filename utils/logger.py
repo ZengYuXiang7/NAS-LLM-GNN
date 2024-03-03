@@ -44,7 +44,7 @@ class Logger:
             string = string[1:]
         final_string = time.strftime('|%Y-%m-%d %H:%M:%S| ', time.localtime(time.time())) + string
         green_string = f'\033[92m{final_string}\033[0m'
-        self.logger.info(final_string[:-1])
+        self.logger.info(final_string[:])
         print(green_string)
 
     def __call__(self, string):

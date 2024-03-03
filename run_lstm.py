@@ -137,25 +137,40 @@ class TensorDataset(torch.utils.data.Dataset):
         return self.indices.shape[0]
 
 
+# class LSTMModel(torch.nn.Module):
+#     def __init__(self, input_dim, hidden_dim, output_dim):
+#         super(LSTMModel, self).__init__()
+#         self.hidden_dim = hidden_dim
+#         self.transfer = torch.nn.Linear(6, hidden_dim)
+#         self.lstm = torch.nn.GRU(self.hidden_dim, self.hidden_dim, num_layers=1, batch_first=True)
+#         self.fc = torch.nn.Linear(hidden_dim, output_dim)
+#
+#     def forward(self, x):
+#         x = self.transfer(x)
+#         out, op_embeds = self.lstm(x)
+#         op_embeds = op_embeds.squeeze()
+#         out = self.fc(op_embeds)
+#         return out
+
+
 class LSTMModel(torch.nn.Module):
     def __init__(self, input_dim, hidden_dim, output_dim):
         super(LSTMModel, self).__init__()
         self.hidden_dim = hidden_dim
-        self.lstm = torch.nn.LSTM(input_dim, hidden_dim, batch_first=True)
+        # Adjusted for input_dim to be dynamic
+        self.transfer = torch.nn.Linear(input_dim, hidden_dim)
+        self.lstm = torch.nn.LSTM(hidden_dim, hidden_dim, num_layers=1, batch_first=True)
         self.fc = torch.nn.Linear(hidden_dim, output_dim)
 
     def forward(self, x):
-        # Initialize hidden state with zeros
-        h0 = torch.zeros(x.size(0), 1, self.hidden_dim).to(x.device)
-        c0 = torch.zeros(x.size(0), 1, self.hidden_dim).to(x.device)
-
-        # Forward propagate LSTM
-        out, _ = self.lstm(x, (h0, c0))
-
-        # Decode the hidden state of the last time step
-        out = self.fc(out[:, -1, :])
-
+        x = self.transfer(x)
+        # LSTM returns output and a tuple of (hidden state, cell state)
+        out, (hn, cn) = self.lstm(x)
+        # Squeeze to remove extra dimensions for single layer LSTM
+        hn = hn.squeeze()
+        out = self.fc(hn)
         return out
+
 class Model(torch.nn.Module):
     def __init__(self, args):
         super(Model, self).__init__()
@@ -322,54 +337,13 @@ def RunExperiments(log, args):
     return metrics
 
 
-
-def get_args():
-    parser = argparse.ArgumentParser()
-    parser.add_argument('--seed', type=int, default=0)
-    parser.add_argument('--rounds', type=int, default=5)
-
-    parser.add_argument('--dataset', type=str, default='cpu')  #
-    parser.add_argument('--model', type=str, default='CF')  #
-
-    # Experiment
-    parser.add_argument('--density', type=float, default=0.01)
-    parser.add_argument('--debug', type=int, default=0)
-    parser.add_argument('--record', type=int, default=1)
-    parser.add_argument('--program_test', type=int, default=0)
-    parser.add_argument('--experiment', type=int, default=0)
-    parser.add_argument('--verbose', type=int, default=1)
-    parser.add_argument('--path', nargs='?', default='./datasets/')
-
-    # Training tool
-    parser.add_argument('--device', type=str, default='cpu')  # gpu cpu mps
-    parser.add_argument('--bs', type=int, default=1)  #
-    parser.add_argument('--lr', type=float, default=4e-4)
-    parser.add_argument('--epochs', type=int, default=300)
-    parser.add_argument('--decay', type=float, default=5e-4)
-    parser.add_argument('--patience', type=int, default=50)
-    parser.add_argument('--saved', type=int, default=1)
-
-    parser.add_argument('--loss_func', type=str, default='L1Loss')
-    parser.add_argument('--optim', type=str, default='AdamW')
-
-    # Hyper parameters
-    parser.add_argument('--dimension', type=int, default=32)
-
-    # Other Experiment
-    parser.add_argument('--ablation', type=int, default=0)
-    # parser.add_argument('--dataset', type=str, default='cpu')
-    parser.add_argument('--llm', type=int, default=1)
-    args = parser.parse_args([])
-    return args
-
-
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--seed', type=int, default=0)
     parser.add_argument('--rounds', type=int, default=5)
 
     parser.add_argument('--dataset', type=str, default='cpu')  #
-    parser.add_argument('--model', type=str, default='CF')  #
+    parser.add_argument('--model', type=str, default='LSTM')  #
 
     # Experiment
     parser.add_argument('--density', type=float, default=0.10)

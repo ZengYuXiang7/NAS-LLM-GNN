@@ -115,7 +115,7 @@ class MLPPredictorV2(Module):
         )
 
     def forward(self, ops, host):
-        print(ops, host)
+        # print(ops, host)
         # ops = [bs, num_ops]
         ops_embeds = self.ops_embeds(ops.float())
         # host = [N]
@@ -147,6 +147,7 @@ class MLPPredictor(Module):
     def forward(self, ops, host):
         # ops = [bs, num_ops]
         ops_embeds = self.op_embeds(ops)
+        print(ops_embeds.shape)
         _, ops_embeds = self.rnn(ops_embeds)
         ops_embeds = ops_embeds.squeeze()
 
@@ -189,7 +190,8 @@ if __name__ == '__main__':
 
     trainLoader, validLoader, testLoader = get_dataloaders()
     criterion = MSELoss()
-    model = MLPPredictorV2()
+    # model = MLPPredictorV2()
+    model = MLPPredictor()
     optimizer = t.optim.Adam(model.parameters())
     monitor = EarlyStopMonitor(10)
 

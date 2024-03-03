@@ -632,7 +632,7 @@ def get_args():
     parser.add_argument('--rounds', type=int, default=5)
 
     parser.add_argument('--dataset', type=str, default='rt')  #
-    parser.add_argument('--model', type=str, default='CF')  #
+    parser.add_argument('--model', type=str, default='NAS-BPR')  #
 
     # Experiment
     parser.add_argument('--density', type=float, default=0.10)
