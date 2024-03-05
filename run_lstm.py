@@ -37,7 +37,7 @@ class experiment:
     # 只是读取大文件
     def load_data(self, args):
         import os
-        file_names = os.listdir(args.path)
+        file_names = os.listdir(args.path + args.dataset)
         pickle_files = [file for file in file_names if file.endswith('.pickle')]
         data = []
         for i in range(len(pickle_files)):
@@ -45,7 +45,6 @@ class experiment:
             with open(pickle_file, 'rb') as f:
                 now = pickle.load(f)
             data.append([now])
-            break
         data = np.array(data)
         return data
 
@@ -59,6 +58,7 @@ class experiment:
                 for key in (data[i][0].keys()):
                     now = []
                     # 添加设备号
+                    now.append(i)
                     # print(key)
                     for item in key:
                         now.append(item)
@@ -138,23 +138,6 @@ class TensorDataset(torch.utils.data.Dataset):
         return self.indices.shape[0]
 
 
-# class LSTMModel(torch.nn.Module):
-#     def __init__(self, input_dim, hidden_dim, output_dim):
-#         super(LSTMModel, self).__init__()
-#         self.hidden_dim = hidden_dim
-#         self.transfer = torch.nn.Linear(6, hidden_dim)
-#         self.lstm = torch.nn.GRU(self.hidden_dim, self.hidden_dim, num_layers=1, batch_first=True)
-#         self.fc = torch.nn.Linear(hidden_dim, output_dim)
-#
-#     def forward(self, x):
-#         one_hot_encoded = torch.nn.functional.one_hot(x.long(), num_classes=6).to(torch.float64)
-#         # print(one_hot_encoded.shape)
-#         x = self.transfer(one_hot_encoded)
-#         out, op_embeds = self.lstm(x)
-#         op_embeds = op_embeds.squeeze()
-#         out = self.fc(op_embeds)
-#         return out
-
 
 class LSTMModel(torch.nn.Module):
     def __init__(self, input_dim, hidden_dim, output_dim):
@@ -162,19 +145,19 @@ class LSTMModel(torch.nn.Module):
         self.hidden_dim = hidden_dim
         self.transfer = torch.nn.Linear(input_dim, hidden_dim)
         self.lstm = torch.nn.LSTM(hidden_dim, hidden_dim, num_layers=1, batch_first=True)
-        self.fc = torch.nn.Linear(hidden_dim, output_dim)
+        self.fc = torch.nn.Linear(hidden_dim + 1, output_dim)
 
     def forward(self, x):
-        one_hot_encoded = torch.nn.functional.one_hot(x.long(), num_classes=6).to(torch.float64)
-        # print(one_hot_encoded.shape)
+        device_idx = x[:, 0]
+        dnn_seq = x[:, 1:]
+        one_hot_encoded = torch.nn.functional.one_hot(dnn_seq.long(), num_classes=6).to(torch.float64)
         x = self.transfer(one_hot_encoded)
-        # x = self.transfer(x)
         # LSTM returns output and a tuple of (hidden state, cell state)
-        # x = x.unsqueeze(0)
         out, (hn, cn) = self.lstm(x)
-        # Squeeze to remove extra dimensions for single layer LSTM
-        hn = hn.squeeze()
-        out = self.fc(hn)
+        hn = hn.squeeze().reshape(-1, self.hidden_dim)
+        device_idx = device_idx.unsqueeze(1)
+        final_inputs = torch.cat([device_idx, hn], dim = -1)
+        out = self.fc(final_inputs)
         return out
 
 class Model(torch.nn.Module):
@@ -346,7 +329,7 @@ if __name__ == '__main__':
     parser.add_argument('--seed', type=int, default=0)
     parser.add_argument('--rounds', type=int, default=5)
 
-    parser.add_argument('--dataset', type=str, default='cpu')  #
+    parser.add_argument('--dataset', type=str, default='gpu')  #
     parser.add_argument('--model', type=str, default='LSTM')  #
 
     # Experiment

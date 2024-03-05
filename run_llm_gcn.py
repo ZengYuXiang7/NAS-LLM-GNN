@@ -979,7 +979,7 @@ def get_args():
     parser.add_argument('--ablation', type=int, default=0)
     # parser.add_argument('--dataset', type=str, default='cpu')
     parser.add_argument('--llm', type=int, default=1)
-    args = parser.parse_args([])
+    args = parser.parse_args()
     return args
 
 
@@ -988,7 +988,7 @@ if __name__ == '__main__':
     parser.add_argument('--seed', type=int, default=0)
     parser.add_argument('--rounds', type=int, default=5)
 
-    parser.add_argument('--dataset', type=str, default='cpu')  #
+    parser.add_argument('--dataset', type=str, default='gpu')  #
     parser.add_argument('--model', type=str, default='CF')  #
 
     # Experiment

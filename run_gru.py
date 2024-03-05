@@ -37,7 +37,7 @@ class experiment:
     # 只是读取大文件
     def load_data(self, args):
         import os
-        file_names = os.listdir(args.path)
+        file_names = os.listdir(args.path + args.dataset)
         pickle_files = [file for file in file_names if file.endswith('.pickle')]
         data = []
         for i in range(len(pickle_files)):
@@ -45,7 +45,6 @@ class experiment:
             with open(pickle_file, 'rb') as f:
                 now = pickle.load(f)
             data.append([now])
-            break
         data = np.array(data)
         return data
 
@@ -59,6 +58,7 @@ class experiment:
                 for key in (data[i][0].keys()):
                     now = []
                     # 添加设备号
+                    now.append(i)
                     # print(key)
                     for item in key:
                         now.append(item)
@@ -144,15 +144,19 @@ class LSTMModel(torch.nn.Module):
         self.hidden_dim = hidden_dim
         self.transfer = torch.nn.Linear(6, hidden_dim)
         self.lstm = torch.nn.GRU(self.hidden_dim, self.hidden_dim, num_layers=1, batch_first=True)
-        self.fc = torch.nn.Linear(hidden_dim, output_dim)
+        self.fc = torch.nn.Linear(hidden_dim + 1, output_dim)
 
     def forward(self, x):
-        one_hot_encoded = torch.nn.functional.one_hot(x.long(), num_classes=6).to(torch.float64)
+        device_idx = x[:, 0]
+        dnn_seq = x[:, 1:]
+        one_hot_encoded = torch.nn.functional.one_hot(dnn_seq.long(), num_classes=6).to(torch.float64)
         # print(one_hot_encoded.shape)
         x = self.transfer(one_hot_encoded)
         out, op_embeds = self.lstm(x)
-        op_embeds = op_embeds.squeeze()
-        out = self.fc(op_embeds)
+        op_embeds = op_embeds.squeeze().reshape(-1, self.hidden_dim)
+        device_idx = device_idx.unsqueeze(1)
+        final_inputs = torch.cat([device_idx, op_embeds], dim = -1)
+        out = self.fc(final_inputs)
         return out
 
 
@@ -257,7 +261,6 @@ def get_dataloaders(train_set, valid_set, test_set, args):
     return train_loader, valid_loader, test_loader
 
 
-
 def custom_collate_fn(batch):
     from torch.utils.data.dataloader import default_collate
     return default_collate(batch)
@@ -326,14 +329,14 @@ if __name__ == '__main__':
     parser.add_argument('--seed', type=int, default=0)
     parser.add_argument('--rounds', type=int, default=5)
 
-    parser.add_argument('--dataset', type=str, default='cpu')  #
+    parser.add_argument('--dataset', type=str, default='gpu')  #
     parser.add_argument('--model', type=str, default='GRU')  #
 
     # Experiment
     parser.add_argument('--density', type=float, default=0.05)
     parser.add_argument('--debug', type=int, default=0)
     parser.add_argument('--record', type=int, default=1)
-    parser.add_argument('--program_test', type=int, default=1)
+    parser.add_argument('--program_test', type=int, default=0)
     parser.add_argument('--experiment', type=int, default=0)
     parser.add_argument('--verbose', type=int, default=1)
     parser.add_argument('--path', nargs='?', default='./datasets/')

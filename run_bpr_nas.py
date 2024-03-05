@@ -30,7 +30,7 @@ class experiment:
     # 只是读取大文件
     def load_data(self, args):
         import os
-        file_names = os.listdir(args.path)
+        file_names = os.listdir(args.path + args.dataset)
         pickle_files = [file for file in file_names if file.endswith('.pickle')]
         data = []
         for i in range(len(pickle_files)):
@@ -38,7 +38,6 @@ class experiment:
             with open(pickle_file, 'rb') as f:
                 now = pickle.load(f)
             data.append([now])
-            break
         data = np.array(data)
         return data
 
@@ -56,6 +55,7 @@ class experiment:
             for i in trange(len(data)):
                 for key in (data[i][0].keys()):
                     now = []
+                    now.append(i)
                     # 添加设备号
                     matrix, features = self.get_graph(key)
                     now.append(matrix)
@@ -276,10 +276,11 @@ class TensorDataset(torch.utils.data.Dataset):
         self.indices = exper_type.get_pytorch_index(tensor)
 
     def __getitem__(self, idx):
-        matrix, features = self.indices[idx, 0], self.indices[idx, 1]
+        device_idx = self.indices[idx][0]
+        matrix, features = self.indices[idx, 1], self.indices[idx, 2]
         matrix, features = list(matrix), list(features)
         value = torch.as_tensor(self.indices[idx, -1])  # 最后一列作为真实值
-        return matrix, features, value
+        return device_idx, matrix, features, value
 
     def __len__(self):
         return self.indices.shape[0]
@@ -377,6 +378,7 @@ class Model(torch.torch.nn.Module):
                 self.final_act = torch.nn.Sigmoid()
         self.binary_classifier = binary_classifier
 
+        self.fc = torch.nn.Linear(self.nhid + 1, 1).double()
 
     def forward_single_model(self, adjacency, features):
         x = self.relu[0](self.bn[0](self.gc[0](adjacency, features)))
@@ -386,35 +388,7 @@ class Model(torch.torch.nn.Module):
             x = self.dropout[i](x)
 
         return x
-
-    def extract_features(self, adjacency, features, augments=None):
-        x = self.forward_single_model(adjacency, features)
-        x = x[:, 0]  # use global node
-        if augments is not None:
-            x = torch.cat([x, augments], dim=1)
-        return x
-
-    def regress(self, features, features2=None):
-        if not self.binary_classifier:
-            assert features2 is None
-            return self.fc(features)
-
-        assert features2 is not None
-        if self.binary_classifier == 'naive':
-            x1 = self.fc(features)
-            x2 = self.fc(features2)
-        else:
-            x1 = features
-            x2 = features2
-
-        x = torch.cat([x1, x2], dim=1)
-        if self.binary_classifier != 'naive':
-            x = self.fc(x)
-
-        x = self.final_act(x)
-        return x
-
-    def forward(self, adjacency, features):
+    def forward(self, device_Idx, adjacency, features):
         a = []
         b = []
         for i in range(len(adjacency)):
@@ -422,42 +396,13 @@ class Model(torch.torch.nn.Module):
             b.append(features[i])
         adjacency = torch.DoubleTensor(a)
         features = torch.DoubleTensor(b)
-        # print(adjacency.shape, features.shape)
-        augments = None
-        if not self.binary_classifier:
-            x = self.forward_single_model(adjacency, features)
-            x = x[:, 0]  # use global node
-            if augments is not None:
-                x = torch.cat([x, augments], dim=1)
-            y = self.fc(x).flatten()
-            return y
-        else:
-            x1 = self.forward_single_model(adjacency[:, 0], features[:, 0])
-            x1 = x1[:, 0]
-            x2 = self.forward_single_model(adjacency[:, 1], features[:, 1])
-            x2 = x2[:, 0]
-            if augments is not None:
-                a1 = augments[:, 0]
-                a2 = augments[:, 1]
-                x1 = torch.cat([x1, a1], dim=1)
-                x2 = torch.cat([x2, a2], dim=1)
+        x = self.forward_single_model(adjacency, features)
+        x = x[:, 0]  # use global node
+        x = torch.cat((device_Idx.unsqueeze(1), x), dim=1)
+        y = self.fc(x).flatten()
+        return y
 
-            if self.binary_classifier == 'naive':
-                x1 = self.fc(x1)
-                x2 = self.fc(x2)
 
-            x = torch.cat([x1, x2], dim=1)
-            if self.binary_classifier != 'naive':
-                x = self.fc(x)
-
-            x = self.final_act(x)
-            return x
-
-    def reset_last(self):
-        self.fc.reset_parameters()
-
-    def final_params(self):
-        return self.fc.parameters()
 
     def setup_optimizer(self, args):
         self.to(args.device)
@@ -474,8 +419,8 @@ class Model(torch.torch.nn.Module):
         torch.set_grad_enabled(True)
         t1 = time.time()
         for train_Batch in (dataModule.train_loader):
-            adjmatrix, features, value = train_Batch
-            pred = self.forward(adjmatrix, features)
+            device_idx, matrix, features, value = train_Batch
+            pred = self.forward(device_idx, matrix, features)
             loss = self.loss_function(pred, value)
             optimizer_zero_grad(self.optimizer)
             loss.backward()
@@ -491,8 +436,8 @@ class Model(torch.torch.nn.Module):
         preds = torch.zeros((len(dataModule.valid_loader.dataset),)).to(self.args.device)
         reals = torch.zeros((len(dataModule.valid_loader.dataset),)).to(self.args.device)
         for valid_Batch in (dataModule.valid_loader):
-            adjmatrix, features, value = valid_Batch
-            pred = self.forward(adjmatrix, features)
+            device_idx, matrix, features, value = valid_Batch
+            pred = self.forward(device_idx, matrix, features)
             val_loss += self.loss_function(pred, value).item()
             preds[writeIdx:writeIdx + len(pred)] = pred
             reals[writeIdx:writeIdx + len(value)] = value
@@ -507,8 +452,8 @@ class Model(torch.torch.nn.Module):
         preds = torch.zeros((len(dataModule.test_loader.dataset),)).to(self.args.device)
         reals = torch.zeros((len(dataModule.test_loader.dataset),)).to(self.args.device)
         for test_Batch in (dataModule.test_loader):
-            adjmatrix, features, value = test_Batch
-            pred = self.forward(adjmatrix, features)
+            device_idx, matrix, features, value = test_Batch
+            pred = self.forward(device_idx, matrix, features)
             preds[writeIdx:writeIdx + len(pred)] = pred
             reals[writeIdx:writeIdx + len(value)] = value
             writeIdx += len(pred)
@@ -555,11 +500,12 @@ def custom_collate_fn(batch):
     if len(batch[0]) == 2:  # 当 self.args.exper != 6
         return default_collate(batch)
     else:
-        op_idxs, graphs, values = zip(*batch)
+        device_idx, op_idxs, graphs, values = zip(*batch)
+        device_idx = default_collate(device_idx)
         graphs = list(graphs)
         op_idxs = list(op_idxs)
         values = default_collate(values)
-        return op_idxs, graphs, values
+        return device_idx, op_idxs, graphs, values
 
 def RunOnce(args, runId, Runtime, log):
     # Set seed
@@ -632,7 +578,7 @@ def get_args():
     parser.add_argument('--seed', type=int, default=0)
     parser.add_argument('--rounds', type=int, default=5)
 
-    parser.add_argument('--dataset', type=str, default='rt')  #
+    parser.add_argument('--dataset', type=str, default='gpu')  #
     parser.add_argument('--model', type=str, default='NAS-BPR')  #
 
     # Experiment
