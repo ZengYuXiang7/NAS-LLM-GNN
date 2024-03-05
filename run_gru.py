@@ -144,7 +144,6 @@ class LSTMModel(torch.nn.Module):
         self.hidden_dim = hidden_dim
         self.transfer = torch.nn.Linear(6, hidden_dim)
         self.lstm = torch.nn.GRU(self.hidden_dim, self.hidden_dim, num_layers=1, batch_first=True)
-        self.fc = torch.nn.Linear(hidden_dim + 1, output_dim)
 
     def forward(self, x):
         device_idx = x[:, 0]
@@ -153,11 +152,7 @@ class LSTMModel(torch.nn.Module):
         # print(one_hot_encoded.shape)
         x = self.transfer(one_hot_encoded)
         out, op_embeds = self.lstm(x)
-        op_embeds = op_embeds.squeeze().reshape(-1, self.hidden_dim)
-        device_idx = device_idx.unsqueeze(1)
-        final_inputs = torch.cat([device_idx, op_embeds], dim = -1)
-        out = self.fc(final_inputs)
-        return out
+        return op_embeds
 
 
 
@@ -168,9 +163,16 @@ class Model(torch.nn.Module):
         self.input_dim = 6
         self.hidden_dim = args.dimension
         self.lstm = LSTMModel(self.input_dim, self.hidden_dim, 1)
+        self.fc = torch.nn.Linear(self.hidden_dim + 1, 1)
 
     def forward(self, inputs):
-        y = self.lstm(inputs)
+        device_idx = inputs[:, 0]
+        dnn_seq = inputs[:, 1:]
+        op_embeds = self.lstm(dnn_seq)
+        op_embeds = op_embeds.squeeze().reshape(-1, self.hidden_dim)
+        device_idx = device_idx.unsqueeze(1)
+        final_inputs = torch.cat([device_idx, op_embeds], dim=-1)
+        y = self.fc(final_inputs)
         return y.flatten()
 
     def setup_optimizer(self, args):

@@ -29,7 +29,6 @@ from utils.utils import *
 torch.set_default_dtype(torch.double)
 
 
-
 class experiment:
     def __init__(self, args):
         self.args = args
@@ -99,7 +98,7 @@ class experiment:
 
         # 大语言模型进行数据增强
         try:
-            makedir('./pretrained')
+            makedir('../pretrained')
             with open(f'./pretrained/pretrained_{self.args.dataset_type}.pkl', 'rb') as f:
                 device_info = pickle.load(f)
         except:
