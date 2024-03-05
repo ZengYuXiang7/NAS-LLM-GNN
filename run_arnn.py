@@ -144,10 +144,10 @@ class LSTMModel(torch.nn.Module):
         super(LSTMModel, self).__init__()
         self.hidden_dim = hidden_dim
         self.transfer = torch.nn.Linear(input_dim, hidden_dim)
-        self.lstm = torch.nn.LSTM(hidden_dim, hidden_dim, num_layers=1, batch_first=True)
+        self.lstm = torch.nn.LSTM(hidden_dim, hidden_dim, 1, batch_first=True, bidirectional=True)
 
-    def forward(self, dnn_seq):
-        one_hot_encoded = torch.nn.functional.one_hot(dnn_seq.long(), num_classes=6).to(torch.float64)
+    def forward(self, x):
+        one_hot_encoded = torch.nn.functional.one_hot(x.long(), num_classes=6).to(torch.float64)
         x = self.transfer(one_hot_encoded)
         out, (hn, cn) = self.lstm(x)
         return hn
@@ -160,15 +160,13 @@ class Model(torch.nn.Module):
         self.input_dim = 6
         self.hidden_dim = args.dimension
         self.lstm = LSTMModel(self.input_dim, self.hidden_dim)
-        self.fc = torch.nn.Linear(self.hidden_dim + 1, 1)
+        self.fc = torch.nn.Linear(self.hidden_dim * 2 + 1, 1)
 
     def forward(self, inputs):
         device_idx = inputs[:, 0]
         dnn_seq = inputs[:, 1:]
         dnn_embeds = self.lstm(dnn_seq)
-        dnn_embeds = dnn_embeds.squeeze().reshape(-1, self.hidden_dim)
-        device_idx = device_idx.unsqueeze(1)
-        final_inputs = torch.cat([device_idx, dnn_embeds], dim=-1)
+        final_inputs = torch.cat([device_idx, dnn_embeds], dim=1)  # 形状: (batch_size, hidden_dim * 2 + 1)
         y = self.fc(final_inputs)
         return y.flatten()
 
@@ -336,7 +334,7 @@ if __name__ == '__main__':
     parser.add_argument('--density', type=float, default=0.05)
     parser.add_argument('--debug', type=int, default=0)
     parser.add_argument('--record', type=int, default=1)
-    parser.add_argument('--program_test', type=int, default=0)
+    parser.add_argument('--program_test', type=int, default=1)
     parser.add_argument('--experiment', type=int, default=0)
     parser.add_argument('--verbose', type=int, default=1)
     parser.add_argument('--path', nargs='?', default='./datasets/')
