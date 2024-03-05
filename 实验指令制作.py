@@ -1,6 +1,6 @@
 from utils.utils import create_sh_file
 order = []
-for dim in [16, 32, 64]:
+for dim in [32]:
     for dataset in ['cpu', 'gpu']:
         for density in [0.01, 0.02, 0.03, 0.04, 0.05]:
             string = f'python run_llm_gcn.py --rounds {5} '
@@ -14,6 +14,6 @@ for dim in [16, 32, 64]:
             order.append(string)
         order.append('   ')
 
-create_sh_file(order, 'Experiment-hyper-dim')
+create_sh_file(order, 'Experiment')
 
 

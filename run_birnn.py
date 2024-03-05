@@ -153,7 +153,6 @@ class LSTMModel(torch.nn.Module):
         # LSTM returns output and a tuple of (hidden state, cell state)
         out, (hn, cn) = self.lstm(x)
         # hn 的形状是 (num_layers * num_directions, batch_size, hidden_dim)
-
         # 对于单层双向LSTM, 我们需要取最后两个隐藏状态
         hn_fwd = hn[-2, :, :]  # 前向的最后隐藏状态
         hn_bwd = hn[-1, :, :]  # 后向的最后隐藏状态
