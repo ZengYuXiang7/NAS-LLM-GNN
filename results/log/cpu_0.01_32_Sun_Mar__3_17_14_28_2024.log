@@ -1,0 +1,2 @@
+INFO:LTSM:|2024-03-03 17:14:28| Namespace(ablation=0, bs=1, dataset='cpu', debug=0, decay=0.0005, density=0.01, device='cpu', dimension=32, epochs=300, experiment=1, llm=1, log=<utils.logger.Logger object at 0x7ff94a86e370>, loss_func='L1Loss', lr=0.0004, model='LTSM', optim='AdamW', path='./datasets/', patience=500, program_test=1, record=1, rounds=5, saved=1, seed=0, verbose=10)
+INFO:LTSM:|2024-03-03 17:14:28| ********************Experiment Start********************

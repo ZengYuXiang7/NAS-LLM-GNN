@@ -1,0 +1,23 @@
+INFO:LTSM:|2024-03-05 14:32:49| Namespace(ablation=0, bs=1, dataset='cpu', debug=0, decay=0.0005, density=0.01, device='cpu', dimension=32, epochs=300, experiment=1, llm=1, log=<utils.logger.Logger object at 0x7fb4c487a400>, loss_func='L1Loss', lr=0.0004, model='LTSM', optim='AdamW', path='./datasets/', patience=500, program_test=1, record=1, rounds=5, saved=1, seed=0, verbose=10)
+INFO:LTSM:|2024-03-05 14:32:49| ********************Experiment Start********************
+INFO:LTSM:|2024-03-05 14:34:35| Round=1 BestEpoch=128 MAE=0.0008 RMSE=0.0013 NMAE=0.1357 NRMSE=0.2001 Training_time=45.6 s
+INFO:LTSM:|2024-03-05 14:34:35| Acc = [1%=0.0784, 5%=0.3534, 10%=0.5695] 
+INFO:LTSM:|2024-03-05 14:35:57| Round=2 BestEpoch=161 MAE=0.0008 RMSE=0.0014 NMAE=0.1406 NRMSE=0.2155 Training_time=41.7 s
+INFO:LTSM:|2024-03-05 14:35:57| Acc = [1%=0.0937, 5%=0.3868, 10%=0.5825] 
+INFO:LTSM:|2024-03-05 14:37:24| Round=3 BestEpoch=171 MAE=0.0009 RMSE=0.0015 NMAE=0.1539 NRMSE=0.2218 Training_time=49.2 s
+INFO:LTSM:|2024-03-05 14:37:24| Acc = [1%=0.0740, 5%=0.3354, 10%=0.5453] 
+INFO:LTSM:|2024-03-05 14:38:57| Round=4 BestEpoch=129 MAE=0.0009 RMSE=0.0016 NMAE=0.1510 NRMSE=0.2361 Training_time=46.6 s
+INFO:LTSM:|2024-03-05 14:38:57| Acc = [1%=0.0826, 5%=0.3919, 10%=0.6177] 
+INFO:LTSM:|2024-03-05 14:40:12| Round=5 BestEpoch=123 MAE=0.0009 RMSE=0.0015 NMAE=0.1522 NRMSE=0.2208 Training_time=28.9 s
+INFO:LTSM:|2024-03-05 14:40:12| Acc = [1%=0.0757, 5%=0.3505, 10%=0.5615] 
+INFO:LTSM:|2024-03-05 14:40:12| ********************Experiment Results:********************
+INFO:LTSM:|2024-03-05 14:40:12| MAE: 0.0009 ± 0.0000
+INFO:LTSM:|2024-03-05 14:40:12| RMSE: 0.0015 ± 0.0001
+INFO:LTSM:|2024-03-05 14:40:12| NMAE: 0.1467 ± 0.0072
+INFO:LTSM:|2024-03-05 14:40:12| NRMSE: 0.2189 ± 0.0116
+INFO:LTSM:|2024-03-05 14:40:12| TIME: 42.3760 ± 7.1664
+INFO:LTSM:|2024-03-05 14:40:12| Acc1: 0.0809 ± 0.0070
+INFO:LTSM:|2024-03-05 14:40:12| Acc5: 0.3636 ± 0.0219
+INFO:LTSM:|2024-03-05 14:40:12| Acc10: 0.5753 ± 0.0244
+INFO:LTSM:|2024-03-05 14:40:12| ********************Experiment Success********************
+
