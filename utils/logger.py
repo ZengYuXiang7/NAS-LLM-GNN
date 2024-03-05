@@ -30,7 +30,7 @@ class Logger:
             if args.dimension == None:
                 address = f'./results/log/Machine_learning_{args.dataset}_{args.density}'
             else:
-                address = f'./results/log/{args.dataset}_{args.density}_{args.dimension}'
+                address = f'./results/log/{args.model}_{args.dataset}_{args.density}_{args.dimension}'
             logging.basicConfig(level=logging.INFO, filename=f'{address}_{ts}.log', filemode='w')
         else:
             logging.basicConfig(level=logging.INFO, filename=f'./' + 'None.log', filemode='a')
