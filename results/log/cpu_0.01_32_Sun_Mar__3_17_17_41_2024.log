@@ -1,0 +1,23 @@
+INFO:LSTM:|2024-03-03 17:17:41| Namespace(ablation=0, bs=1, dataset='cpu', debug=0, decay=0.0005, density=0.01, device='cpu', dimension=32, epochs=500, experiment=1, llm=1, log=<utils.logger.Logger object at 0x7fdb98fe7f70>, loss_func='L1Loss', lr=0.0004, model='LSTM', optim='AdamW', path='./datasets/', patience=500, program_test=1, record=1, rounds=5, saved=1, seed=0, verbose=10)
+INFO:LSTM:|2024-03-03 17:17:41| ********************Experiment Start********************
+INFO:LSTM:|2024-03-03 17:18:11| Round=1 BestEpoch=36 MAE=0.0025 RMSE=0.0103 NMAE=6.3450 NRMSE=5.9837 Training_time=4.4 s
+INFO:LSTM:|2024-03-03 17:18:11| Acc = [1%=0.0000, 5%=0.0000, 10%=0.0000] 
+INFO:LSTM:|2024-03-03 17:18:40| Round=2 BestEpoch=26 MAE=0.0022 RMSE=0.0093 NMAE=5.6759 NRMSE=5.3984 Training_time=1.3 s
+INFO:LSTM:|2024-03-03 17:18:40| Acc = [1%=0.0000, 5%=0.0001, 10%=0.0001] 
+INFO:LSTM:|2024-03-03 17:19:10| Round=3 BestEpoch=30 MAE=0.0007 RMSE=0.0034 NMAE=1.8402 NRMSE=1.9796 Training_time=1.7 s
+INFO:LSTM:|2024-03-03 17:19:10| Acc = [1%=0.0001, 5%=0.0007, 10%=0.0011] 
+INFO:LSTM:|2024-03-03 17:20:18| Round=4 BestEpoch=13 MAE=0.0035 RMSE=0.0144 NMAE=9.0541 NRMSE=8.4387 Training_time=1.7 s
+INFO:LSTM:|2024-03-03 17:20:18| Acc = [1%=0.0000, 5%=0.0001, 10%=0.0001] 
+INFO:LSTM:|2024-03-03 17:21:24| Round=5 BestEpoch=76 MAE=0.0046 RMSE=0.0186 NMAE=11.9504 NRMSE=11.0713 Training_time=9.6 s
+INFO:LSTM:|2024-03-03 17:21:24| Acc = [1%=0.0000, 5%=0.0000, 10%=0.0000] 
+INFO:LSTM:|2024-03-03 17:21:24| ********************Experiment Results:********************
+INFO:LSTM:|2024-03-03 17:21:24| MAE: 0.0027 ± 0.0013
+INFO:LSTM:|2024-03-03 17:21:24| RMSE: 0.0112 ± 0.0051
+INFO:LSTM:|2024-03-03 17:21:24| NMAE: 6.9732 ± 3.3920
+INFO:LSTM:|2024-03-03 17:21:24| NRMSE: 6.5743 ± 3.0509
+INFO:LSTM:|2024-03-03 17:21:24| TIME: 3.7515 ± 3.1474
+INFO:LSTM:|2024-03-03 17:21:24| Acc1: 0.0000 ± 0.0000
+INFO:LSTM:|2024-03-03 17:21:24| Acc5: 0.0002 ± 0.0003
+INFO:LSTM:|2024-03-03 17:21:24| Acc10: 0.0003 ± 0.0004
+INFO:LSTM:|2024-03-03 17:21:24| ********************Experiment Success********************
+
