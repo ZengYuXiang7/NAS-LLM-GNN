@@ -74,8 +74,8 @@ def load_dataset():
 
 def split_train_valid_test(dataset):
     perm = np.random.permutation(len(dataset))
-    train_size = int(len(dataset[:, 0]) * 0.6)
-    valid_size = int(len(dataset[:, 0]) * 0.2)
+    train_size = int(len(dataset[:, 0]) * 0.01)
+    valid_size = int(100)
 
     trainIdx = perm[:train_size]
     validIdx = perm[train_size:train_size + valid_size]
@@ -91,7 +91,7 @@ def split_train_valid_test(dataset):
 def get_dataloaders():
     dataset = load_dataset()
     trainset, validset, testset = split_train_valid_test(dataset)
-    trainLoader = DataLoader(DriveDataset(trainset), batch_size=128, shuffle=True)
+    trainLoader = DataLoader(DriveDataset(trainset), batch_size=1, shuffle=True)
     validLoader = DataLoader(DriveDataset(validset), batch_size=1024)
     testLoader = DataLoader(DriveDataset(testset), batch_size=1024)
     return trainLoader, validLoader, testLoader
@@ -147,7 +147,7 @@ class MLPPredictor(Module):
     def forward(self, ops, host):
         # ops = [bs, num_ops]
         ops_embeds = self.op_embeds(ops)
-        print(ops_embeds.shape)
+        # print(ops_embeds.shape)
         _, ops_embeds = self.rnn(ops_embeds)
         ops_embeds = ops_embeds.squeeze()
 

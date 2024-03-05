@@ -147,7 +147,9 @@ class TensorDataset(torch.utils.data.Dataset):
 #         self.fc = torch.nn.Linear(hidden_dim, output_dim)
 #
 #     def forward(self, x):
-#         x = self.transfer(x)
+#         one_hot_encoded = torch.nn.functional.one_hot(x.long(), num_classes=6).to(torch.float64)
+#         # print(one_hot_encoded.shape)
+#         x = self.transfer(one_hot_encoded)
 #         out, op_embeds = self.lstm(x)
 #         op_embeds = op_embeds.squeeze()
 #         out = self.fc(op_embeds)
@@ -163,7 +165,10 @@ class LSTMModel(torch.nn.Module):
         self.fc = torch.nn.Linear(hidden_dim, output_dim)
 
     def forward(self, x):
-        x = self.transfer(x)
+        one_hot_encoded = torch.nn.functional.one_hot(x.long(), num_classes=6).to(torch.float64)
+        # print(one_hot_encoded.shape)
+        x = self.transfer(one_hot_encoded)
+        # x = self.transfer(x)
         # LSTM returns output and a tuple of (hidden state, cell state)
         out, (hn, cn) = self.lstm(x)
         # Squeeze to remove extra dimensions for single layer LSTM
@@ -319,7 +324,6 @@ def RunOnce(args, runId, Runtime, log):
 def RunExperiments(log, args):
     log('*' * 20 + 'Experiment Start' + '*' * 20)
     metrics = collections.defaultdict(list)
-
     for runId in range(args.rounds):
         runHash = int(time.time())
         results, acc = RunOnce(args, runId, runHash, log)
@@ -345,7 +349,7 @@ if __name__ == '__main__':
     parser.add_argument('--model', type=str, default='LSTM')  #
 
     # Experiment
-    parser.add_argument('--density', type=float, default=0.01)
+    parser.add_argument('--density', type=float, default=0.05)
     parser.add_argument('--debug', type=int, default=0)
     parser.add_argument('--record', type=int, default=1)
     parser.add_argument('--program_test', type=int, default=1)
@@ -357,7 +361,7 @@ if __name__ == '__main__':
     parser.add_argument('--device', type=str, default='cpu')  # gpu cpu mps
     parser.add_argument('--bs', type=int, default=1)  #
     parser.add_argument('--lr', type=float, default=4e-4)
-    parser.add_argument('--epochs', type=int, default=500)
+    parser.add_argument('--epochs', type=int, default=100)
     parser.add_argument('--decay', type=float, default=5e-4)
     parser.add_argument('--patience', type=int, default=500)
     parser.add_argument('--saved', type=int, default=1)
