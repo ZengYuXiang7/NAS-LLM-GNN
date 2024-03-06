@@ -1,0 +1,23 @@
+INFO:CF:|2024-03-06 06:00:04| Namespace(ablation=0, bs=1, dataset='cpu', debug=0, decay=0.0005, density=0.03, device='cpu', dimension=32, epochs=300, experiment=1, llm=1, log=<utils.logger.Logger object at 0x7fefc98ebf40>, loss_func='L1Loss', lr=0.0004, model='CF', optim='AdamW', path='./datasets/', patience=50, program_test=1, record=1, rounds=5, saved=1, seed=0, verbose=10)
+INFO:CF:|2024-03-06 06:00:04| ********************Experiment Start********************
+INFO:CF:|2024-03-06 06:07:56| Round=1 BestEpoch=171 MAE=0.0002 RMSE=0.0002 NMAE=0.0328 NRMSE=0.0461 Training_time=360.9 s
+INFO:CF:|2024-03-06 06:07:56| Acc = [1%=0.3097, 5%=0.7793, 10%=0.9455] 
+INFO:CF:|2024-03-06 06:16:00| Round=2 BestEpoch=177 MAE=0.0002 RMSE=0.0002 NMAE=0.0341 NRMSE=0.0478 Training_time=369.7 s
+INFO:CF:|2024-03-06 06:16:00| Acc = [1%=0.2735, 5%=0.7815, 10%=0.9412] 
+INFO:CF:|2024-03-06 06:24:08| Round=3 BestEpoch=134 MAE=0.0002 RMSE=0.0002 NMAE=0.0347 NRMSE=0.0457 Training_time=344.9 s
+INFO:CF:|2024-03-06 06:24:08| Acc = [1%=0.1950, 5%=0.7722, 10%=0.9548] 
+INFO:CF:|2024-03-06 06:34:36| Round=4 BestEpoch=166 MAE=0.0002 RMSE=0.0002 NMAE=0.0315 NRMSE=0.0447 Training_time=465.0 s
+INFO:CF:|2024-03-06 06:34:36| Acc = [1%=0.2890, 5%=0.7999, 10%=0.9524] 
+INFO:CF:|2024-03-06 06:49:49| Round=5 BestEpoch=262 MAE=0.0002 RMSE=0.0003 NMAE=0.0368 NRMSE=0.0495 Training_time=780.4 s
+INFO:CF:|2024-03-06 06:49:49| Acc = [1%=0.2331, 5%=0.7380, 10%=0.9265] 
+INFO:CF:|2024-03-06 06:49:49| ********************Experiment Results:********************
+INFO:CF:|2024-03-06 06:49:49| MAE: 0.0002 ± 0.0000
+INFO:CF:|2024-03-06 06:49:49| RMSE: 0.0002 ± 0.0000
+INFO:CF:|2024-03-06 06:49:49| NMAE: 0.0340 ± 0.0018
+INFO:CF:|2024-03-06 06:49:49| NRMSE: 0.0468 ± 0.0017
+INFO:CF:|2024-03-06 06:49:49| TIME: 464.1941 ± 163.6002
+INFO:CF:|2024-03-06 06:49:49| Acc1: 0.2600 ± 0.0411
+INFO:CF:|2024-03-06 06:49:49| Acc5: 0.7742 ± 0.0203
+INFO:CF:|2024-03-06 06:49:49| Acc10: 0.9441 ± 0.0100
+INFO:CF:|2024-03-06 06:49:49| ********************Experiment Success********************
+

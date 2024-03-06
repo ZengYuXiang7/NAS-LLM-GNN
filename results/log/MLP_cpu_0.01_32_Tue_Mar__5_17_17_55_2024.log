@@ -1,0 +1,23 @@
+INFO:MLP:|2024-03-05 17:17:55| Namespace(ablation=0, bs=1, dataset='cpu', debug=0, decay=0.0005, density=0.01, device='cpu', dimension=32, epochs=300, experiment=1, llm=1, log=<utils.logger.Logger object at 0x7fe12f76e460>, loss_func='L1Loss', lr=0.0004, model='MLP', optim='AdamW', path='./datasets/', patience=50, program_test=1, record=1, rounds=5, saved=1, seed=0, verbose=10)
+INFO:MLP:|2024-03-05 17:17:55| ********************Experiment Start********************
+INFO:MLP:|2024-03-05 17:18:08| Round=1 BestEpoch=176 MAE=0.0010 RMSE=0.0013 NMAE=0.2002 NRMSE=0.2482 Training_time=10.4 s
+INFO:MLP:|2024-03-05 17:18:08| Acc = [1%=0.0358, 5%=0.1760, 10%=0.3379] 
+INFO:MLP:|2024-03-05 17:18:18| Round=2 BestEpoch=179 MAE=0.0010 RMSE=0.0017 NMAE=0.2094 NRMSE=0.3254 Training_time=7.6 s
+INFO:MLP:|2024-03-05 17:18:18| Acc = [1%=0.0401, 5%=0.1856, 10%=0.3554] 
+INFO:MLP:|2024-03-05 17:18:24| Round=3 BestEpoch=85 MAE=0.0012 RMSE=0.0022 NMAE=0.2471 NRMSE=0.4188 Training_time=3.8 s
+INFO:MLP:|2024-03-05 17:18:24| Acc = [1%=0.0357, 5%=0.1698, 10%=0.3267] 
+INFO:MLP:|2024-03-05 17:18:40| Round=4 BestEpoch=102 MAE=0.0010 RMSE=0.0014 NMAE=0.2026 NRMSE=0.2672 Training_time=10.5 s
+INFO:MLP:|2024-03-05 17:18:40| Acc = [1%=0.0353, 5%=0.1684, 10%=0.3309] 
+INFO:MLP:|2024-03-05 17:18:56| Round=5 BestEpoch=98 MAE=0.0011 RMSE=0.0021 NMAE=0.2278 NRMSE=0.4078 Training_time=10.2 s
+INFO:MLP:|2024-03-05 17:18:56| Acc = [1%=0.0365, 5%=0.1795, 10%=0.3495] 
+INFO:MLP:|2024-03-05 17:18:56| ********************Experiment Results:********************
+INFO:MLP:|2024-03-05 17:18:56| MAE: 0.0011 ± 0.0001
+INFO:MLP:|2024-03-05 17:18:56| RMSE: 0.0017 ± 0.0004
+INFO:MLP:|2024-03-05 17:18:56| NMAE: 0.2174 ± 0.0177
+INFO:MLP:|2024-03-05 17:18:56| NRMSE: 0.3335 ± 0.0701
+INFO:MLP:|2024-03-05 17:18:56| TIME: 8.5010 ± 2.6056
+INFO:MLP:|2024-03-05 17:18:56| Acc1: 0.0367 ± 0.0018
+INFO:MLP:|2024-03-05 17:18:56| Acc5: 0.1759 ± 0.0063
+INFO:MLP:|2024-03-05 17:18:56| Acc10: 0.3401 ± 0.0109
+INFO:MLP:|2024-03-05 17:18:56| ********************Experiment Success********************
+

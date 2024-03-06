@@ -1,0 +1,23 @@
+INFO:LSTM:|2024-03-05 19:10:36| Namespace(ablation=0, bs=1, dataset='gpu', debug=0, decay=0.0005, density=0.05, device='cpu', dimension=32, epochs=300, experiment=1, llm=1, log=<utils.logger.Logger object at 0x7f0b61bbf2e0>, loss_func='L1Loss', lr=0.0004, model='LSTM', optim='AdamW', path='./datasets/', patience=500, program_test=1, record=1, rounds=5, saved=1, seed=0, verbose=10)
+INFO:LSTM:|2024-03-05 19:10:36| ********************Experiment Start********************
+INFO:LSTM:|2024-03-05 19:15:17| Round=1 BestEpoch=60 MAE=0.0007 RMSE=0.0009 NMAE=0.1300 NRMSE=0.1537 Training_time=57.6 s
+INFO:LSTM:|2024-03-05 19:15:17| Acc = [1%=0.0490, 5%=0.2401, 10%=0.4508] 
+INFO:LSTM:|2024-03-05 19:19:56| Round=2 BestEpoch=124 MAE=0.0007 RMSE=0.0008 NMAE=0.1251 NRMSE=0.1483 Training_time=114.8 s
+INFO:LSTM:|2024-03-05 19:19:56| Acc = [1%=0.0537, 5%=0.2497, 10%=0.4719] 
+INFO:LSTM:|2024-03-05 19:24:36| Round=3 BestEpoch=156 MAE=0.0007 RMSE=0.0009 NMAE=0.1319 NRMSE=0.1580 Training_time=144.8 s
+INFO:LSTM:|2024-03-05 19:24:36| Acc = [1%=0.0471, 5%=0.2479, 10%=0.4635] 
+INFO:LSTM:|2024-03-05 19:29:14| Round=4 BestEpoch=103 MAE=0.0007 RMSE=0.0009 NMAE=0.1298 NRMSE=0.1570 Training_time=95.2 s
+INFO:LSTM:|2024-03-05 19:29:14| Acc = [1%=0.0550, 5%=0.2571, 10%=0.4731] 
+INFO:LSTM:|2024-03-05 19:33:53| Round=5 BestEpoch=159 MAE=0.0007 RMSE=0.0009 NMAE=0.1273 NRMSE=0.1506 Training_time=147.1 s
+INFO:LSTM:|2024-03-05 19:33:53| Acc = [1%=0.0495, 5%=0.2451, 10%=0.4611] 
+INFO:LSTM:|2024-03-05 19:33:53| ********************Experiment Results:********************
+INFO:LSTM:|2024-03-05 19:33:53| MAE: 0.0007 ± 0.0000
+INFO:LSTM:|2024-03-05 19:33:53| RMSE: 0.0009 ± 0.0000
+INFO:LSTM:|2024-03-05 19:33:53| NMAE: 0.1288 ± 0.0024
+INFO:LSTM:|2024-03-05 19:33:53| NRMSE: 0.1535 ± 0.0037
+INFO:LSTM:|2024-03-05 19:33:53| TIME: 111.8963 ± 33.3610
+INFO:LSTM:|2024-03-05 19:33:53| Acc1: 0.0509 ± 0.0030
+INFO:LSTM:|2024-03-05 19:33:53| Acc5: 0.2480 ± 0.0056
+INFO:LSTM:|2024-03-05 19:33:53| Acc10: 0.4641 ± 0.0081
+INFO:LSTM:|2024-03-05 19:33:53| ********************Experiment Success********************
+

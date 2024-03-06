@@ -1,0 +1,23 @@
+INFO:GRU:|2024-03-05 19:33:54| Namespace(ablation=0, bs=1, dataset='cpu', debug=0, decay=0.0005, density=0.01, device='cpu', dimension=32, epochs=300, experiment=1, llm=1, log=<utils.logger.Logger object at 0x7ff21039a370>, loss_func='L1Loss', lr=0.0004, model='GRU', optim='AdamW', path='./datasets/', patience=500, program_test=1, record=1, rounds=5, saved=1, seed=0, verbose=10)
+INFO:GRU:|2024-03-05 19:33:54| ********************Experiment Start********************
+INFO:GRU:|2024-03-05 19:34:21| Round=1 BestEpoch=72 MAE=0.0011 RMSE=0.0014 NMAE=0.2242 NRMSE=0.2652 Training_time=7.8 s
+INFO:GRU:|2024-03-05 19:34:21| Acc = [1%=0.0301, 5%=0.1400, 10%=0.2793] 
+INFO:GRU:|2024-03-05 19:34:46| Round=2 BestEpoch=92 MAE=0.0011 RMSE=0.0014 NMAE=0.2276 NRMSE=0.2704 Training_time=7.5 s
+INFO:GRU:|2024-03-05 19:34:46| Acc = [1%=0.0284, 5%=0.1477, 10%=0.2841] 
+INFO:GRU:|2024-03-05 19:35:12| Round=3 BestEpoch=74 MAE=0.0011 RMSE=0.0014 NMAE=0.2192 NRMSE=0.2603 Training_time=6.1 s
+INFO:GRU:|2024-03-05 19:35:12| Acc = [1%=0.0291, 5%=0.1465, 10%=0.2893] 
+INFO:GRU:|2024-03-05 19:35:37| Round=4 BestEpoch=115 MAE=0.0011 RMSE=0.0014 NMAE=0.2191 NRMSE=0.2619 Training_time=9.4 s
+INFO:GRU:|2024-03-05 19:35:37| Acc = [1%=0.0283, 5%=0.1473, 10%=0.2911] 
+INFO:GRU:|2024-03-05 19:36:02| Round=5 BestEpoch=135 MAE=0.0011 RMSE=0.0014 NMAE=0.2215 NRMSE=0.2633 Training_time=11.1 s
+INFO:GRU:|2024-03-05 19:36:02| Acc = [1%=0.0337, 5%=0.1513, 10%=0.2879] 
+INFO:GRU:|2024-03-05 19:36:02| ********************Experiment Results:********************
+INFO:GRU:|2024-03-05 19:36:02| MAE: 0.0011 ± 0.0000
+INFO:GRU:|2024-03-05 19:36:02| RMSE: 0.0014 ± 0.0000
+INFO:GRU:|2024-03-05 19:36:02| NMAE: 0.2223 ± 0.0032
+INFO:GRU:|2024-03-05 19:36:02| NRMSE: 0.2642 ± 0.0035
+INFO:GRU:|2024-03-05 19:36:02| TIME: 8.3808 ± 1.7265
+INFO:GRU:|2024-03-05 19:36:02| Acc1: 0.0299 ± 0.0020
+INFO:GRU:|2024-03-05 19:36:02| Acc5: 0.1466 ± 0.0037
+INFO:GRU:|2024-03-05 19:36:02| Acc10: 0.2863 ± 0.0042
+INFO:GRU:|2024-03-05 19:36:02| ********************Experiment Success********************
+

@@ -1,0 +1,23 @@
+INFO:MLP:|2024-03-05 17:25:59| Namespace(ablation=0, bs=1, dataset='gpu', debug=0, decay=0.0005, density=0.01, device='cpu', dimension=32, epochs=300, experiment=1, llm=1, log=<utils.logger.Logger object at 0x7f5a3e4863a0>, loss_func='L1Loss', lr=0.0004, model='MLP', optim='AdamW', path='./datasets/', patience=50, program_test=1, record=1, rounds=5, saved=1, seed=0, verbose=10)
+INFO:MLP:|2024-03-05 17:25:59| ********************Experiment Start********************
+INFO:MLP:|2024-03-05 17:26:10| Round=1 BestEpoch=79 MAE=0.0010 RMSE=0.0013 NMAE=0.1944 NRMSE=0.2326 Training_time=7.4 s
+INFO:MLP:|2024-03-05 17:26:10| Acc = [1%=0.0299, 5%=0.1549, 10%=0.3069] 
+INFO:MLP:|2024-03-05 17:26:24| Round=2 BestEpoch=152 MAE=0.0009 RMSE=0.0012 NMAE=0.1747 NRMSE=0.2115 Training_time=10.5 s
+INFO:MLP:|2024-03-05 17:26:24| Acc = [1%=0.0412, 5%=0.1940, 10%=0.3640] 
+INFO:MLP:|2024-03-05 17:26:37| Round=3 BestEpoch=124 MAE=0.0009 RMSE=0.0011 NMAE=0.1644 NRMSE=0.1992 Training_time=8.6 s
+INFO:MLP:|2024-03-05 17:26:37| Acc = [1%=0.0423, 5%=0.2024, 10%=0.3880] 
+INFO:MLP:|2024-03-05 17:26:46| Round=4 BestEpoch=84 MAE=0.0009 RMSE=0.0012 NMAE=0.1729 NRMSE=0.2131 Training_time=5.8 s
+INFO:MLP:|2024-03-05 17:26:46| Acc = [1%=0.0396, 5%=0.1949, 10%=0.3668] 
+INFO:MLP:|2024-03-05 17:26:55| Round=5 BestEpoch=65 MAE=0.0012 RMSE=0.0021 NMAE=0.2169 NRMSE=0.3716 Training_time=4.5 s
+INFO:MLP:|2024-03-05 17:26:55| Acc = [1%=0.0364, 5%=0.1845, 10%=0.3476] 
+INFO:MLP:|2024-03-05 17:26:55| ********************Experiment Results:********************
+INFO:MLP:|2024-03-05 17:26:55| MAE: 0.0010 ± 0.0001
+INFO:MLP:|2024-03-05 17:26:55| RMSE: 0.0014 ± 0.0004
+INFO:MLP:|2024-03-05 17:26:55| NMAE: 0.1847 ± 0.0189
+INFO:MLP:|2024-03-05 17:26:55| NRMSE: 0.2456 ± 0.0639
+INFO:MLP:|2024-03-05 17:26:55| TIME: 7.3494 ± 2.0867
+INFO:MLP:|2024-03-05 17:26:55| Acc1: 0.0379 ± 0.0045
+INFO:MLP:|2024-03-05 17:26:55| Acc5: 0.1862 ± 0.0166
+INFO:MLP:|2024-03-05 17:26:55| Acc10: 0.3547 ± 0.0271
+INFO:MLP:|2024-03-05 17:26:55| ********************Experiment Success********************
+

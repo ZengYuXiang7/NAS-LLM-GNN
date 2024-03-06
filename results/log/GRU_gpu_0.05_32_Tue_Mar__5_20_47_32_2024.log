@@ -1,0 +1,23 @@
+INFO:GRU:|2024-03-05 20:47:32| Namespace(ablation=0, bs=1, dataset='gpu', debug=0, decay=0.0005, density=0.05, device='cpu', dimension=32, epochs=300, experiment=1, llm=1, log=<utils.logger.Logger object at 0x7f68983cc340>, loss_func='L1Loss', lr=0.0004, model='GRU', optim='AdamW', path='./datasets/', patience=500, program_test=1, record=1, rounds=5, saved=1, seed=0, verbose=10)
+INFO:GRU:|2024-03-05 20:47:32| ********************Experiment Start********************
+INFO:GRU:|2024-03-05 20:52:18| Round=1 BestEpoch=116 MAE=0.0011 RMSE=0.0013 NMAE=0.1999 NRMSE=0.2376 Training_time=98.0 s
+INFO:GRU:|2024-03-05 20:52:18| Acc = [1%=0.0307, 5%=0.1570, 10%=0.3122] 
+INFO:GRU:|2024-03-05 20:57:24| Round=2 BestEpoch=66 MAE=0.0011 RMSE=0.0014 NMAE=0.2006 NRMSE=0.2381 Training_time=67.0 s
+INFO:GRU:|2024-03-05 20:57:24| Acc = [1%=0.0311, 5%=0.1561, 10%=0.3103] 
+INFO:GRU:|2024-03-05 21:02:29| Round=3 BestEpoch=119 MAE=0.0011 RMSE=0.0014 NMAE=0.2015 NRMSE=0.2396 Training_time=120.6 s
+INFO:GRU:|2024-03-05 21:02:29| Acc = [1%=0.0310, 5%=0.1536, 10%=0.3121] 
+INFO:GRU:|2024-03-05 21:07:33| Round=4 BestEpoch=97 MAE=0.0011 RMSE=0.0014 NMAE=0.2037 NRMSE=0.2412 Training_time=98.0 s
+INFO:GRU:|2024-03-05 21:07:33| Acc = [1%=0.0294, 5%=0.1509, 10%=0.3037] 
+INFO:GRU:|2024-03-05 21:12:39| Round=5 BestEpoch=81 MAE=0.0011 RMSE=0.0014 NMAE=0.1999 NRMSE=0.2382 Training_time=82.3 s
+INFO:GRU:|2024-03-05 21:12:39| Acc = [1%=0.0311, 5%=0.1559, 10%=0.3095] 
+INFO:GRU:|2024-03-05 21:12:39| ********************Experiment Results:********************
+INFO:GRU:|2024-03-05 21:12:39| MAE: 0.0011 ± 0.0000
+INFO:GRU:|2024-03-05 21:12:39| RMSE: 0.0014 ± 0.0000
+INFO:GRU:|2024-03-05 21:12:39| NMAE: 0.2011 ± 0.0014
+INFO:GRU:|2024-03-05 21:12:39| NRMSE: 0.2390 ± 0.0013
+INFO:GRU:|2024-03-05 21:12:39| TIME: 93.1902 ± 17.9001
+INFO:GRU:|2024-03-05 21:12:39| Acc1: 0.0307 ± 0.0006
+INFO:GRU:|2024-03-05 21:12:39| Acc5: 0.1547 ± 0.0022
+INFO:GRU:|2024-03-05 21:12:39| Acc10: 0.3096 ± 0.0031
+INFO:GRU:|2024-03-05 21:12:39| ********************Experiment Success********************
+

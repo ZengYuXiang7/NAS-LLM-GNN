@@ -1,0 +1,23 @@
+INFO:BIRNN:|2024-03-05 21:46:38| Namespace(ablation=0, bs=1, dataset='cpu', debug=0, decay=0.0005, density=0.05, device='cpu', dimension=32, epochs=300, experiment=1, llm=1, log=<utils.logger.Logger object at 0x7f8e0dd642e0>, loss_func='L1Loss', lr=0.0004, model='BIRNN', optim='AdamW', path='./datasets/', patience=500, program_test=1, record=1, rounds=5, saved=1, seed=0, verbose=10)
+INFO:BIRNN:|2024-03-05 21:46:38| ********************Experiment Start********************
+INFO:BIRNN:|2024-03-05 21:50:03| Round=1 BestEpoch=42 MAE=0.0010 RMSE=0.0012 NMAE=0.2002 NRMSE=0.2407 Training_time=30.2 s
+INFO:BIRNN:|2024-03-05 21:50:03| Acc = [1%=0.0365, 5%=0.1730, 10%=0.3221] 
+INFO:BIRNN:|2024-03-05 21:53:26| Round=2 BestEpoch=32 MAE=0.0010 RMSE=0.0012 NMAE=0.1977 NRMSE=0.2392 Training_time=21.6 s
+INFO:BIRNN:|2024-03-05 21:53:26| Acc = [1%=0.0388, 5%=0.1838, 10%=0.3320] 
+INFO:BIRNN:|2024-03-05 21:56:49| Round=3 BestEpoch=50 MAE=0.0010 RMSE=0.0012 NMAE=0.1969 NRMSE=0.2377 Training_time=33.7 s
+INFO:BIRNN:|2024-03-05 21:56:49| Acc = [1%=0.0365, 5%=0.1800, 10%=0.3297] 
+INFO:BIRNN:|2024-03-05 22:00:12| Round=4 BestEpoch=96 MAE=0.0010 RMSE=0.0012 NMAE=0.1988 NRMSE=0.2404 Training_time=64.6 s
+INFO:BIRNN:|2024-03-05 22:00:12| Acc = [1%=0.0386, 5%=0.1827, 10%=0.3363] 
+INFO:BIRNN:|2024-03-05 22:03:34| Round=5 BestEpoch=117 MAE=0.0010 RMSE=0.0012 NMAE=0.1988 NRMSE=0.2399 Training_time=78.6 s
+INFO:BIRNN:|2024-03-05 22:03:34| Acc = [1%=0.0395, 5%=0.1804, 10%=0.3223] 
+INFO:BIRNN:|2024-03-05 22:03:34| ********************Experiment Results:********************
+INFO:BIRNN:|2024-03-05 22:03:34| MAE: 0.0010 ± 0.0000
+INFO:BIRNN:|2024-03-05 22:03:34| RMSE: 0.0012 ± 0.0000
+INFO:BIRNN:|2024-03-05 22:03:34| NMAE: 0.1985 ± 0.0011
+INFO:BIRNN:|2024-03-05 22:03:34| NRMSE: 0.2396 ± 0.0010
+INFO:BIRNN:|2024-03-05 22:03:34| TIME: 45.7387 ± 21.9247
+INFO:BIRNN:|2024-03-05 22:03:34| Acc1: 0.0380 ± 0.0013
+INFO:BIRNN:|2024-03-05 22:03:34| Acc5: 0.1800 ± 0.0038
+INFO:BIRNN:|2024-03-05 22:03:34| Acc10: 0.3285 ± 0.0055
+INFO:BIRNN:|2024-03-05 22:03:34| ********************Experiment Success********************
+

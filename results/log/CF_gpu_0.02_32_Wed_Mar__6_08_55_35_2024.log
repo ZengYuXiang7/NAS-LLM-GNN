@@ -1,0 +1,23 @@
+INFO:CF:|2024-03-06 08:55:35| Namespace(ablation=0, bs=1, dataset='gpu', debug=0, decay=0.0005, density=0.02, device='cpu', dimension=32, epochs=300, experiment=1, llm=1, log=<utils.logger.Logger object at 0x7f07c212af40>, loss_func='L1Loss', lr=0.0004, model='CF', optim='AdamW', path='./datasets/', patience=50, program_test=1, record=1, rounds=5, saved=1, seed=0, verbose=10)
+INFO:CF:|2024-03-06 08:55:35| ********************Experiment Start********************
+INFO:CF:|2024-03-06 09:09:14| Round=1 BestEpoch=172 MAE=0.0002 RMSE=0.0003 NMAE=0.0365 NRMSE=0.0485 Training_time=626.1 s
+INFO:CF:|2024-03-06 09:09:14| Acc = [1%=0.2220, 5%=0.7391, 10%=0.9350] 
+INFO:CF:|2024-03-06 09:14:47| Round=2 BestEpoch=94 MAE=0.0002 RMSE=0.0003 NMAE=0.0352 NRMSE=0.0477 Training_time=210.5 s
+INFO:CF:|2024-03-06 09:14:47| Acc = [1%=0.2391, 5%=0.7472, 10%=0.9416] 
+INFO:CF:|2024-03-06 09:22:18| Round=3 BestEpoch=138 MAE=0.0002 RMSE=0.0003 NMAE=0.0327 NRMSE=0.0442 Training_time=322.7 s
+INFO:CF:|2024-03-06 09:22:18| Acc = [1%=0.2619, 5%=0.7877, 10%=0.9530] 
+INFO:CF:|2024-03-06 09:29:36| Round=4 BestEpoch=131 MAE=0.0002 RMSE=0.0003 NMAE=0.0367 NRMSE=0.0488 Training_time=310.8 s
+INFO:CF:|2024-03-06 09:29:36| Acc = [1%=0.2267, 5%=0.7339, 10%=0.9343] 
+INFO:CF:|2024-03-06 09:40:57| Round=5 BestEpoch=132 MAE=0.0002 RMSE=0.0003 NMAE=0.0351 NRMSE=0.0467 Training_time=461.8 s
+INFO:CF:|2024-03-06 09:40:57| Acc = [1%=0.2308, 5%=0.7514, 10%=0.9419] 
+INFO:CF:|2024-03-06 09:40:57| ********************Experiment Results:********************
+INFO:CF:|2024-03-06 09:40:57| MAE: 0.0002 ± 0.0000
+INFO:CF:|2024-03-06 09:40:57| RMSE: 0.0003 ± 0.0000
+INFO:CF:|2024-03-06 09:40:57| NMAE: 0.0353 ± 0.0014
+INFO:CF:|2024-03-06 09:40:57| NRMSE: 0.0472 ± 0.0016
+INFO:CF:|2024-03-06 09:40:57| TIME: 386.3870 ± 144.1287
+INFO:CF:|2024-03-06 09:40:57| Acc1: 0.2361 ± 0.0141
+INFO:CF:|2024-03-06 09:40:57| Acc5: 0.7519 ± 0.0190
+INFO:CF:|2024-03-06 09:40:57| Acc10: 0.9412 ± 0.0067
+INFO:CF:|2024-03-06 09:40:57| ********************Experiment Success********************
+

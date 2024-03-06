@@ -1,0 +1,6 @@
+INFO:BPR-NAS:|2024-03-06 01:33:17| Namespace(ablation=0, bs=1, dataset='cpu', debug=0, decay=0.0005, density=0.01, device='cpu', dimension=32, epochs=300, experiment=1, log=<utils.logger.Logger object at 0x7fa6567930a0>, loss_func='L1Loss', lr=0.0004, model='BPR-NAS', optim='AdamW', path='./datasets/', patience=10, program_test=1, record=1, rounds=5, saved=1, seed=0, valid=1, verbose=10)
+INFO:BPR-NAS:|2024-03-06 01:33:17| ********************Experiment Start********************
+INFO:BPR-NAS:|2024-03-06 01:33:30| Round=1 BestEpoch=14 MAE=0.0050 RMSE=0.0052 NMAE=1.0163 NRMSE=0.9948 Training_time=7.4 s
+INFO:BPR-NAS:|2024-03-06 01:33:30| Acc = [1%=0.0000, 5%=0.0000, 10%=0.0000]
+INFO:BPR-NAS:|2024-03-06 01:33:43| Round=2 BestEpoch=18 MAE=0.0124 RMSE=0.0125 NMAE=2.5430 NRMSE=2.4053 Training_time=6.6 s
+INFO:BPR-NAS:|2024-03-06 01:33:43| Acc = [1%=0.0000, 5%=0.0000, 10%=0.0000]

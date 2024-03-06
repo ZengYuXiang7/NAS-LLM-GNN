@@ -1,0 +1,23 @@
+INFO:BPR-NAS:|2024-03-06 03:21:20| Namespace(ablation=0, bs=1, dataset='gpu', debug=0, decay=0.0005, density=0.02, device='cpu', dimension=32, epochs=300, experiment=1, log=<utils.logger.Logger object at 0x7f57c87c70a0>, loss_func='L1Loss', lr=0.0004, model='BPR-NAS', optim='AdamW', path='./datasets/', patience=30, program_test=1, record=1, rounds=5, saved=1, seed=0, valid=1, verbose=10)
+INFO:BPR-NAS:|2024-03-06 03:21:20| ********************Experiment Start********************
+INFO:BPR-NAS:|2024-03-06 03:25:54| Round=1 BestEpoch=118 MAE=0.0007 RMSE=0.0009 NMAE=0.1253 NRMSE=0.1633 Training_time=212.9 s
+INFO:BPR-NAS:|2024-03-06 03:25:54| Acc = [1%=0.0638, 5%=0.2957, 10%=0.5053]
+INFO:BPR-NAS:|2024-03-06 03:30:18| Round=2 BestEpoch=109 MAE=0.0007 RMSE=0.0009 NMAE=0.1221 NRMSE=0.1566 Training_time=203.3 s
+INFO:BPR-NAS:|2024-03-06 03:30:18| Acc = [1%=0.0619, 5%=0.3041, 10%=0.5228]
+INFO:BPR-NAS:|2024-03-06 03:33:30| Round=3 BestEpoch=75 MAE=0.0007 RMSE=0.0009 NMAE=0.1238 NRMSE=0.1563 Training_time=132.2 s
+INFO:BPR-NAS:|2024-03-06 03:33:30| Acc = [1%=0.0608, 5%=0.2900, 10%=0.5089]
+INFO:BPR-NAS:|2024-03-06 03:39:48| Round=4 BestEpoch=146 MAE=0.0007 RMSE=0.0009 NMAE=0.1239 NRMSE=0.1554 Training_time=317.3 s
+INFO:BPR-NAS:|2024-03-06 03:39:48| Acc = [1%=0.0540, 5%=0.2865, 10%=0.5303]
+INFO:BPR-NAS:|2024-03-06 03:41:05| Round=5 BestEpoch=14 MAE=0.0008 RMSE=0.0010 NMAE=0.1478 NRMSE=0.1739 Training_time=24.5 s
+INFO:BPR-NAS:|2024-03-06 03:41:05| Acc = [1%=0.0302, 5%=0.1791, 10%=0.3990]
+INFO:BPR-NAS:|2024-03-06 03:41:05| ********************Experiment Results:********************
+INFO:BPR-NAS:|2024-03-06 03:41:05| MAE: 0.0007 ± 0.0001
+INFO:BPR-NAS:|2024-03-06 03:41:05| RMSE: 0.0009 ± 0.0000
+INFO:BPR-NAS:|2024-03-06 03:41:05| NMAE: 0.1286 ± 0.0097
+INFO:BPR-NAS:|2024-03-06 03:41:05| NRMSE: 0.1611 ± 0.0070
+INFO:BPR-NAS:|2024-03-06 03:41:05| TIME: 178.0387 ± 96.8838
+INFO:BPR-NAS:|2024-03-06 03:41:05| Acc1: 0.0542 ± 0.0124
+INFO:BPR-NAS:|2024-03-06 03:41:05| Acc5: 0.2711 ± 0.0464
+INFO:BPR-NAS:|2024-03-06 03:41:05| Acc10: 0.4932 ± 0.0480
+INFO:BPR-NAS:|2024-03-06 03:41:05| ********************Experiment Success********************
+
