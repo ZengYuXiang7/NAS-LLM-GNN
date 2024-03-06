@@ -1,0 +1,23 @@
+INFO:CF:|2024-03-06 11:15:08| Namespace(ablation=0, bs=1, dataset='gpu', debug=0, decay=0.0005, density=0.03, device='cpu', dimension=32, epochs=300, experiment=1, llm=1, log=<utils.logger.Logger object at 0x7f8618d52e80>, loss_func='L1Loss', lr=0.0004, model='CF', optim='AdamW', path='./datasets/', patience=50, program_test=1, record=1, rounds=5, saved=1, seed=0, verbose=10)
+INFO:CF:|2024-03-06 11:15:08| ********************Experiment Start********************
+INFO:CF:|2024-03-06 11:46:50| Round=1 BestEpoch=173 MAE=0.0002 RMSE=0.0002 NMAE=0.0321 NRMSE=0.0432 Training_time=1371.0 s
+INFO:CF:|2024-03-06 11:46:50| Acc = [1%=0.2497, 5%=0.7921, 10%=0.9543] 
+INFO:CF:|2024-03-06 12:11:04| Round=2 BestEpoch=147 MAE=0.0002 RMSE=0.0003 NMAE=0.0334 NRMSE=0.0446 Training_time=1022.6 s
+INFO:CF:|2024-03-06 12:11:04| Acc = [1%=0.2451, 5%=0.7688, 10%=0.9448] 
+INFO:CF:|2024-03-06 12:30:42| Round=3 BestEpoch=136 MAE=0.0002 RMSE=0.0002 NMAE=0.0298 NRMSE=0.0412 Training_time=814.6 s
+INFO:CF:|2024-03-06 12:30:42| Acc = [1%=0.2866, 5%=0.8144, 10%=0.9596] 
+INFO:CF:|2024-03-06 12:44:45| Round=4 BestEpoch=120 MAE=0.0002 RMSE=0.0003 NMAE=0.0329 NRMSE=0.0443 Training_time=561.8 s
+INFO:CF:|2024-03-06 12:44:45| Acc = [1%=0.2501, 5%=0.7799, 10%=0.9482] 
+INFO:CF:|2024-03-06 13:02:01| Round=5 BestEpoch=170 MAE=0.0002 RMSE=0.0002 NMAE=0.0306 NRMSE=0.0414 Training_time=763.1 s
+INFO:CF:|2024-03-06 13:02:01| Acc = [1%=0.2707, 5%=0.8070, 10%=0.9621] 
+INFO:CF:|2024-03-06 13:02:01| ********************Experiment Results:********************
+INFO:CF:|2024-03-06 13:02:01| MAE: 0.0002 ± 0.0000
+INFO:CF:|2024-03-06 13:02:01| RMSE: 0.0002 ± 0.0000
+INFO:CF:|2024-03-06 13:02:01| NMAE: 0.0318 ± 0.0013
+INFO:CF:|2024-03-06 13:02:01| NRMSE: 0.0430 ± 0.0014
+INFO:CF:|2024-03-06 13:02:01| TIME: 906.6140 ± 274.6181
+INFO:CF:|2024-03-06 13:02:01| Acc1: 0.2604 ± 0.0158
+INFO:CF:|2024-03-06 13:02:01| Acc5: 0.7924 ± 0.0168
+INFO:CF:|2024-03-06 13:02:01| Acc10: 0.9538 ± 0.0066
+INFO:CF:|2024-03-06 13:02:01| ********************Experiment Success********************
+
