@@ -1,0 +1,23 @@
+INFO:ARNN:|2024-03-07 01:10:31| Namespace(ablation=0, bs=1, dataset='gpu', debug=0, decay=0.0005, density=0.03, device='cpu', dimension=32, epochs=300, experiment=1, llm=1, log=<utils.logger.Logger object at 0x7f1bba67d640>, loss_func='L1Loss', lr=0.0004, model='ARNN', optim='AdamW', path='./datasets/', patience=500, program_test=1, record=1, rounds=5, saved=1, seed=0, verbose=10)
+INFO:ARNN:|2024-03-07 01:10:31| ********************Experiment Start********************
+INFO:ARNN:|2024-03-07 01:16:33| Round=1 BestEpoch=79 MAE=0.0006 RMSE=0.0008 NMAE=0.1175 NRMSE=0.1441 Training_time=92.8 s
+INFO:ARNN:|2024-03-07 01:16:33| Acc = [1%=0.0588, 5%=0.2834, 10%=0.5266] 
+INFO:ARNN:|2024-03-07 01:22:35| Round=2 BestEpoch=66 MAE=0.0006 RMSE=0.0009 NMAE=0.1176 NRMSE=0.1546 Training_time=76.5 s
+INFO:ARNN:|2024-03-07 01:22:35| Acc = [1%=0.0725, 5%=0.3275, 10%=0.5633] 
+INFO:ARNN:|2024-03-07 01:28:37| Round=3 BestEpoch=67 MAE=0.0006 RMSE=0.0009 NMAE=0.1176 NRMSE=0.1544 Training_time=77.7 s
+INFO:ARNN:|2024-03-07 01:28:37| Acc = [1%=0.0739, 5%=0.3158, 10%=0.5424] 
+INFO:ARNN:|2024-03-07 01:34:40| Round=4 BestEpoch=137 MAE=0.0006 RMSE=0.0009 NMAE=0.1172 NRMSE=0.1533 Training_time=159.0 s
+INFO:ARNN:|2024-03-07 01:34:40| Acc = [1%=0.0666, 5%=0.3287, 10%=0.5763] 
+INFO:ARNN:|2024-03-07 01:40:41| Round=5 BestEpoch=91 MAE=0.0006 RMSE=0.0008 NMAE=0.1192 NRMSE=0.1439 Training_time=105.2 s
+INFO:ARNN:|2024-03-07 01:40:41| Acc = [1%=0.0588, 5%=0.2588, 10%=0.4957] 
+INFO:ARNN:|2024-03-07 01:40:41| ********************Experiment Results:********************
+INFO:ARNN:|2024-03-07 01:40:41| MAE: 0.0006 ± 0.0000
+INFO:ARNN:|2024-03-07 01:40:41| RMSE: 0.0009 ± 0.0000
+INFO:ARNN:|2024-03-07 01:40:41| NMAE: 0.1178 ± 0.0007
+INFO:ARNN:|2024-03-07 01:40:41| NRMSE: 0.1501 ± 0.0050
+INFO:ARNN:|2024-03-07 01:40:41| TIME: 102.2370 ± 30.2789
+INFO:ARNN:|2024-03-07 01:40:41| Acc1: 0.0661 ± 0.0065
+INFO:ARNN:|2024-03-07 01:40:41| Acc5: 0.3028 ± 0.0274
+INFO:ARNN:|2024-03-07 01:40:41| Acc10: 0.5409 ± 0.0283
+INFO:ARNN:|2024-03-07 01:40:41| ********************Experiment Success********************
+

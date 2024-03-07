@@ -1,0 +1,23 @@
+INFO:ARNN:|2024-03-06 23:20:08| Namespace(ablation=0, bs=1, dataset='cpu', debug=0, decay=0.0005, density=0.01, device='cpu', dimension=32, epochs=300, experiment=1, llm=1, log=<utils.logger.Logger object at 0x7f0f3ee676a0>, loss_func='L1Loss', lr=0.0004, model='ARNN', optim='AdamW', path='./datasets/', patience=500, program_test=1, record=1, rounds=5, saved=1, seed=0, verbose=10)
+INFO:ARNN:|2024-03-06 23:20:08| ********************Experiment Start********************
+INFO:ARNN:|2024-03-06 23:21:16| Round=1 BestEpoch=40 MAE=0.0005 RMSE=0.0006 NMAE=0.0964 NRMSE=0.1149 Training_time=9.8 s
+INFO:ARNN:|2024-03-06 23:21:16| Acc = [1%=0.0626, 5%=0.3184, 10%=0.5585] 
+INFO:ARNN:|2024-03-06 23:22:22| Round=2 BestEpoch=56 MAE=0.0004 RMSE=0.0006 NMAE=0.0904 NRMSE=0.1090 Training_time=10.9 s
+INFO:ARNN:|2024-03-06 23:22:22| Acc = [1%=0.0710, 5%=0.3203, 10%=0.5941] 
+INFO:ARNN:|2024-03-06 23:23:28| Round=3 BestEpoch=156 MAE=0.0004 RMSE=0.0005 NMAE=0.0858 NRMSE=0.1035 Training_time=30.5 s
+INFO:ARNN:|2024-03-06 23:23:28| Acc = [1%=0.0724, 5%=0.3475, 10%=0.6316] 
+INFO:ARNN:|2024-03-06 23:24:34| Round=4 BestEpoch=110 MAE=0.0005 RMSE=0.0006 NMAE=0.0987 NRMSE=0.1179 Training_time=21.4 s
+INFO:ARNN:|2024-03-06 23:24:34| Acc = [1%=0.0615, 5%=0.2981, 10%=0.5587] 
+INFO:ARNN:|2024-03-06 23:25:40| Round=5 BestEpoch=84 MAE=0.0004 RMSE=0.0006 NMAE=0.0904 NRMSE=0.1084 Training_time=16.4 s
+INFO:ARNN:|2024-03-06 23:25:40| Acc = [1%=0.0872, 5%=0.3646, 10%=0.6218] 
+INFO:ARNN:|2024-03-06 23:25:40| ********************Experiment Results:********************
+INFO:ARNN:|2024-03-06 23:25:40| MAE: 0.0005 ± 0.0000
+INFO:ARNN:|2024-03-06 23:25:40| RMSE: 0.0006 ± 0.0000
+INFO:ARNN:|2024-03-06 23:25:40| NMAE: 0.0923 ± 0.0047
+INFO:ARNN:|2024-03-06 23:25:40| NRMSE: 0.1107 ± 0.0051
+INFO:ARNN:|2024-03-06 23:25:40| TIME: 17.8054 ± 7.5788
+INFO:ARNN:|2024-03-06 23:25:40| Acc1: 0.0709 ± 0.0092
+INFO:ARNN:|2024-03-06 23:25:40| Acc5: 0.3298 ± 0.0235
+INFO:ARNN:|2024-03-06 23:25:40| Acc10: 0.5929 ± 0.0306
+INFO:ARNN:|2024-03-06 23:25:40| ********************Experiment Success********************
+
