@@ -120,3 +120,55 @@ INFO:LSTM:|2024-03-05 22:51:09| Namespace(ablation=0, bs=1, dataset='gpu', debug
 INFO:LSTM:|2024-03-05 22:51:09| ********************Experiment Start********************
 INFO:LSTM:|2024-03-05 22:54:52| Round=1 BestEpoch=61 MAE=0.0006 RMSE=0.0008 NMAE=0.1176 NRMSE=0.1496 Training_time=126.6 s
 INFO:LSTM:|2024-03-05 22:54:52| Acc = [1%=0.0548, 5%=0.2867, 10%=0.5305] 
+INFO:LSTM:|2024-03-06 00:01:13| Namespace(ablation=0, bs=1, dataset='gpu', debug=0, decay=0.0005, density=0.05, device='cpu', dimension=32, epochs=100, experiment=0, llm=1, log=<utils.logger.Logger object at 0x7f9608981970>, loss_func='L1Loss', lr=0.0004, model='LSTM', optim='AdamW', path='./datasets/', patience=500, program_test=1, record=1, rounds=5, saved=1, seed=0, verbose=1)
+INFO:LSTM:|2024-03-06 00:01:13| ********************Experiment Start********************
+INFO:LSTM:|2024-03-06 00:14:43| Round=1 BestEpoch=61 MAE=0.0006 RMSE=0.0008 NMAE=0.1176 NRMSE=0.1496 Training_time=629.4 s
+INFO:LSTM:|2024-03-06 00:14:43| Acc = [1%=0.0548, 5%=0.2867, 10%=0.5305] 
+INFO:LSTM:|2024-03-06 00:20:11| Round=2 BestEpoch=55 MAE=0.0006 RMSE=0.0008 NMAE=0.1166 NRMSE=0.1498 Training_time=226.5 s
+INFO:LSTM:|2024-03-06 00:20:11| Acc = [1%=0.0665, 5%=0.3160, 10%=0.5412] 
+INFO:LSTM:|2024-03-06 00:24:20| Round=3 BestEpoch=99 MAE=0.0006 RMSE=0.0008 NMAE=0.1193 NRMSE=0.1436 Training_time=229.4 s
+INFO:LSTM:|2024-03-06 00:24:20| Acc = [1%=0.0601, 5%=0.2641, 10%=0.4871] 
+INFO:LSTM:|2024-03-06 00:29:50| Round=4 BestEpoch=94 MAE=0.0006 RMSE=0.0008 NMAE=0.1200 NRMSE=0.1452 Training_time=272.1 s
+INFO:LSTM:|2024-03-06 00:29:50| Acc = [1%=0.0581, 5%=0.2636, 10%=0.5039] 
+INFO:LSTM:|2024-03-06 00:36:20| Round=5 BestEpoch=98 MAE=0.0006 RMSE=0.0008 NMAE=0.1182 NRMSE=0.1484 Training_time=368.5 s
+INFO:LSTM:|2024-03-06 00:36:20| Acc = [1%=0.0539, 5%=0.2667, 10%=0.5313] 
+INFO:LSTM:|2024-03-06 00:36:20| ********************Experiment Results:********************
+INFO:LSTM:|2024-03-06 00:36:20| MAE: 0.0006 ± 0.0000
+INFO:LSTM:|2024-03-06 00:36:20| RMSE: 0.0008 ± 0.0000
+INFO:LSTM:|2024-03-06 00:36:20| NMAE: 0.1183 ± 0.0012
+INFO:LSTM:|2024-03-06 00:36:20| NRMSE: 0.1473 ± 0.0025
+INFO:LSTM:|2024-03-06 00:36:20| TIME: 345.1709 ± 151.1250
+INFO:LSTM:|2024-03-06 00:36:20| Acc1: 0.0587 ± 0.0045
+INFO:LSTM:|2024-03-06 00:36:20| Acc5: 0.2794 ± 0.0202
+INFO:LSTM:|2024-03-06 00:36:20| Acc10: 0.5188 ± 0.0201
+INFO:LSTM:|2024-03-06 00:36:20| ********************Experiment Success********************
+
+INFO:LSTM:|2024-03-06 10:18:58| Namespace(ablation=0, bs=1, dataset='gpu', debug=0, decay=0.0005, density=0.05, device='cpu', dimension=32, epochs=100, experiment=0, llm=1, log=<utils.logger.Logger object at 0x7f7e91899a30>, loss_func='L1Loss', lr=0.0004, model='LSTM', optim='AdamW', path='./datasets/', patience=500, program_test=1, record=1, rounds=5, saved=1, seed=0, verbose=1)
+INFO:LSTM:|2024-03-06 10:18:58| ********************Experiment Start********************
+INFO:CF:|2024-03-06 16:55:16| Namespace(ablation=0, bs=1, dataset='gpu', debug=0, decay=0.0005, density=0.1, device='cpu', dimension=32, epochs=300, experiment=0, llm=1, log=<utils.logger.Logger object at 0x7fd8110d7e20>, loss_func='L1Loss', lr=0.0004, model='CF', optim='AdamW', path='./datasets/', patience=50, program_test=0, record=1, rounds=5, saved=1, seed=0, verbose=1)
+INFO:CF:|2024-03-06 16:55:16| ********************Experiment Start********************
+INFO:CF:|2024-03-06 16:56:49| Round=1 BestEpoch=138 MAE=0.0031 RMSE=0.0040 NMAE=0.5807 NRMSE=0.7102 Training_time=15.9 s
+INFO:CF:|2024-03-06 16:56:49| Acc = [1%=0.0158, 5%=0.0607, 10%=0.1215] 
+INFO:CF:|2024-03-06 16:57:06| Namespace(ablation=0, bs=1, dataset='gpu', debug=0, decay=0.0005, density=0.1, device='cpu', dimension=32, epochs=300, experiment=0, llm=1, log=<utils.logger.Logger object at 0x7ff1d92af6d0>, loss_func='L1Loss', lr=0.0004, model='CF', optim='AdamW', path='./datasets/', patience=50, program_test=0, record=1, rounds=5, saved=1, seed=0, verbose=1)
+INFO:CF:|2024-03-06 16:57:06| ********************Experiment Start********************
+INFO:CF:|2024-03-06 16:58:35| Round=1 BestEpoch=138 MAE=0.0031 RMSE=0.0040 NMAE=0.5807 NRMSE=0.7102 Training_time=15.9 s
+INFO:CF:|2024-03-06 16:58:35| Acc = [1%=0.0158, 5%=0.0607, 10%=0.1215] 
+INFO:CF:|2024-03-06 17:00:03| Round=2 BestEpoch=131 MAE=0.0022 RMSE=0.0028 NMAE=0.4158 NRMSE=0.4988 Training_time=15.6 s
+INFO:CF:|2024-03-06 17:00:03| Acc = [1%=0.0160, 5%=0.0684, 10%=0.1489] 
+INFO:CF:|2024-03-06 17:01:45| Round=3 BestEpoch=181 MAE=0.0024 RMSE=0.0031 NMAE=0.4489 NRMSE=0.5410 Training_time=20.9 s
+INFO:CF:|2024-03-06 17:01:45| Acc = [1%=0.0145, 5%=0.0656, 10%=0.1309] 
+INFO:CF:|2024-03-06 17:03:09| Round=4 BestEpoch=125 MAE=0.0023 RMSE=0.0029 NMAE=0.4247 NRMSE=0.5063 Training_time=14.5 s
+INFO:CF:|2024-03-06 17:03:09| Acc = [1%=0.0145, 5%=0.0780, 10%=0.1518] 
+INFO:CF:|2024-03-06 17:04:31| Round=5 BestEpoch=117 MAE=0.0018 RMSE=0.0023 NMAE=0.3340 NRMSE=0.4012 Training_time=13.6 s
+INFO:CF:|2024-03-06 17:04:31| Acc = [1%=0.0160, 5%=0.0950, 10%=0.1858] 
+INFO:CF:|2024-03-06 17:04:31| ********************Experiment Results:********************
+INFO:CF:|2024-03-06 17:04:31| MAE: 0.0024 ± 0.0004
+INFO:CF:|2024-03-06 17:04:31| RMSE: 0.0030 ± 0.0006
+INFO:CF:|2024-03-06 17:04:31| NMAE: 0.4408 ± 0.0799
+INFO:CF:|2024-03-06 17:04:31| NRMSE: 0.5315 ± 0.1007
+INFO:CF:|2024-03-06 17:04:31| TIME: 16.0691 ± 2.5305
+INFO:CF:|2024-03-06 17:04:31| Acc1: 0.0154 ± 0.0007
+INFO:CF:|2024-03-06 17:04:31| Acc5: 0.0735 ± 0.0121
+INFO:CF:|2024-03-06 17:04:31| Acc10: 0.1478 ± 0.0221
+INFO:CF:|2024-03-06 17:04:31| ********************Experiment Success********************
+

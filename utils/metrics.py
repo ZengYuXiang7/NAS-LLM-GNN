@@ -1,18 +1,18 @@
 # coding : utf-8
 # Author : yuxiang Zeng
 
-import torch as t
+import torch
 import numpy as np
 
 # 精度计算
 def ErrorMetrics(realVec, estiVec):
     if isinstance(realVec, np.ndarray):
         realVec = realVec.astype(float)
-    elif isinstance(realVec, t.Tensor):
+    elif isinstance(realVec, torch.Tensor):
         realVec = realVec.cpu().detach().numpy().astype(float)
     if isinstance(estiVec, np.ndarray):
         estiVec = estiVec.astype(float)
-    elif isinstance(estiVec, t.Tensor):
+    elif isinstance(estiVec, torch.Tensor):
         estiVec = estiVec.cpu().detach().numpy().astype(float)
 
     absError = np.abs(estiVec - realVec)
