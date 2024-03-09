@@ -392,7 +392,7 @@ def get_train_valid_test_dataset(tensor, args):
     Y /= max_value
 
     # train_size = int(len(tensor) * args.density)  # Assuming 900 samples for training
-    train_size = int(10)  # Assuming 900 samples for training
+    train_size = int(len(tensor) * args.density)  # Assuming 900 samples for training
     valid_size = int(100)  # Assuming 113 samples for validation
     if args.dataset == 'gpu':
         valid_size = int(100 * 2)
@@ -423,7 +423,7 @@ class DataModule:
         self.train_tensor, self.valid_tensor, self.test_tensor, self.max_value = get_train_valid_test_dataset(self.data, args)
         self.train_set, self.valid_set, self.test_set = self.get_dataset(self.train_tensor, self.valid_tensor, self.test_tensor, exper_type, args)
         self.train_loader, self.valid_loader, self.test_loader = get_dataloaders(self.train_set, self.valid_set, self.test_set, args)
-        args.log.only_print(f'Train_length : {len(self.train_loader.dataset) * args.bs} Valid_length : {len(self.valid_loader.dataset)} Test_length : {len(self.test_loader.dataset)}')
+        args.log.only_print(f'Train_length : {len(self.train_loader.dataset)} Valid_length : {len(self.valid_loader.dataset)} Test_length : {len(self.test_loader.dataset)}')
 
     def get_dataset(self, train_tensor, valid_tensor, test_tensor, exper_type, args):
         return (
@@ -646,6 +646,8 @@ class Device_encoder(torch.nn.Module):
         self.device_name_embeds = torch.nn.Embedding(6, self.dim)
         self.precision_embeds = torch.nn.Embedding(6, self.dim)
 
+        self.mlp = torch.nn.Linear(6 * 9, self.dim)
+
         # 第二个想法
         if args.llm:
             input_dim = None
@@ -665,48 +667,20 @@ class Device_encoder(torch.nn.Module):
     def initialize(self):
         pass
 
+    # no embeds
     def forward(self, inputs):
         if self.args.llm:
             platformIdx, deviceIdx, device_info_llm, precisionIdx, op_idx = self.get_inputs(inputs)
         else:
             platformIdx, deviceIdx, device_name_Idx, precisionIdx, op_idx = self.get_inputs2(inputs)
 
-        # DNN network
-        firstIdx = op_idx[:, 0]
-        secondIdx = op_idx[:, 1]
-        thirdIdx = op_idx[:, 2]
-        fourthIdx = op_idx[:, 3]
-        fifthIdx = op_idx[:, 4]
-        sixthIdx = op_idx[:, 5]
-        seventhIdx = op_idx[:, 6]
-        eighthIdx = op_idx[:, 7]
-        ninethIdx = op_idx[:, 8]
+        one_hot_encoded = torch.nn.functional.one_hot(op_idx.long(), num_classes=6).to(torch.float64).reshape(len(op_idx), -1)
+        seq_embeds = self.mlp(one_hot_encoded)
+        device_name_embeds = self.transfer(device_info_llm.double())
 
-        platform_embeds = self.platform_embeds(platformIdx)
-        device_embeds = self.device_embeds(deviceIdx)
-
-        if self.args.llm:
-            device_name_embeds = self.transfer(device_info_llm.double())
-        else:
-            device_name_embeds = self.transfer(device_name_Idx.reshape(-1, 1).double())
-
-        precision_embeds = self.precision_embeds(precisionIdx)
-
-        # DNN
-        first_embeds = self.op_embeds(firstIdx)
-        second_embeds = self.op_embeds(secondIdx)
-        third_embeds = self.op_embeds(thirdIdx)
-        fourth_embeds = self.op_embeds(fourthIdx)
-        fifth_embeds = self.op_embeds(fifthIdx)
-        sixth_embeds = self.op_embeds(sixthIdx)
-        seventh_embeds = self.op_embeds(seventhIdx)
-        eighth_embeds = self.op_embeds(eighthIdx)
-        nineth_embeds = self.op_embeds(ninethIdx)
         # Final interaction
         final_input = torch.cat([
-            platform_embeds, device_embeds, device_name_embeds, precision_embeds,
-            first_embeds, second_embeds, third_embeds, fourth_embeds,
-            fifth_embeds, sixth_embeds, seventh_embeds, eighth_embeds, nineth_embeds
+            seq_embeds, device_name_embeds
         ], dim=-1)
         return final_input
 
@@ -764,13 +738,13 @@ class Model(torch.nn.Module):
         self.args = args
         self.gcn = GCN(args)
         self.device_encoder = Device_encoder(args)
-        final_input = args.dimension * 13 + 600
+        final_input = args.dimension * 2
         self.mlp = MLP(final_input, final_input // 2, 1)
 
     def forward(self, device_features, matrix, features):
         device_features = self.device_encoder(device_features)
-        graph_features = self.gcn(matrix, features)
-        y = self.mlp(torch.cat([device_features, graph_features], dim = -1))
+        # graph_features = self.gcn(matrix, features)
+        y = self.mlp(device_features)
         return y.flatten()
 
     def setup_optimizer(self, args):
@@ -948,7 +922,7 @@ if __name__ == '__main__':
     parser.add_argument('--rounds', type=int, default=5)
 
     parser.add_argument('--dataset', type=str, default='gpu')  #
-    parser.add_argument('--model', type=str, default='CF')  #
+    parser.add_argument('--model', type=str, default='mlp_llm')  #
 
     # Experiment
     parser.add_argument('--density', type=float, default=0.10)

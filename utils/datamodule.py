@@ -30,7 +30,7 @@ class DataModule:
         self.train_loader, self.valid_loader, self.test_loader = get_dataloaders(self.train_set, self.valid_set, self.test_set, args)
 
         # 基本信息
-        args.log.only_print(f'Train_length : {len(self.train_loader) * args.bs} Valid_length : {len(self.valid_loader) * args.bs * 16} Test_length : {len(self.test_loader) * args.bs * 16}')
+        args.log.only_print(f'Train_length : {len(self.train_loader.dataset)} Valid_length : {len(self.valid_loader.dataset)} Test_length : {len(self.test_loader.dataset)}')
 
     def get_tensor(self):
         return self.train_tensor, self.valid_tensor, self.test_tensor
