@@ -1,0 +1,23 @@
+INFO:CF:|2024-03-10 03:40:05| Namespace(ablation=0, bs=1, dataset='gpu', debug=0, decay=0.0005, density=0.05, device='cpu', dimension=30, epochs=300, experiment=1, llm=1, log=<utils.logger.Logger object at 0x7f7c735d4df0>, loss_func='L1Loss', lr=0.0004, model='CF', optim='AdamW', path='./datasets/', patience=100, program_test=1, record=1, rounds=5, saved=1, seed=0, verbose=10)
+INFO:CF:|2024-03-10 03:40:05| ********************Experiment Start********************
+INFO:CF:|2024-03-10 04:15:48| Round=1 BestEpoch=150 MAE=0.0002 RMSE=0.0002 NMAE=0.0285 NRMSE=0.0390 Training_time=1187.0 s
+INFO:CF:|2024-03-10 04:15:48| Acc = [1%=0.2901, 5%=0.8296, 10%=0.9663] 
+INFO:CF:|2024-03-10 04:50:33| Round=2 BestEpoch=143 MAE=0.0001 RMSE=0.0002 NMAE=0.0269 NRMSE=0.0379 Training_time=1202.7 s
+INFO:CF:|2024-03-10 04:50:33| Acc = [1%=0.3148, 5%=0.8495, 10%=0.9721] 
+INFO:CF:|2024-03-10 05:26:43| Round=3 BestEpoch=117 MAE=0.0001 RMSE=0.0002 NMAE=0.0268 NRMSE=0.0379 Training_time=1137.4 s
+INFO:CF:|2024-03-10 05:26:43| Acc = [1%=0.3046, 5%=0.8519, 10%=0.9727] 
+INFO:CF:|2024-03-10 06:18:47| Round=4 BestEpoch=147 MAE=0.0001 RMSE=0.0002 NMAE=0.0261 NRMSE=0.0363 Training_time=1829.2 s
+INFO:CF:|2024-03-10 06:18:47| Acc = [1%=0.3098, 5%=0.8575, 10%=0.9738] 
+INFO:CF:|2024-03-10 06:51:49| Round=5 BestEpoch=78 MAE=0.0001 RMSE=0.0002 NMAE=0.0265 NRMSE=0.0357 Training_time=672.2 s
+INFO:CF:|2024-03-10 06:51:49| Acc = [1%=0.3075, 5%=0.8486, 10%=0.9756] 
+INFO:CF:|2024-03-10 06:51:49| ********************Experiment Results:********************
+INFO:CF:|2024-03-10 06:51:49| MAE: 0.0001 ± 0.0000
+INFO:CF:|2024-03-10 06:51:49| RMSE: 0.0002 ± 0.0000
+INFO:CF:|2024-03-10 06:51:49| NMAE: 0.0269 ± 0.0008
+INFO:CF:|2024-03-10 06:51:49| NRMSE: 0.0374 ± 0.0012
+INFO:CF:|2024-03-10 06:51:49| TIME: 1205.7010 ± 368.3509
+INFO:CF:|2024-03-10 06:51:49| Acc1: 0.3054 ± 0.0083
+INFO:CF:|2024-03-10 06:51:49| Acc5: 0.8474 ± 0.0094
+INFO:CF:|2024-03-10 06:51:49| Acc10: 0.9721 ± 0.0031
+INFO:CF:|2024-03-10 06:51:49| ********************Experiment Success********************
+

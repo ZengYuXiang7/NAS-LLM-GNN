@@ -172,3 +172,279 @@ INFO:CF:|2024-03-06 17:04:31| Acc5: 0.0735 ± 0.0121
 INFO:CF:|2024-03-06 17:04:31| Acc10: 0.1478 ± 0.0221
 INFO:CF:|2024-03-06 17:04:31| ********************Experiment Success********************
 
+INFO:MLP:|2024-03-17 20:51:07| Namespace(ablation=0, bs=1, dataset='gpu', debug=0, decay=0.0005, density=0.05, device='cpu', dimension=32, epochs=300, experiment=0, llm=1, log=<utils.logger.Logger object at 0x7fe061780f70>, loss_func='L1Loss', lr=0.0004, model='MLP', optim='AdamW', path='./datasets/', patience=50, program_test=0, record=1, rounds=5, saved=1, seed=0, verbose=1)
+INFO:MLP:|2024-03-17 20:51:07| ********************Experiment Start********************
+INFO:MLP:|2024-03-17 20:51:13| Namespace(ablation=0, bs=1, dataset='gpu', debug=0, decay=0.0005, density=0.05, device='cpu', dimension=32, epochs=300, experiment=0, llm=1, log=<utils.logger.Logger object at 0x7fce10b30f10>, loss_func='L1Loss', lr=0.0004, model='MLP', optim='AdamW', path='./datasets/', patience=50, program_test=0, record=1, rounds=5, saved=1, seed=0, verbose=1)
+INFO:MLP:|2024-03-17 20:51:13| ********************Experiment Start********************
+INFO:MLP:|2024-03-17 20:51:30| Namespace(ablation=0, bs=1, dataset='gpu', debug=0, decay=0.0005, density=0.05, device='cpu', dimension=32, epochs=300, experiment=0, llm=1, log=<utils.logger.Logger object at 0x7f83812f8fa0>, loss_func='L1Loss', lr=0.0004, model='MLP', optim='AdamW', path='./datasets/', patience=50, program_test=0, record=1, rounds=5, saved=1, seed=0, verbose=1)
+INFO:MLP:|2024-03-17 20:51:30| ********************Experiment Start********************
+INFO:MLP:|2024-03-17 20:51:36| Namespace(ablation=0, bs=1, dataset='gpu', debug=0, decay=0.0005, density=0.05, device='cpu', dimension=32, epochs=300, experiment=0, llm=1, log=<utils.logger.Logger object at 0x7fd8e8cc8f10>, loss_func='L1Loss', lr=0.0004, model='MLP', optim='AdamW', path='./datasets/', patience=50, program_test=0, record=1, rounds=5, saved=1, seed=0, verbose=1)
+INFO:MLP:|2024-03-17 20:51:36| ********************Experiment Start********************
+INFO:MLP:|2024-03-17 20:51:52| Namespace(ablation=0, bs=1, dataset='gpu', debug=0, decay=0.0005, density=0.05, device='cpu', dimension=32, epochs=300, experiment=0, llm=1, log=<utils.logger.Logger object at 0x7fb5e8a70df0>, loss_func='L1Loss', lr=0.0004, model='MLP', optim='AdamW', path='./datasets/', patience=50, program_test=0, record=1, rounds=5, saved=1, seed=0, verbose=1)
+INFO:MLP:|2024-03-17 20:51:52| ********************Experiment Start********************
+INFO:MLP:|2024-03-17 20:52:04| Namespace(ablation=0, bs=1, dataset='gpu', debug=0, decay=0.0005, density=0.05, device='cpu', dimension=32, epochs=300, experiment=0, llm=1, log=<utils.logger.Logger object at 0x7fb2e1ff0e80>, loss_func='L1Loss', lr=0.0004, model='MLP', optim='AdamW', path='./datasets/', patience=50, program_test=0, record=1, rounds=5, saved=1, seed=0, verbose=1)
+INFO:MLP:|2024-03-17 20:52:04| ********************Experiment Start********************
+INFO:MLP:|2024-03-17 20:57:48| Namespace(ablation=0, bs=1, dataset='gpu', debug=0, decay=0.0005, density=0.05, device='cpu', dimension=32, epochs=300, experiment=0, llm=1, log=<utils.logger.Logger object at 0x7fccf1900e20>, loss_func='L1Loss', lr=0.0004, model='MLP', optim='AdamW', path='./datasets/', patience=50, program_test=0, record=1, rounds=5, saved=1, seed=0, verbose=1)
+INFO:MLP:|2024-03-17 20:57:48| ********************Experiment Start********************
+INFO:MLP:|2024-03-17 20:58:04| Namespace(ablation=0, bs=1, dataset='gpu', debug=0, decay=0.0005, density=0.05, device='cpu', dimension=32, epochs=300, experiment=0, llm=1, log=<utils.logger.Logger object at 0x7face8418df0>, loss_func='L1Loss', lr=0.0004, model='MLP', optim='AdamW', path='./datasets/', patience=50, program_test=0, record=1, rounds=5, saved=1, seed=0, verbose=1)
+INFO:MLP:|2024-03-17 20:58:04| ********************Experiment Start********************
+INFO:MLP:|2024-03-17 20:58:21| Namespace(ablation=0, bs=1, dataset='gpu', debug=0, decay=0.0005, density=0.05, device='cpu', dimension=32, epochs=300, experiment=0, llm=1, log=<utils.logger.Logger object at 0x7f9b386a0f40>, loss_func='L1Loss', lr=0.0004, model='MLP', optim='AdamW', path='./datasets/', patience=50, program_test=0, record=1, rounds=5, saved=1, seed=0, verbose=1)
+INFO:MLP:|2024-03-17 20:58:21| ********************Experiment Start********************
+INFO:MLP:|2024-03-17 20:58:31| Namespace(ablation=0, bs=1, dataset='gpu', debug=0, decay=0.0005, density=0.05, device='cpu', dimension=32, epochs=300, experiment=0, llm=1, log=<utils.logger.Logger object at 0x7fb1f9ef0eb0>, loss_func='L1Loss', lr=0.0004, model='MLP', optim='AdamW', path='./datasets/', patience=50, program_test=0, record=1, rounds=5, saved=1, seed=0, verbose=1)
+INFO:MLP:|2024-03-17 20:58:31| ********************Experiment Start********************
+INFO:MLP:|2024-03-17 20:59:08| Namespace(ablation=0, bs=1, dataset='gpu', debug=0, decay=0.0005, density=0.05, device='cpu', dimension=32, epochs=300, experiment=0, llm=1, log=<utils.logger.Logger object at 0x7f8fe94e8fd0>, loss_func='L1Loss', lr=0.0004, model='MLP', optim='AdamW', path='./datasets/', patience=50, program_test=0, record=1, rounds=5, saved=1, seed=0, verbose=1)
+INFO:MLP:|2024-03-17 20:59:08| ********************Experiment Start********************
+INFO:MLP:|2024-03-17 20:59:20| Namespace(ablation=0, bs=1, dataset='gpu', debug=0, decay=0.0005, density=0.05, device='cpu', dimension=32, epochs=300, experiment=0, llm=1, log=<utils.logger.Logger object at 0x7fa050ee0eb0>, loss_func='L1Loss', lr=0.0004, model='MLP', optim='AdamW', path='./datasets/', patience=50, program_test=0, record=1, rounds=5, saved=1, seed=0, verbose=1)
+INFO:MLP:|2024-03-17 20:59:20| ********************Experiment Start********************
+INFO:MLP:|2024-03-17 21:02:04| Namespace(ablation=0, bs=1, dataset='gpu', debug=0, decay=0.0005, density=0.05, device='cpu', dimension=32, epochs=300, experiment=0, llm=1, log=<utils.logger.Logger object at 0x7fa038010f70>, loss_func='L1Loss', lr=0.0004, model='MLP', optim='AdamW', path='./datasets/', patience=50, program_test=0, record=1, rounds=5, saved=1, seed=0, verbose=1)
+INFO:MLP:|2024-03-17 21:02:04| ********************Experiment Start********************
+INFO:MLP:|2024-03-17 21:02:12| Namespace(ablation=0, bs=1, dataset='gpu', debug=0, decay=0.0005, density=0.05, device='cpu', dimension=32, epochs=300, experiment=0, llm=1, log=<utils.logger.Logger object at 0x7ff3f0ea8fd0>, loss_func='L1Loss', lr=0.0004, model='MLP', optim='AdamW', path='./datasets/', patience=50, program_test=0, record=1, rounds=5, saved=1, seed=0, verbose=1)
+INFO:MLP:|2024-03-17 21:02:12| ********************Experiment Start********************
+INFO:MLP:|2024-03-17 21:02:28| Namespace(ablation=0, bs=1, dataset='gpu', debug=0, decay=0.0005, density=0.05, device='cpu', dimension=32, epochs=300, experiment=0, llm=1, log=<utils.logger.Logger object at 0x7fc35a300df0>, loss_func='L1Loss', lr=0.0004, model='MLP', optim='AdamW', path='./datasets/', patience=50, program_test=0, record=1, rounds=5, saved=1, seed=0, verbose=1)
+INFO:MLP:|2024-03-17 21:02:28| ********************Experiment Start********************
+INFO:CF:|2024-03-17 21:09:20| Namespace(ablation=0, bs=1, dataset='gpu', debug=0, decay=0.0005, density=0.1, device='cpu', dimension=32, epochs=300, experiment=0, llm=1, log=<utils.logger.Logger object at 0x7fa268665a00>, loss_func='L1Loss', lr=0.0004, model='CF', optim='AdamW', path='./datasets/', patience=100, program_test=0, record=1, rounds=5, saved=1, seed=0, verbose=1)
+INFO:CF:|2024-03-17 21:09:20| ********************Experiment Start********************
+INFO:CF:|2024-03-17 21:09:32| Namespace(ablation=0, bs=1, dataset='gpu', debug=0, decay=0.0005, density=0.1, device='cpu', dimension=32, epochs=300, experiment=0, llm=1, log=<utils.logger.Logger object at 0x7fc3b1ab5910>, loss_func='L1Loss', lr=0.0004, model='CF', optim='AdamW', path='./datasets/', patience=100, program_test=0, record=1, rounds=5, saved=1, seed=0, verbose=1)
+INFO:CF:|2024-03-17 21:09:32| ********************Experiment Start********************
+INFO:CF:|2024-03-17 21:12:02| Namespace(ablation=0, bs=1, dataset='gpu', debug=0, decay=0.0005, density=0.1, device='cpu', dimension=32, epochs=300, experiment=0, llm=1, log=<utils.logger.Logger object at 0x7f7d582058e0>, loss_func='L1Loss', lr=0.0004, model='CF', optim='AdamW', path='./datasets/', patience=100, program_test=0, record=1, rounds=5, saved=1, seed=0, verbose=1)
+INFO:CF:|2024-03-17 21:12:02| ********************Experiment Start********************
+INFO:CF:|2024-03-17 21:12:16| Namespace(ablation=0, bs=1, dataset='gpu', debug=0, decay=0.0005, density=0.1, device='cpu', dimension=32, epochs=300, experiment=0, llm=1, log=<utils.logger.Logger object at 0x7fac41bb5a00>, loss_func='L1Loss', lr=0.0004, model='CF', optim='AdamW', path='./datasets/', patience=100, program_test=0, record=1, rounds=5, saved=1, seed=0, verbose=1)
+INFO:CF:|2024-03-17 21:12:16| ********************Experiment Start********************
+INFO:CF:|2024-03-17 21:12:32| Namespace(ablation=0, bs=1, dataset='gpu', debug=0, decay=0.0005, density=0.1, device='cpu', dimension=32, epochs=300, experiment=0, llm=1, log=<utils.logger.Logger object at 0x7fc940e45940>, loss_func='L1Loss', lr=0.0004, model='CF', optim='AdamW', path='./datasets/', patience=100, program_test=0, record=1, rounds=5, saved=1, seed=0, verbose=1)
+INFO:CF:|2024-03-17 21:12:32| ********************Experiment Start********************
+INFO:CF:|2024-03-17 21:13:49| Namespace(ablation=0, bs=1, dataset='gpu', debug=0, decay=0.0005, density=0.1, device='cpu', dimension=32, epochs=300, experiment=0, llm=1, log=<utils.logger.Logger object at 0x7fecb9225940>, loss_func='L1Loss', lr=0.0004, model='CF', optim='AdamW', path='./datasets/', patience=100, program_test=0, record=1, rounds=5, saved=1, seed=0, verbose=1)
+INFO:CF:|2024-03-17 21:13:49| ********************Experiment Start********************
+INFO:CF:|2024-03-17 21:14:38| Namespace(ablation=0, bs=1, dataset='gpu', debug=0, decay=0.0005, density=0.1, device='cpu', dimension=32, epochs=300, experiment=0, llm=1, log=<utils.logger.Logger object at 0x7f7909065910>, loss_func='L1Loss', lr=0.0004, model='CF', optim='AdamW', path='./datasets/', patience=100, program_test=0, record=1, rounds=5, saved=1, seed=0, verbose=1)
+INFO:CF:|2024-03-17 21:14:38| ********************Experiment Start********************
+INFO:CF:|2024-03-17 21:17:56| Namespace(ablation=0, bs=1, dataset='gpu', debug=0, decay=0.0005, density=0.1, device='cpu', dimension=32, epochs=300, experiment=0, llm=1, log=<utils.logger.Logger object at 0x7faed186d8e0>, loss_func='L1Loss', lr=0.0004, model='CF', optim='AdamW', path='./datasets/', patience=100, program_test=0, record=1, rounds=5, saved=1, seed=0, verbose=1)
+INFO:CF:|2024-03-17 21:17:56| ********************Experiment Start********************
+INFO:CF:|2024-03-17 21:18:31| Namespace(ablation=0, bs=1, dataset='gpu', debug=0, decay=0.0005, density=0.1, device='cpu', dimension=32, epochs=300, experiment=0, llm=0, log=<utils.logger.Logger object at 0x7fc0f1345910>, loss_func='L1Loss', lr=0.0004, model='CF', optim='AdamW', path='./datasets/', patience=100, program_test=0, record=1, rounds=5, saved=1, seed=0, verbose=1)
+INFO:CF:|2024-03-17 21:18:31| ********************Experiment Start********************
+INFO:CF:|2024-03-17 21:19:01| Namespace(ablation=0, bs=1, dataset='cpu', debug=0, decay=0.0005, density=0.1, device='cpu', dimension=32, epochs=300, experiment=0, llm=0, log=<utils.logger.Logger object at 0x7fec98dfd8e0>, loss_func='L1Loss', lr=0.0004, model='CF', optim='AdamW', path='./datasets/', patience=100, program_test=0, record=1, rounds=5, saved=1, seed=0, verbose=1)
+INFO:CF:|2024-03-17 21:19:01| ********************Experiment Start********************
+INFO:CF:|2024-03-17 21:23:30| Namespace(ablation=0, bs=1, dataset='gpu', debug=0, decay=0.0005, density=0.1, device='cpu', dimension=32, epochs=300, experiment=0, llm=1, log=<utils.logger.Logger object at 0x7f8f20faea90>, loss_func='L1Loss', lr=0.0004, model='CF', optim='AdamW', path='./datasets/', patience=100, program_test=0, record=1, rounds=5, saved=1, seed=0, verbose=1)
+INFO:CF:|2024-03-17 21:23:30| ********************Experiment Start********************
+INFO:CF:|2024-03-17 21:24:23| Namespace(ablation=0, bs=1, dataset='gpu', debug=0, decay=0.0005, density=0.1, device='cpu', dimension=32, epochs=300, experiment=0, llm=1, log=<utils.logger.Logger object at 0x7ff2115ce580>, loss_func='L1Loss', lr=0.0004, model='CF', optim='AdamW', path='./datasets/', patience=100, program_test=0, record=1, rounds=5, saved=1, seed=0, verbose=1)
+INFO:CF:|2024-03-17 21:24:23| ********************Experiment Start********************
+INFO:CF:|2024-03-17 21:24:34| Namespace(ablation=0, bs=1, dataset='gpu', debug=0, decay=0.0005, density=0.1, device='cpu', dimension=32, epochs=300, experiment=0, llm=1, log=<utils.logger.Logger object at 0x7ff0814fd4f0>, loss_func='L1Loss', lr=0.0004, model='CF', optim='AdamW', path='./datasets/', patience=100, program_test=0, record=1, rounds=5, saved=1, seed=0, verbose=1)
+INFO:CF:|2024-03-17 21:24:34| ********************Experiment Start********************
+INFO:CF:|2024-03-17 21:25:05| Namespace(ablation=0, bs=1, dataset='gpu', debug=0, decay=0.0005, density=0.1, device='cpu', dimension=32, epochs=300, experiment=0, llm=1, log=<utils.logger.Logger object at 0x7febb0d05550>, loss_func='L1Loss', lr=0.0004, model='CF', optim='AdamW', path='./datasets/', patience=100, program_test=0, record=1, rounds=5, saved=1, seed=0, verbose=1)
+INFO:CF:|2024-03-17 21:25:05| ********************Experiment Start********************
+INFO:CF:|2024-03-17 21:26:36| Namespace(ablation=0, bs=1, dataset='gpu', debug=0, decay=0.0005, density=0.1, device='cpu', dimension=32, epochs=300, experiment=0, llm=1, log=<utils.logger.Logger object at 0x7fd5e95f6670>, loss_func='L1Loss', lr=0.0004, model='CF', optim='AdamW', path='./datasets/', patience=100, program_test=0, record=1, rounds=5, saved=1, seed=0, verbose=1)
+INFO:CF:|2024-03-17 21:26:36| ********************Experiment Start********************
+INFO:CF:|2024-03-17 21:27:36| Namespace(ablation=0, bs=1, dataset='gpu', debug=0, decay=0.0005, density=0.1, device='cpu', dimension=32, epochs=300, experiment=0, llm=1, log=<utils.logger.Logger object at 0x7fcdf82d7af0>, loss_func='L1Loss', lr=0.0004, model='CF', optim='AdamW', path='./datasets/', patience=100, program_test=0, record=1, rounds=5, saved=1, seed=0, verbose=1)
+INFO:CF:|2024-03-17 21:27:36| ********************Experiment Start********************
+INFO:CF:|2024-03-17 21:27:47| Namespace(ablation=0, bs=1, dataset='gpu', debug=0, decay=0.0005, density=0.1, device='cpu', dimension=32, epochs=300, experiment=0, llm=1, log=<utils.logger.Logger object at 0x7fdc7227fa60>, loss_func='L1Loss', lr=0.0004, model='CF', optim='AdamW', path='./datasets/', patience=100, program_test=0, record=1, rounds=5, saved=1, seed=0, verbose=1)
+INFO:CF:|2024-03-17 21:27:47| ********************Experiment Start********************
+INFO:CF:|2024-03-17 21:27:54| Namespace(ablation=0, bs=1, dataset='gpu', debug=0, decay=0.0005, density=0.1, device='cpu', dimension=32, epochs=300, experiment=0, llm=1, log=<utils.logger.Logger object at 0x7fedda43fac0>, loss_func='L1Loss', lr=0.0004, model='CF', optim='AdamW', path='./datasets/', patience=100, program_test=0, record=1, rounds=5, saved=1, seed=0, verbose=1)
+INFO:CF:|2024-03-17 21:27:54| ********************Experiment Start********************
+INFO:CF:|2024-03-17 21:28:19| Namespace(ablation=0, bs=1, dataset='gpu', debug=0, decay=0.0005, density=0.1, device='cpu', dimension=32, epochs=300, experiment=0, llm=1, log=<utils.logger.Logger object at 0x7fdb7051f400>, loss_func='L1Loss', lr=0.0004, model='CF', optim='AdamW', path='./datasets/', patience=100, program_test=0, record=1, rounds=5, saved=1, seed=0, verbose=1)
+INFO:CF:|2024-03-17 21:28:19| ********************Experiment Start********************
+INFO:CF:|2024-03-17 21:28:52| Namespace(ablation=0, bs=1, dataset='gpu', debug=0, decay=0.0005, density=0.1, device='cpu', dimension=32, epochs=300, experiment=0, llm=1, log=<utils.logger.Logger object at 0x7fb9a06264f0>, loss_func='L1Loss', lr=0.0004, model='CF', optim='AdamW', path='./datasets/', patience=100, program_test=0, record=1, rounds=5, saved=1, seed=0, verbose=1)
+INFO:CF:|2024-03-17 21:28:52| ********************Experiment Start********************
+INFO:CF:|2024-03-17 21:29:03| Namespace(ablation=0, bs=1, dataset='gpu', debug=0, decay=0.0005, density=0.1, device='cpu', dimension=32, epochs=300, experiment=0, llm=1, log=<utils.logger.Logger object at 0x7fe2b8f5e4c0>, loss_func='L1Loss', lr=0.0004, model='CF', optim='AdamW', path='./datasets/', patience=100, program_test=0, record=1, rounds=5, saved=1, seed=0, verbose=1)
+INFO:CF:|2024-03-17 21:29:03| ********************Experiment Start********************
+INFO:CF:|2024-03-17 21:29:30| Namespace(ablation=0, bs=1, dataset='gpu', debug=0, decay=0.0005, density=0.05, device='cpu', dimension=32, epochs=300, experiment=0, llm=1, log=<utils.logger.Logger object at 0x7f8279136490>, loss_func='L1Loss', lr=0.0004, model='CF', optim='AdamW', path='./datasets/', patience=100, program_test=0, record=1, rounds=5, saved=1, seed=0, verbose=1)
+INFO:CF:|2024-03-17 21:29:30| ********************Experiment Start********************
+INFO:CF:|2024-03-17 21:32:58| Namespace(ablation=0, bs=1, dataset='cpu', debug=0, decay=0.0005, density=0.05, device='cpu', dimension=32, epochs=300, experiment=0, llm=1, log=<utils.logger.Logger object at 0x7fc238596490>, loss_func='L1Loss', lr=0.0004, model='CF', optim='AdamW', path='./datasets/', patience=100, program_test=0, record=1, rounds=5, saved=1, seed=0, verbose=1)
+INFO:CF:|2024-03-17 21:32:58| ********************Experiment Start********************
+INFO:CF:|2024-03-17 21:40:18| Namespace(ablation=0, bs=1, dataset='cpu', debug=0, decay=0.0005, density=0.05, device='cpu', dimension=32, epochs=300, experiment=0, llm=1, log=<utils.logger.Logger object at 0x7facb8df7430>, loss_func='L1Loss', lr=0.0004, model='CF', optim='AdamW', path='./datasets/', patience=100, program_test=0, record=1, rounds=5, saved=1, seed=0, verbose=1)
+INFO:CF:|2024-03-17 21:40:18| ********************Experiment Start********************
+INFO:CF:|2024-03-17 21:40:35| Namespace(ablation=0, bs=1, dataset='gpu', debug=0, decay=0.0005, density=0.1, device='cpu', dimension=32, epochs=300, experiment=0, llm=1, log=<utils.logger.Logger object at 0x7fa2d1015a90>, loss_func='L1Loss', lr=0.0004, model='CF', optim='AdamW', path='./datasets/', patience=100, program_test=0, record=1, rounds=5, saved=1, seed=0, verbose=1)
+INFO:CF:|2024-03-17 21:40:35| ********************Experiment Start********************
+INFO:CF:|2024-03-17 21:40:49| Namespace(ablation=0, bs=1, dataset='gpu', debug=0, decay=0.0005, density=0.1, device='cpu', dimension=32, epochs=300, experiment=0, llm=1, log=<utils.logger.Logger object at 0x7fb380d2da30>, loss_func='L1Loss', lr=0.0004, model='CF', optim='AdamW', path='./datasets/', patience=100, program_test=0, record=1, rounds=5, saved=1, seed=0, verbose=1)
+INFO:CF:|2024-03-17 21:40:49| ********************Experiment Start********************
+INFO:CF:|2024-03-17 21:41:10| Namespace(ablation=0, bs=1, dataset='gpu', debug=0, decay=0.0005, density=0.1, device='cpu', dimension=32, epochs=300, experiment=0, llm=1, log=<utils.logger.Logger object at 0x7fa598e9dac0>, loss_func='L1Loss', lr=0.0004, model='CF', optim='AdamW', path='./datasets/', patience=100, program_test=0, record=1, rounds=5, saved=1, seed=0, verbose=1)
+INFO:CF:|2024-03-17 21:41:10| ********************Experiment Start********************
+INFO:CF:|2024-03-17 21:41:32| Namespace(ablation=0, bs=1, dataset='gpu', debug=0, decay=0.0005, density=0.1, device='cpu', dimension=32, epochs=300, experiment=0, llm=1, log=<utils.logger.Logger object at 0x7fc960e6d970>, loss_func='L1Loss', lr=0.0004, model='CF', optim='AdamW', path='./datasets/', patience=100, program_test=0, record=1, rounds=5, saved=1, seed=0, verbose=1)
+INFO:CF:|2024-03-17 21:41:32| ********************Experiment Start********************
+INFO:CF:|2024-03-17 21:42:11| Namespace(ablation=0, bs=1, dataset='gpu', debug=0, decay=0.0005, density=0.1, device='cpu', dimension=32, epochs=300, experiment=0, llm=1, log=<utils.logger.Logger object at 0x7fe23140d9a0>, loss_func='L1Loss', lr=0.0004, model='CF', optim='AdamW', path='./datasets/', patience=100, program_test=0, record=1, rounds=5, saved=1, seed=0, verbose=1)
+INFO:CF:|2024-03-17 21:42:11| ********************Experiment Start********************
+INFO:CF:|2024-03-17 21:42:48| Namespace(ablation=0, bs=1, dataset='gpu', debug=0, decay=0.0005, density=0.1, device='cpu', dimension=32, epochs=300, experiment=0, llm=1, log=<utils.logger.Logger object at 0x7fbfc8f65940>, loss_func='L1Loss', lr=0.0004, model='CF', optim='AdamW', path='./datasets/', patience=100, program_test=0, record=1, rounds=5, saved=1, seed=0, verbose=1)
+INFO:CF:|2024-03-17 21:42:48| ********************Experiment Start********************
+INFO:CF:|2024-03-17 21:43:41| Round=1 BestEpoch=88 MAE=0.0002 RMSE=0.0003 NMAE=0.0396 NRMSE=0.0502 Training_time=92.0 s
+INFO:CF:|2024-03-17 21:43:41| Acc = [1%=0.1770, 5%=0.6849, 10%=0.8942] 
+INFO:MLP:|2024-03-17 21:48:12| Namespace(ablation=0, bs=1, dataset='gpu', debug=0, decay=0.0005, density=0.05, device='cpu', dimension=32, epochs=300, experiment=0, llm=1, log=<utils.logger.Logger object at 0x7fb520ea8f70>, loss_func='L1Loss', lr=0.0004, model='MLP', optim='AdamW', path='./datasets/', patience=50, program_test=0, record=1, rounds=5, saved=1, seed=0, verbose=1)
+INFO:MLP:|2024-03-17 21:48:12| ********************Experiment Start********************
+INFO:CF:|2024-03-17 21:51:13| Namespace(ablation=0, bs=1, dataset='gpu', debug=0, decay=0.0005, density=0.1, device='cpu', dimension=32, epochs=300, experiment=0, llm=1, log=<utils.logger.Logger object at 0x7f9be9595a00>, loss_func='L1Loss', lr=0.0004, model='CF', optim='AdamW', path='./datasets/', patience=100, program_test=0, record=1, rounds=5, saved=1, seed=0, verbose=1)
+INFO:CF:|2024-03-17 21:51:13| ********************Experiment Start********************
+INFO:CF:|2024-03-17 21:51:22| Namespace(ablation=0, bs=1, dataset='gpu', debug=0, decay=0.0005, density=0.1, device='cpu', dimension=32, epochs=300, experiment=0, llm=1, log=<utils.logger.Logger object at 0x7fd2617ec9d0>, loss_func='L1Loss', lr=0.0004, model='CF', optim='AdamW', path='./datasets/', patience=100, program_test=0, record=1, rounds=5, saved=1, seed=0, verbose=1)
+INFO:CF:|2024-03-17 21:51:22| ********************Experiment Start********************
+INFO:CF:|2024-03-17 21:54:16| Namespace(ablation=0, bs=1, dataset='gpu', debug=0, decay=0.0005, density=0.1, device='cpu', dimension=32, epochs=300, experiment=0, llm=1, log=<utils.logger.Logger object at 0x7f7af0e65880>, loss_func='L1Loss', lr=0.0004, model='CF', optim='AdamW', path='./datasets/', patience=100, program_test=0, record=1, rounds=5, saved=1, seed=0, verbose=1)
+INFO:CF:|2024-03-17 21:54:16| ********************Experiment Start********************
+INFO:CF:|2024-03-17 21:54:34| Namespace(ablation=0, bs=1, dataset='gpu', debug=0, decay=0.0005, density=0.1, device='cpu', dimension=32, epochs=300, experiment=0, llm=1, log=<utils.logger.Logger object at 0x7f9f0871ca60>, loss_func='L1Loss', lr=0.0004, model='CF', optim='AdamW', path='./datasets/', patience=100, program_test=0, record=1, rounds=5, saved=1, seed=0, verbose=1)
+INFO:CF:|2024-03-17 21:54:34| ********************Experiment Start********************
+INFO:CF:|2024-03-17 21:54:52| Namespace(ablation=0, bs=1, dataset='gpu', debug=0, decay=0.0005, density=0.1, device='cpu', dimension=32, epochs=300, experiment=0, llm=0, log=<utils.logger.Logger object at 0x7fd4104c5940>, loss_func='L1Loss', lr=0.0004, model='CF', optim='AdamW', path='./datasets/', patience=100, program_test=0, record=1, rounds=5, saved=1, seed=0, verbose=1)
+INFO:CF:|2024-03-17 21:54:52| ********************Experiment Start********************
+INFO:CF:|2024-03-17 21:55:35| Namespace(ablation=0, bs=1, dataset='gpu', debug=0, decay=0.0005, density=0.1, device='cpu', dimension=32, epochs=300, experiment=0, llm=0, log=<utils.logger.Logger object at 0x7fe5c1b2d8b0>, loss_func='L1Loss', lr=0.0004, model='CF', optim='AdamW', path='./datasets/', patience=100, program_test=0, record=1, rounds=5, saved=1, seed=0, verbose=1)
+INFO:CF:|2024-03-17 21:55:35| ********************Experiment Start********************
+INFO:CF:|2024-03-17 21:57:05| Namespace(ablation=0, bs=1, dataset='gpu', debug=0, decay=0.0005, density=0.1, device='cpu', dimension=32, epochs=300, experiment=0, llm=0, log=<utils.logger.Logger object at 0x7fe2a8cd5880>, loss_func='L1Loss', lr=0.0004, model='CF', optim='AdamW', path='./datasets/', patience=100, program_test=0, record=1, rounds=5, saved=1, seed=0, verbose=1)
+INFO:CF:|2024-03-17 21:57:05| ********************Experiment Start********************
+INFO:CF:|2024-03-17 21:57:24| Namespace(ablation=0, bs=1, dataset='gpu', debug=0, decay=0.0005, density=0.1, device='cpu', dimension=32, epochs=300, experiment=0, llm=0, log=<utils.logger.Logger object at 0x7fe7c1115910>, loss_func='L1Loss', lr=0.0004, model='CF', optim='AdamW', path='./datasets/', patience=100, program_test=0, record=1, rounds=5, saved=1, seed=0, verbose=1)
+INFO:CF:|2024-03-17 21:57:24| ********************Experiment Start********************
+INFO:CF:|2024-03-17 21:59:18| Namespace(ablation=0, bs=1, dataset='gpu', debug=0, decay=0.0005, density=0.1, device='cpu', dimension=32, epochs=300, experiment=0, llm=0, log=<utils.logger.Logger object at 0x7fbd311e5850>, loss_func='L1Loss', lr=0.0004, model='CF', optim='AdamW', path='./datasets/', patience=100, program_test=0, record=1, rounds=5, saved=1, seed=0, verbose=1)
+INFO:CF:|2024-03-17 21:59:18| ********************Experiment Start********************
+INFO:CF:|2024-03-17 21:59:35| Namespace(ablation=0, bs=1, dataset='gpu', debug=0, decay=0.0005, density=0.1, device='cpu', dimension=32, epochs=300, experiment=0, llm=0, log=<utils.logger.Logger object at 0x7f7a00ead8e0>, loss_func='L1Loss', lr=0.0004, model='CF', optim='AdamW', path='./datasets/', patience=100, program_test=0, record=1, rounds=5, saved=1, seed=0, verbose=1)
+INFO:CF:|2024-03-17 21:59:35| ********************Experiment Start********************
+INFO:CF:|2024-03-17 22:01:44| Namespace(ablation=0, bs=1, dataset='gpu', debug=0, decay=0.0005, density=0.1, device='cpu', dimension=32, epochs=300, experiment=0, llm=0, log=<utils.logger.Logger object at 0x7f87f0845a00>, loss_func='L1Loss', lr=0.0004, model='CF', optim='AdamW', path='./datasets/', patience=100, program_test=0, record=1, rounds=5, saved=1, seed=0, verbose=1)
+INFO:CF:|2024-03-17 22:01:44| ********************Experiment Start********************
+INFO:CF:|2024-03-17 22:02:10| Namespace(ablation=0, bs=1, dataset='gpu', debug=0, decay=0.0005, density=0.1, device='cpu', dimension=32, epochs=300, experiment=0, llm=0, log=<utils.logger.Logger object at 0x7ff4d85559a0>, loss_func='L1Loss', lr=0.0004, model='CF', optim='AdamW', path='./datasets/', patience=100, program_test=0, record=1, rounds=5, saved=1, seed=0, verbose=1)
+INFO:CF:|2024-03-17 22:02:10| ********************Experiment Start********************
+INFO:CF:|2024-03-17 22:02:29| Namespace(ablation=0, bs=1, dataset='gpu', debug=0, decay=0.0005, density=0.1, device='cpu', dimension=32, epochs=300, experiment=0, llm=0, log=<utils.logger.Logger object at 0x7f8629315850>, loss_func='L1Loss', lr=0.0004, model='CF', optim='AdamW', path='./datasets/', patience=100, program_test=0, record=1, rounds=5, saved=1, seed=0, verbose=1)
+INFO:CF:|2024-03-17 22:02:29| ********************Experiment Start********************
+INFO:CF:|2024-03-17 22:02:48| Namespace(ablation=0, bs=1, dataset='gpu', debug=0, decay=0.0005, density=0.1, device='cpu', dimension=32, epochs=300, experiment=0, llm=0, log=<utils.logger.Logger object at 0x7fb1586b58e0>, loss_func='L1Loss', lr=0.0004, model='CF', optim='AdamW', path='./datasets/', patience=100, program_test=0, record=1, rounds=5, saved=1, seed=0, verbose=1)
+INFO:CF:|2024-03-17 22:02:48| ********************Experiment Start********************
+INFO:CF:|2024-03-17 22:03:28| Namespace(ablation=0, bs=1, dataset='gpu', debug=0, decay=0.0005, density=0.1, device='cpu', dimension=32, epochs=300, experiment=0, llm=0, log=<utils.logger.Logger object at 0x7f921916d970>, loss_func='L1Loss', lr=0.0004, model='CF', optim='AdamW', path='./datasets/', patience=100, program_test=0, record=1, rounds=5, saved=1, seed=0, verbose=1)
+INFO:CF:|2024-03-17 22:03:28| ********************Experiment Start********************
+INFO:CF:|2024-03-17 22:03:39| Namespace(ablation=0, bs=1, dataset='gpu', debug=0, decay=0.0005, density=0.1, device='cpu', dimension=32, epochs=300, experiment=0, llm=0, log=<utils.logger.Logger object at 0x7fdc11005970>, loss_func='L1Loss', lr=0.0004, model='CF', optim='AdamW', path='./datasets/', patience=100, program_test=0, record=1, rounds=5, saved=1, seed=0, verbose=1)
+INFO:CF:|2024-03-17 22:03:39| ********************Experiment Start********************
+INFO:mlp_llm:|2024-03-17 23:31:05| Namespace(ablation=0, bs=1, dataset='cpu', debug=0, decay=0.0005, density=0.01, device='cpu', dimension=32, epochs=1, experiment=0, llm=1, log=<utils.logger.Logger object at 0x7fd7a92f6910>, loss_func='L1Loss', lr=0.0004, model='mlp_llm', optim='AdamW', path='./datasets/', patience=100, program_test=1, record=1, rounds=1, saved=1, seed=0, verbose=1)
+INFO:mlp_llm:|2024-03-17 23:31:05| ********************Experiment Start********************
+INFO:mlp_llm:|2024-03-17 23:31:07| Round=1 BestEpoch=1 MAE=0.0057 RMSE=0.0071 NMAE=1.1670 NRMSE=1.3612 Training_time=0.2 s
+INFO:mlp_llm:|2024-03-17 23:31:07| Acc = [1%=0.0049, 5%=0.0243, 10%=0.0481] 
+INFO:mlp_llm:|2024-03-17 23:31:07| ********************Experiment Results:********************
+INFO:mlp_llm:|2024-03-17 23:31:07| MAE: 0.0057 ± 0.0000
+INFO:mlp_llm:|2024-03-17 23:31:07| RMSE: 0.0071 ± 0.0000
+INFO:mlp_llm:|2024-03-17 23:31:07| NMAE: 1.1670 ± 0.0000
+INFO:mlp_llm:|2024-03-17 23:31:07| NRMSE: 1.3612 ± 0.0000
+INFO:mlp_llm:|2024-03-17 23:31:07| TIME: 0.2319 ± 0.0000
+INFO:mlp_llm:|2024-03-17 23:31:07| Acc1: 0.0049 ± 0.0000
+INFO:mlp_llm:|2024-03-17 23:31:07| Acc5: 0.0243 ± 0.0000
+INFO:mlp_llm:|2024-03-17 23:31:07| Acc10: 0.0481 ± 0.0000
+INFO:mlp_llm:|2024-03-17 23:31:07| ********************Experiment Success********************
+
+INFO:mlp_llm:|2024-03-17 23:31:09| Namespace(ablation=0, bs=1, dataset='gpu', debug=0, decay=0.0005, density=0.01, device='cpu', dimension=32, epochs=1, experiment=0, llm=1, log=<utils.logger.Logger object at 0x7fe3b0e85910>, loss_func='L1Loss', lr=0.0004, model='mlp_llm', optim='AdamW', path='./datasets/', patience=100, program_test=1, record=1, rounds=1, saved=1, seed=0, verbose=1)
+INFO:mlp_llm:|2024-03-17 23:31:09| ********************Experiment Start********************
+INFO:mlp_llm:|2024-03-17 23:31:12| Round=1 BestEpoch=1 MAE=0.0061 RMSE=0.0077 NMAE=1.1362 NRMSE=1.3548 Training_time=0.3 s
+INFO:mlp_llm:|2024-03-17 23:31:12| Acc = [1%=0.0041, 5%=0.0223, 10%=0.0426] 
+INFO:mlp_llm:|2024-03-17 23:31:12| ********************Experiment Results:********************
+INFO:mlp_llm:|2024-03-17 23:31:12| MAE: 0.0061 ± 0.0000
+INFO:mlp_llm:|2024-03-17 23:31:12| RMSE: 0.0077 ± 0.0000
+INFO:mlp_llm:|2024-03-17 23:31:12| NMAE: 1.1362 ± 0.0000
+INFO:mlp_llm:|2024-03-17 23:31:12| NRMSE: 1.3548 ± 0.0000
+INFO:mlp_llm:|2024-03-17 23:31:12| TIME: 0.3027 ± 0.0000
+INFO:mlp_llm:|2024-03-17 23:31:12| Acc1: 0.0041 ± 0.0000
+INFO:mlp_llm:|2024-03-17 23:31:12| Acc5: 0.0223 ± 0.0000
+INFO:mlp_llm:|2024-03-17 23:31:12| Acc10: 0.0426 ± 0.0000
+INFO:mlp_llm:|2024-03-17 23:31:12| ********************Experiment Success********************
+
+INFO:embed:|2024-03-17 23:31:14| Namespace(ablation=0, bs=1, dataset='cpu', debug=0, decay=0.0005, density=0.01, device='cpu', dimension=32, epochs=1, experiment=0, llm=1, log=<utils.logger.Logger object at 0x7fae3163cb80>, loss_func='L1Loss', lr=0.0004, model='embed', optim='AdamW', path='./datasets/', patience=100, program_test=1, record=1, rounds=1, saved=1, seed=0, verbose=1)
+INFO:embed:|2024-03-17 23:31:14| ********************Experiment Start********************
+INFO:embed:|2024-03-17 23:31:15| Round=1 BestEpoch=1 MAE=0.0017 RMSE=0.0022 NMAE=0.3540 NRMSE=0.4171 Training_time=0.2 s
+INFO:embed:|2024-03-17 23:31:15| Acc = [1%=0.0279, 5%=0.1364, 10%=0.2568] 
+INFO:embed:|2024-03-17 23:31:15| ********************Experiment Results:********************
+INFO:embed:|2024-03-17 23:31:15| MAE: 0.0017 ± 0.0000
+INFO:embed:|2024-03-17 23:31:15| RMSE: 0.0022 ± 0.0000
+INFO:embed:|2024-03-17 23:31:15| NMAE: 0.3540 ± 0.0000
+INFO:embed:|2024-03-17 23:31:15| NRMSE: 0.4171 ± 0.0000
+INFO:embed:|2024-03-17 23:31:15| TIME: 0.2370 ± 0.0000
+INFO:embed:|2024-03-17 23:31:15| Acc1: 0.0279 ± 0.0000
+INFO:embed:|2024-03-17 23:31:15| Acc5: 0.1364 ± 0.0000
+INFO:embed:|2024-03-17 23:31:15| Acc10: 0.2568 ± 0.0000
+INFO:embed:|2024-03-17 23:31:15| ********************Experiment Success********************
+
+INFO:embed:|2024-03-17 23:31:17| Namespace(ablation=0, bs=1, dataset='gpu', debug=0, decay=0.0005, density=0.01, device='cpu', dimension=32, epochs=1, experiment=0, llm=1, log=<utils.logger.Logger object at 0x7f95eb2dcc10>, loss_func='L1Loss', lr=0.0004, model='embed', optim='AdamW', path='./datasets/', patience=100, program_test=1, record=1, rounds=1, saved=1, seed=0, verbose=1)
+INFO:embed:|2024-03-17 23:31:17| ********************Experiment Start********************
+INFO:embed:|2024-03-17 23:31:19| Round=1 BestEpoch=1 MAE=0.0015 RMSE=0.0018 NMAE=0.2816 NRMSE=0.3261 Training_time=0.4 s
+INFO:embed:|2024-03-17 23:31:19| Acc = [1%=0.0176, 5%=0.0921, 10%=0.1922] 
+INFO:embed:|2024-03-17 23:31:19| ********************Experiment Results:********************
+INFO:embed:|2024-03-17 23:31:19| MAE: 0.0015 ± 0.0000
+INFO:embed:|2024-03-17 23:31:19| RMSE: 0.0018 ± 0.0000
+INFO:embed:|2024-03-17 23:31:19| NMAE: 0.2816 ± 0.0000
+INFO:embed:|2024-03-17 23:31:19| NRMSE: 0.3261 ± 0.0000
+INFO:embed:|2024-03-17 23:31:19| TIME: 0.4314 ± 0.0000
+INFO:embed:|2024-03-17 23:31:19| Acc1: 0.0176 ± 0.0000
+INFO:embed:|2024-03-17 23:31:19| Acc5: 0.0921 ± 0.0000
+INFO:embed:|2024-03-17 23:31:19| Acc10: 0.1922 ± 0.0000
+INFO:embed:|2024-03-17 23:31:19| ********************Experiment Success********************
+
+INFO:embed_llm:|2024-03-17 23:31:21| Namespace(ablation=0, bs=1, dataset='cpu', debug=0, decay=0.0005, density=0.01, device='cpu', dimension=32, epochs=1, experiment=0, llm=1, log=<utils.logger.Logger object at 0x7f92c0d4f970>, loss_func='L1Loss', lr=0.0004, model='embed_llm', optim='AdamW', path='./datasets/', patience=100, program_test=1, record=1, rounds=1, saved=1, seed=0, verbose=1)
+INFO:embed_llm:|2024-03-17 23:31:21| ********************Experiment Start********************
+INFO:embed_llm:|2024-03-17 23:31:23| Round=1 BestEpoch=1 MAE=0.0443 RMSE=0.0499 NMAE=9.0736 NRMSE=9.6222 Training_time=0.2 s
+INFO:embed_llm:|2024-03-17 23:31:23| Acc = [1%=0.0010, 5%=0.0049, 10%=0.0059] 
+INFO:embed_llm:|2024-03-17 23:31:23| ********************Experiment Results:********************
+INFO:embed_llm:|2024-03-17 23:31:23| MAE: 0.0443 ± 0.0000
+INFO:embed_llm:|2024-03-17 23:31:23| RMSE: 0.0499 ± 0.0000
+INFO:embed_llm:|2024-03-17 23:31:23| NMAE: 9.0736 ± 0.0000
+INFO:embed_llm:|2024-03-17 23:31:23| NRMSE: 9.6222 ± 0.0000
+INFO:embed_llm:|2024-03-17 23:31:23| TIME: 0.2427 ± 0.0000
+INFO:embed_llm:|2024-03-17 23:31:23| Acc1: 0.0010 ± 0.0000
+INFO:embed_llm:|2024-03-17 23:31:23| Acc5: 0.0049 ± 0.0000
+INFO:embed_llm:|2024-03-17 23:31:23| Acc10: 0.0059 ± 0.0000
+INFO:embed_llm:|2024-03-17 23:31:23| ********************Experiment Success********************
+
+INFO:embed_llm:|2024-03-17 23:31:24| Namespace(ablation=0, bs=1, dataset='gpu', debug=0, decay=0.0005, density=0.01, device='cpu', dimension=32, epochs=1, experiment=0, llm=1, log=<utils.logger.Logger object at 0x7fc4d13ce910>, loss_func='L1Loss', lr=0.0004, model='embed_llm', optim='AdamW', path='./datasets/', patience=100, program_test=1, record=1, rounds=1, saved=1, seed=0, verbose=1)
+INFO:embed_llm:|2024-03-17 23:31:24| ********************Experiment Start********************
+INFO:embed_llm:|2024-03-17 23:31:28| Round=1 BestEpoch=1 MAE=0.0419 RMSE=0.0442 NMAE=7.8601 NRMSE=7.7944 Training_time=0.5 s
+INFO:embed_llm:|2024-03-17 23:31:28| Acc = [1%=0.0001, 5%=0.0001, 10%=0.0002] 
+INFO:embed_llm:|2024-03-17 23:31:28| ********************Experiment Results:********************
+INFO:embed_llm:|2024-03-17 23:31:28| MAE: 0.0419 ± 0.0000
+INFO:embed_llm:|2024-03-17 23:31:28| RMSE: 0.0442 ± 0.0000
+INFO:embed_llm:|2024-03-17 23:31:28| NMAE: 7.8601 ± 0.0000
+INFO:embed_llm:|2024-03-17 23:31:28| NRMSE: 7.7944 ± 0.0000
+INFO:embed_llm:|2024-03-17 23:31:28| TIME: 0.4539 ± 0.0000
+INFO:embed_llm:|2024-03-17 23:31:28| Acc1: 0.0001 ± 0.0000
+INFO:embed_llm:|2024-03-17 23:31:28| Acc5: 0.0001 ± 0.0000
+INFO:embed_llm:|2024-03-17 23:31:28| Acc10: 0.0002 ± 0.0000
+INFO:embed_llm:|2024-03-17 23:31:28| ********************Experiment Success********************
+
+INFO:gcn_llm:|2024-03-17 23:31:29| Namespace(ablation=0, bs=1, dataset='cpu', debug=0, decay=0.0005, density=0.01, device='cpu', dimension=32, epochs=1, experiment=0, llm=1, log=<utils.logger.Logger object at 0x7f87503ad9a0>, loss_func='L1Loss', lr=0.0004, model='gcn_llm', optim='AdamW', path='./datasets/', patience=100, program_test=1, record=1, rounds=1, saved=1, seed=0, verbose=1)
+INFO:gcn_llm:|2024-03-17 23:31:29| ********************Experiment Start********************
+INFO:gcn_llm:|2024-03-17 23:31:47| Round=1 BestEpoch=1 MAE=0.0061 RMSE=0.0070 NMAE=1.2406 NRMSE=1.3418 Training_time=1.8 s
+INFO:gcn_llm:|2024-03-17 23:31:47| Acc = [1%=0.0003, 5%=0.0055, 10%=0.0122] 
+INFO:gcn_llm:|2024-03-17 23:31:47| ********************Experiment Results:********************
+INFO:gcn_llm:|2024-03-17 23:31:47| MAE: 0.0061 ± 0.0000
+INFO:gcn_llm:|2024-03-17 23:31:47| RMSE: 0.0070 ± 0.0000
+INFO:gcn_llm:|2024-03-17 23:31:47| NMAE: 1.2406 ± 0.0000
+INFO:gcn_llm:|2024-03-17 23:31:47| NRMSE: 1.3418 ± 0.0000
+INFO:gcn_llm:|2024-03-17 23:31:47| TIME: 1.7528 ± 0.0000
+INFO:gcn_llm:|2024-03-17 23:31:47| Acc1: 0.0003 ± 0.0000
+INFO:gcn_llm:|2024-03-17 23:31:47| Acc5: 0.0055 ± 0.0000
+INFO:gcn_llm:|2024-03-17 23:31:47| Acc10: 0.0122 ± 0.0000
+INFO:gcn_llm:|2024-03-17 23:31:47| ********************Experiment Success********************
+
+INFO:gcn_llm:|2024-03-17 23:31:49| Namespace(ablation=0, bs=1, dataset='gpu', debug=0, decay=0.0005, density=0.01, device='cpu', dimension=32, epochs=1, experiment=0, llm=1, log=<utils.logger.Logger object at 0x7faa998cc8e0>, loss_func='L1Loss', lr=0.0004, model='gcn_llm', optim='AdamW', path='./datasets/', patience=100, program_test=1, record=1, rounds=1, saved=1, seed=0, verbose=1)
+INFO:gcn_llm:|2024-03-17 23:31:49| ********************Experiment Start********************
+INFO:gcn_llm:|2024-03-17 23:32:24| Round=1 BestEpoch=1 MAE=0.0038 RMSE=0.0045 NMAE=0.7172 NRMSE=0.7858 Training_time=3.8 s
+INFO:gcn_llm:|2024-03-17 23:32:24| Acc = [1%=0.0075, 5%=0.0364, 10%=0.0749] 
+INFO:gcn_llm:|2024-03-17 23:32:24| ********************Experiment Results:********************
+INFO:gcn_llm:|2024-03-17 23:32:24| MAE: 0.0038 ± 0.0000
+INFO:gcn_llm:|2024-03-17 23:32:24| RMSE: 0.0045 ± 0.0000
+INFO:gcn_llm:|2024-03-17 23:32:24| NMAE: 0.7172 ± 0.0000
+INFO:gcn_llm:|2024-03-17 23:32:24| NRMSE: 0.7858 ± 0.0000
+INFO:gcn_llm:|2024-03-17 23:32:24| TIME: 3.8013 ± 0.0000
+INFO:gcn_llm:|2024-03-17 23:32:24| Acc1: 0.0075 ± 0.0000
+INFO:gcn_llm:|2024-03-17 23:32:24| Acc5: 0.0364 ± 0.0000
+INFO:gcn_llm:|2024-03-17 23:32:24| Acc10: 0.0749 ± 0.0000
+INFO:gcn_llm:|2024-03-17 23:32:24| ********************Experiment Success********************
+
+INFO:embed_gcn:|2024-03-17 23:32:27| Namespace(ablation=0, bs=1, dataset='cpu', debug=0, decay=0.0005, density=0.01, device='cpu', dimension=32, epochs=1, experiment=0, llm=0, log=<utils.logger.Logger object at 0x7f7e5958f9d0>, loss_func='L1Loss', lr=0.0004, model='embed_gcn', optim='AdamW', path='./datasets/', patience=100, program_test=1, record=1, rounds=1, saved=1, seed=0, verbose=1)
+INFO:embed_gcn:|2024-03-17 23:32:27| ********************Experiment Start********************
+INFO:embed_gcn:|2024-03-17 23:32:44| Round=1 BestEpoch=1 MAE=0.0197 RMSE=0.0235 NMAE=4.0384 NRMSE=4.5374 Training_time=1.9 s
+INFO:embed_gcn:|2024-03-17 23:32:44| Acc = [1%=0.0028, 5%=0.0088, 10%=0.0137] 
+INFO:embed_gcn:|2024-03-17 23:32:44| ********************Experiment Results:********************
+INFO:embed_gcn:|2024-03-17 23:32:44| MAE: 0.0197 ± 0.0000
+INFO:embed_gcn:|2024-03-17 23:32:44| RMSE: 0.0235 ± 0.0000
+INFO:embed_gcn:|2024-03-17 23:32:44| NMAE: 4.0384 ± 0.0000
+INFO:embed_gcn:|2024-03-17 23:32:44| NRMSE: 4.5374 ± 0.0000
+INFO:embed_gcn:|2024-03-17 23:32:44| TIME: 1.9295 ± 0.0000
+INFO:embed_gcn:|2024-03-17 23:32:44| Acc1: 0.0028 ± 0.0000
+INFO:embed_gcn:|2024-03-17 23:32:44| Acc5: 0.0088 ± 0.0000
+INFO:embed_gcn:|2024-03-17 23:32:44| Acc10: 0.0137 ± 0.0000
+INFO:embed_gcn:|2024-03-17 23:32:44| ********************Experiment Success********************
+
+INFO:embed_gcn:|2024-03-17 23:32:46| Namespace(ablation=0, bs=1, dataset='gpu', debug=0, decay=0.0005, density=0.01, device='cpu', dimension=32, epochs=1, experiment=0, llm=0, log=<utils.logger.Logger object at 0x7fa2699ad8e0>, loss_func='L1Loss', lr=0.0004, model='embed_gcn', optim='AdamW', path='./datasets/', patience=100, program_test=1, record=1, rounds=1, saved=1, seed=0, verbose=1)
+INFO:embed_gcn:|2024-03-17 23:32:46| ********************Experiment Start********************
+INFO:embed_gcn:|2024-03-17 23:33:21| Round=1 BestEpoch=1 MAE=0.0523 RMSE=0.0531 NMAE=9.8038 NRMSE=9.3732 Training_time=3.7 s
+INFO:embed_gcn:|2024-03-17 23:33:21| Acc = [1%=0.0000, 5%=0.0000, 10%=0.0000] 
+INFO:embed_gcn:|2024-03-17 23:33:21| ********************Experiment Results:********************
+INFO:embed_gcn:|2024-03-17 23:33:21| MAE: 0.0523 ± 0.0000
+INFO:embed_gcn:|2024-03-17 23:33:21| RMSE: 0.0531 ± 0.0000
+INFO:embed_gcn:|2024-03-17 23:33:21| NMAE: 9.8038 ± 0.0000
+INFO:embed_gcn:|2024-03-17 23:33:21| NRMSE: 9.3732 ± 0.0000
+INFO:embed_gcn:|2024-03-17 23:33:21| TIME: 3.6565 ± 0.0000
+INFO:embed_gcn:|2024-03-17 23:33:21| Acc1: 0.0000 ± 0.0000
+INFO:embed_gcn:|2024-03-17 23:33:21| Acc5: 0.0000 ± 0.0000
+INFO:embed_gcn:|2024-03-17 23:33:21| Acc10: 0.0000 ± 0.0000
+INFO:embed_gcn:|2024-03-17 23:33:21| ********************Experiment Success********************
+
