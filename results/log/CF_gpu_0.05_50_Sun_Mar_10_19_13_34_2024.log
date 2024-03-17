@@ -1,0 +1,10 @@
+INFO:CF:|2024-03-10 19:13:34| Namespace(ablation=0, bs=1, dataset='gpu', debug=0, decay=0.0005, density=0.05, device='cpu', dimension=50, epochs=300, experiment=1, llm=1, log=<utils.logger.Logger object at 0x7f01622b4f10>, loss_func='L1Loss', lr=0.0004, model='CF', optim='AdamW', path='./datasets/', patience=100, program_test=1, record=1, rounds=5, saved=1, seed=0, verbose=10)
+INFO:CF:|2024-03-10 19:13:34| ********************Experiment Start********************
+INFO:CF:|2024-03-10 19:46:37| Round=1 BestEpoch=126 MAE=0.0002 RMSE=0.0002 NMAE=0.0293 NRMSE=0.0397 Training_time=1030.2 s
+INFO:CF:|2024-03-10 19:46:37| Acc = [1%=0.2778, 5%=0.8135, 10%=0.9670] 
+INFO:CF:|2024-03-10 20:14:17| Round=2 BestEpoch=82 MAE=0.0001 RMSE=0.0002 NMAE=0.0271 NRMSE=0.0380 Training_time=723.0 s
+INFO:CF:|2024-03-10 20:14:17| Acc = [1%=0.3190, 5%=0.8428, 10%=0.9693] 
+INFO:CF:|2024-03-10 20:40:32| Round=3 BestEpoch=79 MAE=0.0001 RMSE=0.0002 NMAE=0.0267 NRMSE=0.0369 Training_time=588.6 s
+INFO:CF:|2024-03-10 20:40:32| Acc = [1%=0.2907, 5%=0.8533, 10%=0.9744] 
+INFO:CF:|2024-03-10 21:23:27| Round=4 BestEpoch=119 MAE=0.0001 RMSE=0.0002 NMAE=0.0263 NRMSE=0.0357 Training_time=1345.8 s
+INFO:CF:|2024-03-10 21:23:27| Acc = [1%=0.3000, 5%=0.8587, 10%=0.9772] 
