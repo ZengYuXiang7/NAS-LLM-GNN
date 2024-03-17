@@ -1,20 +1,15 @@
 #!/bin/bash
 
 # 定义变量
-rounds=5
-epochs=300
+rounds=5 epochs=300
 batch_size=1
-learning_rate=0.0004
-decay=0.0005
+learning_rate=0.0004 decay=0.0005
 program_test=1
-experiment=1
-record=1
+experiment=1 record=1
 dimensions="32"
 datasets="cpu gpu"
 densities="0.01 0.02 0.03 0.04 0.05"
-#densities="0.01"
 py_files="run_mlp_llm run_embed run_embed_LLM run_gcn_llm run_embed_GCN"
-
 for py_file in $py_files
 do
     for dim in $dimensions
