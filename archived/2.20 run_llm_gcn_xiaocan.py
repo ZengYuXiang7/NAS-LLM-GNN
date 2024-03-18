@@ -855,7 +855,6 @@ def get_dataloaders(train_set, valid_set, test_set, args):
         batch_size=args.bs,
         drop_last=False,
         shuffle=True,
-        pin_memory=True,
         collate_fn=custom_collate_fn
     )
     valid_loader = DataLoader(
@@ -863,7 +862,6 @@ def get_dataloaders(train_set, valid_set, test_set, args):
         batch_size=args.bs * 16,
         drop_last=False,
         shuffle=False,
-        pin_memory=True,
         collate_fn=custom_collate_fn
     )
     test_loader = DataLoader(
@@ -871,7 +869,6 @@ def get_dataloaders(train_set, valid_set, test_set, args):
         batch_size=args.bs * 16,  # 8192
         drop_last=False,
         shuffle=False,
-        pin_memory=True,
         collate_fn=custom_collate_fn
     )
 
