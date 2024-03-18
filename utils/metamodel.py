@@ -44,7 +44,7 @@ class MetaModel(torch.nn.Module, ABC):
         self.train()
         torch.set_grad_enabled(True)
         t1 = time.time()
-        for train_Batch in tqdm(dataModule.train_loader, disable=not self.args.program_test, ):
+        for train_Batch in (dataModule.train_loader ):
             if self.args.exper not in [6, 7]:
                 inputs, value = train_Batch
             else:
@@ -69,7 +69,7 @@ class MetaModel(torch.nn.Module, ABC):
         preds = torch.zeros((len(dataModule.valid_loader.dataset),)).to('cuda') if self.args.device != 'cpu' else torch.zeros((len(dataModule.valid_loader.dataset),))
         reals = torch.zeros((len(dataModule.valid_loader.dataset),)).to('cuda') if self.args.device != 'cpu' else torch.zeros((len(dataModule.valid_loader.dataset),))
         self.prepare_test_model()
-        for valid_Batch in tqdm(dataModule.valid_loader, disable=not self.args.program_test):
+        for valid_Batch in (dataModule.valid_loader):
             if self.args.exper not in [6, 7]:
                 inputs, value = valid_Batch
             else:
@@ -91,7 +91,7 @@ class MetaModel(torch.nn.Module, ABC):
         preds = torch.zeros((len(dataModule.test_loader.dataset),)).to('cuda') if self.args.device != 'cpu' else torch.zeros((len(dataModule.test_loader.dataset),))
         reals = torch.zeros((len(dataModule.test_loader.dataset),)).to('cuda') if self.args.device != 'cpu' else torch.zeros((len(dataModule.test_loader.dataset),))
         self.prepare_test_model()
-        for test_Batch in tqdm(dataModule.test_loader, disable=not self.args.program_test):
+        for test_Batch in (dataModule.test_loader):
             if self.args.exper not in [6, 7]:
                 inputs, value = test_Batch
             else:

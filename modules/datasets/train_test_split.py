@@ -4,49 +4,32 @@
 import numpy as np
 
 def get_train_valid_test_dataset(tensor, args):
+    p = np.random.permutation(len(tensor))
+    tensor = tensor[p]
+
     X = tensor[:, :-1]
     Y = tensor[:, -1].reshape(-1, 1)
     # max_value = Y.max()
     max_value = 1
     Y /= max_value
-    # print(np.array(X).shape)
-    # print(np.array(Y).shape)
-    # args.valid = 1
-    # trainsize = int(len(X) * args.density)
-    # validsize = int(len(X) * 0.05) if args.valid else int((len(X) - trainsize) * 1.0)
-    if args.dataset_type == 'cpu':
-        trainsize = 900
-        validsize = 100
-    else:
-        trainsize = 900 * 2
-        validsize = 100 * 2
 
-    Idx = np.arange(len(X))
-    p = np.random.permutation(len(X))
-    Idx = Idx[p]
+    train_size = int(len(tensor) * args.density)
+    if args.dataset == 'cpu':
+        valid_size = int(100)
+    elif args.dataset == 'gpu':
+        valid_size = int(200)
 
-    trainRowIndex = Idx[:trainsize]
-    traintensorX = np.zeros_like(X)
-    traintensorY = np.zeros_like(Y)
-    traintensorX[trainRowIndex] = X[trainRowIndex]
-    traintensorY[trainRowIndex] = Y[trainRowIndex]
+    X_train = X[:train_size]
+    Y_train = Y[:train_size]
 
-    validStart = trainsize
-    validRowIndex = Idx[validStart:validStart + validsize]
-    validtensorX = np.zeros_like(X)
-    validtensorY = np.zeros_like(Y)
-    validtensorX[validRowIndex] = X[validRowIndex]
-    validtensorY[validRowIndex] = Y[validRowIndex]
+    X_valid = X[train_size:train_size + valid_size]
+    Y_valid = Y[train_size:train_size + valid_size]
 
-    testStart = validStart + validsize
-    testRowIndex = Idx[testStart:]
-    testtensorX = np.zeros_like(X)
-    testtensorY = np.zeros_like(Y)
-    testtensorX[testRowIndex] = X[testRowIndex]
-    testtensorY[testRowIndex] = Y[testRowIndex]
+    X_test = X[train_size + valid_size:]
+    Y_test = Y[train_size + valid_size:]
 
-    traintensor = np.hstack((traintensorX, traintensorY))
-    validtensor = np.hstack((validtensorX, validtensorY))
-    testtensor = np.hstack((testtensorX, testtensorY))
+    train_tensor = np.hstack((X_train, Y_train))
+    valid_tensor = np.hstack((X_valid, Y_valid))
+    test_tensor = np.hstack((X_test, Y_test))
 
-    return traintensor, validtensor, testtensor, max_value
+    return train_tensor, valid_tensor, test_tensor, max_value
