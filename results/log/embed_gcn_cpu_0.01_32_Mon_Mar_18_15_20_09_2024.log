@@ -1,2 +1,4 @@
 INFO:embed_gcn:|2024-03-18 15:20:09| Namespace(ablation=0, bs=1, dataset='cpu', debug=0, decay=0.0005, density=0.01, device='cpu', dimension=32, epochs=300, experiment=1, llm=0, log=<utils.logger.Logger object at 0x7f4a86f70df0>, loss_func='L1Loss', lr=0.0004, model='embed_gcn', optim='AdamW', path='./datasets/', patience=100, program_test=1, record=1, rounds=5, saved=1, seed=0, verbose=10)
 INFO:embed_gcn:|2024-03-18 15:20:09| ********************Experiment Start********************
+INFO:embed_gcn:|2024-03-18 15:26:26| Round=1 BestEpoch=231 MAE=0.0003 RMSE=0.0004 NMAE=0.0587 NRMSE=0.0762 Training_time=309.6 s
+INFO:embed_gcn:|2024-03-18 15:26:26| Acc = [1%=0.1696, 5%=0.5499, 10%=0.8010] 
