@@ -8,3 +8,16 @@ INFO:embed_gcn:|2024-03-18 21:58:58| Round=3 BestEpoch=116 MAE=0.0002 RMSE=0.000
 INFO:embed_gcn:|2024-03-18 21:58:58| Acc = [1%=0.2352, 5%=0.7644, 10%=0.9477] 
 INFO:embed_gcn:|2024-03-18 22:12:29| Round=4 BestEpoch=123 MAE=0.0002 RMSE=0.0003 NMAE=0.0343 NRMSE=0.0454 Training_time=331.6 s
 INFO:embed_gcn:|2024-03-18 22:12:29| Acc = [1%=0.2407, 5%=0.7591, 10%=0.9433] 
+INFO:embed_gcn:|2024-03-18 22:25:34| Round=5 BestEpoch=105 MAE=0.0002 RMSE=0.0003 NMAE=0.0329 NRMSE=0.0442 Training_time=358.8 s
+INFO:embed_gcn:|2024-03-18 22:25:34| Acc = [1%=0.2416, 5%=0.7791, 10%=0.9511] 
+INFO:embed_gcn:|2024-03-18 22:25:34| ********************Experiment Results:********************
+INFO:embed_gcn:|2024-03-18 22:25:34| MAE: 0.0002 ± 0.0000
+INFO:embed_gcn:|2024-03-18 22:25:34| RMSE: 0.0003 ± 0.0000
+INFO:embed_gcn:|2024-03-18 22:25:34| NMAE: 0.0343 ± 0.0017
+INFO:embed_gcn:|2024-03-18 22:25:34| NRMSE: 0.0457 ± 0.0026
+INFO:embed_gcn:|2024-03-18 22:25:34| TIME: 390.2562 ± 71.4215
+INFO:embed_gcn:|2024-03-18 22:25:34| Acc1: 0.2377 ± 0.0064
+INFO:embed_gcn:|2024-03-18 22:25:34| Acc5: 0.7618 ± 0.0156
+INFO:embed_gcn:|2024-03-18 22:25:34| Acc10: 0.9445 ± 0.0083
+INFO:embed_gcn:|2024-03-18 22:25:34| ********************Experiment Success********************
+
