@@ -1,0 +1,23 @@
+INFO:mlp_llm:|2024-03-18 00:30:41| Namespace(ablation=0, bs=1, dataset='gpu', debug=0, decay=0.0005, density=0.02, device='cpu', dimension=32, epochs=300, experiment=1, llm=1, log=<utils.logger.Logger object at 0x7f6c8c645f40>, loss_func='L1Loss', lr=0.0004, model='mlp_llm', optim='AdamW', path='./datasets/', patience=100, program_test=1, record=1, rounds=5, saved=1, seed=0, verbose=10)
+INFO:mlp_llm:|2024-03-18 00:30:41| ********************Experiment Start********************
+INFO:mlp_llm:|2024-03-18 00:31:41| Round=1 BestEpoch=82 MAE=0.0008 RMSE=0.0010 NMAE=0.1430 NRMSE=0.1740 Training_time=25.3 s
+INFO:mlp_llm:|2024-03-18 00:31:41| Acc = [1%=0.0421, 5%=0.2113, 10%=0.4193] 
+INFO:mlp_llm:|2024-03-18 00:32:42| Round=2 BestEpoch=92 MAE=0.0007 RMSE=0.0009 NMAE=0.1393 NRMSE=0.1668 Training_time=26.3 s
+INFO:mlp_llm:|2024-03-18 00:32:42| Acc = [1%=0.0458, 5%=0.2300, 10%=0.4424] 
+INFO:mlp_llm:|2024-03-18 00:33:32| Round=3 BestEpoch=53 MAE=0.0007 RMSE=0.0010 NMAE=0.1400 NRMSE=0.1732 Training_time=15.3 s
+INFO:mlp_llm:|2024-03-18 00:33:32| Acc = [1%=0.0479, 5%=0.2461, 10%=0.4571] 
+INFO:mlp_llm:|2024-03-18 00:34:25| Round=4 BestEpoch=63 MAE=0.0008 RMSE=0.0010 NMAE=0.1436 NRMSE=0.1820 Training_time=18.0 s
+INFO:mlp_llm:|2024-03-18 00:34:25| Acc = [1%=0.0514, 5%=0.2449, 10%=0.4538] 
+INFO:mlp_llm:|2024-03-18 00:35:34| Round=5 BestEpoch=118 MAE=0.0008 RMSE=0.0011 NMAE=0.1469 NRMSE=0.1856 Training_time=33.9 s
+INFO:mlp_llm:|2024-03-18 00:35:34| Acc = [1%=0.0462, 5%=0.2326, 10%=0.4431] 
+INFO:mlp_llm:|2024-03-18 00:35:34| ********************Experiment Results:********************
+INFO:mlp_llm:|2024-03-18 00:35:34| MAE: 0.0008 ± 0.0000
+INFO:mlp_llm:|2024-03-18 00:35:34| RMSE: 0.0010 ± 0.0000
+INFO:mlp_llm:|2024-03-18 00:35:34| NMAE: 0.1426 ± 0.0027
+INFO:mlp_llm:|2024-03-18 00:35:34| NRMSE: 0.1763 ± 0.0067
+INFO:mlp_llm:|2024-03-18 00:35:34| TIME: 23.7494 ± 6.5487
+INFO:mlp_llm:|2024-03-18 00:35:34| Acc1: 0.0467 ± 0.0030
+INFO:mlp_llm:|2024-03-18 00:35:34| Acc5: 0.2330 ± 0.0126
+INFO:mlp_llm:|2024-03-18 00:35:34| Acc10: 0.4431 ± 0.0132
+INFO:mlp_llm:|2024-03-18 00:35:34| ********************Experiment Success********************
+

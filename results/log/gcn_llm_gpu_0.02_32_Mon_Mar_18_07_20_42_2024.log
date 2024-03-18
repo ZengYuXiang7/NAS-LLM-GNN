@@ -1,0 +1,23 @@
+INFO:gcn_llm:|2024-03-18 07:20:42| Namespace(ablation=0, bs=1, dataset='gpu', debug=0, decay=0.0005, density=0.02, device='cpu', dimension=32, epochs=300, experiment=1, llm=1, log=<utils.logger.Logger object at 0x7fc0f781ef40>, loss_func='L1Loss', lr=0.0004, model='gcn_llm', optim='AdamW', path='./datasets/', patience=100, program_test=1, record=1, rounds=5, saved=1, seed=0, verbose=10)
+INFO:gcn_llm:|2024-03-18 07:20:42| ********************Experiment Start********************
+INFO:gcn_llm:|2024-03-18 07:26:31| Round=1 BestEpoch=48 MAE=0.0008 RMSE=0.0011 NMAE=0.1412 NRMSE=0.1868 Training_time=107.7 s
+INFO:gcn_llm:|2024-03-18 07:26:31| Acc = [1%=0.0607, 5%=0.2717, 10%=0.4711] 
+INFO:gcn_llm:|2024-03-18 07:32:55| Round=2 BestEpoch=57 MAE=0.0008 RMSE=0.0011 NMAE=0.1446 NRMSE=0.1874 Training_time=132.3 s
+INFO:gcn_llm:|2024-03-18 07:32:55| Acc = [1%=0.0510, 5%=0.2544, 10%=0.4587] 
+INFO:gcn_llm:|2024-03-18 07:41:23| Round=3 BestEpoch=117 MAE=0.0007 RMSE=0.0011 NMAE=0.1403 NRMSE=0.1903 Training_time=271.2 s
+INFO:gcn_llm:|2024-03-18 07:41:23| Acc = [1%=0.0746, 5%=0.3292, 10%=0.5208] 
+INFO:gcn_llm:|2024-03-18 07:48:02| Round=4 BestEpoch=66 MAE=0.0007 RMSE=0.0010 NMAE=0.1386 NRMSE=0.1809 Training_time=156.1 s
+INFO:gcn_llm:|2024-03-18 07:48:02| Acc = [1%=0.0693, 5%=0.3098, 10%=0.5062] 
+INFO:gcn_llm:|2024-03-18 07:53:30| Round=5 BestEpoch=37 MAE=0.0007 RMSE=0.0010 NMAE=0.1391 NRMSE=0.1819 Training_time=77.4 s
+INFO:gcn_llm:|2024-03-18 07:53:30| Acc = [1%=0.0538, 5%=0.2569, 10%=0.4721] 
+INFO:gcn_llm:|2024-03-18 07:53:30| ********************Experiment Results:********************
+INFO:gcn_llm:|2024-03-18 07:53:30| MAE: 0.0008 ± 0.0000
+INFO:gcn_llm:|2024-03-18 07:53:30| RMSE: 0.0011 ± 0.0000
+INFO:gcn_llm:|2024-03-18 07:53:30| NMAE: 0.1408 ± 0.0021
+INFO:gcn_llm:|2024-03-18 07:53:30| NRMSE: 0.1855 ± 0.0035
+INFO:gcn_llm:|2024-03-18 07:53:30| TIME: 148.9267 ± 66.4836
+INFO:gcn_llm:|2024-03-18 07:53:30| Acc1: 0.0619 ± 0.0089
+INFO:gcn_llm:|2024-03-18 07:53:30| Acc5: 0.2844 ± 0.0299
+INFO:gcn_llm:|2024-03-18 07:53:30| Acc10: 0.4858 ± 0.0235
+INFO:gcn_llm:|2024-03-18 07:53:30| ********************Experiment Success********************
+
