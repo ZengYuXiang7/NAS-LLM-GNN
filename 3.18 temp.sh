@@ -6,8 +6,8 @@ learning_rate=0.0004 decay=0.0005
 program_test=1
 experiment=1 record=1
 dimensions="32"
-datasets="gpu"
-densities="0.05"
+datasets="cpu"
+densities="0.02 0.03 0.04 0.05"
 py_files="run_embed"
 for py_file in $py_files
 do
