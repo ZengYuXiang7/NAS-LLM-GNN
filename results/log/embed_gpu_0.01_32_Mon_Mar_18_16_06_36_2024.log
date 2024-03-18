@@ -1,0 +1,4 @@
+INFO:embed:|2024-03-18 16:06:36| Namespace(ablation=0, bs=1, dataset='gpu', debug=0, decay=0.0005, density=0.01, device='cpu', dimension=32, epochs=300, experiment=1, llm=1, log=<utils.logger.Logger object at 0x7fb5b9bbebb0>, loss_func='L1Loss', lr=0.0004, model='embed', optim='AdamW', path='./datasets/', patience=100, program_test=1, record=1, rounds=5, saved=1, seed=0, verbose=1)
+INFO:embed:|2024-03-18 16:06:36| ********************Experiment Start********************
+INFO:embed:|2024-03-18 16:07:52| Round=1 BestEpoch=86 MAE=0.0004 RMSE=0.0006 NMAE=0.0841 NRMSE=0.1039 Training_time=33.2 s
+INFO:embed:|2024-03-18 16:07:52| Acc = [1%=0.0911, 5%=0.4101, 10%=0.6475] 

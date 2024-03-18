@@ -1,0 +1,2 @@
+INFO:embed:|2024-03-18 17:33:58| Namespace(ablation=0, bs=1, dataset='gpu', debug=0, decay=0.0005, density=0.05, device='cpu', dimension=32, epochs=300, experiment=1, llm=1, log=<utils.logger.Logger object at 0x7f9cd163ba60>, loss_func='L1Loss', lr=0.0004, model='embed', optim='AdamW', path='./datasets/', patience=100, program_test=1, record=1, rounds=5, saved=1, seed=0, verbose=1)
+INFO:embed:|2024-03-18 17:33:58| ********************Experiment Start********************

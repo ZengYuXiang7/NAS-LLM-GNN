@@ -1,0 +1,10 @@
+INFO:embed:|2024-03-18 17:08:15| Namespace(ablation=0, bs=1, dataset='gpu', debug=0, decay=0.0005, density=0.05, device='cpu', dimension=32, epochs=300, experiment=1, llm=1, log=<utils.logger.Logger object at 0x7fa1715c4ac0>, loss_func='L1Loss', lr=0.0004, model='embed', optim='AdamW', path='./datasets/', patience=100, program_test=1, record=1, rounds=5, saved=1, seed=0, verbose=1)
+INFO:embed:|2024-03-18 17:08:15| ********************Experiment Start********************
+INFO:embed:|2024-03-18 17:13:43| Round=1 BestEpoch=66 MAE=0.0002 RMSE=0.0003 NMAE=0.0363 NRMSE=0.0464 Training_time=129.0 s
+INFO:embed:|2024-03-18 17:13:43| Acc = [1%=0.1915, 5%=0.7256, 10%=0.9126] 
+INFO:embed:|2024-03-18 17:19:57| Round=2 BestEpoch=91 MAE=0.0002 RMSE=0.0002 NMAE=0.0347 NRMSE=0.0435 Training_time=177.4 s
+INFO:embed:|2024-03-18 17:19:57| Acc = [1%=0.1985, 5%=0.7361, 10%=0.9218] 
+INFO:embed:|2024-03-18 17:25:10| Round=3 BestEpoch=59 MAE=0.0002 RMSE=0.0003 NMAE=0.0357 NRMSE=0.0446 Training_time=115.3 s
+INFO:embed:|2024-03-18 17:25:10| Acc = [1%=0.1894, 5%=0.7234, 10%=0.9196] 
+INFO:embed:|2024-03-18 17:30:42| Round=4 BestEpoch=70 MAE=0.0002 RMSE=0.0003 NMAE=0.0363 NRMSE=0.0452 Training_time=135.4 s
+INFO:embed:|2024-03-18 17:30:42| Acc = [1%=0.1825, 5%=0.7150, 10%=0.9130] 
