@@ -14,7 +14,8 @@ def get_dataloaders(train_set, valid_set, test_set, args):
         batch_size=args.bs,
         drop_last=False,
         shuffle=True,
-        collate_fn=custom_collate_fn
+        collate_fn=custom_collate_fn,
+        pin_memory=True
         # num_workers=max_workers if platform.system() == 'Linux' else 0,
         # prefetch_factor=4 if platform.system() == 'Linux' else 2
     )
@@ -23,7 +24,8 @@ def get_dataloaders(train_set, valid_set, test_set, args):
         batch_size=args.bs * 16,
         drop_last=False,
         shuffle=False,
-        collate_fn=custom_collate_fn
+        collate_fn=custom_collate_fn,
+        pin_memory=True
         # num_workers=max_workers if platform.system() == 'Linux' else 0,
         # prefetch_factor=4 if platform.system() == 'Linux' else 2
     )
@@ -32,7 +34,8 @@ def get_dataloaders(train_set, valid_set, test_set, args):
         batch_size=args.bs * 16,  # 8192
         drop_last=False,
         shuffle=False,
-        collate_fn=custom_collate_fn
+        collate_fn=custom_collate_fn,
+        pin_memory=True
         # num_workers=max_workers if platform.system() == 'Linux' else 0,
         # prefetch_factor=4 if platform.system() == 'Linux' else 2
     )

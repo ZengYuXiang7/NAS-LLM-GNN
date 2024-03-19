@@ -1,12 +1,13 @@
 #!/bin/bash
 
-datasets="cpu"
 rounds=5 epochs=300
-batch_size=1 learning_rate=0.0004 decay=0.0005
+batch_size=1
+learning_rate=0.0004 decay=0.0005
 program_test=1 experiment=0 record=0
 dimensions="32"
+datasets="gpu"
 densities="0.05"
-orders="5"
+orders="1 2 3 4 5"
 py_files="run_experiment"
 for py_file in $py_files
 do

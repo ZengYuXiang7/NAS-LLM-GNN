@@ -516,7 +516,7 @@ class GCN(torch.nn.Module):
         self.args = args
 
         num_features = 6
-        num_layers = 4
+        num_layers = 5
         num_hidden = 600
         dropout_ratio = 0.02
         weight_init = 'thomas'
@@ -963,7 +963,7 @@ if __name__ == '__main__':
     parser.add_argument('--lr', type=float, default=4e-4)
     parser.add_argument('--epochs', type=int, default=300)
     parser.add_argument('--decay', type=float, default=5e-4)
-    parser.add_argument('--patience', type=int, default=100)
+    parser.add_argument('--patience', type=int, default=30)
     parser.add_argument('--saved', type=int, default=1)
 
     parser.add_argument('--loss_func', type=str, default='L1Loss')
