@@ -758,6 +758,7 @@ class MLP(torch.nn.Module):
     def forward(self, x):
         return self.layer(x)
 
+
 class Model(torch.nn.Module):
     def __init__(self, args):
         super(Model, self).__init__()
@@ -970,6 +971,7 @@ if __name__ == '__main__':
 
     # Hyper parameters
     parser.add_argument('--dimension', type=int, default=32)
+    parser.add_argument('--order', type=int, default=4)
 
     # Other Experiment
     parser.add_argument('--ablation', type=int, default=0)

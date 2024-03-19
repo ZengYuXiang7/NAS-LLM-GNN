@@ -7,8 +7,8 @@ program_test=1 experiment=0 record=0
 dimensions="32"
 datasets="gpu"
 densities="0.05"
-order="1 2 3 4 5"
-py_files="run_gcn_llm"
+orders="1 2 3 4 5"
+py_files="run_experiment"
 for py_file in $py_files
 do
     for dim in $dimensions
@@ -17,22 +17,24 @@ do
         do
             for density in $densities
             do
-                python ./$py_file.py \
-                      --rounds $rounds \
-                      --density $density \
-                      --dataset $dataset \
-                      --epochs $epochs \
-                      --bs $batch_size \
-                      --lr $learning_rate \
-                      --decay $decay \
-                      --program_test $program_test \
-                      --dimension $dim \
-                      --order $order \
-                      --experiment $experiment \
-                      --record $record
+                for order in $orders
+                do
+                    python ./$py_file.py \
+                          --rounds $rounds \
+                          --density $density \
+                          --dataset $dataset \
+                          --epochs $epochs \
+                          --bs $batch_size \
+                          --lr $learning_rate \
+                          --decay $decay \
+                          --program_test $program_test \
+                          --dimension $dim \
+                          --order $order \
+                          --experiment $experiment \
+                          --record $record
+                    echo ""
+                done
             done
         done
-        # 在命令序列之间添加一个空行
-        echo ""
     done
 done
