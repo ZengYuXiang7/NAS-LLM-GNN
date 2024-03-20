@@ -6,8 +6,8 @@ learning_rate=0.0004 decay=0.0005
 program_test=1 experiment=0 record=0
 dimensions="32"
 datasets="gpu"
-densities="0.04 0.05"
-py_files="run_gcn_llm run_embed_GCN"
+densities="0.03"
+py_files="run_embed_GCN"
 for py_file in $py_files
 do
     for dim in $dimensions
