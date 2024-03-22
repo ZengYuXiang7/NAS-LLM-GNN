@@ -630,3 +630,210 @@ INFO:embed_gcn:|2024-03-20 19:58:34| Acc5: 0.7792 ± 0.0257
 INFO:embed_gcn:|2024-03-20 19:58:34| Acc10: 0.9498 ± 0.0098
 INFO:embed_gcn:|2024-03-20 19:58:34| ********************Experiment Success********************
 
+INFO:embed_gcn:|2024-03-21 01:35:37| Namespace(ablation=0, bs=1, dataset='cpu', debug=0, decay=0.0005, density=0.04, device='cpu', dimension=32, epochs=300, experiment=0, llm=0, log=<utils.logger.Logger object at 0x7fd70dfb8f10>, loss_func='L1Loss', lr=0.0004, model='embed_gcn', optim='AdamW', path='./datasets/', patience=30, program_test=1, record=0, rounds=5, saved=1, seed=0, verbose=1)
+INFO:embed_gcn:|2024-03-21 01:35:37| ********************Experiment Start********************
+INFO:embed_gcn:|2024-03-21 01:45:57| Round=1 BestEpoch=147 MAE=0.0001 RMSE=0.0002 NMAE=0.0293 NRMSE=0.0409 Training_time=453.3 s
+INFO:embed_gcn:|2024-03-21 01:45:57| Acc = [1%=0.2732, 5%=0.8245, 10%=0.9614] 
+INFO:embed_gcn:|2024-03-21 01:55:29| Round=2 BestEpoch=150 MAE=0.0001 RMSE=0.0002 NMAE=0.0298 NRMSE=0.0424 Training_time=469.4 s
+INFO:embed_gcn:|2024-03-21 01:55:29| Acc = [1%=0.2975, 5%=0.8247, 10%=0.9594] 
+INFO:embed_gcn:|2024-03-21 02:04:04| Round=3 BestEpoch=159 MAE=0.0002 RMSE=0.0002 NMAE=0.0315 NRMSE=0.0444 Training_time=431.5 s
+INFO:embed_gcn:|2024-03-21 02:04:04| Acc = [1%=0.3054, 5%=0.7973, 10%=0.9527] 
+INFO:embed_gcn:|2024-03-21 02:09:22| Round=4 BestEpoch=99 MAE=0.0001 RMSE=0.0002 NMAE=0.0288 NRMSE=0.0396 Training_time=241.9 s
+INFO:embed_gcn:|2024-03-21 02:09:22| Acc = [1%=0.2815, 5%=0.8335, 10%=0.9693] 
+INFO:embed_gcn:|2024-03-21 02:15:19| Round=5 BestEpoch=94 MAE=0.0002 RMSE=0.0002 NMAE=0.0309 NRMSE=0.0452 Training_time=261.2 s
+INFO:embed_gcn:|2024-03-21 02:15:19| Acc = [1%=0.2731, 5%=0.8149, 10%=0.9562] 
+INFO:embed_gcn:|2024-03-21 02:15:19| ********************Experiment Results:********************
+INFO:embed_gcn:|2024-03-21 02:15:19| MAE: 0.0001 ± 0.0000
+INFO:embed_gcn:|2024-03-21 02:15:19| RMSE: 0.0002 ± 0.0000
+INFO:embed_gcn:|2024-03-21 02:15:19| NMAE: 0.0301 ± 0.0010
+INFO:embed_gcn:|2024-03-21 02:15:19| NRMSE: 0.0425 ± 0.0021
+INFO:embed_gcn:|2024-03-21 02:15:19| TIME: 371.4661 ± 98.8255
+INFO:embed_gcn:|2024-03-21 02:15:19| Acc1: 0.2861 ± 0.0131
+INFO:embed_gcn:|2024-03-21 02:15:19| Acc5: 0.8190 ± 0.0123
+INFO:embed_gcn:|2024-03-21 02:15:19| Acc10: 0.9598 ± 0.0056
+INFO:embed_gcn:|2024-03-21 02:15:19| ********************Experiment Success********************
+
+INFO:embed_gcn:|2024-03-21 13:48:38| Namespace(ablation=0, bs=1, dataset='cpu', debug=0, decay=0.0005, density=0.02, device='cpu', dimension=32, epochs=300, experiment=0, llm=0, log=<utils.logger.Logger object at 0x7f0776579dc0>, loss_func='L1Loss', lr=0.0004, model='embed_gcn', optim='AdamW', path='./datasets/', patience=30, program_test=1, record=0, rounds=5, saved=1, seed=0, verbose=1)
+INFO:embed_gcn:|2024-03-21 13:48:38| ********************Experiment Start********************
+INFO:embed_gcn:|2024-03-21 13:58:11| Round=1 BestEpoch=201 MAE=0.0002 RMSE=0.0003 NMAE=0.0395 NRMSE=0.0534 Training_time=501.3 s
+INFO:embed_gcn:|2024-03-21 13:58:11| Acc = [1%=0.2193, 5%=0.7158, 10%=0.9284] 
+INFO:embed_gcn:|2024-03-21 14:05:57| Round=2 BestEpoch=185 MAE=0.0002 RMSE=0.0003 NMAE=0.0424 NRMSE=0.0592 Training_time=389.4 s
+INFO:embed_gcn:|2024-03-21 14:05:57| Acc = [1%=0.2302, 5%=0.6964, 10%=0.9107] 
+INFO:embed_gcn:|2024-03-21 14:16:15| Round=3 BestEpoch=172 MAE=0.0002 RMSE=0.0003 NMAE=0.0431 NRMSE=0.0575 Training_time=509.3 s
+INFO:embed_gcn:|2024-03-21 14:16:15| Acc = [1%=0.1815, 5%=0.6700, 10%=0.9087] 
+INFO:embed_gcn:|2024-03-21 14:25:11| Round=4 BestEpoch=181 MAE=0.0002 RMSE=0.0003 NMAE=0.0358 NRMSE=0.0484 Training_time=454.7 s
+INFO:embed_gcn:|2024-03-21 14:25:11| Acc = [1%=0.2374, 5%=0.7533, 10%=0.9430] 
+INFO:embed_gcn:|2024-03-21 14:28:24| Round=5 BestEpoch=82 MAE=0.0002 RMSE=0.0003 NMAE=0.0469 NRMSE=0.0580 Training_time=139.5 s
+INFO:embed_gcn:|2024-03-21 14:28:24| Acc = [1%=0.1218, 5%=0.6056, 10%=0.9040] 
+INFO:embed_gcn:|2024-03-21 14:28:24| ********************Experiment Results:********************
+INFO:embed_gcn:|2024-03-21 14:28:24| MAE: 0.0002 ± 0.0000
+INFO:embed_gcn:|2024-03-21 14:28:24| RMSE: 0.0003 ± 0.0000
+INFO:embed_gcn:|2024-03-21 14:28:24| NMAE: 0.0415 ± 0.0037
+INFO:embed_gcn:|2024-03-21 14:28:24| NRMSE: 0.0553 ± 0.0040
+INFO:embed_gcn:|2024-03-21 14:28:24| TIME: 398.8592 ± 136.5229
+INFO:embed_gcn:|2024-03-21 14:28:24| Acc1: 0.1981 ± 0.0427
+INFO:embed_gcn:|2024-03-21 14:28:24| Acc5: 0.6882 ± 0.0494
+INFO:embed_gcn:|2024-03-21 14:28:24| Acc10: 0.9190 ± 0.0146
+INFO:embed_gcn:|2024-03-21 14:28:24| ********************Experiment Success********************
+
+INFO:embed_gcn:|2024-03-21 14:28:25| Namespace(ablation=0, bs=1, dataset='cpu', debug=0, decay=0.0005, density=0.03, device='cpu', dimension=32, epochs=300, experiment=0, llm=0, log=<utils.logger.Logger object at 0x7f0e7d1a1d90>, loss_func='L1Loss', lr=0.0004, model='embed_gcn', optim='AdamW', path='./datasets/', patience=30, program_test=1, record=0, rounds=5, saved=1, seed=0, verbose=1)
+INFO:embed_gcn:|2024-03-21 14:28:25| ********************Experiment Start********************
+INFO:embed_gcn:|2024-03-21 14:41:28| Round=1 BestEpoch=155 MAE=0.0002 RMSE=0.0002 NMAE=0.0348 NRMSE=0.0481 Training_time=605.6 s
+INFO:embed_gcn:|2024-03-21 14:41:28| Acc = [1%=0.2483, 5%=0.7703, 10%=0.9436] 
+INFO:embed_gcn:|2024-03-21 14:50:54| Round=2 BestEpoch=155 MAE=0.0002 RMSE=0.0002 NMAE=0.0331 NRMSE=0.0477 Training_time=466.1 s
+INFO:embed_gcn:|2024-03-21 14:50:54| Acc = [1%=0.2902, 5%=0.7946, 10%=0.9440] 
+INFO:embed_gcn:|2024-03-21 15:01:30| Round=3 BestEpoch=141 MAE=0.0002 RMSE=0.0002 NMAE=0.0340 NRMSE=0.0457 Training_time=542.5 s
+INFO:embed_gcn:|2024-03-21 15:01:30| Acc = [1%=0.2438, 5%=0.7771, 10%=0.9511] 
+INFO:embed_gcn:|2024-03-21 15:10:54| Round=4 BestEpoch=152 MAE=0.0002 RMSE=0.0003 NMAE=0.0363 NRMSE=0.0503 Training_time=449.9 s
+INFO:embed_gcn:|2024-03-21 15:10:54| Acc = [1%=0.2167, 5%=0.7591, 10%=0.9332] 
+INFO:embed_gcn:|2024-03-21 15:15:39| Round=5 BestEpoch=92 MAE=0.0002 RMSE=0.0002 NMAE=0.0318 NRMSE=0.0453 Training_time=219.8 s
+INFO:embed_gcn:|2024-03-21 15:15:39| Acc = [1%=0.2701, 5%=0.8003, 10%=0.9549] 
+INFO:embed_gcn:|2024-03-21 15:15:39| ********************Experiment Results:********************
+INFO:embed_gcn:|2024-03-21 15:15:39| MAE: 0.0002 ± 0.0000
+INFO:embed_gcn:|2024-03-21 15:15:39| RMSE: 0.0002 ± 0.0000
+INFO:embed_gcn:|2024-03-21 15:15:39| NMAE: 0.0340 ± 0.0015
+INFO:embed_gcn:|2024-03-21 15:15:39| NRMSE: 0.0474 ± 0.0018
+INFO:embed_gcn:|2024-03-21 15:15:39| TIME: 456.8037 ± 131.0054
+INFO:embed_gcn:|2024-03-21 15:15:39| Acc1: 0.2538 ± 0.0249
+INFO:embed_gcn:|2024-03-21 15:15:39| Acc5: 0.7803 ± 0.0153
+INFO:embed_gcn:|2024-03-21 15:15:39| Acc10: 0.9454 ± 0.0075
+INFO:embed_gcn:|2024-03-21 15:15:39| ********************Experiment Success********************
+
+INFO:embed_gcn:|2024-03-21 15:15:40| Namespace(ablation=0, bs=1, dataset='cpu', debug=0, decay=0.0005, density=0.04, device='cpu', dimension=32, epochs=300, experiment=0, llm=0, log=<utils.logger.Logger object at 0x7ffa3d3f9eb0>, loss_func='L1Loss', lr=0.0004, model='embed_gcn', optim='AdamW', path='./datasets/', patience=30, program_test=1, record=0, rounds=5, saved=1, seed=0, verbose=1)
+INFO:embed_gcn:|2024-03-21 15:15:40| ********************Experiment Start********************
+INFO:embed_gcn:|2024-03-21 15:30:12| Round=1 BestEpoch=147 MAE=0.0001 RMSE=0.0002 NMAE=0.0293 NRMSE=0.0409 Training_time=687.6 s
+INFO:embed_gcn:|2024-03-21 15:30:12| Acc = [1%=0.2732, 5%=0.8245, 10%=0.9614] 
+INFO:embed_gcn:|2024-03-21 15:40:36| Round=2 BestEpoch=150 MAE=0.0001 RMSE=0.0002 NMAE=0.0298 NRMSE=0.0424 Training_time=517.2 s
+INFO:embed_gcn:|2024-03-21 15:40:36| Acc = [1%=0.2975, 5%=0.8247, 10%=0.9594] 
+INFO:embed_gcn:|2024-03-21 15:52:33| Round=3 BestEpoch=159 MAE=0.0002 RMSE=0.0002 NMAE=0.0315 NRMSE=0.0444 Training_time=629.8 s
+INFO:embed_gcn:|2024-03-21 15:52:33| Acc = [1%=0.3054, 5%=0.7973, 10%=0.9527] 
+INFO:embed_gcn:|2024-03-21 15:57:56| Round=4 BestEpoch=99 MAE=0.0001 RMSE=0.0002 NMAE=0.0288 NRMSE=0.0396 Training_time=247.3 s
+INFO:embed_gcn:|2024-03-21 15:57:56| Acc = [1%=0.2815, 5%=0.8335, 10%=0.9693] 
+INFO:embed_gcn:|2024-03-21 16:04:03| Round=5 BestEpoch=94 MAE=0.0002 RMSE=0.0002 NMAE=0.0309 NRMSE=0.0452 Training_time=268.8 s
+INFO:embed_gcn:|2024-03-21 16:04:03| Acc = [1%=0.2731, 5%=0.8149, 10%=0.9562] 
+INFO:embed_gcn:|2024-03-21 16:04:03| ********************Experiment Results:********************
+INFO:embed_gcn:|2024-03-21 16:04:03| MAE: 0.0001 ± 0.0000
+INFO:embed_gcn:|2024-03-21 16:04:03| RMSE: 0.0002 ± 0.0000
+INFO:embed_gcn:|2024-03-21 16:04:03| NMAE: 0.0301 ± 0.0010
+INFO:embed_gcn:|2024-03-21 16:04:03| NRMSE: 0.0425 ± 0.0021
+INFO:embed_gcn:|2024-03-21 16:04:03| TIME: 470.1061 ± 181.7608
+INFO:embed_gcn:|2024-03-21 16:04:03| Acc1: 0.2861 ± 0.0131
+INFO:embed_gcn:|2024-03-21 16:04:03| Acc5: 0.8190 ± 0.0123
+INFO:embed_gcn:|2024-03-21 16:04:03| Acc10: 0.9598 ± 0.0056
+INFO:embed_gcn:|2024-03-21 16:04:03| ********************Experiment Success********************
+
+INFO:embed_gcn:|2024-03-21 16:04:04| Namespace(ablation=0, bs=1, dataset='cpu', debug=0, decay=0.0005, density=0.05, device='cpu', dimension=32, epochs=300, experiment=0, llm=0, log=<utils.logger.Logger object at 0x7fa663cd0eb0>, loss_func='L1Loss', lr=0.0004, model='embed_gcn', optim='AdamW', path='./datasets/', patience=30, program_test=1, record=0, rounds=5, saved=1, seed=0, verbose=1)
+INFO:embed_gcn:|2024-03-21 16:04:04| ********************Experiment Start********************
+INFO:embed_gcn:|2024-03-21 16:12:31| Round=1 BestEpoch=135 MAE=0.0001 RMSE=0.0002 NMAE=0.0303 NRMSE=0.0409 Training_time=409.5 s
+INFO:embed_gcn:|2024-03-21 16:12:31| Acc = [1%=0.2356, 5%=0.7895, 10%=0.9616] 
+INFO:embed_gcn:|2024-03-21 16:25:34| Round=2 BestEpoch=136 MAE=0.0001 RMSE=0.0002 NMAE=0.0291 NRMSE=0.0445 Training_time=628.5 s
+INFO:embed_gcn:|2024-03-21 16:25:34| Acc = [1%=0.3377, 5%=0.8327, 10%=0.9569] 
+INFO:embed_gcn:|2024-03-21 16:39:56| Round=3 BestEpoch=186 MAE=0.0001 RMSE=0.0002 NMAE=0.0270 NRMSE=0.0381 Training_time=750.5 s
+INFO:embed_gcn:|2024-03-21 16:39:56| Acc = [1%=0.3180, 5%=0.8571, 10%=0.9736] 
+INFO:embed_gcn:|2024-03-21 16:54:54| Round=4 BestEpoch=148 MAE=0.0001 RMSE=0.0002 NMAE=0.0281 NRMSE=0.0399 Training_time=743.9 s
+INFO:embed_gcn:|2024-03-21 16:54:54| Acc = [1%=0.3414, 5%=0.8298, 10%=0.9631] 
+INFO:embed_gcn:|2024-03-21 17:10:05| Round=5 BestEpoch=125 MAE=0.0001 RMSE=0.0002 NMAE=0.0263 NRMSE=0.0374 Training_time=679.5 s
+INFO:embed_gcn:|2024-03-21 17:10:05| Acc = [1%=0.3185, 5%=0.8562, 10%=0.9675] 
+INFO:embed_gcn:|2024-03-21 17:10:06| ********************Experiment Results:********************
+INFO:embed_gcn:|2024-03-21 17:10:06| MAE: 0.0001 ± 0.0000
+INFO:embed_gcn:|2024-03-21 17:10:06| RMSE: 0.0002 ± 0.0000
+INFO:embed_gcn:|2024-03-21 17:10:06| NMAE: 0.0282 ± 0.0014
+INFO:embed_gcn:|2024-03-21 17:10:06| NRMSE: 0.0402 ± 0.0025
+INFO:embed_gcn:|2024-03-21 17:10:06| TIME: 642.4049 ± 124.7349
+INFO:embed_gcn:|2024-03-21 17:10:06| Acc1: 0.3102 ± 0.0385
+INFO:embed_gcn:|2024-03-21 17:10:06| Acc5: 0.8331 ± 0.0246
+INFO:embed_gcn:|2024-03-21 17:10:06| Acc10: 0.9645 ± 0.0057
+INFO:embed_gcn:|2024-03-21 17:10:06| ********************Experiment Success********************
+
+INFO:embed_gcn:|2024-03-21 17:10:06| Namespace(ablation=0, bs=1, dataset='gpu', debug=0, decay=0.0005, density=0.02, device='cpu', dimension=32, epochs=300, experiment=0, llm=0, log=<utils.logger.Logger object at 0x7f4beb85bee0>, loss_func='L1Loss', lr=0.0004, model='embed_gcn', optim='AdamW', path='./datasets/', patience=30, program_test=1, record=0, rounds=5, saved=1, seed=0, verbose=1)
+INFO:embed_gcn:|2024-03-21 17:10:06| ********************Experiment Start********************
+INFO:embed_gcn:|2024-03-21 17:24:58| Round=1 BestEpoch=136 MAE=0.0002 RMSE=0.0003 NMAE=0.0375 NRMSE=0.0508 Training_time=713.1 s
+INFO:embed_gcn:|2024-03-21 17:24:58| Acc = [1%=0.2256, 5%=0.7344, 10%=0.9293] 
+INFO:embed_gcn:|2024-03-21 17:34:07| Round=2 BestEpoch=137 MAE=0.0002 RMSE=0.0003 NMAE=0.0336 NRMSE=0.0445 Training_time=419.4 s
+INFO:embed_gcn:|2024-03-21 17:34:07| Acc = [1%=0.2199, 5%=0.7676, 10%=0.9473] 
+INFO:embed_gcn:|2024-03-21 17:40:53| Round=3 BestEpoch=83 MAE=0.0002 RMSE=0.0003 NMAE=0.0352 NRMSE=0.0452 Training_time=253.3 s
+INFO:embed_gcn:|2024-03-21 17:40:53| Acc = [1%=0.1939, 5%=0.7363, 10%=0.9405] 
+INFO:embed_gcn:|2024-03-21 17:48:34| Round=4 BestEpoch=123 MAE=0.0002 RMSE=0.0003 NMAE=0.0344 NRMSE=0.0454 Training_time=359.2 s
+INFO:embed_gcn:|2024-03-21 17:48:34| Acc = [1%=0.2380, 5%=0.7583, 10%=0.9435] 
+INFO:embed_gcn:|2024-03-21 17:56:05| Round=5 BestEpoch=105 MAE=0.0002 RMSE=0.0003 NMAE=0.0332 NRMSE=0.0443 Training_time=328.5 s
+INFO:embed_gcn:|2024-03-21 17:56:05| Acc = [1%=0.2257, 5%=0.7732, 10%=0.9523] 
+INFO:embed_gcn:|2024-03-21 17:56:05| ********************Experiment Results:********************
+INFO:embed_gcn:|2024-03-21 17:56:05| MAE: 0.0002 ± 0.0000
+INFO:embed_gcn:|2024-03-21 17:56:05| RMSE: 0.0003 ± 0.0000
+INFO:embed_gcn:|2024-03-21 17:56:05| NMAE: 0.0348 ± 0.0015
+INFO:embed_gcn:|2024-03-21 17:56:05| NRMSE: 0.0460 ± 0.0024
+INFO:embed_gcn:|2024-03-21 17:56:05| TIME: 414.6864 ± 158.5075
+INFO:embed_gcn:|2024-03-21 17:56:05| Acc1: 0.2206 ± 0.0146
+INFO:embed_gcn:|2024-03-21 17:56:05| Acc5: 0.7540 ± 0.0159
+INFO:embed_gcn:|2024-03-21 17:56:05| Acc10: 0.9426 ± 0.0077
+INFO:embed_gcn:|2024-03-21 17:56:05| ********************Experiment Success********************
+
+INFO:embed_gcn:|2024-03-21 17:56:06| Namespace(ablation=0, bs=1, dataset='gpu', debug=0, decay=0.0005, density=0.03, device='cpu', dimension=32, epochs=300, experiment=0, llm=0, log=<utils.logger.Logger object at 0x7ff5850cae80>, loss_func='L1Loss', lr=0.0004, model='embed_gcn', optim='AdamW', path='./datasets/', patience=30, program_test=1, record=0, rounds=5, saved=1, seed=0, verbose=1)
+INFO:embed_gcn:|2024-03-21 17:56:06| ********************Experiment Start********************
+INFO:embed_gcn:|2024-03-21 18:06:04| Round=1 BestEpoch=129 MAE=0.0002 RMSE=0.0003 NMAE=0.0330 NRMSE=0.0442 Training_time=481.4 s
+INFO:embed_gcn:|2024-03-21 18:06:04| Acc = [1%=0.2324, 5%=0.7749, 10%=0.9504] 
+INFO:embed_gcn:|2024-03-21 18:15:14| Round=2 BestEpoch=99 MAE=0.0002 RMSE=0.0003 NMAE=0.0326 NRMSE=0.0446 Training_time=439.4 s
+INFO:embed_gcn:|2024-03-21 18:15:14| Acc = [1%=0.2643, 5%=0.7844, 10%=0.9446] 
+INFO:embed_gcn:|2024-03-21 18:37:33| Round=3 BestEpoch=137 MAE=0.0002 RMSE=0.0002 NMAE=0.0315 NRMSE=0.0423 Training_time=1015.9 s
+INFO:embed_gcn:|2024-03-21 18:37:33| Acc = [1%=0.2482, 5%=0.7912, 10%=0.9552] 
+INFO:embed_gcn:|2024-03-21 18:48:51| Round=4 BestEpoch=79 MAE=0.0002 RMSE=0.0003 NMAE=0.0351 NRMSE=0.0451 Training_time=399.9 s
+INFO:embed_gcn:|2024-03-21 18:48:51| Acc = [1%=0.1874, 5%=0.7339, 10%=0.9347] 
+INFO:embed_gcn:|2024-03-21 19:01:51| Round=5 BestEpoch=139 MAE=0.0002 RMSE=0.0002 NMAE=0.0302 NRMSE=0.0417 Training_time=606.0 s
+INFO:embed_gcn:|2024-03-21 19:01:51| Acc = [1%=0.2794, 5%=0.8118, 10%=0.9639] 
+INFO:embed_gcn:|2024-03-21 19:01:51| ********************Experiment Results:********************
+INFO:embed_gcn:|2024-03-21 19:01:51| MAE: 0.0002 ± 0.0000
+INFO:embed_gcn:|2024-03-21 19:01:51| RMSE: 0.0002 ± 0.0000
+INFO:embed_gcn:|2024-03-21 19:01:51| NMAE: 0.0325 ± 0.0016
+INFO:embed_gcn:|2024-03-21 19:01:51| NRMSE: 0.0436 ± 0.0013
+INFO:embed_gcn:|2024-03-21 19:01:51| TIME: 588.5240 ± 224.6006
+INFO:embed_gcn:|2024-03-21 19:01:51| Acc1: 0.2423 ± 0.0317
+INFO:embed_gcn:|2024-03-21 19:01:51| Acc5: 0.7792 ± 0.0257
+INFO:embed_gcn:|2024-03-21 19:01:51| Acc10: 0.9498 ± 0.0098
+INFO:embed_gcn:|2024-03-21 19:01:51| ********************Experiment Success********************
+
+INFO:embed_gcn:|2024-03-21 19:01:52| Namespace(ablation=0, bs=1, dataset='gpu', debug=0, decay=0.0005, density=0.04, device='cpu', dimension=32, epochs=300, experiment=0, llm=0, log=<utils.logger.Logger object at 0x7f347c2d6e80>, loss_func='L1Loss', lr=0.0004, model='embed_gcn', optim='AdamW', path='./datasets/', patience=30, program_test=1, record=0, rounds=5, saved=1, seed=0, verbose=1)
+INFO:embed_gcn:|2024-03-21 19:01:52| ********************Experiment Start********************
+INFO:embed_gcn:|2024-03-21 19:31:03| Round=1 BestEpoch=134 MAE=0.0002 RMSE=0.0002 NMAE=0.0305 NRMSE=0.0416 Training_time=1377.7 s
+INFO:embed_gcn:|2024-03-21 19:31:03| Acc = [1%=0.2657, 5%=0.8063, 10%=0.9606] 
+INFO:embed_gcn:|2024-03-21 19:52:15| Round=2 BestEpoch=123 MAE=0.0002 RMSE=0.0002 NMAE=0.0288 NRMSE=0.0403 Training_time=1006.0 s
+INFO:embed_gcn:|2024-03-21 19:52:15| Acc = [1%=0.3026, 5%=0.8260, 10%=0.9666] 
+INFO:embed_gcn:|2024-03-21 20:21:08| Round=3 BestEpoch=104 MAE=0.0002 RMSE=0.0002 NMAE=0.0297 NRMSE=0.0402 Training_time=1244.5 s
+INFO:embed_gcn:|2024-03-21 20:21:08| Acc = [1%=0.2612, 5%=0.8122, 10%=0.9649] 
+INFO:embed_gcn:|2024-03-21 20:37:07| Round=4 BestEpoch=126 MAE=0.0001 RMSE=0.0002 NMAE=0.0271 NRMSE=0.0376 Training_time=748.9 s
+INFO:embed_gcn:|2024-03-21 20:37:07| Acc = [1%=0.3027, 5%=0.8500, 10%=0.9696] 
+INFO:embed_gcn:|2024-03-21 20:54:58| Round=5 BestEpoch=94 MAE=0.0002 RMSE=0.0002 NMAE=0.0285 NRMSE=0.0380 Training_time=768.2 s
+INFO:embed_gcn:|2024-03-21 20:54:58| Acc = [1%=0.2597, 5%=0.8274, 10%=0.9709] 
+INFO:embed_gcn:|2024-03-21 20:54:58| ********************Experiment Results:********************
+INFO:embed_gcn:|2024-03-21 20:54:58| MAE: 0.0002 ± 0.0000
+INFO:embed_gcn:|2024-03-21 20:54:58| RMSE: 0.0002 ± 0.0000
+INFO:embed_gcn:|2024-03-21 20:54:58| NMAE: 0.0289 ± 0.0011
+INFO:embed_gcn:|2024-03-21 20:54:58| NRMSE: 0.0395 ± 0.0015
+INFO:embed_gcn:|2024-03-21 20:54:58| TIME: 1029.0764 ± 251.0091
+INFO:embed_gcn:|2024-03-21 20:54:58| Acc1: 0.2784 ± 0.0199
+INFO:embed_gcn:|2024-03-21 20:54:58| Acc5: 0.8244 ± 0.0151
+INFO:embed_gcn:|2024-03-21 20:54:58| Acc10: 0.9665 ± 0.0036
+INFO:embed_gcn:|2024-03-21 20:54:58| ********************Experiment Success********************
+
+INFO:embed_gcn:|2024-03-21 20:54:59| Namespace(ablation=0, bs=1, dataset='gpu', debug=0, decay=0.0005, density=0.05, device='cpu', dimension=32, epochs=300, experiment=0, llm=0, log=<utils.logger.Logger object at 0x7f8b815bbdc0>, loss_func='L1Loss', lr=0.0004, model='embed_gcn', optim='AdamW', path='./datasets/', patience=30, program_test=1, record=0, rounds=5, saved=1, seed=0, verbose=1)
+INFO:embed_gcn:|2024-03-21 20:54:59| ********************Experiment Start********************
+INFO:embed_gcn:|2024-03-21 21:22:47| Round=1 BestEpoch=111 MAE=0.0002 RMSE=0.0002 NMAE=0.0285 NRMSE=0.0387 Training_time=1235.5 s
+INFO:embed_gcn:|2024-03-21 21:22:47| Acc = [1%=0.2613, 5%=0.8282, 10%=0.9688] 
+INFO:embed_gcn:|2024-03-21 21:49:06| Round=2 BestEpoch=97 MAE=0.0001 RMSE=0.0002 NMAE=0.0278 NRMSE=0.0379 Training_time=1095.9 s
+INFO:embed_gcn:|2024-03-21 21:49:06| Acc = [1%=0.2633, 5%=0.8422, 10%=0.9682] 
+INFO:embed_gcn:|2024-03-21 22:06:34| Round=3 BestEpoch=59 MAE=0.0002 RMSE=0.0002 NMAE=0.0299 NRMSE=0.0395 Training_time=593.0 s
+INFO:embed_gcn:|2024-03-21 22:06:34| Acc = [1%=0.2349, 5%=0.7882, 10%=0.9562] 
+INFO:embed_gcn:|2024-03-21 22:27:08| Round=4 BestEpoch=89 MAE=0.0001 RMSE=0.0002 NMAE=0.0272 NRMSE=0.0375 Training_time=920.6 s
+INFO:embed_gcn:|2024-03-21 22:27:08| Acc = [1%=0.2820, 5%=0.8524, 10%=0.9727] 
+INFO:embed_gcn:|2024-03-21 22:57:59| Round=5 BestEpoch=74 MAE=0.0001 RMSE=0.0002 NMAE=0.0280 NRMSE=0.0383 Training_time=1086.5 s
+INFO:embed_gcn:|2024-03-21 22:57:59| Acc = [1%=0.2743, 5%=0.8343, 10%=0.9717] 
+INFO:embed_gcn:|2024-03-21 22:57:59| ********************Experiment Results:********************
+INFO:embed_gcn:|2024-03-21 22:57:59| MAE: 0.0002 ± 0.0000
+INFO:embed_gcn:|2024-03-21 22:57:59| RMSE: 0.0002 ± 0.0000
+INFO:embed_gcn:|2024-03-21 22:57:59| NMAE: 0.0283 ± 0.0009
+INFO:embed_gcn:|2024-03-21 22:57:59| NRMSE: 0.0384 ± 0.0007
+INFO:embed_gcn:|2024-03-21 22:57:59| TIME: 986.3023 ± 220.5073
+INFO:embed_gcn:|2024-03-21 22:57:59| Acc1: 0.2632 ± 0.0160
+INFO:embed_gcn:|2024-03-21 22:57:59| Acc5: 0.8290 ± 0.0220
+INFO:embed_gcn:|2024-03-21 22:57:59| Acc10: 0.9675 ± 0.0059
+INFO:embed_gcn:|2024-03-21 22:57:59| ********************Experiment Success********************
+
